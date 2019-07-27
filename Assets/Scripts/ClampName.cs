@@ -6,7 +6,7 @@ using UnityEngine;
 public class ClampName : MonoBehaviour {
 
     public Transform textPanel; // Visual name tag
-    private float letter = 12f;
+    private float letter = 13f;
     private float margin = 6f;
     public bool selected = false;
     private string targetName;

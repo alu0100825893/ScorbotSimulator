@@ -96,6 +96,7 @@ public class GameController : MonoBehaviour
     public InputField targetNameInput;
     public InputField DefpNameInput;
 
+    // Planes
     public Transform planeXY;
     public Transform planeXZ;
     public Transform planeYZ;
@@ -110,16 +111,19 @@ public class GameController : MonoBehaviour
     private StateMessageControl stateMessageControl;
     private CameraControl cameraControl;
 
-    public Controller controller; // 
+    // Terminal
+    public Controller controller;
 
+    // Canvas
     public Transform canvas;
 
     public TextMeshProUGUI stateOutput;
     public TextMeshProUGUI messageLog;
     public TextMeshProUGUI positionLog;
     public TextMeshProUGUI positionSyncLog; 
-    public TextMeshProUGUI positionCountLog; 
-       
+    public TextMeshProUGUI positionCountLog;
+
+    public TextMeshProUGUI onlineText;
 
     public Dropdown targetDropdown;
     private LineRenderer lineRenderer;
@@ -759,7 +763,9 @@ public class GameController : MonoBehaviour
     // Mode Online - Offline
     public void OnlineOfflineSlider(float value)
     {
-        onlineMode = value == 1f ? true : false;          
+        onlineMode = value == 1f ? true : false;
+
+        onlineText.text = onlineMode? "Online" : "Offline";
         controller.Online_Offline(onlineMode);
     }
 

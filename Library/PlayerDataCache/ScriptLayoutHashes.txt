@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Oscar/Documents/RobotArmSimulator/RobotArmSimulator.exe
+C:/Users/Oscar/Documents/RobotArmSimulator/ScorbotSimulator/ScorbotSimulator.exe
 SceneListBegin?
 Assets/Scenes/MainScene.unity
 SceneListEnd?
@@ -261,7 +261,7 @@ a8ed45ab553b07236625df6cc6ac449c TextMeshPro-2017.3-Editor.dll:TMPro.EditorUtili
 05524b8f659e7bfe5756d1335fec24ba TextMeshPro-2017.3-Editor.dll:.TMPro_SDFMaterialEditor
 05524b8f659e7bfe5756d1335fec24ba TextMeshPro-2017.3-Editor.dll:TMPro.EditorUtilities.TMPro_TextContainerEditor
 72652497730c017bc0e527f136911954 Assembly-CSharp.dll:CommandTerminal.Terminal
-4c1dd02ef8d9e7a8b003f5e73cd9c6df Assembly-CSharp.dll:.GameController
+92e7d8856eff077218b43803270ea879 Assembly-CSharp.dll:.GameController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:TMPro.TMP_DigitValidator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
