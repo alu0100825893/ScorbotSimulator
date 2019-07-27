@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotArmSimulator", "RobotArmSimulator.csproj", "{01D02C44-06A3-C2FF-67AE-5DD6F1DD257C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotArmSimulator.Editor", "RobotArmSimulator.Editor.csproj", "{6B216CEB-F8FC-4D0C-E8D3-DA914025665C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01D02C44-06A3-C2FF-67AE-5DD6F1DD257C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01D02C44-06A3-C2FF-67AE-5DD6F1DD257C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01D02C44-06A3-C2FF-67AE-5DD6F1DD257C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01D02C44-06A3-C2FF-67AE-5DD6F1DD257C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B216CEB-F8FC-4D0C-E8D3-DA914025665C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B216CEB-F8FC-4D0C-E8D3-DA914025665C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B216CEB-F8FC-4D0C-E8D3-DA914025665C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B216CEB-F8FC-4D0C-E8D3-DA914025665C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

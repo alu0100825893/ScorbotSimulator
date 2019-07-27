@@ -1,0 +1,176 @@
+fileFormatVersion: 2
+guid: 16109ccdedc22144ab77bbca01f3940c
+timeCreated: 1556218939
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: 691
+    100002: Base
+    100004: Base2
+    100006: Base3
+    100008: Body
+    100010: Body2
+    100012: Elbow
+    100014: Elbow2
+    100016: PItch
+    100018: Pitch2
+    100020: Robot
+    100022: Roll
+    100024: //RootNode
+    100026: Shoulder
+    100028: Shoulder2
+    100030: Grip1
+    100032: Grip2
+    100034: Roll2
+    400000: 691
+    400002: Base
+    400004: Base2
+    400006: Base3
+    400008: Body
+    400010: Body2
+    400012: Elbow
+    400014: Elbow2
+    400016: PItch
+    400018: Pitch2
+    400020: Robot
+    400022: Roll
+    400024: //RootNode
+    400026: Shoulder
+    400028: Shoulder2
+    400030: Grip1
+    400032: Grip2
+    400034: Roll2
+    2100000: unnamed
+    2100002: Blue
+    2100004: Black
+    2300000: 691
+    2300002: Base
+    2300004: Base2
+    2300006: Base3
+    2300008: Body
+    2300010: Body2
+    2300012: Elbow
+    2300014: Elbow2
+    2300016: PItch
+    2300018: Pitch2
+    2300020: Roll
+    2300022: Shoulder
+    2300024: Shoulder2
+    2300026: Grip1
+    2300028: Grip2
+    2300030: Roll2
+    3300000: 691
+    3300002: Base
+    3300004: Base2
+    3300006: Base3
+    3300008: Body
+    3300010: Body2
+    3300012: Elbow
+    3300014: Elbow2
+    3300016: PItch
+    3300018: Pitch2
+    3300020: Roll
+    3300022: Shoulder
+    3300024: Shoulder2
+    3300026: Grip1
+    3300028: Grip2
+    3300030: Roll2
+    4300000: 691
+    4300002: Base2
+    4300004: Base
+    4300006: Body
+    4300008: Body2
+    4300010: Shoulder
+    4300012: Elbow
+    4300014: PItch
+    4300016: Pitch2
+    4300018: Roll
+    4300020: Elbow2
+    4300022: Shoulder2
+    4300024: Base3
+    4300026: Grip2
+    4300028: Grip1
+    4300030: Roll2
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
