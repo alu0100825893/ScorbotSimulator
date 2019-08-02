@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/**
+ * La función principal de este componente es comunicar el resultado de una acción mediante un mensaje
+ * en el “Estado actual” de la interfaz gráfica. También se encarga de mantener el registro de estos mensajes
+ * como un historial.
+ * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es - Universidad de La Laguna
+ * @version 1.0
+ * @since 02-05-2019
+ */
 public class StateMessageControl : MonoBehaviour {
 
     private TargetControl targetControl;

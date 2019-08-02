@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScorbotERIX {
 
     public const int INDEX = 0;
+    //public const int OFFSET_UNITY = 0;
 
     public const float BASE_DEGREES_MIN = 0f;
     public const float BASE_DEGREES_MAX = 270f;

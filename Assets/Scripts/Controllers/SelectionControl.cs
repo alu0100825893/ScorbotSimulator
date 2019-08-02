@@ -2,7 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/**
+ * La función principal de este componente es seleccionar elementos de la simulación a través de un
+ * historial de elementos seleccionados. Entre estos elementos están las articulaciones del Scorbot,
+ * su pinza y las posiciones creadas. 
+ * A su vez, al seleccionar un elemento pueden aparecer axis o flechas curvadas con las que se pueden
+ * interactuar para aplicar un desplazamiento o rotación, respectivamente.
+ * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es - Universidad de La Laguna
+ * @version 1.0
+ * @since 02-05-2019
+ */
 public class SelectionControl : MonoBehaviour {
 
     private GameController gameController;

@@ -1,0 +1,76 @@
+\hypertarget{class_command_control}{}\section{Referencia de la Clase Command\+Control}
+\label{class_command_control}\index{CommandControl@{CommandControl}}
+Diagrama de herencias de Command\+Control\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_command_control}
+\end{center}
+\end{figure}
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_command_control_abb616afbdc86f4877b19b951982b6544}\label{class_command_control_abb616afbdc86f4877b19b951982b6544}} 
+List$<$ string $>$ {\bfseries Get\+Names} ()
+\item 
+\mbox{\Hypertarget{class_command_control_a57aac28ce1f8ad74a4c2b69a24db8d79}\label{class_command_control_a57aac28ce1f8ad74a4c2b69a24db8d79}} 
+void {\bfseries Move} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform target)
+\item 
+\mbox{\Hypertarget{class_command_control_ab0c2d7d4d5b0ec2329f3bf945af1cbc0}\label{class_command_control_ab0c2d7d4d5b0ec2329f3bf945af1cbc0}} 
+void {\bfseries MoveL} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform target)
+\item 
+\mbox{\Hypertarget{class_command_control_a55788d3a11dcdb25426d84e3b7c75450}\label{class_command_control_a55788d3a11dcdb25426d84e3b7c75450}} 
+void {\bfseries MoveC} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform final\+Point, Transform middle\+Point)
+\item 
+\mbox{\Hypertarget{class_command_control_afa86230800735c59b15295e22301dafc}\label{class_command_control_afa86230800735c59b15295e22301dafc}} 
+bool {\bfseries Teach} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform target, Vector3 pos, float p, float r, bool online=true, bool offline=true)
+\item 
+\mbox{\Hypertarget{class_command_control_a7d9c79f2e4d83fba39878b254d0c9616}\label{class_command_control_a7d9c79f2e4d83fba39878b254d0c9616}} 
+void {\bfseries TeachR} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform target, Transform relative\+To\+Target, Vector3 pos, float p, float r)
+\item 
+\mbox{\Hypertarget{class_command_control_a9915c709ac0920b97e9ef9fb01d7cb8b}\label{class_command_control_a9915c709ac0920b97e9ef9fb01d7cb8b}} 
+void {\bfseries Here} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform target)
+\item 
+\mbox{\Hypertarget{class_command_control_a150fcea4451c4cb929c0b0e2385c2698}\label{class_command_control_a150fcea4451c4cb929c0b0e2385c2698}} 
+bool {\bfseries Listpv} (Transform target, out List$<$ int $>$ counts, out List$<$ float $>$ pos\+Pitch\+Roll)
+\item 
+\mbox{\Hypertarget{class_command_control_a69ae96214c4e9cd5f8d3ded57cfe9ba3}\label{class_command_control_a69ae96214c4e9cd5f8d3ded57cfe9ba3}} 
+bool {\bfseries Sync\+Scorbot\+To\+Simulation} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform target)
+\item 
+\mbox{\Hypertarget{class_command_control_aaa99e27c42b07a387f90af03540ba601}\label{class_command_control_aaa99e27c42b07a387f90af03540ba601}} 
+bool {\bfseries Sync\+Simulation\+To\+Scorbot} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform target)
+\item 
+\mbox{\Hypertarget{class_command_control_a2de00fee85f608fefc888d987f889af4}\label{class_command_control_a2de00fee85f608fefc888d987f889af4}} 
+void {\bfseries Shiftc} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform target, int by\+Index, float value)
+\item 
+\mbox{\Hypertarget{class_command_control_adae6d4a043a93ded9d51679d78e24ce4}\label{class_command_control_adae6d4a043a93ded9d51679d78e24ce4}} 
+void {\bfseries Home} (\mbox{\hyperlink{class_i_k}{IK}} robot)
+\item 
+\mbox{\Hypertarget{class_command_control_a951dd9ecf782547f973c12db75c6f29a}\label{class_command_control_a951dd9ecf782547f973c12db75c6f29a}} 
+void {\bfseries C\+ON} ()
+\item 
+\mbox{\Hypertarget{class_command_control_a7f9634a3a5d21f875edd276f2b06cadb}\label{class_command_control_a7f9634a3a5d21f875edd276f2b06cadb}} 
+void {\bfseries Speed} (\mbox{\hyperlink{class_i_k}{IK}} robot, int value)
+\item 
+\mbox{\Hypertarget{class_command_control_a05bef86b53aac0d93fea4c255dbe5f86}\label{class_command_control_a05bef86b53aac0d93fea4c255dbe5f86}} 
+void {\bfseries SpeedL} (\mbox{\hyperlink{class_i_k}{IK}} robot, int value)
+\item 
+\mbox{\Hypertarget{class_command_control_ada99694b0c348a0256faebab0899333b}\label{class_command_control_ada99694b0c348a0256faebab0899333b}} 
+void {\bfseries Defp} (Transform target)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+La función principal de este componente es definir las tareas a realizar por cada comando y ejecutarlas ya sea en offline u online. La sincronización de posiciones es otra de sus funciones, ya que aunque no es un comando en sí, la sincronización es una sucesión de comandos, por lo que se la trata como una extensión de los comandos. \begin{DoxyAuthor}{Autor}
+Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\texttt{ oscarcatari@outlook.\+es}} -\/ Universidad de La Laguna 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Desde}
+02-\/05-\/2019 
+\end{DoxySince}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+Controllers/Command\+Control.\+cs\end{DoxyCompactItemize}

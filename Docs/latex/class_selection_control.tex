@@ -1,31 +1,55 @@
-\hypertarget{class_selection_control}{}\section{Selection\+Control Class Reference}
+\hypertarget{class_selection_control}{}\section{Referencia de la Clase Selection\+Control}
 \label{class_selection_control}\index{SelectionControl@{SelectionControl}}
-Inheritance diagram for Selection\+Control\+:\begin{figure}[H]
+Diagrama de herencias de Selection\+Control\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_selection_control}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_selection_control_a3da021bd2d11255eadadc832b40e6fb6}\label{class_selection_control_a3da021bd2d11255eadadc832b40e6fb6}} 
+void {\bfseries Selected\+Object} (Game\+Object obj)
 \item 
 \mbox{\Hypertarget{class_selection_control_af45a0f8f9cf7f200e423971f190d8bbf}\label{class_selection_control_af45a0f8f9cf7f200e423971f190d8bbf}} 
 void {\bfseries Set\+Active\+Axis} (Transform obj, bool active)
+\item 
+\mbox{\Hypertarget{class_selection_control_a8e92014a9781e84be7079f4dfd96caf9}\label{class_selection_control_a8e92014a9781e84be7079f4dfd96caf9}} 
+Game\+Object {\bfseries Search\+Contain\+Tag} (string tag)
+\item 
+\mbox{\Hypertarget{class_selection_control_a5d456be16e3132ae65d37f866ee009f3}\label{class_selection_control_a5d456be16e3132ae65d37f866ee009f3}} 
+void {\bfseries Set\+Axis} (float value)
+\item 
+\mbox{\Hypertarget{class_selection_control_ae30e28c63db233cb7a7b9d71174c2846}\label{class_selection_control_ae30e28c63db233cb7a7b9d71174c2846}} 
+void {\bfseries Set\+Rotation} (float value)
 \end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\subsection*{Atributos públicos}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_selection_control_ad7c2fe8ddd7a667218189d834d875437}\label{class_selection_control_ad7c2fe8ddd7a667218189d834d875437}} 
 Game\+Object {\bfseries selected\+Object}
 \item 
-\mbox{\Hypertarget{class_selection_control_ae96fdc035b8d3583afa22e85a35baf59}\label{class_selection_control_ae96fdc035b8d3583afa22e85a35baf59}} 
-Game\+Object {\bfseries prev\+Selected\+Object}
-\item 
 \mbox{\Hypertarget{class_selection_control_a91300a4e40f06901799b7b582f53b398}\label{class_selection_control_a91300a4e40f06901799b7b582f53b398}} 
 List$<$ Game\+Object $>$ {\bfseries selected\+List}
+\item 
+\mbox{\Hypertarget{class_selection_control_a30385310a008d84dd95762f72dd31fed}\label{class_selection_control_a30385310a008d84dd95762f72dd31fed}} 
+bool {\bfseries move\+In\+Axis} = false
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\subsection{Descripción detallada}
+La función principal de este componente es seleccionar elementos de la simulación a través de un historial de elementos seleccionados. Entre estos elementos están las articulaciones del Scorbot, su pinza y las posiciones creadas. A su vez, al seleccionar un elemento pueden aparecer axis o flechas curvadas con las que se pueden interactuar para aplicar un desplazamiento o rotación, respectivamente. \begin{DoxyAuthor}{Autor}
+Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\texttt{ oscarcatari@outlook.\+es}} -\/ Universidad de La Laguna 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Desde}
+02-\/05-\/2019 
+\end{DoxySince}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
 \item 
-Selection\+Control.\+cs\end{DoxyCompactItemize}
+Controllers/Selection\+Control.\+cs\end{DoxyCompactItemize}

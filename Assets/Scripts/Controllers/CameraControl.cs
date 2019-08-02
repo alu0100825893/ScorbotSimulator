@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * La función principal de este componente es permitir el control de la cámara para hacer posible la navegación 
+ * en la simulación mediante el ratón.
+ * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es - Universidad de La Laguna
+ * @version 1.0
+ * @since 02-05-2019
+ */
 public class CameraControl : MonoBehaviour {
 
     private Transform cam;

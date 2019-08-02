@@ -5,6 +5,15 @@ using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 
+/**
+ * La función principal de este componente es definir las tareas a realizar por cada comando y ejecutarlas
+ * ya sea en offline u online. La sincronización de posiciones es otra de sus funciones, ya que aunque
+ * no es un comando en sí, la sincronización es una sucesión de comandos, por lo que se la trata como
+ * una extensión de los comandos.
+ * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es - Universidad de La Laguna
+ * @version 1.0
+ * @since 02-05-2019
+ */
 public class CommandControl : MonoBehaviour {
 
     private CatmullRomSpline spline;

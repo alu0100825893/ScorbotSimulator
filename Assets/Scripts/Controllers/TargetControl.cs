@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * La función principal de este componente es la creación y eliminación de las posiciones de la simulación
+ * mediante el manejo de una lista de posiciones,además de la validación de sus nombres.
+ * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es - Universidad de La Laguna
+ * @version 1.0
+ * @since 02-05-2019
+ */
 public class TargetControl : MonoBehaviour {
 
-    //private List<TargetModel> targets = new List<TargetModel>();
     private List<Transform> targets = new List<Transform>();
     private Transform targetPrefab;
     private Transform targetNamePrefab;

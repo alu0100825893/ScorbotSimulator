@@ -87,7 +87,7 @@ public class ScorbotModel : MonoBehaviour {
 
         //articulations[3].Rotate(45f);
         //Home(0f);           
-    }
+    }   
 
     // Update is called once per frame
     void Update () {

@@ -1,31 +1,49 @@
-\hypertarget{class_serial_controller}{}\section{Serial\+Controller Class Reference}
+\hypertarget{class_serial_controller}{}\section{Referencia de la Clase Serial\+Controller}
 \label{class_serial_controller}\index{SerialController@{SerialController}}
-Inheritance diagram for Serial\+Controller\+:\begin{figure}[H]
+Diagrama de herencias de Serial\+Controller\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_serial_controller}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_serial_controller_ab402fcba3ff214f97cd595a2d089ebc9}\label{class_serial_controller_ab402fcba3ff214f97cd595a2d089ebc9}} 
-void {\bfseries Activar} ()
+\mbox{\Hypertarget{class_serial_controller_a034048c8c3255ce628c92cd057235213}\label{class_serial_controller_a034048c8c3255ce628c92cd057235213}} 
+bool {\bfseries Open\+\_\+\+Port} ()
+\item 
+\mbox{\Hypertarget{class_serial_controller_af32376d96704a7befd13ff010f70e752}\label{class_serial_controller_af32376d96704a7befd13ff010f70e752}} 
+void {\bfseries Close\+\_\+\+Port} ()
+\item 
+\mbox{\Hypertarget{class_serial_controller_a592468c9c1d12a261b2608b9ea1b6880}\label{class_serial_controller_a592468c9c1d12a261b2608b9ea1b6880}} 
+void {\bfseries Change\+\_\+\+Port} (string port)
+\item 
+\mbox{\Hypertarget{class_serial_controller_a3f88952ad282257d08f47bed4a81f754}\label{class_serial_controller_a3f88952ad282257d08f47bed4a81f754}} 
+string {\bfseries Get\+\_\+\+Port} ()
+\item 
+\mbox{\Hypertarget{class_serial_controller_a20743630ff1cbfe523cb253fa0831328}\label{class_serial_controller_a20743630ff1cbfe523cb253fa0831328}} 
+string \mbox{[}$\,$\mbox{]} {\bfseries List\+\_\+\+Ports} ()
+\item 
+\mbox{\Hypertarget{class_serial_controller_af34771a5c8dcfb653c1eb1d9247fff25}\label{class_serial_controller_af34771a5c8dcfb653c1eb1d9247fff25}} 
+void {\bfseries Write\+To\+Controller} (string line\+\_\+command, string tipo)
+\item 
+\mbox{\Hypertarget{class_serial_controller_a50cc6305d096079c01788e4b46f3decf}\label{class_serial_controller_a50cc6305d096079c01788e4b46f3decf}} 
+bool {\bfseries Write\+To\+Controller\+From\+IU} (string command, string point, string point2=\char`\"{}\char`\"{}, string param=\char`\"{}\char`\"{})
+\item 
+\mbox{\Hypertarget{class_serial_controller_a158fcf36bb5fd21a7a43f9c0495b621b}\label{class_serial_controller_a158fcf36bb5fd21a7a43f9c0495b621b}} 
+bool {\bfseries Write\+To\+Controller\+Teach} (string point, List$<$ float $>$ xyzpr)
+\item 
+\mbox{\Hypertarget{class_serial_controller_a68d60934a79400a1171aba1fffa68768}\label{class_serial_controller_a68d60934a79400a1171aba1fffa68768}} 
+List$<$ string\mbox{[}$\,$\mbox{]}$>$ {\bfseries Write\+To\+Controller\+Listpv} (string point)
 \end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\subsection*{Atributos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_serial_controller_afd06697d77f9bf30567820f957c5dca6}\label{class_serial_controller_afd06697d77f9bf30567820f957c5dca6}} 
-string {\bfseries port\+Name} = \char`\"{}C\+O\+M1\char`\"{}
-\item 
-\mbox{\Hypertarget{class_serial_controller_a96535d826c1065405c906c8a15f332bc}\label{class_serial_controller_a96535d826c1065405c906c8a15f332bc}} 
-int {\bfseries baud\+Rate} = 9600
-\item 
-\mbox{\Hypertarget{class_serial_controller_a2e6998ce4c6694fd149c7617a6568ecf}\label{class_serial_controller_a2e6998ce4c6694fd149c7617a6568ecf}} 
-Game\+Object {\bfseries term}
+\mbox{\Hypertarget{class_serial_controller_aad00abcbceab09c819dc5d39bcf7c4b7}\label{class_serial_controller_aad00abcbceab09c819dc5d39bcf7c4b7}} 
+Game\+Object {\bfseries T}
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
 \item 
-Console/\+Command\+Terminal/Serial\+Controller.\+cs\end{DoxyCompactItemize}
+Conexion/Serial\+Controller.\+cs\end{DoxyCompactItemize}

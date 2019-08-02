@@ -5,28 +5,26 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+        
+public delegate void HereFromDelegate(bool fromSimulation);//
 /**
- * La clase GameController representa el controlador principal del simulador
- * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es
+ * El controlador principal de la simulación es el GameController. Su función principal es la de inicializar 
+ * la simulación y ejecutar los demás controladores para que realicen tareas específicas. 
+ * 
+ * Entre sus funciones, también está la creación y eliminación de las posiciones, el manejo de los elementos
+ * de la interfaz gráfica que utiliza cada comando y la propia ejecución de los comandos. Además, se encarga
+ * del dibujado de trayectorias para “movel” y “movec” con ayuda del algoritmo de spline de Catmull-Rom.
+ * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es - Universidad de La Laguna
  * @version 1.0
- * @subject Simulador
- * @organization Universidad de La Laguna
  * @since 02-05-2019
  */
-
-
-
-
-public delegate void HereFromDelegate(bool fromSimulation);//
-
 public class GameController : MonoBehaviour
 {
     public static GameController gameController;   
     public static event HereFromDelegate HereFromDel;//
-    // TODO: Visualization of positions
+
     // TODO:  unreachable point, test more, problems
-    // TODO: CD algorithm DH , smooth robot movement with final result
-    // target 22.02 91.58 -4.2 
     // TODO: AlgCDD. Problem when point is almost out of range, requires too many iterations so a point could be unreachable
     // TODO: XYZ manual control, it stops when not pressed
     // TODO: IK can lock it self when position is reachable (solution base 180 º, or home before kinematics or second try with home before)
@@ -37,52 +35,39 @@ public class GameController : MonoBehaviour
 
     // millimeter planes. fix other sides (invisible). fix size of target (dinamic) in close range
     // done? teach dont mantain p 0 and succeed (p 10?).  40 0 80
-    // teachr. need sync when a point is moved. cant be const updated in real robot
-    // sync points Test this
-    // teach
     // shiftc Test this
     // SYNC // What if a position is unrechable???
-    // LOGS Bloks
-    // Commands redundant
     // HERE ERROR
     // Message online offline, validation
     // CONSOLE PIVOT  0 1   panel: DOWN STRETCH Terminal:EXPAND
-    // Fix console animation
-    /*
-     * 
-     * Canvas canvas = FindObjectOfType<Canvas>();
-            float h = canvas.GetComponent<RectTransform>().rect.height;
-            y = h - y;
-            */
+    // MetricSystem: FIX scale to .15 and reduce sensibility of positions axises when close
 
-
-    /* 
+    /* s
     * RotationAxisControl
     * MovementAxisControl
     * ScorbotIK
     * UIController
     */
     // --------------------------------- position with angles----------------------
+    // Camera
     public Transform cam;
 
-
-    private float axisSensibity = 4f;
-    private float rotationSensibity = 4f;
-
+    // Position test and prefab (for duplication)
     public Transform target;
     public Transform targetName;
     public Transform targetPrefab;
     public Transform targetNamePrefab;
     private Vector3 defaultPosition;
 
+    // Second camera. Wolrd axises
     public GameObject axisCamera; // Bug? Two cameras destroy selecting interaction. Temporal fix
 
-    private bool rotateInAxis = false;
-
+    // Scorbots
     public IK[] scorbots;
     public IK robot;
     public GameObject innerTarget;
 
+    // Scorbot efector
     public TextMeshProUGUI output;
 
     // Panels
@@ -96,12 +81,11 @@ public class GameController : MonoBehaviour
     public InputField targetNameInput;
     public InputField DefpNameInput;
 
-    // Planes
+    // Metrix system. Planes
     public Transform planeXY;
     public Transform planeXZ;
     public Transform planeYZ;
-
-
+    
     // Controllers
     private ManualInputControl manualInputControl;
     private SelectionControl selectionControl;
@@ -114,22 +98,28 @@ public class GameController : MonoBehaviour
     // Terminal
     public Controller controller;
 
-    // Canvas
+    // Canvas. User interface
     public Transform canvas;
 
+    // Output text
     public TextMeshProUGUI stateOutput;
     public TextMeshProUGUI messageLog;
     public TextMeshProUGUI positionLog;
     public TextMeshProUGUI positionSyncLog; 
     public TextMeshProUGUI positionCountLog;
 
+    // Online text
     public TextMeshProUGUI onlineText;
 
     public Dropdown targetDropdown;
-    private LineRenderer lineRenderer;
-    public CatmullRomSpline spline = new CatmullRomSpline();
-    private bool linear = false;
 
+    // Drawing tool
+    private LineRenderer lineRenderer;
+
+    // Catmull-Rom Spline
+    public CatmullRomSpline spline = new CatmullRomSpline();
+
+    // Dropdown list
     public Dropdown commandsDropdown;
     public Dropdown position1Dropdown;
     public Dropdown position2Dropdown;
@@ -138,6 +128,8 @@ public class GameController : MonoBehaviour
     public Dropdown portsDropdown;
 
     public const string NUMBER_FORMAT = "0.00";
+
+    // Data input
     public InputField XInput;
     public InputField YInput;
     public InputField ZInput;
@@ -145,11 +137,14 @@ public class GameController : MonoBehaviour
     public InputField RInput;
     public InputField byXYZPRInput;
     
+    // Check box
     public Transform hereGroup;
     public Transform syncGroup;
-
-
+    
+    // Main menu
     public GameObject menu;
+
+    // Speed text
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI speedLText;
 
@@ -195,14 +190,7 @@ public class GameController : MonoBehaviour
         target.GetComponent<ClampName>().textPanel.gameObject.SetActive(false);
         target.gameObject.SetActive(false);
         SetTarget(null);
-        // Initial target
-
-        //Destroy(target.GetComponent<ClampName>().textPanel.gameObject);
-        //Destroy(target.gameObject);
-        //SetTarget(targetControl.GetTarget(0));
-        //selectionControl.SetActiveAxis(targetControl.GetTarget(0), false);
-
-
+               
         UpdateTargets(targetControl.GetNames());
 
         commandsDropdown.AddOptions(commandControl.GetNames());
@@ -210,14 +198,10 @@ public class GameController : MonoBehaviour
 
         byXYZPRDropdown.AddOptions(new List<string>() { "X", "Y", "Z", "P", "R"});
 
-        // Ports list
-        //Debug.Log(controller.List_Ports().Length);
+        // Ports list 
         portsDropdown.AddOptions(new List<string>(controller.List_Ports()));
-
-        //waitPanel.SetActive(false);
     }
-
-    // ---------------------------------- All controls ------------------------------
+        
     void Update()
     {
         // Menu activation
@@ -231,10 +215,8 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                MainMenu();
-            }
+            if (Input.GetKeyDown(KeyCode.Escape))          
+                MainMenu();        
         }
 
         // Robot values
@@ -277,8 +259,7 @@ public class GameController : MonoBehaviour
     public void Home()
     {
         stateMessageControl.NewBlock();
-        commandControl.Home(robot);
-        //OnlineDel();//
+        commandControl.Home(robot);      
     }
 
     public void Open()
@@ -478,7 +459,13 @@ public class GameController : MonoBehaviour
 
         DefpNameInput.gameObject.SetActive(false);
         hereGroup.gameObject.SetActive(false);
-        
+
+        XInput.readOnly = false;
+        YInput.readOnly = false;
+        ZInput.readOnly = false;
+        PInput.readOnly = false;
+        RInput.readOnly = false;
+
         switch (index)
         {
             case (int)CommandHelper.move:
@@ -491,6 +478,27 @@ public class GameController : MonoBehaviour
                 position1Dropdown.gameObject.SetActive(true);
                 position2Dropdown.gameObject.SetActive(true);
                 position2Dropdown.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Between";
+                break;
+            case (int)CommandHelper.listpv:
+                position1Dropdown.gameObject.SetActive(true);
+                XInput.gameObject.SetActive(true);
+                YInput.gameObject.SetActive(true);
+                ZInput.gameObject.SetActive(true);
+                PInput.gameObject.SetActive(true);
+                RInput.gameObject.SetActive(true);
+
+                XInput.readOnly = true;
+                YInput.readOnly = true;
+                ZInput.readOnly = true;
+                PInput.readOnly = true;
+                RInput.readOnly = true;
+
+                // Preview target values
+                XInput.placeholder.GetComponent<Text>().text = "X:" + target.GetComponent<TargetModel>().GetPosmm().x;
+                YInput.placeholder.GetComponent<Text>().text = "Y:" + target.GetComponent<TargetModel>().GetPosmm().z;
+                ZInput.placeholder.GetComponent<Text>().text = "Z:" + target.GetComponent<TargetModel>().GetPosmm().y;
+                PInput.placeholder.GetComponent<Text>().text = "P:" + target.GetComponent<TargetModel>().GetPitch().ToString(NUMBER_FORMAT);
+                RInput.placeholder.GetComponent<Text>().text = "R:" + target.GetComponent<TargetModel>().GetRoll().ToString(NUMBER_FORMAT);
                 break;
             case (int)CommandHelper.teach:
                 position1Dropdown.gameObject.SetActive(true);

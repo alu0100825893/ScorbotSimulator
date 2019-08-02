@@ -283,9 +283,6 @@
     <Compile Include="Assets\ExternalAssets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\ExternalAssets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\ExternalAssets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-    <Compile Include="Assets\Scripts\ButtonHold.cs" />
-    <Compile Include="Assets\Scripts\CatmullRomSpline.cs" />
-    <Compile Include="Assets\Scripts\ClampName.cs" />
     <Compile Include="Assets\Scripts\Conexion\Controller.cs" />
     <Compile Include="Assets\Scripts\Conexion\SerialController.cs" />
     <Compile Include="Assets\Scripts\Console\CommandHistory.cs" />
@@ -305,19 +302,20 @@
     <Compile Include="Assets\Scripts\Enum\PlaneHelper.cs" />
     <Compile Include="Assets\Scripts\Enum\ScorbotERIX.cs" />
     <Compile Include="Assets\Scripts\Enum\ScorbotERVPlus.cs" />
-    <Compile Include="Assets\Scripts\Example.cs" />
     <Compile Include="Assets\Scripts\MainMenu\AnimatorFunctions.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MenuActivation.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MenuButton.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MenuButtonController.cs" />
     <Compile Include="Assets\Scripts\Models\TargetModel.cs" />
-    <Compile Include="Assets\Scripts\ModeOnlineAnimation.cs" />
+    <Compile Include="Assets\Scripts\Other\ButtonHold.cs" />
+    <Compile Include="Assets\Scripts\Other\CatmullRomSpline.cs" />
+    <Compile Include="Assets\Scripts\Other\ClampName.cs" />
+    <Compile Include="Assets\Scripts\Other\ModeOnlineAnimation.cs" />
+    <Compile Include="Assets\Scripts\Other\WorldAxis.cs" />
     <Compile Include="Assets\Scripts\Scorbot\Articulation.cs" />
     <Compile Include="Assets\Scripts\Scorbot\GripScorbotERIX.cs" />
     <Compile Include="Assets\Scripts\Scorbot\IK.cs" />
-    <Compile Include="Assets\Scripts\Scorbot\RobotArmRotation.cs" />
     <Compile Include="Assets\Scripts\Scorbot\ScorbotModel.cs" />
-    <Compile Include="Assets\Scripts\WorldAxis.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Assets\Environment\DemoEnvUnlitGrayscale.shader" />

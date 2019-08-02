@@ -1,12 +1,12 @@
-\hypertarget{class_articulation}{}\section{Articulation Class Reference}
+\hypertarget{class_articulation}{}\section{Referencia de la Clase Articulation}
 \label{class_articulation}\index{Articulation@{Articulation}}
-Inheritance diagram for Articulation\+:\begin{figure}[H]
+Diagrama de herencias de Articulation\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_articulation}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_articulation_a1a7ef254573e5d539a24d6ce58f93911}\label{class_articulation_a1a7ef254573e5d539a24d6ce58f93911}} 
@@ -15,11 +15,23 @@ Vector3 {\bfseries Get\+Position} ()
 \mbox{\Hypertarget{class_articulation_af80ebaf44266ca6e4042b23d3a3392c9}\label{class_articulation_af80ebaf44266ca6e4042b23d3a3392c9}} 
 Vector3 {\bfseries Get\+Angle} ()
 \item 
+\mbox{\Hypertarget{class_articulation_a67d26d51e7a88fd6feea21cdd9f43db4}\label{class_articulation_a67d26d51e7a88fd6feea21cdd9f43db4}} 
+float {\bfseries Get\+Time\+To\+Rotate} (Vector3 final\+Angle)
+\item 
+\mbox{\Hypertarget{class_articulation_a530b3282ef1e062b8a752eddb0f624f8}\label{class_articulation_a530b3282ef1e062b8a752eddb0f624f8}} 
+float {\bfseries Angle} ()
+\item 
+\mbox{\Hypertarget{class_articulation_a778011e0e6155ccf305808d24cbbda64}\label{class_articulation_a778011e0e6155ccf305808d24cbbda64}} 
+float {\bfseries Angle} (Vector3 angle)
+\item 
 \mbox{\Hypertarget{class_articulation_ac22a47cd879d9867137cf705070dfb7b}\label{class_articulation_ac22a47cd879d9867137cf705070dfb7b}} 
 string {\bfseries Get\+Plane} ()
 \item 
-\mbox{\Hypertarget{class_articulation_ab2d859587ba4c1993fe9ed41bc3834bc}\label{class_articulation_ab2d859587ba4c1993fe9ed41bc3834bc}} 
-void {\bfseries Rotate} (float beta)
+\mbox{\Hypertarget{class_articulation_ae796d06441aa563bf7ccfce5f201c26e}\label{class_articulation_ae796d06441aa563bf7ccfce5f201c26e}} 
+void {\bfseries Rotate} (float beta, bool absolute=false)
+\item 
+\mbox{\Hypertarget{class_articulation_a421283bcb0bc25871cb63e2664ecf296}\label{class_articulation_a421283bcb0bc25871cb63e2664ecf296}} 
+Vector3 {\bfseries Built\+Angle} (float beta)
 \item 
 \mbox{\Hypertarget{class_articulation_a5091b1cabb19fb26e8937857bf0a3ac5}\label{class_articulation_a5091b1cabb19fb26e8937857bf0a3ac5}} 
 void {\bfseries Set\+Angle} (Vector3 new\+Angle)
@@ -33,11 +45,59 @@ void {\bfseries Set\+Limit} (int min\+Count, int max\+Count, int homeC, float de
 \mbox{\Hypertarget{class_articulation_abc1e52ec4c3370c2b8dd20b257c437ac}\label{class_articulation_abc1e52ec4c3370c2b8dd20b257c437ac}} 
 void {\bfseries Set\+Plane} (string new\+Plane)
 \item 
-\mbox{\Hypertarget{class_articulation_a40f0e6b38dd112843a1c16c817776391}\label{class_articulation_a40f0e6b38dd112843a1c16c817776391}} 
-void {\bfseries Go\+Home} ()
+\mbox{\Hypertarget{class_articulation_a6522fc73e75eb5953305d51fcae10466}\label{class_articulation_a6522fc73e75eb5953305d51fcae10466}} 
+void {\bfseries Set\+Speed} (float min, float max)
+\item 
+\mbox{\Hypertarget{class_articulation_a1674f771decad9bc252aa45edb116bb2}\label{class_articulation_a1674f771decad9bc252aa45edb116bb2}} 
+void {\bfseries Set\+Perc\+Speed} (int perc)
+\item 
+\mbox{\Hypertarget{class_articulation_af125f382466f26db3296f90fb896fd5a}\label{class_articulation_af125f382466f26db3296f90fb896fd5a}} 
+int {\bfseries Get\+Speed} ()
+\item 
+\mbox{\Hypertarget{class_articulation_abe8a64163ae7fda2bcae5035ad1bfb75}\label{class_articulation_abe8a64163ae7fda2bcae5035ad1bfb75}} 
+void {\bfseries Go\+Home} (float duration)
+\item 
+\mbox{\Hypertarget{class_articulation_ac933fade16023f1adb224eed98427cb9}\label{class_articulation_ac933fade16023f1adb224eed98427cb9}} 
+Vector3 {\bfseries Get\+Angle\+Home} ()
+\item 
+\mbox{\Hypertarget{class_articulation_a161b3c95046618f615f0b5d6867ef658}\label{class_articulation_a161b3c95046618f615f0b5d6867ef658}} 
+I\+Enumerator {\bfseries Move\+Coroutine} (Vector3 final\+Angle, float duration)
+\item 
+\mbox{\Hypertarget{class_articulation_a94f0c8fac481b23ec71ac8c4cd8b0862}\label{class_articulation_a94f0c8fac481b23ec71ac8c4cd8b0862}} 
+void {\bfseries Update\+Angle\+As\+Global} (Vector3 angle)
+\item 
+\mbox{\Hypertarget{class_articulation_ac60e77664f8666756cde14a3947a8306}\label{class_articulation_ac60e77664f8666756cde14a3947a8306}} 
+float {\bfseries Get\+Global\+Angle} ()
+\item 
+\mbox{\Hypertarget{class_articulation_a8b735ad392d0329c76f91e95768c026d}\label{class_articulation_a8b735ad392d0329c76f91e95768c026d}} 
+Vector3 {\bfseries Count\+To\+Angle} (int count)
+\item 
+\mbox{\Hypertarget{class_articulation_ae1b9d736b24392a46c7d53e91cbe7908}\label{class_articulation_ae1b9d736b24392a46c7d53e91cbe7908}} 
+void {\bfseries Set\+Counts\+Are\+Transformed} (bool transformed)
+\item 
+\mbox{\Hypertarget{class_articulation_aad8aba05576db394129968fe191ccc7c}\label{class_articulation_aad8aba05576db394129968fe191ccc7c}} 
+bool {\bfseries Counts\+Are\+Transformed} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_articulation_ab6f41ba4973672807b535fac03c03a18}\label{class_articulation_ab6f41ba4973672807b535fac03c03a18}} 
+int {\bfseries lower\+Limit\+Count}
+\item 
+\mbox{\Hypertarget{class_articulation_a0ce352a643712286ef497bbea705ca4d}\label{class_articulation_a0ce352a643712286ef497bbea705ca4d}} 
+int {\bfseries upper\+Limit\+Count}
+\item 
+\mbox{\Hypertarget{class_articulation_aa91625a05579d28909f96473cbd02744}\label{class_articulation_aa91625a05579d28909f96473cbd02744}} 
+int {\bfseries home\+Count}
+\item 
+\mbox{\Hypertarget{class_articulation_ae611787f027dbde080c7530fa68d1eee}\label{class_articulation_ae611787f027dbde080c7530fa68d1eee}} 
+float {\bfseries degrees}
+\item 
+\mbox{\Hypertarget{class_articulation_a14c25a5ae970e12d63af0224be518556}\label{class_articulation_a14c25a5ae970e12d63af0224be518556}} 
+float {\bfseries offset}
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
 \item 
 Scorbot/Articulation.\+cs\end{DoxyCompactItemize}

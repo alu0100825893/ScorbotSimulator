@@ -1,46 +1,64 @@
-\hypertarget{class_i_k}{}\section{IK Class Reference}
+\hypertarget{class_i_k}{}\section{Referencia de la Clase IK}
 \label{class_i_k}\index{IK@{IK}}
-Inheritance diagram for IK\+:\begin{figure}[H]
+Diagrama de herencias de IK\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_i_k}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_i_k_a2851f5e1a9b0a873b45c76b9a86f01db}\label{class_i_k_a2851f5e1a9b0a873b45c76b9a86f01db}} 
-void {\bfseries C\+C\+D\+Alg} ()
 \item 
 \mbox{\Hypertarget{class_i_k_aa28704730e12709936ba319e326a4173}\label{class_i_k_aa28704730e12709936ba319e326a4173}} 
 void {\bfseries C\+C\+D\+Alg} (Transform D)
 \item 
-\mbox{\Hypertarget{class_i_k_a9e1f61ec276422f5a0aa2a64f6fd44b4}\label{class_i_k_a9e1f61ec276422f5a0aa2a64f6fd44b4}} 
-void {\bfseries Home} ()
+\mbox{\Hypertarget{class_i_k_a50a313a48866039ae19374abe27edfd0}\label{class_i_k_a50a313a48866039ae19374abe27edfd0}} 
+void {\bfseries C\+C\+D\+Alg} (Transform\mbox{[}$\,$\mbox{]} trayectory, bool speed\+Degrees=true)
 \item 
-\mbox{\Hypertarget{class_i_k_ad48b219e67be6512bc8bc9ced2a8c8fc}\label{class_i_k_ad48b219e67be6512bc8bc9ced2a8c8fc}} 
-void {\bfseries New\+Angle} (string angle)
+\mbox{\Hypertarget{class_i_k_a9959bf459122a560124c9aac8191cbe6}\label{class_i_k_a9959bf459122a560124c9aac8191cbe6}} 
+void {\bfseries Move} (Transform target)
 \item 
-\mbox{\Hypertarget{class_i_k_ab6f47cd339d2f8b3fec2f56f9c1f8729}\label{class_i_k_ab6f47cd339d2f8b3fec2f56f9c1f8729}} 
-void {\bfseries Info\+State} ()
-\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
-\begin{DoxyCompactItemize}
+\mbox{\Hypertarget{class_i_k_ad97122f89dfb2c5bff5605cbcf5c5cc7}\label{class_i_k_ad97122f89dfb2c5bff5605cbcf5c5cc7}} 
+bool {\bfseries Target\+In\+Range} (Transform D, bool skip\+Pitch=false)
 \item 
-\mbox{\Hypertarget{class_i_k_aeda196da26592113cfbeb37ce08c98e0}\label{class_i_k_aeda196da26592113cfbeb37ce08c98e0}} 
-Transform {\bfseries D}
+\mbox{\Hypertarget{class_i_k_a1a8f3eb230e800c10dec985b81623121}\label{class_i_k_a1a8f3eb230e800c10dec985b81623121}} 
+void {\bfseries Home} (float duration=1f)
 \item 
-\mbox{\Hypertarget{class_i_k_abfcf0b83294daebc45f90599cefa6229}\label{class_i_k_abfcf0b83294daebc45f90599cefa6229}} 
-Transform {\bfseries E}
+\mbox{\Hypertarget{class_i_k_aa97be23f240e84f80c9d1709877e46f4}\label{class_i_k_aa97be23f240e84f80c9d1709877e46f4}} 
+void {\bfseries SetD} (Transform D)
 \item 
-\mbox{\Hypertarget{class_i_k_a57627b5cca74a00c64e634a594ce1771}\label{class_i_k_a57627b5cca74a00c64e634a594ce1771}} 
-\mbox{\hyperlink{class_articulation}{Articulation}} \mbox{[}$\,$\mbox{]} {\bfseries articulations}
+\mbox{\Hypertarget{class_i_k_af3fe9338cf146836289725c4d7f001ff}\label{class_i_k_af3fe9338cf146836289725c4d7f001ff}} 
+void {\bfseries Set\+Speed} (int speed)
 \item 
-\mbox{\Hypertarget{class_i_k_a7044698957fd78879f6b426e3e8f1265}\label{class_i_k_a7044698957fd78879f6b426e3e8f1265}} 
-Text\+Mesh\+Pro\+U\+G\+UI {\bfseries output}
+\mbox{\Hypertarget{class_i_k_afc1472fadfc08f9df7374af09ca83110}\label{class_i_k_afc1472fadfc08f9df7374af09ca83110}} 
+void {\bfseries Set\+SpeedL} (int speed)
+\item 
+\mbox{\Hypertarget{class_i_k_a4560c82ff2f46414e095e7fb37283f39}\label{class_i_k_a4560c82ff2f46414e095e7fb37283f39}} 
+int {\bfseries Get\+Speed} ()
+\item 
+\mbox{\Hypertarget{class_i_k_ae3121a6a82a3ae9216c480d4e9f117a9}\label{class_i_k_ae3121a6a82a3ae9216c480d4e9f117a9}} 
+int {\bfseries Get\+SpeedL} ()
+\item 
+\mbox{\Hypertarget{class_i_k_a041e3cba939af2806b7af200edf3161c}\label{class_i_k_a041e3cba939af2806b7af200edf3161c}} 
+List$<$ Vector3 $>$ {\bfseries Get\+Angles\+From\+Copy} ()
+\item 
+\mbox{\Hypertarget{class_i_k_a47ceb1a675024943c1714072b1b0d01f}\label{class_i_k_a47ceb1a675024943c1714072b1b0d01f}} 
+List$<$ Vector3 $>$ {\bfseries Get\+Angles} ()
+\item 
+\mbox{\Hypertarget{class_i_k_ae8f0fe38cdc7d2280fc4c9343176810a}\label{class_i_k_ae8f0fe38cdc7d2280fc4c9343176810a}} 
+\mbox{\hyperlink{class_articulation}{Articulation}} \mbox{[}$\,$\mbox{]} {\bfseries Get\+Articulations} ()
+\item 
+\mbox{\Hypertarget{class_i_k_aa7d322903f3e24412e87ec8b8f9281a0}\label{class_i_k_aa7d322903f3e24412e87ec8b8f9281a0}} 
+Transform {\bfseries GetD} ()
+\item 
+\mbox{\Hypertarget{class_i_k_a706f81d48d5c7d00791a78b8d09e923e}\label{class_i_k_a706f81d48d5c7d00791a78b8d09e923e}} 
+Transform {\bfseries GetE} ()
+\item 
+\mbox{\Hypertarget{class_i_k_a265ad7e93d155fb6183a60baa8d97b4d}\label{class_i_k_a265ad7e93d155fb6183a60baa8d97b4d}} 
+Vector3 {\bfseries Get\+Pos\+From\+Counts} (List$<$ int $>$ counts)
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
 \item 
 Scorbot/I\+K.\+cs\end{DoxyCompactItemize}

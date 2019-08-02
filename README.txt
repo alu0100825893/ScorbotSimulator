@@ -1,3 +1,5 @@
+PEDIENTE DE ACTUALIZAR DOCUMENTACION Y README
+
 Simulador de los brazos ScorbotERIX y ScorbotERVPlus
 
 Sistema operativo: Windows 10 64 bits

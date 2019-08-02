@@ -1,30 +1,23 @@
-\hypertarget{namespace_command_terminal}{}\section{Command\+Terminal Namespace Reference}
+\hypertarget{namespace_command_terminal}{}\section{Referencia del Namespace Command\+Terminal}
 \label{namespace_command_terminal}\index{CommandTerminal@{CommandTerminal}}
-\subsection*{Classes}
+\subsection*{Clases}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_command_terminal_1_1_command_history}{Command\+History}}
 \item 
 class \mbox{\hyperlink{class_command_terminal_1_1_command_log}{Command\+Log}}
 \item 
-class \mbox{\hyperlink{class_command_terminal_1_1_command_shell}{Command\+Shell}}
-\item 
 struct \mbox{\hyperlink{struct_command_terminal_1_1_log_item}{Log\+Item}}
 \item 
 class \mbox{\hyperlink{class_command_terminal_1_1_terminal}{Terminal}}
 \end{DoxyCompactItemize}
-\subsection*{Enumerations}
+\subsection*{Enumeraciones}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{namespace_command_terminal_a2d770625a48fbc7fef1b847bad584a62}\label{namespace_command_terminal_a2d770625a48fbc7fef1b847bad584a62}} 
-enum {\bfseries Terminal\+Log\+Type} \{ \newline
-{\bfseries Error} = Log\+Type.\+Error, 
-{\bfseries Assert} = Log\+Type.\+Assert, 
-{\bfseries Warning} = Log\+Type.\+Warning, 
-{\bfseries Message} = Log\+Type.\+Log, 
-\newline
-{\bfseries Exception} = Log\+Type.\+Exception, 
-{\bfseries Input}, 
-{\bfseries Shell\+Message}
+enum {\bfseries Terminal\+Log\+Type} \{ {\bfseries Command} = 0, 
+{\bfseries Log} = 1, 
+{\bfseries Warning} = 2, 
+{\bfseries Success} = 3
  \}
 \end{DoxyCompactItemize}

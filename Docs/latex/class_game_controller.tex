@@ -1,21 +1,18 @@
-\hypertarget{class_game_controller}{}\section{Game\+Controller Class Reference}
+\hypertarget{class_game_controller}{}\section{Referencia de la Clase Game\+Controller}
 \label{class_game_controller}\index{GameController@{GameController}}
-Inheritance diagram for Game\+Controller\+:\begin{figure}[H]
+Diagrama de herencias de Game\+Controller\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_game_controller}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_game_controller_af2f693d76f1b9bf4ff0403802ad44cae}{Manual\+Control\+Articulation}} (int btn)
 \item 
 \mbox{\Hypertarget{class_game_controller_a92a798e28f38aa15306e58dbdef1099a}\label{class_game_controller_a92a798e28f38aa15306e58dbdef1099a}} 
 void {\bfseries Home} ()
-\item 
-\mbox{\Hypertarget{class_game_controller_a26dc6be23c4ac6582898e30d17059c95}\label{class_game_controller_a26dc6be23c4ac6582898e30d17059c95}} 
-void {\bfseries C\+C\+D\+Alg} ()
 \item 
 \mbox{\Hypertarget{class_game_controller_ab69f0ec04df1e4d52b182d1dddd0606c}\label{class_game_controller_ab69f0ec04df1e4d52b182d1dddd0606c}} 
 void {\bfseries Open} ()
@@ -26,23 +23,95 @@ void {\bfseries Close} ()
 \mbox{\Hypertarget{class_game_controller_ab55a4d6d21f7e08aac2e27ad92033d56}\label{class_game_controller_ab55a4d6d21f7e08aac2e27ad92033d56}} 
 void {\bfseries Show\+Hide\+Manual\+Controls} ()
 \item 
+\mbox{\Hypertarget{class_game_controller_a473137527a8eb571f745ba44752e0a79}\label{class_game_controller_a473137527a8eb571f745ba44752e0a79}} 
+void {\bfseries Show\+Hide\+Commands} ()
+\item 
 \mbox{\Hypertarget{class_game_controller_ad037a03af50093f97a244acb6ee7cfb5}\label{class_game_controller_ad037a03af50093f97a244acb6ee7cfb5}} 
 void {\bfseries Show\+Hide\+Console} ()
 \item 
-\mbox{\Hypertarget{class_game_controller_a22485211ee6a27979be2b168315bfa90}\label{class_game_controller_a22485211ee6a27979be2b168315bfa90}} 
-void {\bfseries Record\+Position} ()
+\mbox{\Hypertarget{class_game_controller_a0c878163f61d0c5f249f06076eb4414b}\label{class_game_controller_a0c878163f61d0c5f249f06076eb4414b}} 
+void {\bfseries Show\+Hide\+Sync} ()
+\item 
+\mbox{\Hypertarget{class_game_controller_a3424f128577eb9fca02bc4eeb5c00f52}\label{class_game_controller_a3424f128577eb9fca02bc4eeb5c00f52}} 
+void {\bfseries Show\+Hide\+Message\+Log} ()
+\item 
+\mbox{\Hypertarget{class_game_controller_a4115faf1339706f462166c1f82d9ec8c}\label{class_game_controller_a4115faf1339706f462166c1f82d9ec8c}} 
+void {\bfseries Show\+Hide\+Position\+Log} ()
+\item 
+\mbox{\Hypertarget{class_game_controller_aad5d8a92a01bb1b946890c227e36ba41}\label{class_game_controller_aad5d8a92a01bb1b946890c227e36ba41}} 
+void {\bfseries Record\+Position} (bool from\+Command)
+\item 
+\mbox{\Hypertarget{class_game_controller_ad8f76a41d0163fd06971dffce1d61c97}\label{class_game_controller_ad8f76a41d0163fd06971dffce1d61c97}} 
+void {\bfseries Remove\+Target} ()
+\item 
+\mbox{\Hypertarget{class_game_controller_a6de8761e6cd2b07a857ea3ec0544fa40}\label{class_game_controller_a6de8761e6cd2b07a857ea3ec0544fa40}} 
+void {\bfseries Target\+Dropdown\+\_\+\+Index\+Changed} (int index)
+\item 
+\mbox{\Hypertarget{class_game_controller_a2ea8f0a42452c5dd938feed2713f87c7}\label{class_game_controller_a2ea8f0a42452c5dd938feed2713f87c7}} 
+void {\bfseries Commands\+Dropdown\+\_\+\+Index\+Changed} (int index)
+\item 
+\mbox{\Hypertarget{class_game_controller_ac1dcb5c2f0422f5568ca776dd5cd7b7c}\label{class_game_controller_ac1dcb5c2f0422f5568ca776dd5cd7b7c}} 
+void {\bfseries Execute} ()
+\item 
+\mbox{\Hypertarget{class_game_controller_afd55aa0db0046a73a2b9bb57dc56d373}\label{class_game_controller_afd55aa0db0046a73a2b9bb57dc56d373}} 
+void {\bfseries Draw\+Trayectory} ()
+\item 
+\mbox{\Hypertarget{class_game_controller_a7a993b5ee6e6376f81670d3958d48bb6}\label{class_game_controller_a7a993b5ee6e6376f81670d3958d48bb6}} 
+void {\bfseries Speed\+Input\+End} (string speed)
+\item 
+\mbox{\Hypertarget{class_game_controller_aa10e8ec20019adfd8f3c2dfbea4ff8bc}\label{class_game_controller_aa10e8ec20019adfd8f3c2dfbea4ff8bc}} 
+void {\bfseries Speed\+L\+Input\+End} (string speed)
+\item 
+\mbox{\Hypertarget{class_game_controller_aa448386fb4d83ff0ca9211424ad6b020}\label{class_game_controller_aa448386fb4d83ff0ca9211424ad6b020}} 
+void {\bfseries Set\+Scorbot} (int index)
+\item 
+\mbox{\Hypertarget{class_game_controller_a48800115bee7dd138485ca7cd1464f78}\label{class_game_controller_a48800115bee7dd138485ca7cd1464f78}} 
+void {\bfseries Online\+Offline\+Slider} (float value)
+\item 
+\mbox{\Hypertarget{class_game_controller_ab8bc597c4e47a3cece068762cdfaf33a}\label{class_game_controller_ab8bc597c4e47a3cece068762cdfaf33a}} 
+bool {\bfseries Get\+Online\+Mode} ()
+\item 
+\mbox{\Hypertarget{class_game_controller_a6ac352c2a0b3dafb1da0a71fb047736e}\label{class_game_controller_a6ac352c2a0b3dafb1da0a71fb047736e}} 
+void {\bfseries Here\+From\+Simulation} (bool from\+Simulation)
+\item 
+\mbox{\Hypertarget{class_game_controller_a3e908f52a48528254dddc0f4f4a9d9f8}\label{class_game_controller_a3e908f52a48528254dddc0f4f4a9d9f8}} 
+void {\bfseries Sync\+From\+Simulation\+To\+Scorbot} (bool from\+Simulation)
+\item 
+\mbox{\Hypertarget{class_game_controller_ab42ee9c1c07fc60cb506b769bd6047c9}\label{class_game_controller_ab42ee9c1c07fc60cb506b769bd6047c9}} 
+void {\bfseries Sync\+All\+Targets} ()
+\item 
+\mbox{\Hypertarget{class_game_controller_afb0be280e9e68853555db2ef42337bd9}\label{class_game_controller_afb0be280e9e68853555db2ef42337bd9}} 
+void {\bfseries Sync\+Target} ()
+\item 
+\mbox{\Hypertarget{class_game_controller_aae26868d4e9c6e735d5fef9cc7b15bb1}\label{class_game_controller_aae26868d4e9c6e735d5fef9cc7b15bb1}} 
+void {\bfseries Main\+Menu} ()
+\item 
+\mbox{\Hypertarget{class_game_controller_ae9fc70a12ad70871780529854ea12d9c}\label{class_game_controller_ae9fc70a12ad70871780529854ea12d9c}} 
+void {\bfseries C\+ON} ()
 \end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\subsection*{Atributos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_game_controller_acf4255ac9eb373729c1d699e590eeab6}\label{class_game_controller_acf4255ac9eb373729c1d699e590eeab6}} 
-Game\+Object {\bfseries cam}
+\mbox{\Hypertarget{class_game_controller_ac994124de5bf69dc490a53e165662aa3}\label{class_game_controller_ac994124de5bf69dc490a53e165662aa3}} 
+Transform {\bfseries cam}
 \item 
 \mbox{\Hypertarget{class_game_controller_aa2c4c0f2bfdcab6bccb58d8b9178363c}\label{class_game_controller_aa2c4c0f2bfdcab6bccb58d8b9178363c}} 
 Transform {\bfseries target}
 \item 
+\mbox{\Hypertarget{class_game_controller_ad7f897cf29d863ef011df38cd5e985d1}\label{class_game_controller_ad7f897cf29d863ef011df38cd5e985d1}} 
+Transform {\bfseries target\+Name}
+\item 
+\mbox{\Hypertarget{class_game_controller_a9dbd360f598b7067f41d36c4dd75bdd6}\label{class_game_controller_a9dbd360f598b7067f41d36c4dd75bdd6}} 
+Transform {\bfseries target\+Prefab}
+\item 
+\mbox{\Hypertarget{class_game_controller_a73ac6a8f7afb6dbb6b3b0d24a39550e3}\label{class_game_controller_a73ac6a8f7afb6dbb6b3b0d24a39550e3}} 
+Transform {\bfseries target\+Name\+Prefab}
+\item 
 \mbox{\Hypertarget{class_game_controller_a7a8eac3f9ff9b273bd04958809a6a1d7}\label{class_game_controller_a7a8eac3f9ff9b273bd04958809a6a1d7}} 
 Game\+Object {\bfseries axis\+Camera}
+\item 
+\mbox{\Hypertarget{class_game_controller_ae207033ffa9a78ca5546f03752b608bd}\label{class_game_controller_ae207033ffa9a78ca5546f03752b608bd}} 
+\mbox{\hyperlink{class_i_k}{IK}} \mbox{[}$\,$\mbox{]} {\bfseries scorbots}
 \item 
 \mbox{\Hypertarget{class_game_controller_aa872b7fe4e38bf7927528476ec362ef7}\label{class_game_controller_aa872b7fe4e38bf7927528476ec362ef7}} 
 \mbox{\hyperlink{class_i_k}{IK}} {\bfseries robot}
@@ -56,67 +125,165 @@ Text\+Mesh\+Pro\+U\+G\+UI {\bfseries output}
 \mbox{\Hypertarget{class_game_controller_ac41af980d38fdb0e9a0f4aba99c05cd1}\label{class_game_controller_ac41af980d38fdb0e9a0f4aba99c05cd1}} 
 Game\+Object {\bfseries manual\+Control\+Panel}
 \item 
+\mbox{\Hypertarget{class_game_controller_af02166117665e55008a36f2b6bde59fb}\label{class_game_controller_af02166117665e55008a36f2b6bde59fb}} 
+Game\+Object {\bfseries commands\+Panel}
+\item 
 \mbox{\Hypertarget{class_game_controller_adac299ab445a53360ac0e63645b0ff50}\label{class_game_controller_adac299ab445a53360ac0e63645b0ff50}} 
 Game\+Object {\bfseries console}
 \item 
-\mbox{\Hypertarget{class_game_controller_acfd64c250f39422f45f2f65128e6dc52}\label{class_game_controller_acfd64c250f39422f45f2f65128e6dc52}} 
-List$<$ Transform $>$ {\bfseries targets\+Array} = new List$<$Transform$>$()
+\mbox{\Hypertarget{class_game_controller_ae46a29ff7a8c07c153ac0c970fddfefb}\label{class_game_controller_ae46a29ff7a8c07c153ac0c970fddfefb}} 
+Game\+Object {\bfseries sync\+Panel}
 \item 
-\mbox{\Hypertarget{class_game_controller_a2fb6a009700146a476104f11323756ba}\label{class_game_controller_a2fb6a009700146a476104f11323756ba}} 
-List$<$ string $>$ {\bfseries targets\+Names\+Array} = new List$<$string$>$()
+\mbox{\Hypertarget{class_game_controller_a0c1112239b9473bd8bbaf6e4b1030b33}\label{class_game_controller_a0c1112239b9473bd8bbaf6e4b1030b33}} 
+Game\+Object {\bfseries message\+Log\+Panel}
+\item 
+\mbox{\Hypertarget{class_game_controller_a4e34f9c867f238cb3031eb7313b63057}\label{class_game_controller_a4e34f9c867f238cb3031eb7313b63057}} 
+Game\+Object {\bfseries position\+Log\+Panel}
 \item 
 \mbox{\Hypertarget{class_game_controller_af7421b0db7e041d90138ce61a194b349}\label{class_game_controller_af7421b0db7e041d90138ce61a194b349}} 
 Input\+Field {\bfseries target\+Name\+Input}
 \item 
-\mbox{\Hypertarget{class_game_controller_a13254115c700f2a1c2d223844726d5d2}\label{class_game_controller_a13254115c700f2a1c2d223844726d5d2}} 
-Plane {\bfseries plane}
+\mbox{\Hypertarget{class_game_controller_a945852a732140c0d4901e483db1ed05d}\label{class_game_controller_a945852a732140c0d4901e483db1ed05d}} 
+Input\+Field {\bfseries Defp\+Name\+Input}
 \item 
-\mbox{\Hypertarget{class_game_controller_a8440f525b85dcb4243c88bfedfdab79d}\label{class_game_controller_a8440f525b85dcb4243c88bfedfdab79d}} 
-\mbox{\hyperlink{class_manual_input_control}{Manual\+Input\+Control}} {\bfseries manual\+Input\+Control}
+\mbox{\Hypertarget{class_game_controller_a1c79a3dc62d8854c5d6c8b8885078697}\label{class_game_controller_a1c79a3dc62d8854c5d6c8b8885078697}} 
+Transform {\bfseries plane\+XY}
 \item 
-\mbox{\Hypertarget{class_game_controller_a81276753525e476bace62b49ee3ce507}\label{class_game_controller_a81276753525e476bace62b49ee3ce507}} 
-\mbox{\hyperlink{class_selection_control}{Selection\+Control}} {\bfseries selection\+Control}
+\mbox{\Hypertarget{class_game_controller_a165be722062b26dd5f2a61cc656f61b7}\label{class_game_controller_a165be722062b26dd5f2a61cc656f61b7}} 
+Transform {\bfseries plane\+XZ}
+\item 
+\mbox{\Hypertarget{class_game_controller_a812b3148776df35557011c9c702e2fa8}\label{class_game_controller_a812b3148776df35557011c9c702e2fa8}} 
+Transform {\bfseries plane\+YZ}
+\item 
+\mbox{\Hypertarget{class_game_controller_a27535ff70037d1e52f3c27b0b6db9991}\label{class_game_controller_a27535ff70037d1e52f3c27b0b6db9991}} 
+\mbox{\hyperlink{class_controller}{Controller}} {\bfseries controller}
+\item 
+\mbox{\Hypertarget{class_game_controller_a4849adfdbcb876592dd2ca2c8d3d6dd3}\label{class_game_controller_a4849adfdbcb876592dd2ca2c8d3d6dd3}} 
+Transform {\bfseries canvas}
 \item 
 \mbox{\Hypertarget{class_game_controller_a49eb3e3e0f37bf17509d245d70d53c92}\label{class_game_controller_a49eb3e3e0f37bf17509d245d70d53c92}} 
 Text\+Mesh\+Pro\+U\+G\+UI {\bfseries state\+Output}
+\item 
+\mbox{\Hypertarget{class_game_controller_adf378f165de99cae2e7d1aefda44c9b3}\label{class_game_controller_adf378f165de99cae2e7d1aefda44c9b3}} 
+Text\+Mesh\+Pro\+U\+G\+UI {\bfseries message\+Log}
+\item 
+\mbox{\Hypertarget{class_game_controller_afa5ed37ed93bb0d81b0672d89003cbd3}\label{class_game_controller_afa5ed37ed93bb0d81b0672d89003cbd3}} 
+Text\+Mesh\+Pro\+U\+G\+UI {\bfseries position\+Log}
+\item 
+\mbox{\Hypertarget{class_game_controller_a194cfa82ca88646a0acc5a100a48a537}\label{class_game_controller_a194cfa82ca88646a0acc5a100a48a537}} 
+Text\+Mesh\+Pro\+U\+G\+UI {\bfseries position\+Sync\+Log}
+\item 
+\mbox{\Hypertarget{class_game_controller_ad6cb11ae2cdfe0570e0cbb5d6d167d76}\label{class_game_controller_ad6cb11ae2cdfe0570e0cbb5d6d167d76}} 
+Text\+Mesh\+Pro\+U\+G\+UI {\bfseries position\+Count\+Log}
+\item 
+\mbox{\Hypertarget{class_game_controller_a6d6429aa7d893d6545ea3b30cf6e0ff1}\label{class_game_controller_a6d6429aa7d893d6545ea3b30cf6e0ff1}} 
+Text\+Mesh\+Pro\+U\+G\+UI {\bfseries online\+Text}
+\item 
+\mbox{\Hypertarget{class_game_controller_aa7b734d3297bbe4c77049973d4dceff2}\label{class_game_controller_aa7b734d3297bbe4c77049973d4dceff2}} 
+Dropdown {\bfseries target\+Dropdown}
+\item 
+\mbox{\Hypertarget{class_game_controller_a7818b7fb2d36055b1224484016cacf43}\label{class_game_controller_a7818b7fb2d36055b1224484016cacf43}} 
+\mbox{\hyperlink{class_catmull_rom_spline}{Catmull\+Rom\+Spline}} {\bfseries spline} = new \mbox{\hyperlink{class_catmull_rom_spline}{Catmull\+Rom\+Spline}}()
+\item 
+\mbox{\Hypertarget{class_game_controller_a142e03c4d3ffc32238e2110004b8e554}\label{class_game_controller_a142e03c4d3ffc32238e2110004b8e554}} 
+Dropdown {\bfseries commands\+Dropdown}
+\item 
+\mbox{\Hypertarget{class_game_controller_a9ef781cf28b98be7c3659652b87fcd32}\label{class_game_controller_a9ef781cf28b98be7c3659652b87fcd32}} 
+Dropdown {\bfseries position1\+Dropdown}
+\item 
+\mbox{\Hypertarget{class_game_controller_a24f08008c3b69c0080db2552814f3fd7}\label{class_game_controller_a24f08008c3b69c0080db2552814f3fd7}} 
+Dropdown {\bfseries position2\+Dropdown}
+\item 
+\mbox{\Hypertarget{class_game_controller_a86151fd816f256a8ace360b1f23de787}\label{class_game_controller_a86151fd816f256a8ace360b1f23de787}} 
+Dropdown {\bfseries sync\+Target\+Dropdown}
+\item 
+\mbox{\Hypertarget{class_game_controller_a6222d16bb3172fdacdf5b5cc363149ff}\label{class_game_controller_a6222d16bb3172fdacdf5b5cc363149ff}} 
+Dropdown {\bfseries by\+X\+Y\+Z\+P\+R\+Dropdown}
+\item 
+\mbox{\Hypertarget{class_game_controller_a6a8c35edbf074628654ce3ac17073469}\label{class_game_controller_a6a8c35edbf074628654ce3ac17073469}} 
+Dropdown {\bfseries ports\+Dropdown}
+\item 
+\mbox{\Hypertarget{class_game_controller_a42c3a41c40593254c896723f9dd27cb4}\label{class_game_controller_a42c3a41c40593254c896723f9dd27cb4}} 
+const string {\bfseries N\+U\+M\+B\+E\+R\+\_\+\+F\+O\+R\+M\+AT} = \char`\"{}0.\+00\char`\"{}
+\item 
+\mbox{\Hypertarget{class_game_controller_a1504267c57340df37ec5de3372e15b3b}\label{class_game_controller_a1504267c57340df37ec5de3372e15b3b}} 
+Input\+Field {\bfseries X\+Input}
+\item 
+\mbox{\Hypertarget{class_game_controller_a6efb47b46d86c8b51787cacd7c8f5bc8}\label{class_game_controller_a6efb47b46d86c8b51787cacd7c8f5bc8}} 
+Input\+Field {\bfseries Y\+Input}
+\item 
+\mbox{\Hypertarget{class_game_controller_a0f59c47b2c7ac668152041e05f86458f}\label{class_game_controller_a0f59c47b2c7ac668152041e05f86458f}} 
+Input\+Field {\bfseries Z\+Input}
+\item 
+\mbox{\Hypertarget{class_game_controller_a5ae20c66fd6de352ab0f4e181027a61f}\label{class_game_controller_a5ae20c66fd6de352ab0f4e181027a61f}} 
+Input\+Field {\bfseries P\+Input}
+\item 
+\mbox{\Hypertarget{class_game_controller_a909684cd4f88d27998aab5517d01fb41}\label{class_game_controller_a909684cd4f88d27998aab5517d01fb41}} 
+Input\+Field {\bfseries R\+Input}
+\item 
+\mbox{\Hypertarget{class_game_controller_a0e29079c699df359be73fc23f7c1dbc6}\label{class_game_controller_a0e29079c699df359be73fc23f7c1dbc6}} 
+Input\+Field {\bfseries by\+X\+Y\+Z\+P\+R\+Input}
+\item 
+\mbox{\Hypertarget{class_game_controller_adc5d9c82337016042d0a4b7a431b8a0e}\label{class_game_controller_adc5d9c82337016042d0a4b7a431b8a0e}} 
+Transform {\bfseries here\+Group}
+\item 
+\mbox{\Hypertarget{class_game_controller_aef6447cf8e9a9e5945a45e0a0d4cbeea}\label{class_game_controller_aef6447cf8e9a9e5945a45e0a0d4cbeea}} 
+Transform {\bfseries sync\+Group}
+\item 
+\mbox{\Hypertarget{class_game_controller_af4c293b5d621fe28f1e6b72f9efa293f}\label{class_game_controller_af4c293b5d621fe28f1e6b72f9efa293f}} 
+Game\+Object {\bfseries menu}
+\item 
+\mbox{\Hypertarget{class_game_controller_ae2a547ae9f7294b4c3d7064ff037b7d1}\label{class_game_controller_ae2a547ae9f7294b4c3d7064ff037b7d1}} 
+Text\+Mesh\+Pro\+U\+G\+UI {\bfseries speed\+Text}
+\item 
+\mbox{\Hypertarget{class_game_controller_a80a5ddb548350ff8522690213155ffc7}\label{class_game_controller_a80a5ddb548350ff8522690213155ffc7}} 
+Text\+Mesh\+Pro\+U\+G\+UI {\bfseries speed\+L\+Text}
 \end{DoxyCompactItemize}
-\subsection*{Static Public Attributes}
+\subsection*{Atributos públicos estáticos}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_game_controller_a46ccbbf4e13ee78f28da6b0ed2595cf3}\label{class_game_controller_a46ccbbf4e13ee78f28da6b0ed2595cf3}} 
 static \mbox{\hyperlink{class_game_controller}{Game\+Controller}} {\bfseries game\+Controller}
 \end{DoxyCompactItemize}
+\subsection*{Eventos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_controller_acb69ab50fb463c78d7d47e94edf85a9e}\label{class_game_controller_acb69ab50fb463c78d7d47e94edf85a9e}} 
+static Here\+From\+Delegate {\bfseries Here\+From\+Del}
+\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-La clase \mbox{\hyperlink{class_game_controller}{Game\+Controller}} representa el controlador principal del simulador \begin{DoxyAuthor}{Author}
-Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\texttt{ oscarcatari@outlook.\+es}} 
+\subsection{Descripción detallada}
+El controlador principal de la simulación es el \mbox{\hyperlink{class_game_controller}{Game\+Controller}}. Su función principal es la de inicializar la simulación y ejecutar los demás controladores para que realicen tareas específicas.
+
+Entre sus funciones, también está la creación y eliminación de las posiciones, el manejo de los elementos de la interfaz gráfica que utiliza cada comando y la propia ejecución de los comandos. Además, se encarga del dibujado de trayectorias para “movel” y “movec” con ayuda del algoritmo de spline de Catmull-\/\+Rom. \begin{DoxyAuthor}{Autor}
+Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\texttt{ oscarcatari@outlook.\+es}} -\/ Universidad de La Laguna 
 \end{DoxyAuthor}
-\begin{DoxyVersion}{Version}
-1.\+0 @subject Simulador @organization Universidad de La Laguna 
+\begin{DoxyVersion}{Versión}
+1.\+0 
 \end{DoxyVersion}
-\begin{DoxySince}{Since}
+\begin{DoxySince}{Desde}
 02-\/05-\/2019 
 \end{DoxySince}
 
 
-\subsection{Member Function Documentation}
+\subsection{Documentación de las funciones miembro}
 \mbox{\Hypertarget{class_game_controller_af2f693d76f1b9bf4ff0403802ad44cae}\label{class_game_controller_af2f693d76f1b9bf4ff0403802ad44cae}} 
 \index{GameController@{GameController}!ManualControlArticulation@{ManualControlArticulation}}
 \index{ManualControlArticulation@{ManualControlArticulation}!GameController@{GameController}}
 \subsubsection{\texorpdfstring{ManualControlArticulation()}{ManualControlArticulation()}}
 {\footnotesize\ttfamily void Game\+Controller.\+Manual\+Control\+Articulation (\begin{DoxyParamCaption}\item[{int}]{btn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Método que permite el control manual del Scorbot mediante botones. 
-\begin{DoxyParams}{Parameters}
+Método que permite el control manual del Scorbot mediante teclado. 
+\begin{DoxyParams}{Parámetros}
 {\em btn} & Número de boton \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-int Nada 
+\begin{DoxyReturn}{Devuelve}
+Nada 
 \end{DoxyReturn}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
 \item 
-Game\+Controller.\+cs\end{DoxyCompactItemize}
+Controllers/Game\+Controller.\+cs\end{DoxyCompactItemize}

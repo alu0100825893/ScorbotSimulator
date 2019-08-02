@@ -7,6 +7,7 @@ enum CommandHelper {
     move,
     movel,
     movec,
+    listpv,
     teach,
     teachr, // Online
     here,

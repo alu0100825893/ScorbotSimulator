@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * La función principal de este componente es permitir controlar las articulaciones del Scorbot de forma individual
+ * mediante el teclado, además del cierre y apertura de la pinza.
+ * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es - Universidad de La Laguna
+ * @version 1.0
+ * @since 02-05-2019
+ */
 public class ManualInputControl : MonoBehaviour {
 
     private List<KeyCode> keyCodes = new List<KeyCode>();
     private IK robot;
+    private const float ROTATION_SENSIBILITY = 1f;
 
     private bool processing = false;
 
@@ -35,12 +43,12 @@ public class ManualInputControl : MonoBehaviour {
         {
             if (Input.GetKey(keyCodes[j]))
             {
-                robot.GetArticulations()[i].Rotate(-1f);
+                robot.GetArticulations()[i].Rotate(-ROTATION_SENSIBILITY);
             }
             j++;
             if (Input.GetKey(keyCodes[j]))
             {
-                robot.GetArticulations()[i].Rotate(1f);
+                robot.GetArticulations()[i].Rotate(ROTATION_SENSIBILITY);
             }
             j++;
         }
@@ -64,12 +72,12 @@ public class ManualInputControl : MonoBehaviour {
         {
             if (keyCodes[btn] == keyCodes[j])
             {
-                robot.GetArticulations()[i].Rotate(-1f);
+                robot.GetArticulations()[i].Rotate(-ROTATION_SENSIBILITY);
             }
             j++;
             if (keyCodes[btn] == keyCodes[j])
             {
-                robot.GetArticulations()[i].Rotate(1f);
+                robot.GetArticulations()[i].Rotate(ROTATION_SENSIBILITY);
             }
             j++;
         }

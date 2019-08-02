@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * La función principal de este componente es gestionar las ventanas de la interfaz gráfica mediante
+ * animaciones para ponerlas visibles/no visibles.
+ * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es - Universidad de La Laguna
+ * @version 1.0
+ * @since 02-05-2019
+ */
 public class PanelControl : MonoBehaviour {
-
-
+    
     private ManualInputControl manualInputControl;
-
+    // Panels
     private Animator manualControlPanel;
     private Animator commandsPanel;
     private Animator console;

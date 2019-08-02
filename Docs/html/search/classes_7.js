@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['robotarmrotation',['RobotArmRotation',['../class_robot_arm_rotation.html',1,'']]]
+  ['panelcontrol',['PanelControl',['../class_panel_control.html',1,'']]]
 ];

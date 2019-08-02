@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Scorbot simulator: Referencia de la Clase StateMessageControl</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Scorbot simulator
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.15 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="class_state_message_control-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia de la Clase StateMessageControl</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagrama de herencias de StateMessageControl</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_state_message_control.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:a0b0830fc3f8fe9d578fce4b3d944cde6"><td class="memItemLeft" align="right" valign="top"><a id="a0b0830fc3f8fe9d578fce4b3d944cde6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>WriteMessage</b> (string text, bool success)</td></tr>
+<tr class="separator:a0b0830fc3f8fe9d578fce4b3d944cde6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af56933aa9a5a8d7d2c1e5fd515ec65e8"><td class="memItemLeft" align="right" valign="top"><a id="af56933aa9a5a8d7d2c1e5fd515ec65e8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateMessageLog</b> ()</td></tr>
+<tr class="separator:af56933aa9a5a8d7d2c1e5fd515ec65e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeace074591852cb0cc7125520bc49817"><td class="memItemLeft" align="right" valign="top"><a id="aeace074591852cb0cc7125520bc49817"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdatePositionLog</b> ()</td></tr>
+<tr class="separator:aeace074591852cb0cc7125520bc49817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a534610a9734b552696484aaeeb83c8b7"><td class="memItemLeft" align="right" valign="top"><a id="a534610a9734b552696484aaeeb83c8b7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NewBlock</b> ()</td></tr>
+<tr class="separator:a534610a9734b552696484aaeeb83c8b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>La función principal de este componente es comunicar el resultado de una acción mediante un mensaje en el “Estado actual” de la interfaz gráfica. También se encarga de mantener el registro de estos mensajes como un historial. </p><dl class="section author"><dt>Autor</dt><dd>Oscar Catari Gutiérrez - E-mail: <a href="#" onclick="location.href='mai'+'lto:'+'osc'+'ar'+'cat'+'ar'+'i@o'+'ut'+'loo'+'k.'+'es'; return false;">oscar<span style="display: none;">.nosp@m.</span>cata<span style="display: none;">.nosp@m.</span>ri@ou<span style="display: none;">.nosp@m.</span>tloo<span style="display: none;">.nosp@m.</span>k.es</a> - Universidad de La Laguna </dd></dl>
+<dl class="section version"><dt>Versión</dt><dd>1.0 </dd></dl>
+<dl class="section since"><dt>Desde</dt><dd>02-05-2019 </dd></dl>
+</div><hr/>La documentación para esta clase fue generada a partir del siguiente fichero:<ul>
+<li>Controllers/StateMessageControl.cs</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</body>
+</html>

@@ -168,19 +168,11 @@ public class Articulation : MonoBehaviour {
     {
         limit.Clear();
         
-        //if (plane.Contains(PLANE_XY))
         {
             limit.Add(max);
             limit.Add(min);
         }
-        // Error: articulations[0].SetLimit(270f, 0f);
-        /*
-        if (plane.Contains(PLANE_XZ))
-        {
-            limit.Add(min);
-            limit.Add(-max);            
-        }
-        */
+
     }
 
     // Count

@@ -2,6 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * La función principal de este componente es proporcionar un sistema de medición a la hora de mover
+ * una posición mediante sus axis a través de la visualización de planos. Hay tres planos (“xy”, “xz”, “yz”) 
+ * que son activables/desactivables mediante casillas check y también están cuadriculadas. Cada cuadrícula es 
+ * de 100 milímetros de lado, aunque si se está lo suficientemente cerca, los planos se subdividen en 
+ * cuadrículas de 10 milímetros de lado.
+ * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es - Universidad de La Laguna
+ * @version 1.0
+ * @since 02-05-2019
+ */
 public class MetricSystemControl : MonoBehaviour {
 
     private Transform planeXY;
