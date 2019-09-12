@@ -23,6 +23,9 @@ void {\bfseries Set\+Axis} (float value)
 \item 
 \mbox{\Hypertarget{class_selection_control_ae30e28c63db233cb7a7b9d71174c2846}\label{class_selection_control_ae30e28c63db233cb7a7b9d71174c2846}} 
 void {\bfseries Set\+Rotation} (float value)
+\item 
+\mbox{\Hypertarget{class_selection_control_ab62778748bb69e20a9fd3318a3083853}\label{class_selection_control_ab62778748bb69e20a9fd3318a3083853}} 
+void {\bfseries Set\+Axis\+Sensibility\+Reduction} (float value)
 \end{DoxyCompactItemize}
 \subsection*{Atributos públicos}
 \begin{DoxyCompactItemize}
@@ -35,6 +38,63 @@ List$<$ Game\+Object $>$ {\bfseries selected\+List}
 \item 
 \mbox{\Hypertarget{class_selection_control_a30385310a008d84dd95762f72dd31fed}\label{class_selection_control_a30385310a008d84dd95762f72dd31fed}} 
 bool {\bfseries move\+In\+Axis} = false
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_selection_control_a3561fe9fd9a6a8d2c6e4a2f389b6d2dd}\label{class_selection_control_a3561fe9fd9a6a8d2c6e4a2f389b6d2dd}} 
+void {\bfseries Start} ()
+\item 
+\mbox{\Hypertarget{class_selection_control_ad79a2cfc74608733edcd1be0164cc491}\label{class_selection_control_ad79a2cfc74608733edcd1be0164cc491}} 
+void {\bfseries Update} ()
+\item 
+\mbox{\Hypertarget{class_selection_control_a6e08e34b6c7bfe54260faeaa29b369c0}\label{class_selection_control_a6e08e34b6c7bfe54260faeaa29b369c0}} 
+void {\bfseries Select} ()
+\item 
+\mbox{\Hypertarget{class_selection_control_a41c82620db4b415375d6579c5a0aa17b}\label{class_selection_control_a41c82620db4b415375d6579c5a0aa17b}} 
+void {\bfseries Clear\+Selection} ()
+\item 
+\mbox{\Hypertarget{class_selection_control_ae0e2d8a1673fab1de51bee6e15d3f872}\label{class_selection_control_ae0e2d8a1673fab1de51bee6e15d3f872}} 
+void {\bfseries Add\+Selected\+List} (Game\+Object selected\+Object)
+\item 
+\mbox{\Hypertarget{class_selection_control_a9684b6a02a6e31a00c6a87b5e9d29f62}\label{class_selection_control_a9684b6a02a6e31a00c6a87b5e9d29f62}} 
+void {\bfseries Move\+Or\+Rotate} ()
+\item 
+\mbox{\Hypertarget{class_selection_control_a124591d0f0eac9b99cd9a7cc4f9839c7}\label{class_selection_control_a124591d0f0eac9b99cd9a7cc4f9839c7}} 
+void {\bfseries Set\+Active\+Rotation} (Transform obj, bool active)
+\item 
+\mbox{\Hypertarget{class_selection_control_af43fca6b87eee0f60bc8bb79f987d42c}\label{class_selection_control_af43fca6b87eee0f60bc8bb79f987d42c}} 
+Game\+Object {\bfseries Search\+Tagged} (Game\+Object hit\+Object)
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_selection_control_ab58ba99d0ac60add2848b5fc809e5c3a}\label{class_selection_control_ab58ba99d0ac60add2848b5fc809e5c3a}} 
+\mbox{\hyperlink{class_game_controller}{Game\+Controller}} {\bfseries game\+Controller}
+\item 
+\mbox{\Hypertarget{class_selection_control_aff388d8482e51dd5c41c574548e7a5f1}\label{class_selection_control_aff388d8482e51dd5c41c574548e7a5f1}} 
+\mbox{\hyperlink{class_state_message_control}{State\+Message\+Control}} {\bfseries state\+Message\+Control}
+\item 
+\mbox{\Hypertarget{class_selection_control_acc82727476da9068b9d37626c3970838}\label{class_selection_control_acc82727476da9068b9d37626c3970838}} 
+int {\bfseries limit\+Selected\+List} = 3
+\item 
+\mbox{\Hypertarget{class_selection_control_ab7311557ef2c9005f364e56f05dafb71}\label{class_selection_control_ab7311557ef2c9005f364e56f05dafb71}} 
+float {\bfseries axis\+Sensibity} = 4f
+\item 
+\mbox{\Hypertarget{class_selection_control_a55cfc233f1c1b59b942e5214b2700982}\label{class_selection_control_a55cfc233f1c1b59b942e5214b2700982}} 
+float {\bfseries axis\+Sensibity\+Reduction} = 1f
+\item 
+\mbox{\Hypertarget{class_selection_control_a8a791541efa5835991e827d607f31bde}\label{class_selection_control_a8a791541efa5835991e827d607f31bde}} 
+float {\bfseries rotation\+Sensibity} = 4f
+\item 
+\mbox{\Hypertarget{class_selection_control_ab9e62bdf4cd95d797fe86a3aab18fb79}\label{class_selection_control_ab9e62bdf4cd95d797fe86a3aab18fb79}} 
+Game\+Object {\bfseries inner\+Target}
+\item 
+\mbox{\Hypertarget{class_selection_control_ab4b3742c71f492fe3b364bdb57684810}\label{class_selection_control_ab4b3742c71f492fe3b364bdb57684810}} 
+Transform {\bfseries cam}
+\item 
+\mbox{\Hypertarget{class_selection_control_a5d71202bcab3b91730c9e775c73a96a9}\label{class_selection_control_a5d71202bcab3b91730c9e775c73a96a9}} 
+\mbox{\hyperlink{class_i_k}{IK}} {\bfseries robot}
 \end{DoxyCompactItemize}
 
 

@@ -17,8 +17,10 @@ public class CameraControl : MonoBehaviour {
     private float pitch = 0.0f;
 
     private float rotationSensibity = 4f;
-    private float zoomSensivity = 50f;    
+    private float zoomSensibity = 50f;    
+    private float zoomSensibityReduction = 1f;    
     private float movementSensibity = 5f;
+    private float movementSensibityReduction = 1f;
 
     private bool isProcessing = false;
 
@@ -48,16 +50,16 @@ public class CameraControl : MonoBehaviour {
         // Camera zoom
         if (Input.GetAxis("Mouse ScrollWheel") != 0f)
         {
-            cam.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel") * zoomSensivity));
+            cam.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel") * zoomSensibityReduction * zoomSensibity));
         }
 
         // Mouse middle button
         // Camera movement
         if (Input.GetMouseButton(2))
         {
-            cam.Translate(new Vector3(-movementSensibity * Input.GetAxis("Mouse X"), -movementSensibity * Input.GetAxis("Mouse Y"), 0f));
+            cam.Translate(new Vector3(movementSensibityReduction * -movementSensibity * Input.GetAxis("Mouse X"),
+                movementSensibityReduction * -movementSensibity * Input.GetAxis("Mouse Y"), 0f));
         }
-
     }
 
     public void SetRotation(float value)
@@ -72,11 +74,21 @@ public class CameraControl : MonoBehaviour {
 
     public void SetZoom(float value)
     {
-        zoomSensivity = value;
+        zoomSensibity = value;
     }
 
     public void SetIsProcessing(bool value)
     {
         isProcessing = value;
+    }
+
+    public void SetMovementSensibilityReduction(float value)
+    {
+        movementSensibityReduction = value;
+    }
+
+    public void SetZoomSensibilityReduction(float value)
+    {
+        zoomSensibityReduction = value;
     }
 }

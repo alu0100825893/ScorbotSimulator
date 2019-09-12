@@ -6,16 +6,16 @@ using System.Xml.Linq;
 using System.Linq;
 using System.Text;
 using CommandTerminal;
+using System;
 
 public class Controller : MonoBehaviour {
 
+    //Gameobjects vinculado a la Conexión, Terminal y GameController
     public GameObject Terminal;
     public GameObject Connection;
     public GameObject GameC;
-
     private Terminal Term;
     private SerialController Conexion;
-
     private TargetControl TargetControl;
     private CommandControl CommandControl;
     private IK Robot;
@@ -23,17 +23,20 @@ public class Controller : MonoBehaviour {
     private bool Data;
 
     int Count_Command_Data;
-    Vector3 xyz;
-    Transform target;
+    Vector3 XYZ;
+    float P;
+    float R;
+    Transform Target;
+    Transform Target2;
 
-    private struct Command
+    public struct Command
     {
         public string name;
         public List<string> arguments;
         public List<string> description;
     }
 
-    private List<Command> ListOfCommand = new List<Command>();
+    public List<Command> ListOfCommand = new List<Command>();
 
     // Use this for initialization
     void Start() {
@@ -47,13 +50,13 @@ public class Controller : MonoBehaviour {
         Count_Command_Data = 0;
     }
 
-    public void Online_Offline(bool T)
+    public bool Online_Offline(bool T)
     {
         Online = T;
         if (T)
-            Connection.GetComponent<SerialController>().Open_Port();
+            return Connection.GetComponent<SerialController>().Open_Port();
         else
-            Connection.GetComponent<SerialController>().Close_Port();
+            return Connection.GetComponent<SerialController>().Close_Port();
     }
 
     public bool IsOnline()
@@ -130,6 +133,16 @@ public class Controller : MonoBehaviour {
         return Connection.GetComponent<SerialController>().WriteToControllerTeach(point, xyzpr);
     }
 
+    public bool RunCommandUITeachr(string point, string point2, List<float> xyzpr)
+    {
+        return Connection.GetComponent<SerialController>().WriteToControllerTeachr(point, point2, xyzpr);
+    }
+
+    public bool RunCommandUIShiftc(string point, string eje, string value)
+    {
+        return Connection.GetComponent<SerialController>().WriteToControllerShiftc(point, eje, value);
+    }
+
     public List<string[]> RunCommandListpvOnline(string point)
     {
         return Connection.GetComponent<SerialController>().WriteToControllerListpv(point);
@@ -137,94 +150,224 @@ public class Controller : MonoBehaviour {
 
     public void RunCommandOffline(string line_command)
     {
-        string[] ListCommandLine = line_command.Split(' ');
+        Term.Input = false;
+        Term.Input_text = false;
+        bool help = false;
+        int value;
+        bool isNumeric;
 
-        if (Count_Command_Data !=0 && Count_Command_Data < 6)
+        if (Count_Command_Data >= 1 && Count_Command_Data < 6)
         {
-            int n;
-            bool isNumeric = int.TryParse(line_command, out n);
+            this.Teach(line_command);
+        }
 
-            if (isNumeric)
+        else
+        {
+            Term.History.Push(line_command);
+            Term.Log(TerminalLogType.Command, "{0}", line_command);
+
+            string[] ListCommandLine = line_command.Split(' ');
+            if (ListCommandLine.Count() > 1)
             {
-                Term.Log_End(TerminalLogType.Log, "{0}", line_command);
-                Term.Log(TerminalLogType.Log, "{0}", "[" + target.position.x + "]");
-                Count_Command_Data++;
-                Term.Input_Text(true);
-
+                if (ListCommandLine[1].ToLower().Equals("-h"))
+                {
+                    Help(ListCommandLine[0].ToLower());
+                    Term.Input_View(true);
+                    help = true;
+                }
+                else
+                    Target = TargetControl.GetTarget(ListCommandLine[1]);
             }
 
-           CommandControl.Teach(Robot, TargetControl.GetTarget(ListCommandLine[1]),
-           target.position, target.GetComponent<TargetModel>().GetPitch(),
-           target.GetComponent<TargetModel>().GetRoll());
+            if (!help)
+            {
+                switch (ListCommandLine[0].ToLower())
+                {
+                    case "home":
+                        CommandControl.Home(Robot);
+                        break;
+                    case "move":
+                        if (Target == null)
+                            Term.Log(TerminalLogType.Warning, "{0}", "Punto no creado");
+                        else
+                            CommandControl.Move(Robot, Target);
+                        Term.Input_View(true);
+                        break;
+                    case "movel":
+                        if (Target == null)
+                            Term.Log(TerminalLogType.Warning, "{0}", "Punto no creado");
+                        else
+                            CommandControl.MoveL(Robot, Target);
+                        Term.Input_View(true);
+                        break;
+                    case "movec":
+                        Target2 = TargetControl.GetTarget(ListCommandLine[2]);
+                        if (Target == null || Target2 == null)
+                            Term.Log(TerminalLogType.Warning, "{0}", "Punto no creado");
+                        else
+                            CommandControl.MoveC(Robot, Target, Target2);
+                        Term.Input_View(true);
+                        break;
+                    case "teach":
+                        if (Target == null)
+                            Term.Log(TerminalLogType.Warning, "{0}", "Punto no creado");
+                        else
+                        {
+                            XYZ = Target.GetComponent<TargetModel>().GetPositionInScorbot();
+                            float truncated = (float)(Math.Truncate((double)XYZ.x * 100.0) / 100.0);
+                            Term.Log(TerminalLogType.Log, "{0}", "       X -- [" + truncated + "]");
+                            Count_Command_Data++;
+                            Term.Input_Text(true);
+                        }
+                        break;
+                    case "here":
+                        if (Target == null)
+                            Term.Log(TerminalLogType.Warning, "{0}", "Punto no creado");
+                        else
+                            CommandControl.Here(Robot, Target);
+                        Term.Input_View(true);
+                        break;
+                    case "teachr":
+                        Target2 = TargetControl.GetTarget(ListCommandLine[2]);
+                        if (Target == null || Target2 == null)
+                            Term.Log(TerminalLogType.Warning, "{0}", "Punto no creado");
+                        else
+                        {
+                            float truncated = (float)(Math.Truncate((double)Target.position.x * 100.0) / 100.0);
+                            Term.Log(TerminalLogType.Log, "{0}", "       X -- [" + truncated + "]");
+                            Count_Command_Data++;
+                            Term.Input_Text(true);
+                        }
+                        break;
+                    case "speed":
+                        //0-100
+                        isNumeric = int.TryParse(ListCommandLine[1], out value);
+                        if (isNumeric)
+                            CommandControl.Speed(Robot, value);
+                        Term.Input_View(true);
+                        break;
+                    case "speedl":
+                        //0-300
+                        isNumeric = int.TryParse(ListCommandLine[1], out value);
+                        if (isNumeric)
+                            CommandControl.SpeedL(Robot, value);
+                        Term.Input_View(true);
+                        break;
+                    case "shiftc":
+                        if (ListCommandLine.Count() == 5)
+                            Term.Log(TerminalLogType.Warning, "{0}", "Comando mal escrito");
+                        else if (Target == null)
+                            Term.Log(TerminalLogType.Warning, "{0}", "Punto no creado");
+                        else {
+                            isNumeric = int.TryParse(ListCommandLine[3], out value);
+                            float valueFloat;
+                            bool isFloat = float.TryParse(ListCommandLine[4], out valueFloat);
+                            if (isNumeric && isFloat && (value >=0) && (value <= 4))
+                                CommandControl.Shiftc(Robot, Target, value, valueFloat);
+                            else
+                            {
+                                if(isNumeric)
+                                    Term.Log(TerminalLogType.Warning, "{0}", "Valor no permitido");
+                                else
+                                    Term.Log(TerminalLogType.Warning, "{0}", "Eje no permitido");
+                            }
+                        }
+                        Term.Input_View(true);
+                        break;
+                    case "help":
+                        Help();
+                        Term.Input_View(true);
+                        break;
+                    case "clear":
+                        Term.Buffer.Clear();
+                        Term.Input_View(true);
+                        break;
+                    default:
+                        Term.Log(TerminalLogType.Warning, "{0}", "Comando mal escrito");
+                        Term.Input_View(true);
+                        break;
+                }
+            }
         }
-
-        switch (ListCommandLine[0].ToLower())
-        {
-            case "home":
-                CommandControl.Home(Robot);
-                break;
-            case "move":
-                CommandControl.Move(Robot, TargetControl.GetTarget(ListCommandLine[1]));
-                break;
-            case "movel":
-                CommandControl.MoveL(Robot, TargetControl.GetTarget(ListCommandLine[1]));
-                break;
-            case "movec":
-                if (TargetControl.Count() <= 1)
-                    return;
-                CommandControl.MoveC(Robot, TargetControl.GetTarget(ListCommandLine[1]),
-                    TargetControl.GetTarget(ListCommandLine[2]));
-                break;
-            case "teach":
-
-                break;
-            case "here":
-                if (TargetControl.Count() <= 0)
-                    return;
-                CommandControl.Here(Robot, TargetControl.GetTarget(ListCommandLine[1]));
-                break;
-            case "defp":
-                break;
-            case "teachr":
-                break;
-            case "speed":
-
-                break;
-            case "speedl":
-                break;
-            case "shiftc":
-
-                break;
-            case "jaw":
-                break;
-            case "profile":
-
-                break;
-            case "moves":
-                break;
-            case "help":
-                break;
-            default:
-                break;
-        }
-        //Terminal.GetComponent<Terminal>().Input_View(true);
-
+        help = false;
     }
 
     private void Teach(string line_command)
     {
-        string[] ListCommandLine = line_command.Split(' ');
-       
+        float value, truncated;
+        bool isNumeric = float.TryParse(line_command, out value);
 
-        target = TargetControl.GetTarget(ListCommandLine[1]);
-        if (target == null)
-            Term.Log(TerminalLogType.Warning, "{0}", "Punto no creado");
+        if (isNumeric)
+        {
+            if (Count_Command_Data == 1)
+            {
+                XYZ.x = value;
+                truncated = (float)(Math.Truncate((double)XYZ.y * 100.0) / 100.0);
+                Term.Log_End(TerminalLogType.Log, "{0}", line_command);
+                Term.Log(TerminalLogType.Log, "{0}", "       Y -- [" + truncated + "]");
+                Count_Command_Data++;
+                Term.Input_Text(true);
+            }
+            else if (Count_Command_Data == 2)
+            {
+                XYZ.y = value;
+                truncated = (float)(Math.Truncate((double)XYZ.z * 100.0) / 100.0);
+                Term.Log_End(TerminalLogType.Log, "{0}", line_command);
+                Term.Log(TerminalLogType.Log, "{0}", "       Z -- [" + truncated + "]");
+                Count_Command_Data++;
+                Term.Input_Text(true);
+            }
+            else if (Count_Command_Data == 3)
+            {
+                XYZ.z = value;
+                truncated = (float)(Math.Truncate((double)Target.GetComponent<TargetModel>().GetPitch() * 100.0) / 100.0);
+                Term.Log_End(TerminalLogType.Log, "{0}", line_command);
+                Term.Log(TerminalLogType.Log, "{0}", "       P -- [" + truncated + "]");
+                Count_Command_Data++;
+                Term.Input_Text(true);
+            }
+            else if (Count_Command_Data == 4)
+            {
+                P = value;
+                truncated = (float)(Math.Truncate((double)Target.GetComponent<TargetModel>().GetRoll() * 100.0) / 100.0);
+                Term.Log_End(TerminalLogType.Log, "{0}", line_command);
+                Term.Log(TerminalLogType.Log, "{0}", "       R -- [" + truncated + "]");
+                Count_Command_Data++;
+                Term.Input_Text(true);
+            }
+            else if (Count_Command_Data == 5)
+            {
+                R = value;
+                Term.Log_End(TerminalLogType.Log, "{0}", line_command);
+                if(Target2 == null)
+                    CommandControl.Teach(Robot, Target, XYZ, P, R);
+                else
+                    CommandControl.TeachR(Robot, Target, Target2, XYZ, P, R);
+                Count_Command_Data = 0;
+                Term.Input_View(true);
+            }
+        }
+
         else
         {
-            Term.Log(TerminalLogType.Log, "{0}", "[" + target.position.x + "]");
-            Count_Command_Data++;
             Term.Input_Text(true);
         }
+    }
+
+    private void Help()
+    {
+        foreach (var item in ListOfCommand)
+            Term.Log(TerminalLogType.Log, "{0}", item.name);
+    }
+
+    private void Help(string line_command)
+    {
+        Command Comando = ListOfCommand.Where(c => c.name.ToLower().Equals(line_command.ToLower())).FirstOrDefault();
+        for (int i = 0; i < Comando.arguments.Count; i++)
+        {
+            Term.Log(TerminalLogType.Log, "     {0} {1}", Comando.arguments[i], Comando.description[i]);
+        }
+
     }
 
     private void Load_Command()

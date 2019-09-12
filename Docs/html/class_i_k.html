@@ -63,6 +63,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pri-methods">Métodos privados</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
 <a href="class_i_k-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia de la Clase IK</div>  </div>
@@ -125,6 +127,87 @@ Transform&#160;</td><td class="memItemRight" valign="bottom"><b>GetE</b> ()</td>
 <tr class="memitem:a265ad7e93d155fb6183a60baa8d97b4d"><td class="memItemLeft" align="right" valign="top"><a id="a265ad7e93d155fb6183a60baa8d97b4d"></a>
 Vector3&#160;</td><td class="memItemRight" valign="bottom"><b>GetPosFromCounts</b> (List&lt; int &gt; counts)</td></tr>
 <tr class="separator:a265ad7e93d155fb6183a60baa8d97b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:a05da0dc2c3eceb11d7ba35f85fddcc96"><td class="memItemLeft" align="right" valign="top"><a id="a05da0dc2c3eceb11d7ba35f85fddcc96"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
+<tr class="separator:a05da0dc2c3eceb11d7ba35f85fddcc96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8b06629bd9e65d3bb9c54bd62342627"><td class="memItemLeft" align="right" valign="top"><a id="aa8b06629bd9e65d3bb9c54bd62342627"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+<tr class="separator:aa8b06629bd9e65d3bb9c54bd62342627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeaf9f9885b691b88c424c0b67d18608"><td class="memItemLeft" align="right" valign="top"><a id="afeaf9f9885b691b88c424c0b67d18608"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>OnDrawGizmos</b> ()</td></tr>
+<tr class="separator:afeaf9f9885b691b88c424c0b67d18608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a013718309a8051f89d0865803f2d54e6"><td class="memItemLeft" align="right" valign="top"><a id="a013718309a8051f89d0865803f2d54e6"></a>
+IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><b>CCDAlgMulti</b> (<a class="el" href="class_articulation.html">Articulation</a>[] articulations, Transform[] trayectory, Transform E, bool speedDegrees=false)</td></tr>
+<tr class="separator:a013718309a8051f89d0865803f2d54e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad35cf24eca8cdf6e91e9b7d0c7c4337a"><td class="memItemLeft" align="right" valign="top"><a id="ad35cf24eca8cdf6e91e9b7d0c7c4337a"></a>
+IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><b>IKAlg</b> (<a class="el" href="class_articulation.html">Articulation</a>[] articulations, Transform D, Transform E, bool speedDegrees=true)</td></tr>
+<tr class="separator:ad35cf24eca8cdf6e91e9b7d0c7c4337a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc0847eff1049646f1c299debeccde27"><td class="memItemLeft" align="right" valign="top"><a id="afc0847eff1049646f1c299debeccde27"></a>
+IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><b>MoveCoroutive</b> (Coroutine[] moves)</td></tr>
+<tr class="separator:afc0847eff1049646f1c299debeccde27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40cdb9bf2fd32e436a1a6f012915f9d8"><td class="memItemLeft" align="right" valign="top"><a id="a40cdb9bf2fd32e436a1a6f012915f9d8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AlgCDD</b> (<a class="el" href="class_articulation.html">Articulation</a>[] articulations, Transform D, Transform E, bool skipPitch=false)</td></tr>
+<tr class="separator:a40cdb9bf2fd32e436a1a6f012915f9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad01a8072ea1add2840e26847b21bb7ff"><td class="memItemLeft" align="right" valign="top"><a id="ad01a8072ea1add2840e26847b21bb7ff"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>CalculateTimeSpeed</b> (<a class="el" href="class_articulation.html">Articulation</a>[] startArt, List&lt; Vector3 &gt; endAngles)</td></tr>
+<tr class="separator:ad01a8072ea1add2840e26847b21bb7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab99eedabf9fd4e61a273142356272e0f"><td class="memItemLeft" align="right" valign="top"><a id="ab99eedabf9fd4e61a273142356272e0f"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>CalculateTimeSpeedL</b> (Vector3 startPoint, Vector3 endPoint, float speedMillimeter)</td></tr>
+<tr class="separator:ab99eedabf9fd4e61a273142356272e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a636e3f7944553bdc2b420d5906d719e6"><td class="memItemLeft" align="right" valign="top"><a id="a636e3f7944553bdc2b420d5906d719e6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CCD</b> (<a class="el" href="class_articulation.html">Articulation</a>[] articulations, Transform D, Transform E, <a class="el" href="class_articulation.html">Articulation</a> R)</td></tr>
+<tr class="separator:a636e3f7944553bdc2b420d5906d719e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a807e9ada54f7e21856b11ec1f288970e"><td class="memItemLeft" align="right" valign="top"><a id="a807e9ada54f7e21856b11ec1f288970e"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>CalculateAngle</b> (Vector3 end, Vector3 start, string plane)</td></tr>
+<tr class="separator:a807e9ada54f7e21856b11ec1f288970e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39c773afffbbc08a778a6a6ded4ebe9f"><td class="memItemLeft" align="right" valign="top"><a id="a39c773afffbbc08a778a6a6ded4ebe9f"></a>
+Vector3&#160;</td><td class="memItemRight" valign="bottom"><b>GetLocalPosition</b> (Transform obj, Transform origin)</td></tr>
+<tr class="separator:a39c773afffbbc08a778a6a6ded4ebe9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b4370a0f1ee8b6b558c1f0b66997e01"><td class="memItemLeft" align="right" valign="top"><a id="a8b4370a0f1ee8b6b558c1f0b66997e01"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetAnglesCopyZero</b> ()</td></tr>
+<tr class="separator:a8b4370a0f1ee8b6b558c1f0b66997e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37830992ab0d16482aa1cd55f7f0fa38"><td class="memItemLeft" align="right" valign="top"><a id="a37830992ab0d16482aa1cd55f7f0fa38"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetAnglesCopyHome</b> ()</td></tr>
+<tr class="separator:a37830992ab0d16482aa1cd55f7f0fa38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:adcd01966b5a64adc0a00bc71d93f20f5"><td class="memItemLeft" align="right" valign="top"><a id="adcd01966b5a64adc0a00bc71d93f20f5"></a>
+<a class="el" href="class_scorbot_model.html">ScorbotModel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>scorbotModel</b></td></tr>
+<tr class="separator:adcd01966b5a64adc0a00bc71d93f20f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeda196da26592113cfbeb37ce08c98e0"><td class="memItemLeft" align="right" valign="top"><a id="aeda196da26592113cfbeb37ce08c98e0"></a>
+Transform&#160;</td><td class="memItemRight" valign="bottom"><b>D</b></td></tr>
+<tr class="separator:aeda196da26592113cfbeb37ce08c98e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfcf0b83294daebc45f90599cefa6229"><td class="memItemLeft" align="right" valign="top"><a id="abfcf0b83294daebc45f90599cefa6229"></a>
+Transform&#160;</td><td class="memItemRight" valign="bottom"><b>E</b></td></tr>
+<tr class="separator:abfcf0b83294daebc45f90599cefa6229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57627b5cca74a00c64e634a594ce1771"><td class="memItemLeft" align="right" valign="top"><a id="a57627b5cca74a00c64e634a594ce1771"></a>
+<a class="el" href="class_articulation.html">Articulation</a> []&#160;</td><td class="memItemRight" valign="bottom"><b>articulations</b></td></tr>
+<tr class="separator:a57627b5cca74a00c64e634a594ce1771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04cbf786c36a2dd4c351004aa368e516"><td class="memItemLeft" align="right" valign="top"><a id="a04cbf786c36a2dd4c351004aa368e516"></a>
+<a class="el" href="class_articulation.html">Articulation</a> []&#160;</td><td class="memItemRight" valign="bottom"><b>art</b></td></tr>
+<tr class="separator:a04cbf786c36a2dd4c351004aa368e516"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03fd580172cd3b0291accbe80a196dc4"><td class="memItemLeft" align="right" valign="top"><a id="a03fd580172cd3b0291accbe80a196dc4"></a>
+Transform&#160;</td><td class="memItemRight" valign="bottom"><b>artE</b></td></tr>
+<tr class="separator:a03fd580172cd3b0291accbe80a196dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c00a388b3d050426ab61e12bf27a273"><td class="memItemLeft" align="right" valign="top"><a id="a0c00a388b3d050426ab61e12bf27a273"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_ITINERATIONS</b> = 1500</td></tr>
+<tr class="separator:a0c00a388b3d050426ab61e12bf27a273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5c8e8a09e081841fce1b05f9011eff2"><td class="memItemLeft" align="right" valign="top"><a id="ae5c8e8a09e081841fce1b05f9011eff2"></a>
+const float&#160;</td><td class="memItemRight" valign="bottom"><b>EPSILON</b> = 0.01f</td></tr>
+<tr class="separator:ae5c8e8a09e081841fce1b05f9011eff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d29f5085328a70671f072635109956e"><td class="memItemLeft" align="right" valign="top"><a id="a2d29f5085328a70671f072635109956e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>stepByStep</b> = false</td></tr>
+<tr class="separator:a2d29f5085328a70671f072635109956e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80d856621b05838051c780a713c57a7a"><td class="memItemLeft" align="right" valign="top"><a id="a80d856621b05838051c780a713c57a7a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProcessing</b> = false</td></tr>
+<tr class="separator:a80d856621b05838051c780a713c57a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ccf13cced2d5f0264321b52d9f1e6a6"><td class="memItemLeft" align="right" valign="top"><a id="a9ccf13cced2d5f0264321b52d9f1e6a6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>speedMillimeter</b> = 50</td></tr>
+<tr class="separator:a9ccf13cced2d5f0264321b52d9f1e6a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>La documentación para esta clase fue generada a partir del siguiente fichero:<ul>
 <li>Scorbot/IK.cs</li>

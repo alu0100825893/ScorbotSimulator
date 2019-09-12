@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['manualcontrolarticulation',['ManualControlArticulation',['../class_game_controller.html#af2f693d76f1b9bf4ff0403802ad44cae',1,'GameController']]]
+  ['dynamicprecision',['DynamicPrecision',['../class_metric_system_control.html#a853f57f47211b8c3a1f48c53ba552a0e',1,'MetricSystemControl']]]
 ];

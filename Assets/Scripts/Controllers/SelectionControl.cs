@@ -14,50 +14,68 @@ using UnityEngine;
  */
 public class SelectionControl : MonoBehaviour {
 
+    // Controllers
     private GameController gameController;
     private StateMessageControl stateMessageControl;
 
-    public GameObject selectedObject;   
+    // Selected object
+    public GameObject selectedObject; 
+    // List of selected objects
     public List<GameObject> selectedList;
     private int limitSelectedList = 3;
-
+    // 
     public bool moveInAxis = false;
 
+    // Sensibility
     private float axisSensibity = 4f;
+    private float axisSensibityReduction = 1f;
     private float rotationSensibity = 4f;
+    // Scorbot inner target
     private GameObject innerTarget;
+    // Camera
     private Transform cam;
+    // Scorbot
     private IK robot;
 
+    // Constants
+    private const int MOUSE_LEFT = 0;
+
     void Start () {
+        // Scorbot inner target
         innerTarget = GetComponent<GameController>().innerTarget;
+        // Camera
         cam = GetComponent<GameController>().cam;
+        // Scorbot
         robot = GetComponent<GameController>().robot;
+        // Controllers
         gameController = GetComponent<GameController>();
         stateMessageControl = GetComponent<StateMessageControl>();
     }
 	
 	void Update () {
-        // Move in axis      
-        // TODO: Move with mouse paralelly 
+        // Move in axis         
         if (moveInAxis)
         {
             MoveOrRotate();
-
         }
 
         // Mouse left button (pressed)
         // Select object
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(MOUSE_LEFT))
         {
             Select();
         }
-        if (Input.GetMouseButtonUp(0))
+        // Mouse left button (no pressed)
+        if (Input.GetMouseButtonUp(MOUSE_LEFT))
         {
             moveInAxis = false;
         }
     }
 
+    /**
+     * 
+     * @return void
+     */
     private void Select()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -177,24 +195,28 @@ public class SelectionControl : MonoBehaviour {
                 float angle = Vector3.Angle(cam.right, parent.right);
                 
                 if (angle < 90f)
-                    parent.Translate(new Vector3(axisSensibity * Input.GetAxis("Mouse X"), 0f, 0f));
+                    parent.Translate(new Vector3(axisSensibityReduction * axisSensibity * 
+                        Input.GetAxis("Mouse X"), 0f, 0f));
                 else
-                    parent.Translate(new Vector3(-axisSensibity * Input.GetAxis("Mouse X"), 0f, 0f));
-
+                    parent.Translate(new Vector3(axisSensibityReduction * -axisSensibity * 
+                        Input.GetAxis("Mouse X"), 0f, 0f));
             }
 
             if (selectedObject.tag.Contains("Y"))
             {
-                parent.Translate(new Vector3(0f, axisSensibity * Input.GetAxis("Mouse Y"), 0f));
+                parent.Translate(new Vector3(0f, axisSensibityReduction * axisSensibity * 
+                    Input.GetAxis("Mouse Y"), 0f));
             }
 
             if (selectedObject.tag.Contains("Z"))
             {
                 float angle = Vector3.Angle(cam.right, parent.forward);
                 if (angle < 90f)
-                    parent.Translate(new Vector3(0f, 0f, axisSensibity * Input.GetAxis("Mouse X")));
+                    parent.Translate(new Vector3(0f, 0f, axisSensibityReduction * axisSensibity * 
+                        Input.GetAxis("Mouse X")));
                 else
-                    parent.Translate(new Vector3(0f, 0f, -axisSensibity * Input.GetAxis("Mouse X")));
+                    parent.Translate(new Vector3(0f, 0f, axisSensibityReduction  * -axisSensibity * 
+                        Input.GetAxis("Mouse X")));
             }
 
             // Target moved. Invalid angles
@@ -327,5 +349,10 @@ public class SelectionControl : MonoBehaviour {
     public void SetRotation(float value)
     {
         rotationSensibity = value;
+    }
+
+    public void SetAxisSensibilityReduction(float value)
+    {
+        axisSensibityReduction = value;
     }
 }

@@ -64,6 +64,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Métodos públicos</a> &#124;
 <a href="#pub-attribs">Atributos públicos</a> &#124;
+<a href="#pri-methods">Métodos privados</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
 <a href="class_selection_control-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia de la Clase SelectionControl</div>  </div>
@@ -93,6 +95,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetAxis</b> (float va
 <tr class="memitem:ae30e28c63db233cb7a7b9d71174c2846"><td class="memItemLeft" align="right" valign="top"><a id="ae30e28c63db233cb7a7b9d71174c2846"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetRotation</b> (float value)</td></tr>
 <tr class="separator:ae30e28c63db233cb7a7b9d71174c2846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab62778748bb69e20a9fd3318a3083853"><td class="memItemLeft" align="right" valign="top"><a id="ab62778748bb69e20a9fd3318a3083853"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetAxisSensibilityReduction</b> (float value)</td></tr>
+<tr class="separator:ab62778748bb69e20a9fd3318a3083853"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atributos públicos</h2></td></tr>
@@ -105,6 +110,63 @@ List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>s
 <tr class="memitem:a30385310a008d84dd95762f72dd31fed"><td class="memItemLeft" align="right" valign="top"><a id="a30385310a008d84dd95762f72dd31fed"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>moveInAxis</b> = false</td></tr>
 <tr class="separator:a30385310a008d84dd95762f72dd31fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:a3561fe9fd9a6a8d2c6e4a2f389b6d2dd"><td class="memItemLeft" align="right" valign="top"><a id="a3561fe9fd9a6a8d2c6e4a2f389b6d2dd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
+<tr class="separator:a3561fe9fd9a6a8d2c6e4a2f389b6d2dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad79a2cfc74608733edcd1be0164cc491"><td class="memItemLeft" align="right" valign="top"><a id="ad79a2cfc74608733edcd1be0164cc491"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+<tr class="separator:ad79a2cfc74608733edcd1be0164cc491"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e08e34b6c7bfe54260faeaa29b369c0"><td class="memItemLeft" align="right" valign="top"><a id="a6e08e34b6c7bfe54260faeaa29b369c0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Select</b> ()</td></tr>
+<tr class="separator:a6e08e34b6c7bfe54260faeaa29b369c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41c82620db4b415375d6579c5a0aa17b"><td class="memItemLeft" align="right" valign="top"><a id="a41c82620db4b415375d6579c5a0aa17b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearSelection</b> ()</td></tr>
+<tr class="separator:a41c82620db4b415375d6579c5a0aa17b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0e2d8a1673fab1de51bee6e15d3f872"><td class="memItemLeft" align="right" valign="top"><a id="ae0e2d8a1673fab1de51bee6e15d3f872"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AddSelectedList</b> (GameObject selectedObject)</td></tr>
+<tr class="separator:ae0e2d8a1673fab1de51bee6e15d3f872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9684b6a02a6e31a00c6a87b5e9d29f62"><td class="memItemLeft" align="right" valign="top"><a id="a9684b6a02a6e31a00c6a87b5e9d29f62"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MoveOrRotate</b> ()</td></tr>
+<tr class="separator:a9684b6a02a6e31a00c6a87b5e9d29f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a124591d0f0eac9b99cd9a7cc4f9839c7"><td class="memItemLeft" align="right" valign="top"><a id="a124591d0f0eac9b99cd9a7cc4f9839c7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetActiveRotation</b> (Transform obj, bool active)</td></tr>
+<tr class="separator:a124591d0f0eac9b99cd9a7cc4f9839c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af43fca6b87eee0f60bc8bb79f987d42c"><td class="memItemLeft" align="right" valign="top"><a id="af43fca6b87eee0f60bc8bb79f987d42c"></a>
+GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>SearchTagged</b> (GameObject hitObject)</td></tr>
+<tr class="separator:af43fca6b87eee0f60bc8bb79f987d42c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:ab58ba99d0ac60add2848b5fc809e5c3a"><td class="memItemLeft" align="right" valign="top"><a id="ab58ba99d0ac60add2848b5fc809e5c3a"></a>
+<a class="el" href="class_game_controller.html">GameController</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gameController</b></td></tr>
+<tr class="separator:ab58ba99d0ac60add2848b5fc809e5c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff388d8482e51dd5c41c574548e7a5f1"><td class="memItemLeft" align="right" valign="top"><a id="aff388d8482e51dd5c41c574548e7a5f1"></a>
+<a class="el" href="class_state_message_control.html">StateMessageControl</a>&#160;</td><td class="memItemRight" valign="bottom"><b>stateMessageControl</b></td></tr>
+<tr class="separator:aff388d8482e51dd5c41c574548e7a5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc82727476da9068b9d37626c3970838"><td class="memItemLeft" align="right" valign="top"><a id="acc82727476da9068b9d37626c3970838"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>limitSelectedList</b> = 3</td></tr>
+<tr class="separator:acc82727476da9068b9d37626c3970838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7311557ef2c9005f364e56f05dafb71"><td class="memItemLeft" align="right" valign="top"><a id="ab7311557ef2c9005f364e56f05dafb71"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>axisSensibity</b> = 4f</td></tr>
+<tr class="separator:ab7311557ef2c9005f364e56f05dafb71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55cfc233f1c1b59b942e5214b2700982"><td class="memItemLeft" align="right" valign="top"><a id="a55cfc233f1c1b59b942e5214b2700982"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>axisSensibityReduction</b> = 1f</td></tr>
+<tr class="separator:a55cfc233f1c1b59b942e5214b2700982"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a791541efa5835991e827d607f31bde"><td class="memItemLeft" align="right" valign="top"><a id="a8a791541efa5835991e827d607f31bde"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>rotationSensibity</b> = 4f</td></tr>
+<tr class="separator:a8a791541efa5835991e827d607f31bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9e62bdf4cd95d797fe86a3aab18fb79"><td class="memItemLeft" align="right" valign="top"><a id="ab9e62bdf4cd95d797fe86a3aab18fb79"></a>
+GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>innerTarget</b></td></tr>
+<tr class="separator:ab9e62bdf4cd95d797fe86a3aab18fb79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4b3742c71f492fe3b364bdb57684810"><td class="memItemLeft" align="right" valign="top"><a id="ab4b3742c71f492fe3b364bdb57684810"></a>
+Transform&#160;</td><td class="memItemRight" valign="bottom"><b>cam</b></td></tr>
+<tr class="separator:ab4b3742c71f492fe3b364bdb57684810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d71202bcab3b91730c9e775c73a96a9"><td class="memItemLeft" align="right" valign="top"><a id="a5d71202bcab3b91730c9e775c73a96a9"></a>
+<a class="el" href="class_i_k.html">IK</a>&#160;</td><td class="memItemRight" valign="bottom"><b>robot</b></td></tr>
+<tr class="separator:a5d71202bcab3b91730c9e775c73a96a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
 <div class="textblock"><p>La función principal de este componente es seleccionar elementos de la simulación a través de un historial de elementos seleccionados. Entre estos elementos están las articulaciones del Scorbot, su pinza y las posiciones creadas. A su vez, al seleccionar un elemento pueden aparecer axis o flechas curvadas con las que se pueden interactuar para aplicar un desplazamiento o rotación, respectivamente. </p><dl class="section author"><dt>Autor</dt><dd>Oscar Catari Gutiérrez - E-mail: <a href="#" onclick="location.href='mai'+'lto:'+'osc'+'ar'+'cat'+'ar'+'i@o'+'ut'+'loo'+'k.'+'es'; return false;">oscar<span style="display: none;">.nosp@m.</span>cata<span style="display: none;">.nosp@m.</span>ri@ou<span style="display: none;">.nosp@m.</span>tloo<span style="display: none;">.nosp@m.</span>k.es</a> - Universidad de La Laguna </dd></dl>

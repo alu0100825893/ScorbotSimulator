@@ -6,6 +6,11 @@ Diagrama de herencias de Controller\begin{figure}[H]
 \includegraphics[height=2.000000cm]{class_controller}
 \end{center}
 \end{figure}
+\subsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_controller_1_1_command}{Command}}
+\end{DoxyCompactItemize}
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
@@ -50,6 +55,54 @@ Game\+Object {\bfseries Connection}
 \item 
 \mbox{\Hypertarget{class_controller_a1eb5e590212ea6268156999f313bf76c}\label{class_controller_a1eb5e590212ea6268156999f313bf76c}} 
 Game\+Object {\bfseries GameC}
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_controller_afb3af298c368aea3203c2c0401f92eb5}\label{class_controller_afb3af298c368aea3203c2c0401f92eb5}} 
+void {\bfseries Start} ()
+\item 
+\mbox{\Hypertarget{class_controller_a5451887045a5b5daedd6fb1d0c9c90ae}\label{class_controller_a5451887045a5b5daedd6fb1d0c9c90ae}} 
+void {\bfseries Teach} (string line\+\_\+command)
+\item 
+\mbox{\Hypertarget{class_controller_abafc0ba1c023556d28a3034dca656d21}\label{class_controller_abafc0ba1c023556d28a3034dca656d21}} 
+void {\bfseries Load\+\_\+\+Command} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_controller_aceff4b20397af9f5d93540b9cd7b450a}\label{class_controller_aceff4b20397af9f5d93540b9cd7b450a}} 
+\mbox{\hyperlink{class_command_terminal_1_1_terminal}{Terminal}} {\bfseries Term}
+\item 
+\mbox{\Hypertarget{class_controller_a2d11d60bd4def767d7b4c97a743a1d2f}\label{class_controller_a2d11d60bd4def767d7b4c97a743a1d2f}} 
+\mbox{\hyperlink{class_serial_controller}{Serial\+Controller}} {\bfseries Conexion}
+\item 
+\mbox{\Hypertarget{class_controller_a0b9acebc208179483dd1853b3f285bf2}\label{class_controller_a0b9acebc208179483dd1853b3f285bf2}} 
+\mbox{\hyperlink{class_target_control}{Target\+Control}} {\bfseries Target\+Control}
+\item 
+\mbox{\Hypertarget{class_controller_a7cdb5c0c1303ce30d522aab86ea7647b}\label{class_controller_a7cdb5c0c1303ce30d522aab86ea7647b}} 
+\mbox{\hyperlink{class_command_control}{Command\+Control}} {\bfseries Command\+Control}
+\item 
+\mbox{\Hypertarget{class_controller_ab0c8e0ad9d428ee4d2e5e319ab89a578}\label{class_controller_ab0c8e0ad9d428ee4d2e5e319ab89a578}} 
+\mbox{\hyperlink{class_i_k}{IK}} {\bfseries Robot}
+\item 
+\mbox{\Hypertarget{class_controller_a8cc37c5a29d6e540741ef7142c994450}\label{class_controller_a8cc37c5a29d6e540741ef7142c994450}} 
+bool {\bfseries Online}
+\item 
+\mbox{\Hypertarget{class_controller_a3fb0a56f70db96f6dcfae1973789ada0}\label{class_controller_a3fb0a56f70db96f6dcfae1973789ada0}} 
+bool {\bfseries Data}
+\item 
+\mbox{\Hypertarget{class_controller_a7ef0e63a28bad654d55587785c86de81}\label{class_controller_a7ef0e63a28bad654d55587785c86de81}} 
+int {\bfseries Count\+\_\+\+Command\+\_\+\+Data}
+\item 
+\mbox{\Hypertarget{class_controller_a24003f8c7bc50218a0c2e17665acb7b7}\label{class_controller_a24003f8c7bc50218a0c2e17665acb7b7}} 
+Vector3 {\bfseries xyz}
+\item 
+\mbox{\Hypertarget{class_controller_a2c11604ccc8cd72224555af8af891828}\label{class_controller_a2c11604ccc8cd72224555af8af891828}} 
+Transform {\bfseries target}
+\item 
+\mbox{\Hypertarget{class_controller_ad900dbfae2bb9097caa6aeba1636030c}\label{class_controller_ad900dbfae2bb9097caa6aeba1636030c}} 
+List$<$ \mbox{\hyperlink{struct_controller_1_1_command}{Command}} $>$ {\bfseries List\+Of\+Command} = new List$<$\mbox{\hyperlink{struct_controller_1_1_command}{Command}}$>$()
 \end{DoxyCompactItemize}
 
 

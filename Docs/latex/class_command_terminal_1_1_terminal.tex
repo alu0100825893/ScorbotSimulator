@@ -46,10 +46,154 @@ bool {\bfseries Input}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
 bool {\bfseries Input\+\_\+text}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
 \item 
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_ac767b28d5c7b0e40483af24df404608c}\label{class_command_terminal_1_1_terminal_ac767b28d5c7b0e40483af24df404608c}} 
-\mbox{\hyperlink{class_command_terminal_1_1_command_log}{Command\+Log}} {\bfseries Buffer}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\mbox{\hyperlink{class_command_terminal_1_1_command_log}{Command\+Log}} {\bfseries Buffer}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
 \item 
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_a45a376c35f548d7498be0cbfe395df72}\label{class_command_terminal_1_1_terminal_a45a376c35f548d7498be0cbfe395df72}} 
-\mbox{\hyperlink{class_command_terminal_1_1_command_history}{Command\+History}} {\bfseries History}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\mbox{\hyperlink{class_command_terminal_1_1_command_history}{Command\+History}} {\bfseries History}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a93785fa353916ef82d5233728c769e44}\label{class_command_terminal_1_1_terminal_a93785fa353916ef82d5233728c769e44}} 
+void {\bfseries Start} ()
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a71ba4a542d5050b34b0c922e0705318a}\label{class_command_terminal_1_1_terminal_a71ba4a542d5050b34b0c922e0705318a}} 
+void {\bfseries On\+G\+UI} ()
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a5535073409620f522d137c873ac2d606}\label{class_command_terminal_1_1_terminal_a5535073409620f522d137c873ac2d606}} 
+void {\bfseries Draw\+Console} (int Window2D)
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_af2e577f6a02709082bcbffbb0ece2fda}\label{class_command_terminal_1_1_terminal_af2e577f6a02709082bcbffbb0ece2fda}} 
+void {\bfseries Draw\+Logs} ()
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a30d522b80d08c5b7f7bf713b6ed3a9d2}\label{class_command_terminal_1_1_terminal_a30d522b80d08c5b7f7bf713b6ed3a9d2}} 
+void {\bfseries Draw\+History} (int Window2D)
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_ae238f2c87ee1967903ffe4891eb07c21}\label{class_command_terminal_1_1_terminal_ae238f2c87ee1967903ffe4891eb07c21}} 
+void {\bfseries Enter\+Command} ()
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_afed1278b78ae3fac56dc17d138f6be63}\label{class_command_terminal_1_1_terminal_afed1278b78ae3fac56dc17d138f6be63}} 
+void {\bfseries Complete\+Command} ()
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a570ba2eaebe10e7b5667a3f0fd91ab5c}\label{class_command_terminal_1_1_terminal_a570ba2eaebe10e7b5667a3f0fd91ab5c}} 
+void {\bfseries Cursor\+To\+End} ()
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a8ef7d04200858fe050a95a65200eedda}\label{class_command_terminal_1_1_terminal_a8ef7d04200858fe050a95a65200eedda}} 
+void {\bfseries Setup\+Window} ()
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a891534db49c0bb957ca7b50834169e1a}\label{class_command_terminal_1_1_terminal_a891534db49c0bb957ca7b50834169e1a}} 
+void {\bfseries Setup\+Labels} ()
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a633de8a262954665538e5e16b5abe090}\label{class_command_terminal_1_1_terminal_a633de8a262954665538e5e16b5abe090}} 
+void {\bfseries Setup\+Input} ()
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_aac53b384414abc816aa36523aae089b2}\label{class_command_terminal_1_1_terminal_aac53b384414abc816aa36523aae089b2}} 
+Color {\bfseries Get\+Log\+Color} (Terminal\+Log\+Type type)
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a4b1e8e1cd48d094d5986a345f718fac4}\label{class_command_terminal_1_1_terminal_a4b1e8e1cd48d094d5986a345f718fac4}} 
+int {\bfseries Buffer\+Size} = 512
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_aee5601bc023254a0871f3f328ca233b6}\label{class_command_terminal_1_1_terminal_aee5601bc023254a0871f3f328ca233b6}} 
+Font {\bfseries Console\+Font}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a2ea061edabf6e96ef3eb463a3b61983c}\label{class_command_terminal_1_1_terminal_a2ea061edabf6e96ef3eb463a3b61983c}} 
+string {\bfseries Input\+Caret} = \char`\"{}$>$\char`\"{}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_aa917209ac1c8faaed2e85e798a6805bd}\label{class_command_terminal_1_1_terminal_aa917209ac1c8faaed2e85e798a6805bd}} 
+float {\bfseries Input\+Contrast}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a08b569ce517750d9974d6b95729c5b01}\label{class_command_terminal_1_1_terminal_a08b569ce517750d9974d6b95729c5b01}} 
+float {\bfseries Input\+Alpha} = 0.\+5f
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a76739e160826ab07fbfd5c6ec857c51a}\label{class_command_terminal_1_1_terminal_a76739e160826ab07fbfd5c6ec857c51a}} 
+Color {\bfseries Background\+Color} = Color.\+black
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a8086cdfb3406c8a9859c0ba4c8c5d434}\label{class_command_terminal_1_1_terminal_a8086cdfb3406c8a9859c0ba4c8c5d434}} 
+Color {\bfseries Foreground\+Color} = Color.\+white
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a15801ce3f22a38753947b842a2ea2c2b}\label{class_command_terminal_1_1_terminal_a15801ce3f22a38753947b842a2ea2c2b}} 
+Color {\bfseries Background\+Color\+\_\+\+Border} = Color.\+gray
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a7418337b7236b437b65f922aa9ae2b68}\label{class_command_terminal_1_1_terminal_a7418337b7236b437b65f922aa9ae2b68}} 
+Color {\bfseries Input\+Color} = Color.\+cyan
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_afc26612a2ba2f1bd39e29b3e39383a06}\label{class_command_terminal_1_1_terminal_afc26612a2ba2f1bd39e29b3e39383a06}} 
+Color {\bfseries Warning} = Color.\+red
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a4fe3ca589293af109770cea122851a4a}\label{class_command_terminal_1_1_terminal_a4fe3ca589293af109770cea122851a4a}} 
+Color {\bfseries Success} = Color.\+green
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a483312ad48a0b127ee20b9093a654851}\label{class_command_terminal_1_1_terminal_a483312ad48a0b127ee20b9093a654851}} 
+Rect {\bfseries window}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_abc2bed289e7226157c49a5dcd667250d}\label{class_command_terminal_1_1_terminal_abc2bed289e7226157c49a5dcd667250d}} 
+Rect {\bfseries history}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_aba02f634eed246437f25f154cad88508}\label{class_command_terminal_1_1_terminal_aba02f634eed246437f25f154cad88508}} 
+Text\+Editor {\bfseries editor\+\_\+state}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a350833cc75f8ca0f60d6524d3c657984}\label{class_command_terminal_1_1_terminal_a350833cc75f8ca0f60d6524d3c657984}} 
+string {\bfseries command\+\_\+text}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a897dff41124bb6808cb7627fda4e5b21}\label{class_command_terminal_1_1_terminal_a897dff41124bb6808cb7627fda4e5b21}} 
+bool {\bfseries move\+\_\+cursor}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a0654730a6de14ae2c71ea77126b5bec6}\label{class_command_terminal_1_1_terminal_a0654730a6de14ae2c71ea77126b5bec6}} 
+Vector2 {\bfseries scroll\+\_\+position}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_ae37fa643652da4c6319b80dd68821189}\label{class_command_terminal_1_1_terminal_ae37fa643652da4c6319b80dd68821189}} 
+Vector2 {\bfseries scroll\+\_\+position\+\_\+history}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a6e175b37aa6b4198134a302cb1e3b4ab}\label{class_command_terminal_1_1_terminal_a6e175b37aa6b4198134a302cb1e3b4ab}} 
+G\+U\+I\+Style {\bfseries vertical\+Scrollbar}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a82acce091a03f04c84f8360d984373f5}\label{class_command_terminal_1_1_terminal_a82acce091a03f04c84f8360d984373f5}} 
+G\+U\+I\+Style {\bfseries window\+\_\+style}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a5fae61976b09282118e4b63fba5ae8a0}\label{class_command_terminal_1_1_terminal_a5fae61976b09282118e4b63fba5ae8a0}} 
+G\+U\+I\+Style {\bfseries label\+\_\+style}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a3a8c88225f05affede7c160560c70fe4}\label{class_command_terminal_1_1_terminal_a3a8c88225f05affede7c160560c70fe4}} 
+G\+U\+I\+Style {\bfseries input\+\_\+style}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a9f626f22d627748942f2680b5c30ac8f}\label{class_command_terminal_1_1_terminal_a9f626f22d627748942f2680b5c30ac8f}} 
+Texture2D {\bfseries background\+\_\+texture}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a25fb67f873936e1c05be5ad6319673a9}\label{class_command_terminal_1_1_terminal_a25fb67f873936e1c05be5ad6319673a9}} 
+Texture2D {\bfseries background\+\_\+texture\+\_\+border}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a40250c4d3456a06b3b75c1e68852c6cc}\label{class_command_terminal_1_1_terminal_a40250c4d3456a06b3b75c1e68852c6cc}} 
+Texture2D {\bfseries input\+\_\+background\+\_\+texture}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a63cd0e288bcf5b95213947487295fb55}\label{class_command_terminal_1_1_terminal_a63cd0e288bcf5b95213947487295fb55}} 
+bool {\bfseries control}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a7b172ff526d737c6f33bd60add4e7ab2}\label{class_command_terminal_1_1_terminal_a7b172ff526d737c6f33bd60add4e7ab2}} 
+\mbox{\hyperlink{class_controller}{Controller}} {\bfseries Controller}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_aeff48012c63fcabb3f11fd14fbaa5e05}\label{class_command_terminal_1_1_terminal_aeff48012c63fcabb3f11fd14fbaa5e05}} 
+float {\bfseries clicked} = 0
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a3b713b4366399e9ac9fb5d657fb63d4e}\label{class_command_terminal_1_1_terminal_a3b713b4366399e9ac9fb5d657fb63d4e}} 
+float {\bfseries clicktime} = 0
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a940b570693f3b01880eb8ccde27d4f03}\label{class_command_terminal_1_1_terminal_a940b570693f3b01880eb8ccde27d4f03}} 
+float {\bfseries clickdelay} = 0.\+5f
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_aa7bf0beac241db27f84e14f60833cab9}\label{class_command_terminal_1_1_terminal_aa7bf0beac241db27f84e14f60833cab9}} 
+List$<$ \mbox{\hyperlink{struct_command_terminal_1_1_log_item}{Log\+Item}} $>$ {\bfseries command\+\_\+possible}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a05c65b97846b893a2d7fbccc1bd9a7be}\label{class_command_terminal_1_1_terminal_a05c65b97846b893a2d7fbccc1bd9a7be}} 
+int {\bfseries count\+\_\+tab}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a8da7a3fb5f3d07cf47add7721ac8b726}\label{class_command_terminal_1_1_terminal_a8da7a3fb5f3d07cf47add7721ac8b726}} 
+bool {\bfseries command\+\_\+tab}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a12b5fd7662b00f7585354f0b58d350b5}\label{class_command_terminal_1_1_terminal_a12b5fd7662b00f7585354f0b58d350b5}} 
+int {\bfseries actual\+\_\+cursor}
 \end{DoxyCompactItemize}
 
 

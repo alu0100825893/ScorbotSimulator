@@ -12,15 +12,15 @@ public class SerialController : MonoBehaviour
     private SerialPort serialPort;
     private Thread portReadingThread;
 
+    // Gameobjects vinculado a la Terminal
+    public GameObject T;
+    private Terminal Terminal;
+
     //Configuración del puerto
     private string portName = "COM1";
     private int baudRate = 9600;
     private const int readTimeout = 700;
     private const int writeTimeout = 500;
-
-    // Gameobjects vinculado a la Terminal
-    public GameObject T;
-    private Terminal Terminal;
 
     //Ultimo caracter leido del puerto
     char last_character;
@@ -87,7 +87,7 @@ public class SerialController : MonoBehaviour
     // ------------------------------------------------------------------------
     // Cierra el puerto
     // ------------------------------------------------------------------------
-    public void Close_Port()
+    public bool Close_Port()
     {
         if (serialPort != null)
             serialPort.Close();
@@ -97,6 +97,8 @@ public class SerialController : MonoBehaviour
             portReadingThread.Join();
             portReadingThread.Abort();
         }
+
+        return true;
     }
 
     private void OnDestroy()
@@ -342,6 +344,121 @@ public class SerialController : MonoBehaviour
         }
         Debug.Log(strData.Contains("Done"));
         return strData.Contains("Done");
+    }
+
+    // --------------------------------------------------------------------------------------
+    // Comando teachr 
+    // --------------------------------------------------------------------------------------
+
+    public bool WriteToControllerTeachr(string point, string point2, List<float> xyzpr)
+    {
+        char[] t = ("teachr " + point + " " + point2 + "\r").ToCharArray();
+        bool _looping = true;
+        char u = ' ';
+        string strData = "";
+        int count = 0;
+
+        for (int i = 0; i < t.Length; i++)
+        {
+            serialPort.Write(t, i, 1);
+            while (_looping)
+            {
+                Thread.Sleep(10);
+                try
+                {
+                    u = (char)serialPort.ReadChar();
+                }
+                catch (Exception ex)
+                { }
+
+                if (u == t[i])
+                    _looping = false;
+            }
+            _looping = true;
+        }
+
+        while (_looping)
+        {
+            Thread.Sleep(10);
+            try
+            {
+                u = (char)serialPort.ReadChar();
+
+                if (u == '>')
+                {
+                    if (count < 5)
+                    {
+                        char[] p = (xyzpr[count].ToString("0.000") + "\r").ToCharArray();
+                        serialPort.Write(p, 0, p.Length);
+                        count++;
+                        strData = "";
+                    }
+                    else
+                    {
+                        _looping = false;
+                    }
+
+                }
+                strData += u.ToString();
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+        Debug.Log(strData.Contains("Done"));
+        return strData.Contains("Done");
+    }
+
+    // --------------------------------------------------------------------------------------
+    // Comando shiftc 
+    // --------------------------------------------------------------------------------------
+
+    public bool WriteToControllerShiftc(string point, string eje, string value)
+    {
+        string tmp = "shiftc " + point + "by " + eje + " " + value;
+        char[] t = (tmp + "\r").ToCharArray();
+        tmp = "";
+        bool _looping = true;
+        char u = ' ';
+
+        for (int i = 0; i < t.Length; i++)
+        {
+            serialPort.Write(t, i, 1);
+            while (_looping)
+            {
+                Thread.Sleep(10);
+                try
+                {
+                    u = (char)serialPort.ReadChar();
+                }
+                catch (Exception ex)
+                { }
+
+                if (u == t[i])
+                    _looping = false;
+            }
+            _looping = true;
+        }
+
+        while (_looping)
+        {
+            Thread.Sleep(10);
+            try
+            {
+                u = (char)serialPort.ReadChar();
+
+                if (u == '>')
+                {
+                    _looping = false;
+                }
+                tmp += u.ToString();
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+        Debug.Log(tmp.Contains("Done"));
+        return tmp.Contains("Done");
     }
 
     // --------------------------------------------------------------------------------------

@@ -13,18 +13,20 @@ namespace CommandTerminal
 {
     public class Terminal : MonoBehaviour
     {
+        //Gameobjects vinculado al Controlador, Conexión y el Panel
         public GameObject panel;
         public GameObject Control;
-        public GameObject Connection;
-        public GameObject GameC;
-        
+        private Controller Controller;
+
+        //Configuración de la terminal
         int BufferSize = 512;
         Font ConsoleFont;
         string InputCaret = ">";
-
+        string command_text;
         float InputContrast;
         float InputAlpha = 0.5f;
 
+        //Colores de la terminal y sus letras
         [SerializeField] Color BackgroundColor = Color.black;
         [SerializeField] Color ForegroundColor = Color.white;
         [SerializeField] Color BackgroundColor_Border = Color.gray;
@@ -32,11 +34,10 @@ namespace CommandTerminal
         [SerializeField] Color Warning = Color.red;
         [SerializeField] Color Success = Color.green;
 
+        //Dibujo de la terminal
         Rect window;
         Rect history;
         TextEditor editor_state;
-        string command_text;
-        bool move_cursor;
         Vector2 scroll_position;
         Vector2 scroll_position_history;
         GUIStyle verticalScrollbar;
@@ -47,20 +48,21 @@ namespace CommandTerminal
         Texture2D background_texture_border;
         Texture2D input_background_texture;
 
+        //Introducción de comando o introducción de datos 
         public bool Input { get; set; }
         public bool Input_text { get; set; }
-        private bool control;
-        private Controller Controller;
-
+        
+        //Función doble click
         float clicked = 0;
         float clicktime = 0;
         float clickdelay = 0.5f;
 
-        List<LogItem> command_possible;
+        //Función tabulador
+        List<string> command_possible;
         private int count_tab;
         private bool command_tab;
-        private int actual_cursor;
 
+        //Log y historial
         public CommandLog Buffer { get; private set; }
         public CommandHistory History { get; private set; }
 
@@ -95,7 +97,7 @@ namespace CommandTerminal
             Input = true;
             Input_text = false;
             count_tab = 0;
-            control = true;
+            command_tab = true;
 
             SetupWindow();
             SetupInput();
@@ -119,7 +121,6 @@ namespace CommandTerminal
 
             //Marco
             GUI.DrawTexture(new Rect(x, y, width, height), background_texture_border);
-
 
             //Terminal
             GUI.DrawTexture(new Rect(x+5, y+5, width_terminal - 10, height-10), background_texture);
@@ -160,12 +161,12 @@ namespace CommandTerminal
             {
                 CompleteCommand();
                 Event.current.Use();
-                control = true;
+                command_tab = true;
             }
             else if (Event.current.isKey && Event.current.type == EventType.KeyDown)
             {             
-                    if (control == true)
-                        control = false;
+                    if (command_tab == true)
+                        command_tab = false;
                     else
                         count_tab = -1;
             }
@@ -178,6 +179,7 @@ namespace CommandTerminal
             {
                 GUILayout.BeginHorizontal();
                 GUILayout.Label(InputCaret, input_style, GUILayout.Width(ConsoleFont.fontSize));
+                GUI.SetNextControlName("Text");
                 command_text = GUILayout.TextField(command_text, input_style);
                 GUILayout.EndHorizontal();
             }
@@ -243,7 +245,7 @@ namespace CommandTerminal
                                 clicked = 0;
                                 clicktime = 0;
                                 command_text = log;
-
+                                GUI.FocusControl("Text");
                             }
                             else if (clicked > 2 || Time.time - clicktime > 1)
                                 clicked = 0;
@@ -267,16 +269,20 @@ namespace CommandTerminal
 
         void CompleteCommand()
         {
-            Debug.Log(count_tab);
             string head_text = command_text;
             if (count_tab == -1)
+            {
                 command_possible = Buffer.Find_Log(head_text);
+                string tmp = Controller.ListOfCommand.Find(c => c.name.StartsWith(head_text)).name;
+                if (tmp != null)
+                    command_possible.Add(tmp);
+            }
             count_tab++;
 
             if (count_tab == command_possible.Count)
                 count_tab = 0;
 
-            command_text = command_possible[count_tab].message;
+            command_text = command_possible[count_tab];
         }
 
         void CursorToEnd()

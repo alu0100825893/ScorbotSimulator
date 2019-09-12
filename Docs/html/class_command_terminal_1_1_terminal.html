@@ -69,6 +69,8 @@ $(function() {
 <a href="#pub-methods">Métodos públicos</a> &#124;
 <a href="#pub-attribs">Atributos públicos</a> &#124;
 <a href="#properties">Propiedades</a> &#124;
+<a href="#pri-methods">Métodos privados</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
 <a href="class_command_terminal_1_1_terminal-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia de la Clase CommandTerminal.Terminal</div>  </div>
@@ -120,11 +122,155 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>Input</b><code> [get,
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>Input_text</b><code> [get, set]</code></td></tr>
 <tr class="separator:a5718500e14f3521ba62c1d2db926a1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac767b28d5c7b0e40483af24df404608c"><td class="memItemLeft" align="right" valign="top"><a id="ac767b28d5c7b0e40483af24df404608c"></a>
-<a class="el" href="class_command_terminal_1_1_command_log.html">CommandLog</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Buffer</b><code> [get]</code></td></tr>
+<a class="el" href="class_command_terminal_1_1_command_log.html">CommandLog</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Buffer</b><code> [get, private set]</code></td></tr>
 <tr class="separator:ac767b28d5c7b0e40483af24df404608c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45a376c35f548d7498be0cbfe395df72"><td class="memItemLeft" align="right" valign="top"><a id="a45a376c35f548d7498be0cbfe395df72"></a>
-<a class="el" href="class_command_terminal_1_1_command_history.html">CommandHistory</a>&#160;</td><td class="memItemRight" valign="bottom"><b>History</b><code> [get]</code></td></tr>
+<a class="el" href="class_command_terminal_1_1_command_history.html">CommandHistory</a>&#160;</td><td class="memItemRight" valign="bottom"><b>History</b><code> [get, private set]</code></td></tr>
 <tr class="separator:a45a376c35f548d7498be0cbfe395df72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:a93785fa353916ef82d5233728c769e44"><td class="memItemLeft" align="right" valign="top"><a id="a93785fa353916ef82d5233728c769e44"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
+<tr class="separator:a93785fa353916ef82d5233728c769e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71ba4a542d5050b34b0c922e0705318a"><td class="memItemLeft" align="right" valign="top"><a id="a71ba4a542d5050b34b0c922e0705318a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>OnGUI</b> ()</td></tr>
+<tr class="separator:a71ba4a542d5050b34b0c922e0705318a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5535073409620f522d137c873ac2d606"><td class="memItemLeft" align="right" valign="top"><a id="a5535073409620f522d137c873ac2d606"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawConsole</b> (int Window2D)</td></tr>
+<tr class="separator:a5535073409620f522d137c873ac2d606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2e577f6a02709082bcbffbb0ece2fda"><td class="memItemLeft" align="right" valign="top"><a id="af2e577f6a02709082bcbffbb0ece2fda"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawLogs</b> ()</td></tr>
+<tr class="separator:af2e577f6a02709082bcbffbb0ece2fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30d522b80d08c5b7f7bf713b6ed3a9d2"><td class="memItemLeft" align="right" valign="top"><a id="a30d522b80d08c5b7f7bf713b6ed3a9d2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawHistory</b> (int Window2D)</td></tr>
+<tr class="separator:a30d522b80d08c5b7f7bf713b6ed3a9d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae238f2c87ee1967903ffe4891eb07c21"><td class="memItemLeft" align="right" valign="top"><a id="ae238f2c87ee1967903ffe4891eb07c21"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>EnterCommand</b> ()</td></tr>
+<tr class="separator:ae238f2c87ee1967903ffe4891eb07c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afed1278b78ae3fac56dc17d138f6be63"><td class="memItemLeft" align="right" valign="top"><a id="afed1278b78ae3fac56dc17d138f6be63"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CompleteCommand</b> ()</td></tr>
+<tr class="separator:afed1278b78ae3fac56dc17d138f6be63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a570ba2eaebe10e7b5667a3f0fd91ab5c"><td class="memItemLeft" align="right" valign="top"><a id="a570ba2eaebe10e7b5667a3f0fd91ab5c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CursorToEnd</b> ()</td></tr>
+<tr class="separator:a570ba2eaebe10e7b5667a3f0fd91ab5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ef7d04200858fe050a95a65200eedda"><td class="memItemLeft" align="right" valign="top"><a id="a8ef7d04200858fe050a95a65200eedda"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetupWindow</b> ()</td></tr>
+<tr class="separator:a8ef7d04200858fe050a95a65200eedda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a891534db49c0bb957ca7b50834169e1a"><td class="memItemLeft" align="right" valign="top"><a id="a891534db49c0bb957ca7b50834169e1a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetupLabels</b> ()</td></tr>
+<tr class="separator:a891534db49c0bb957ca7b50834169e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a633de8a262954665538e5e16b5abe090"><td class="memItemLeft" align="right" valign="top"><a id="a633de8a262954665538e5e16b5abe090"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetupInput</b> ()</td></tr>
+<tr class="separator:a633de8a262954665538e5e16b5abe090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac53b384414abc816aa36523aae089b2"><td class="memItemLeft" align="right" valign="top"><a id="aac53b384414abc816aa36523aae089b2"></a>
+Color&#160;</td><td class="memItemRight" valign="bottom"><b>GetLogColor</b> (TerminalLogType type)</td></tr>
+<tr class="separator:aac53b384414abc816aa36523aae089b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:a4b1e8e1cd48d094d5986a345f718fac4"><td class="memItemLeft" align="right" valign="top"><a id="a4b1e8e1cd48d094d5986a345f718fac4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>BufferSize</b> = 512</td></tr>
+<tr class="separator:a4b1e8e1cd48d094d5986a345f718fac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee5601bc023254a0871f3f328ca233b6"><td class="memItemLeft" align="right" valign="top"><a id="aee5601bc023254a0871f3f328ca233b6"></a>
+Font&#160;</td><td class="memItemRight" valign="bottom"><b>ConsoleFont</b></td></tr>
+<tr class="separator:aee5601bc023254a0871f3f328ca233b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ea061edabf6e96ef3eb463a3b61983c"><td class="memItemLeft" align="right" valign="top"><a id="a2ea061edabf6e96ef3eb463a3b61983c"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>InputCaret</b> = &quot;&gt;&quot;</td></tr>
+<tr class="separator:a2ea061edabf6e96ef3eb463a3b61983c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa917209ac1c8faaed2e85e798a6805bd"><td class="memItemLeft" align="right" valign="top"><a id="aa917209ac1c8faaed2e85e798a6805bd"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>InputContrast</b></td></tr>
+<tr class="separator:aa917209ac1c8faaed2e85e798a6805bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08b569ce517750d9974d6b95729c5b01"><td class="memItemLeft" align="right" valign="top"><a id="a08b569ce517750d9974d6b95729c5b01"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>InputAlpha</b> = 0.5f</td></tr>
+<tr class="separator:a08b569ce517750d9974d6b95729c5b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76739e160826ab07fbfd5c6ec857c51a"><td class="memItemLeft" align="right" valign="top"><a id="a76739e160826ab07fbfd5c6ec857c51a"></a>
+Color&#160;</td><td class="memItemRight" valign="bottom"><b>BackgroundColor</b> = Color.black</td></tr>
+<tr class="separator:a76739e160826ab07fbfd5c6ec857c51a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8086cdfb3406c8a9859c0ba4c8c5d434"><td class="memItemLeft" align="right" valign="top"><a id="a8086cdfb3406c8a9859c0ba4c8c5d434"></a>
+Color&#160;</td><td class="memItemRight" valign="bottom"><b>ForegroundColor</b> = Color.white</td></tr>
+<tr class="separator:a8086cdfb3406c8a9859c0ba4c8c5d434"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15801ce3f22a38753947b842a2ea2c2b"><td class="memItemLeft" align="right" valign="top"><a id="a15801ce3f22a38753947b842a2ea2c2b"></a>
+Color&#160;</td><td class="memItemRight" valign="bottom"><b>BackgroundColor_Border</b> = Color.gray</td></tr>
+<tr class="separator:a15801ce3f22a38753947b842a2ea2c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7418337b7236b437b65f922aa9ae2b68"><td class="memItemLeft" align="right" valign="top"><a id="a7418337b7236b437b65f922aa9ae2b68"></a>
+Color&#160;</td><td class="memItemRight" valign="bottom"><b>InputColor</b> = Color.cyan</td></tr>
+<tr class="separator:a7418337b7236b437b65f922aa9ae2b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc26612a2ba2f1bd39e29b3e39383a06"><td class="memItemLeft" align="right" valign="top"><a id="afc26612a2ba2f1bd39e29b3e39383a06"></a>
+Color&#160;</td><td class="memItemRight" valign="bottom"><b>Warning</b> = Color.red</td></tr>
+<tr class="separator:afc26612a2ba2f1bd39e29b3e39383a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fe3ca589293af109770cea122851a4a"><td class="memItemLeft" align="right" valign="top"><a id="a4fe3ca589293af109770cea122851a4a"></a>
+Color&#160;</td><td class="memItemRight" valign="bottom"><b>Success</b> = Color.green</td></tr>
+<tr class="separator:a4fe3ca589293af109770cea122851a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a483312ad48a0b127ee20b9093a654851"><td class="memItemLeft" align="right" valign="top"><a id="a483312ad48a0b127ee20b9093a654851"></a>
+Rect&#160;</td><td class="memItemRight" valign="bottom"><b>window</b></td></tr>
+<tr class="separator:a483312ad48a0b127ee20b9093a654851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc2bed289e7226157c49a5dcd667250d"><td class="memItemLeft" align="right" valign="top"><a id="abc2bed289e7226157c49a5dcd667250d"></a>
+Rect&#160;</td><td class="memItemRight" valign="bottom"><b>history</b></td></tr>
+<tr class="separator:abc2bed289e7226157c49a5dcd667250d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba02f634eed246437f25f154cad88508"><td class="memItemLeft" align="right" valign="top"><a id="aba02f634eed246437f25f154cad88508"></a>
+TextEditor&#160;</td><td class="memItemRight" valign="bottom"><b>editor_state</b></td></tr>
+<tr class="separator:aba02f634eed246437f25f154cad88508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a350833cc75f8ca0f60d6524d3c657984"><td class="memItemLeft" align="right" valign="top"><a id="a350833cc75f8ca0f60d6524d3c657984"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>command_text</b></td></tr>
+<tr class="separator:a350833cc75f8ca0f60d6524d3c657984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a897dff41124bb6808cb7627fda4e5b21"><td class="memItemLeft" align="right" valign="top"><a id="a897dff41124bb6808cb7627fda4e5b21"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>move_cursor</b></td></tr>
+<tr class="separator:a897dff41124bb6808cb7627fda4e5b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0654730a6de14ae2c71ea77126b5bec6"><td class="memItemLeft" align="right" valign="top"><a id="a0654730a6de14ae2c71ea77126b5bec6"></a>
+Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>scroll_position</b></td></tr>
+<tr class="separator:a0654730a6de14ae2c71ea77126b5bec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae37fa643652da4c6319b80dd68821189"><td class="memItemLeft" align="right" valign="top"><a id="ae37fa643652da4c6319b80dd68821189"></a>
+Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>scroll_position_history</b></td></tr>
+<tr class="separator:ae37fa643652da4c6319b80dd68821189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e175b37aa6b4198134a302cb1e3b4ab"><td class="memItemLeft" align="right" valign="top"><a id="a6e175b37aa6b4198134a302cb1e3b4ab"></a>
+GUIStyle&#160;</td><td class="memItemRight" valign="bottom"><b>verticalScrollbar</b></td></tr>
+<tr class="separator:a6e175b37aa6b4198134a302cb1e3b4ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82acce091a03f04c84f8360d984373f5"><td class="memItemLeft" align="right" valign="top"><a id="a82acce091a03f04c84f8360d984373f5"></a>
+GUIStyle&#160;</td><td class="memItemRight" valign="bottom"><b>window_style</b></td></tr>
+<tr class="separator:a82acce091a03f04c84f8360d984373f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fae61976b09282118e4b63fba5ae8a0"><td class="memItemLeft" align="right" valign="top"><a id="a5fae61976b09282118e4b63fba5ae8a0"></a>
+GUIStyle&#160;</td><td class="memItemRight" valign="bottom"><b>label_style</b></td></tr>
+<tr class="separator:a5fae61976b09282118e4b63fba5ae8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a8c88225f05affede7c160560c70fe4"><td class="memItemLeft" align="right" valign="top"><a id="a3a8c88225f05affede7c160560c70fe4"></a>
+GUIStyle&#160;</td><td class="memItemRight" valign="bottom"><b>input_style</b></td></tr>
+<tr class="separator:a3a8c88225f05affede7c160560c70fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f626f22d627748942f2680b5c30ac8f"><td class="memItemLeft" align="right" valign="top"><a id="a9f626f22d627748942f2680b5c30ac8f"></a>
+Texture2D&#160;</td><td class="memItemRight" valign="bottom"><b>background_texture</b></td></tr>
+<tr class="separator:a9f626f22d627748942f2680b5c30ac8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25fb67f873936e1c05be5ad6319673a9"><td class="memItemLeft" align="right" valign="top"><a id="a25fb67f873936e1c05be5ad6319673a9"></a>
+Texture2D&#160;</td><td class="memItemRight" valign="bottom"><b>background_texture_border</b></td></tr>
+<tr class="separator:a25fb67f873936e1c05be5ad6319673a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40250c4d3456a06b3b75c1e68852c6cc"><td class="memItemLeft" align="right" valign="top"><a id="a40250c4d3456a06b3b75c1e68852c6cc"></a>
+Texture2D&#160;</td><td class="memItemRight" valign="bottom"><b>input_background_texture</b></td></tr>
+<tr class="separator:a40250c4d3456a06b3b75c1e68852c6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63cd0e288bcf5b95213947487295fb55"><td class="memItemLeft" align="right" valign="top"><a id="a63cd0e288bcf5b95213947487295fb55"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>control</b></td></tr>
+<tr class="separator:a63cd0e288bcf5b95213947487295fb55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b172ff526d737c6f33bd60add4e7ab2"><td class="memItemLeft" align="right" valign="top"><a id="a7b172ff526d737c6f33bd60add4e7ab2"></a>
+<a class="el" href="class_controller.html">Controller</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Controller</b></td></tr>
+<tr class="separator:a7b172ff526d737c6f33bd60add4e7ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeff48012c63fcabb3f11fd14fbaa5e05"><td class="memItemLeft" align="right" valign="top"><a id="aeff48012c63fcabb3f11fd14fbaa5e05"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>clicked</b> = 0</td></tr>
+<tr class="separator:aeff48012c63fcabb3f11fd14fbaa5e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b713b4366399e9ac9fb5d657fb63d4e"><td class="memItemLeft" align="right" valign="top"><a id="a3b713b4366399e9ac9fb5d657fb63d4e"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>clicktime</b> = 0</td></tr>
+<tr class="separator:a3b713b4366399e9ac9fb5d657fb63d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a940b570693f3b01880eb8ccde27d4f03"><td class="memItemLeft" align="right" valign="top"><a id="a940b570693f3b01880eb8ccde27d4f03"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>clickdelay</b> = 0.5f</td></tr>
+<tr class="separator:a940b570693f3b01880eb8ccde27d4f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7bf0beac241db27f84e14f60833cab9"><td class="memItemLeft" align="right" valign="top"><a id="aa7bf0beac241db27f84e14f60833cab9"></a>
+List&lt; <a class="el" href="struct_command_terminal_1_1_log_item.html">LogItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>command_possible</b></td></tr>
+<tr class="separator:aa7bf0beac241db27f84e14f60833cab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05c65b97846b893a2d7fbccc1bd9a7be"><td class="memItemLeft" align="right" valign="top"><a id="a05c65b97846b893a2d7fbccc1bd9a7be"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>count_tab</b></td></tr>
+<tr class="separator:a05c65b97846b893a2d7fbccc1bd9a7be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8da7a3fb5f3d07cf47add7721ac8b726"><td class="memItemLeft" align="right" valign="top"><a id="a8da7a3fb5f3d07cf47add7721ac8b726"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>command_tab</b></td></tr>
+<tr class="separator:a8da7a3fb5f3d07cf47add7721ac8b726"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12b5fd7662b00f7585354f0b58d350b5"><td class="memItemLeft" align="right" valign="top"><a id="a12b5fd7662b00f7585354f0b58d350b5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>actual_cursor</b></td></tr>
+<tr class="separator:a12b5fd7662b00f7585354f0b58d350b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>La documentación para esta clase fue generada a partir del siguiente fichero:<ul>
 <li>Console/Terminal.cs</li>

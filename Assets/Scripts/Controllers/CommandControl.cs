@@ -397,7 +397,7 @@ public class CommandControl : MonoBehaviour {
         return true;
     }
 
-    // Online. listpv?
+    // Online.
     public bool SyncScorbotToSimulation(IK robot, Transform target)
     {        
         List<String[]> listString = new List<string[]>();

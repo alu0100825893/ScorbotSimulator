@@ -63,6 +63,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pri-methods">Métodos privados</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
 <a href="class_camera_control-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia de la Clase CameraControl</div>  </div>
@@ -89,6 +91,51 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetZoom</b> (float va
 <tr class="memitem:a715690bfd42a136da5b5880debb2e420"><td class="memItemLeft" align="right" valign="top"><a id="a715690bfd42a136da5b5880debb2e420"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetIsProcessing</b> (bool value)</td></tr>
 <tr class="separator:a715690bfd42a136da5b5880debb2e420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3ac3df0eb5347d1f7eb356f4226a696"><td class="memItemLeft" align="right" valign="top"><a id="ab3ac3df0eb5347d1f7eb356f4226a696"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMovementSensibilityReduction</b> (float value)</td></tr>
+<tr class="separator:ab3ac3df0eb5347d1f7eb356f4226a696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77c2147ce9a478e7fbee646fe049aa02"><td class="memItemLeft" align="right" valign="top"><a id="a77c2147ce9a478e7fbee646fe049aa02"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetZoomSensibilityReduction</b> (float value)</td></tr>
+<tr class="separator:a77c2147ce9a478e7fbee646fe049aa02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:af93c098f6ebf3501a41912d88accc1f2"><td class="memItemLeft" align="right" valign="top"><a id="af93c098f6ebf3501a41912d88accc1f2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
+<tr class="separator:af93c098f6ebf3501a41912d88accc1f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad597a309f58a7c0e2f7f8837a22f4707"><td class="memItemLeft" align="right" valign="top"><a id="ad597a309f58a7c0e2f7f8837a22f4707"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+<tr class="separator:ad597a309f58a7c0e2f7f8837a22f4707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:ab1e38892e7de2594973a2689efe7d953"><td class="memItemLeft" align="right" valign="top"><a id="ab1e38892e7de2594973a2689efe7d953"></a>
+Transform&#160;</td><td class="memItemRight" valign="bottom"><b>cam</b></td></tr>
+<tr class="separator:ab1e38892e7de2594973a2689efe7d953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac049ab806525d07e5d8d6e58a319dfb"><td class="memItemLeft" align="right" valign="top"><a id="aac049ab806525d07e5d8d6e58a319dfb"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>yaw</b> = 0.0f</td></tr>
+<tr class="separator:aac049ab806525d07e5d8d6e58a319dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f6c91fee43b7225b4db9ac6ee2a5803"><td class="memItemLeft" align="right" valign="top"><a id="a2f6c91fee43b7225b4db9ac6ee2a5803"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>pitch</b> = 0.0f</td></tr>
+<tr class="separator:a2f6c91fee43b7225b4db9ac6ee2a5803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83ed25c7aa137776336f286aa4ee720f"><td class="memItemLeft" align="right" valign="top"><a id="a83ed25c7aa137776336f286aa4ee720f"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>rotationSensibity</b> = 4f</td></tr>
+<tr class="separator:a83ed25c7aa137776336f286aa4ee720f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a224cd9cb5169e365221e065ee024fa4c"><td class="memItemLeft" align="right" valign="top"><a id="a224cd9cb5169e365221e065ee024fa4c"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>zoomSensibity</b> = 50f</td></tr>
+<tr class="separator:a224cd9cb5169e365221e065ee024fa4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae22afdbb7be97dc34dde89c14454fa49"><td class="memItemLeft" align="right" valign="top"><a id="ae22afdbb7be97dc34dde89c14454fa49"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>zoomSensibityReduction</b> = 1f</td></tr>
+<tr class="separator:ae22afdbb7be97dc34dde89c14454fa49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01ac418e6b400af0cc99fa296cd11f65"><td class="memItemLeft" align="right" valign="top"><a id="a01ac418e6b400af0cc99fa296cd11f65"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>movementSensibity</b> = 5f</td></tr>
+<tr class="separator:a01ac418e6b400af0cc99fa296cd11f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff6a3ff375bdfb784b890c1d3b88744e"><td class="memItemLeft" align="right" valign="top"><a id="aff6a3ff375bdfb784b890c1d3b88744e"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>movementSensibityReduction</b> = 1f</td></tr>
+<tr class="separator:aff6a3ff375bdfb784b890c1d3b88744e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee9c2756bb3068ab9ddade8811ccf4fe"><td class="memItemLeft" align="right" valign="top"><a id="aee9c2756bb3068ab9ddade8811ccf4fe"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProcessing</b> = false</td></tr>
+<tr class="separator:aee9c2756bb3068ab9ddade8811ccf4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
 <div class="textblock"><p>La función principal de este componente es permitir el control de la cámara para hacer posible la navegación en la simulación mediante el ratón. </p><dl class="section author"><dt>Autor</dt><dd>Oscar Catari Gutiérrez - E-mail: <a href="#" onclick="location.href='mai'+'lto:'+'osc'+'ar'+'cat'+'ar'+'i@o'+'ut'+'loo'+'k.'+'es'; return false;">oscar<span style="display: none;">.nosp@m.</span>cata<span style="display: none;">.nosp@m.</span>ri@ou<span style="display: none;">.nosp@m.</span>tloo<span style="display: none;">.nosp@m.</span>k.es</a> - Universidad de La Laguna </dd></dl>

@@ -64,6 +64,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Métodos públicos</a> &#124;
 <a href="#pub-attribs">Atributos públicos</a> &#124;
+<a href="#pri-methods">Métodos privados</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
 <a href="class_serial_controller-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia de la Clase SerialController</div>  </div>
@@ -111,6 +113,51 @@ Atributos públicos</h2></td></tr>
 <tr class="memitem:aad00abcbceab09c819dc5d39bcf7c4b7"><td class="memItemLeft" align="right" valign="top"><a id="aad00abcbceab09c819dc5d39bcf7c4b7"></a>
 GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>T</b></td></tr>
 <tr class="separator:aad00abcbceab09c819dc5d39bcf7c4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:aa7b95b820dcecb35da4063bb7a133f0c"><td class="memItemLeft" align="right" valign="top"><a id="aa7b95b820dcecb35da4063bb7a133f0c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
+<tr class="separator:aa7b95b820dcecb35da4063bb7a133f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae2c02011c1c770ccceea6cef7e36253"><td class="memItemLeft" align="right" valign="top"><a id="aae2c02011c1c770ccceea6cef7e36253"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>OnDestroy</b> ()</td></tr>
+<tr class="separator:aae2c02011c1c770ccceea6cef7e36253"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf82fcc215b931c8ab412e3e91e6023a"><td class="memItemLeft" align="right" valign="top"><a id="abf82fcc215b931c8ab412e3e91e6023a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ReadSerial</b> ()</td></tr>
+<tr class="separator:abf82fcc215b931c8ab412e3e91e6023a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d6e5eecbdad9b447a15f1364b28ab1c"><td class="memItemLeft" align="right" valign="top"><a id="a8d6e5eecbdad9b447a15f1364b28ab1c"></a>
+List&lt; string[]&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadSerialListpv</b> ()</td></tr>
+<tr class="separator:a8d6e5eecbdad9b447a15f1364b28ab1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:ac209acf5fae32ccff498c6d0349f999b"><td class="memItemLeft" align="right" valign="top"><a id="ac209acf5fae32ccff498c6d0349f999b"></a>
+SerialPort&#160;</td><td class="memItemRight" valign="bottom"><b>serialPort</b></td></tr>
+<tr class="separator:ac209acf5fae32ccff498c6d0349f999b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec57f1d1f3dc7cfc4161808fa22bdc0b"><td class="memItemLeft" align="right" valign="top"><a id="aec57f1d1f3dc7cfc4161808fa22bdc0b"></a>
+Thread&#160;</td><td class="memItemRight" valign="bottom"><b>portReadingThread</b></td></tr>
+<tr class="separator:aec57f1d1f3dc7cfc4161808fa22bdc0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd06697d77f9bf30567820f957c5dca6"><td class="memItemLeft" align="right" valign="top"><a id="afd06697d77f9bf30567820f957c5dca6"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>portName</b> = &quot;COM1&quot;</td></tr>
+<tr class="separator:afd06697d77f9bf30567820f957c5dca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96535d826c1065405c906c8a15f332bc"><td class="memItemLeft" align="right" valign="top"><a id="a96535d826c1065405c906c8a15f332bc"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>baudRate</b> = 9600</td></tr>
+<tr class="separator:a96535d826c1065405c906c8a15f332bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c6efb78ecdd810eb56e5162a2d600e8"><td class="memItemLeft" align="right" valign="top"><a id="a7c6efb78ecdd810eb56e5162a2d600e8"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>readTimeout</b> = 700</td></tr>
+<tr class="separator:a7c6efb78ecdd810eb56e5162a2d600e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32bc9e356c0b88b37086b62a2db45c6d"><td class="memItemLeft" align="right" valign="top"><a id="a32bc9e356c0b88b37086b62a2db45c6d"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>writeTimeout</b> = 500</td></tr>
+<tr class="separator:a32bc9e356c0b88b37086b62a2db45c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54863ac160f11e91f47e14a39a9abae7"><td class="memItemLeft" align="right" valign="top"><a id="a54863ac160f11e91f47e14a39a9abae7"></a>
+<a class="el" href="class_command_terminal_1_1_terminal.html">Terminal</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Terminal</b></td></tr>
+<tr class="separator:a54863ac160f11e91f47e14a39a9abae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aef373369fb1951891e369e12432446"><td class="memItemLeft" align="right" valign="top"><a id="a0aef373369fb1951891e369e12432446"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>last_character</b></td></tr>
+<tr class="separator:a0aef373369fb1951891e369e12432446"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a472102a600c33bf8ae06a72878213217"><td class="memItemLeft" align="right" valign="top"><a id="a472102a600c33bf8ae06a72878213217"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>Tipo</b></td></tr>
+<tr class="separator:a472102a600c33bf8ae06a72878213217"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>La documentación para esta clase fue generada a partir del siguiente fichero:<ul>
 <li>Conexion/SerialController.cs</li>

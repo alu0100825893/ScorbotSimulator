@@ -64,6 +64,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Métodos públicos</a> &#124;
 <a href="#pub-attribs">Atributos públicos</a> &#124;
+<a href="#pri-methods">Métodos privados</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
 <a href="class_articulation-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia de la Clase Articulation</div>  </div>
@@ -165,6 +167,57 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>degrees</b></td></tr
 <tr class="memitem:a14c25a5ae970e12d63af0224be518556"><td class="memItemLeft" align="right" valign="top"><a id="a14c25a5ae970e12d63af0224be518556"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>offset</b></td></tr>
 <tr class="separator:a14c25a5ae970e12d63af0224be518556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:aeea905ad3cc4497d1dfac2695835d459"><td class="memItemLeft" align="right" valign="top"><a id="aeea905ad3cc4497d1dfac2695835d459"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>ApplyLimit</b> (float angle, float currentAngle)</td></tr>
+<tr class="separator:aeea905ad3cc4497d1dfac2695835d459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88aec688de1ef2c8b019709865be4383"><td class="memItemLeft" align="right" valign="top"><a id="a88aec688de1ef2c8b019709865be4383"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateCurrentSpeed</b> ()</td></tr>
+<tr class="separator:a88aec688de1ef2c8b019709865be4383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a434d6e06e4387f7b0c3feb445895cfea"><td class="memItemLeft" align="right" valign="top"><a id="a434d6e06e4387f7b0c3feb445895cfea"></a>
+Vector3&#160;</td><td class="memItemRight" valign="bottom"><b>LerpAngleNoShortest</b> (Vector3 startAngle, Vector3 endAngle, float t)</td></tr>
+<tr class="separator:a434d6e06e4387f7b0c3feb445895cfea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17400ddd138629071a5c240bba86c8f2"><td class="memItemLeft" align="right" valign="top"><a id="a17400ddd138629071a5c240bba86c8f2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ApplyCountLimits</b> (int count, int lowerLimitCount, int upperLimitCount)</td></tr>
+<tr class="separator:a17400ddd138629071a5c240bba86c8f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:abd23ea47f7f82fc1137a2a67511ca9bb"><td class="memItemLeft" align="right" valign="top"><a id="abd23ea47f7f82fc1137a2a67511ca9bb"></a>
+Vector3&#160;</td><td class="memItemRight" valign="bottom"><b>angle</b></td></tr>
+<tr class="separator:abd23ea47f7f82fc1137a2a67511ca9bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbe4425e0bfa1964ced48a025a50d326"><td class="memItemLeft" align="right" valign="top"><a id="abbe4425e0bfa1964ced48a025a50d326"></a>
+List&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>limit</b></td></tr>
+<tr class="separator:abbe4425e0bfa1964ced48a025a50d326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87fba785eed8db50cb379536ce7ef168"><td class="memItemLeft" align="right" valign="top"><a id="a87fba785eed8db50cb379536ce7ef168"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>plane</b></td></tr>
+<tr class="separator:a87fba785eed8db50cb379536ce7ef168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dc922cba9a344d7769cf60a33733c79"><td class="memItemLeft" align="right" valign="top"><a id="a1dc922cba9a344d7769cf60a33733c79"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>countsAreTransformed</b> = false</td></tr>
+<tr class="separator:a1dc922cba9a344d7769cf60a33733c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dca73c052d5fbfbf5a86a351f2b38ed"><td class="memItemLeft" align="right" valign="top"><a id="a0dca73c052d5fbfbf5a86a351f2b38ed"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>count</b></td></tr>
+<tr class="separator:a0dca73c052d5fbfbf5a86a351f2b38ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6364c5edba29a5b74a587be7f0b6e320"><td class="memItemLeft" align="right" valign="top"><a id="a6364c5edba29a5b74a587be7f0b6e320"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>countToDegrees</b></td></tr>
+<tr class="separator:a6364c5edba29a5b74a587be7f0b6e320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2cbeae71ddd9f987dae8f6ece7d0b78"><td class="memItemLeft" align="right" valign="top"><a id="ad2cbeae71ddd9f987dae8f6ece7d0b78"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>degreesToCount</b></td></tr>
+<tr class="separator:ad2cbeae71ddd9f987dae8f6ece7d0b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f180a4dd504e1e824b0260195540569"><td class="memItemLeft" align="right" valign="top"><a id="a9f180a4dd504e1e824b0260195540569"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>minSpeed</b></td></tr>
+<tr class="separator:a9f180a4dd504e1e824b0260195540569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64600f7d0fb637860d01de29536ebe20"><td class="memItemLeft" align="right" valign="top"><a id="a64600f7d0fb637860d01de29536ebe20"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>maxSpeed</b></td></tr>
+<tr class="separator:a64600f7d0fb637860d01de29536ebe20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb6ffedc22b45cd27a59c23124227b0e"><td class="memItemLeft" align="right" valign="top"><a id="abb6ffedc22b45cd27a59c23124227b0e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>percSpeed</b> = 50</td></tr>
+<tr class="separator:abb6ffedc22b45cd27a59c23124227b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1522e4342b1ac429b245e84d805d34d8"><td class="memItemLeft" align="right" valign="top"><a id="a1522e4342b1ac429b245e84d805d34d8"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>currentSpeed</b> = 0f</td></tr>
+<tr class="separator:a1522e4342b1ac429b245e84d805d34d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>La documentación para esta clase fue generada a partir del siguiente fichero:<ul>
 <li>Scorbot/Articulation.cs</li>

@@ -63,6 +63,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pri-methods">Métodos privados</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
 <a href="class_command_control-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia de la Clase CommandControl</div>  </div>
@@ -125,6 +127,36 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SpeedL</b> (<a class=
 <tr class="memitem:ada99694b0c348a0256faebab0899333b"><td class="memItemLeft" align="right" valign="top"><a id="ada99694b0c348a0256faebab0899333b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Defp</b> (Transform target)</td></tr>
 <tr class="separator:ada99694b0c348a0256faebab0899333b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:a2a867f63b6c89f2864cac9d7126614d5"><td class="memItemLeft" align="right" valign="top"><a id="a2a867f63b6c89f2864cac9d7126614d5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
+<tr class="separator:a2a867f63b6c89f2864cac9d7126614d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b525d701e0c8d6d57e9c7144aa0df44"><td class="memItemLeft" align="right" valign="top"><a id="a5b525d701e0c8d6d57e9c7144aa0df44"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetIsHereFromSimulation</b> (bool fromSimulation)</td></tr>
+<tr class="separator:a5b525d701e0c8d6d57e9c7144aa0df44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:ab72421d3afbbddc7a15ba11aa15e85d8"><td class="memItemLeft" align="right" valign="top"><a id="ab72421d3afbbddc7a15ba11aa15e85d8"></a>
+<a class="el" href="class_catmull_rom_spline.html">CatmullRomSpline</a>&#160;</td><td class="memItemRight" valign="bottom"><b>spline</b></td></tr>
+<tr class="separator:ab72421d3afbbddc7a15ba11aa15e85d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38700e69a9a434ca92bb4cbf1aef5545"><td class="memItemLeft" align="right" valign="top"><a id="a38700e69a9a434ca92bb4cbf1aef5545"></a>
+<a class="el" href="class_controller.html">Controller</a>&#160;</td><td class="memItemRight" valign="bottom"><b>controller</b></td></tr>
+<tr class="separator:a38700e69a9a434ca92bb4cbf1aef5545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb4378198632f261d94a4b6445de3a7b"><td class="memItemLeft" align="right" valign="top"><a id="abb4378198632f261d94a4b6445de3a7b"></a>
+<a class="el" href="class_game_controller.html">GameController</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gameController</b></td></tr>
+<tr class="separator:abb4378198632f261d94a4b6445de3a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf463ac500d31f872adf3cf235f3facc"><td class="memItemLeft" align="right" valign="top"><a id="acf463ac500d31f872adf3cf235f3facc"></a>
+TextMeshProUGUI&#160;</td><td class="memItemRight" valign="bottom"><b>stateOutput</b></td></tr>
+<tr class="separator:acf463ac500d31f872adf3cf235f3facc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eef363ceb2574b4e0df8d8d21c02b5a"><td class="memItemLeft" align="right" valign="top"><a id="a1eef363ceb2574b4e0df8d8d21c02b5a"></a>
+<a class="el" href="class_state_message_control.html">StateMessageControl</a>&#160;</td><td class="memItemRight" valign="bottom"><b>stateMessageControl</b></td></tr>
+<tr class="separator:a1eef363ceb2574b4e0df8d8d21c02b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66c19bcb9897bf2f13b5f952d3729a90"><td class="memItemLeft" align="right" valign="top"><a id="a66c19bcb9897bf2f13b5f952d3729a90"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isHereFromSimulation</b> = true</td></tr>
+<tr class="separator:a66c19bcb9897bf2f13b5f952d3729a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
 <div class="textblock"><p>La función principal de este componente es definir las tareas a realizar por cada comando y ejecutarlas ya sea en offline u online. La sincronización de posiciones es otra de sus funciones, ya que aunque no es un comando en sí, la sincronización es una sucesión de comandos, por lo que se la trata como una extensión de los comandos. </p><dl class="section author"><dt>Autor</dt><dd>Oscar Catari Gutiérrez - E-mail: <a href="#" onclick="location.href='mai'+'lto:'+'osc'+'ar'+'cat'+'ar'+'i@o'+'ut'+'loo'+'k.'+'es'; return false;">oscar<span style="display: none;">.nosp@m.</span>cata<span style="display: none;">.nosp@m.</span>ri@ou<span style="display: none;">.nosp@m.</span>tloo<span style="display: none;">.nosp@m.</span>k.es</a> - Universidad de La Laguna </dd></dl>

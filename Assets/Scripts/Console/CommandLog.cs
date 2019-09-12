@@ -49,18 +49,21 @@ namespace CommandTerminal
 
             LogItem log = new LogItem()
             {
-                message = (tmp.TrimEnd() + "> " + message),
+                message = (tmp.TrimEnd() + ">" + message),
                 type = type
             };
 
             logs.Add(log);
         }
 
-        public List<LogItem> Find_Log(string command)
+        public List<string> Find_Log(string command)
         {
-            List<LogItem> command_complete = new List<LogItem>();
-
-            command_complete = Logs.Where(log => (log.message).ToString().StartsWith(command)).ToList();
+            List<string> command_complete = new List<string>();
+            var list = Logs.Where(log => (log.message).StartsWith(command));
+            foreach (var item in list)
+            {
+                command_complete.Add(item.message);
+            }
             return command_complete;
         }
 
@@ -72,6 +75,11 @@ namespace CommandTerminal
         public int Size()
         {
             return logs.Count;
+        }
+
+        public void Remove_Last_Element()
+        {
+            logs.RemoveAt(logs.Count - 1);
         }
     }
 }

@@ -32,15 +32,13 @@ public class GameController : MonoBehaviour
     // PLANE:  pos 10 10   scale 2 2 2    pos 99.8 99.8    slace 20 20 20
     // TODO: Error?, record position, can't create several at a time (2 at most) because of size of selection list
 
-
-    // millimeter planes. fix other sides (invisible). fix size of target (dinamic) in close range
     // done? teach dont mantain p 0 and succeed (p 10?).  40 0 80
     // shiftc Test this
     // SYNC // What if a position is unrechable???
     // HERE ERROR
     // Message online offline, validation
     // CONSOLE PIVOT  0 1   panel: DOWN STRETCH Terminal:EXPAND
-    // MetricSystem: FIX scale to .15 and reduce sensibility of positions axises when close
+
 
     /* s
     * RotationAxisControl
@@ -249,7 +247,7 @@ public class GameController : MonoBehaviour
     /**
 	 * Método que permite el control manual del Scorbot mediante teclado.
 	 * @param btn Número de boton
-	 * @return Nada
+	 * @return void
 	 */
     public void ManualControlArticulation(int btn)
     {
@@ -774,7 +772,13 @@ public class GameController : MonoBehaviour
         onlineMode = value == 1f ? true : false;
 
         onlineText.text = onlineMode? "Online" : "Offline";
-        controller.Online_Offline(onlineMode);
+        bool done = controller.Online_Offline(onlineMode);
+        if (!done)
+        {
+            stateMessageControl.WriteMessage("Error. Online ONLINE", done);
+            onlineMode = false;
+
+        }
     }
 
     public bool GetOnlineMode()
