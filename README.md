@@ -1,4 +1,10 @@
-# Simulador de los brazos robóticos Scorbot ER IX y Scorbot ER V 	Plus
+# **Scorbot Simulator**
+### Simulador de los brazos robóticos Scorbot ER IX y Scorbot ER V 	Plus
+
+**Simulador - Interfaz gráfica**: Para ejecutar el programa seguir las instrucciones.
+* Descargar la carpeta _"ScorbotSimulator"_
+* Ejecutar el archivo _"ScorbotSimulator.exe"_
+*  Para empezar pulsar _"Play!_.
 
 **Entorno de desarrollo**:
 * **Sistema operativo:** Windows 10 64 bits
