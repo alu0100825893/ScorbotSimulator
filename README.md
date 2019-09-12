@@ -1,14 +1,14 @@
 # **Scorbot Simulator**
 ### Simulador de los brazos robóticos Scorbot ER IX y Scorbot ER V 	Plus
 
-<div style="display: flex; justify-content: center;">
-
+<p align="center">
 <img style="padding: 2px;" src="Docs/images/2.png" alt="Image 1"
 	title="A cute kitten" width="500"/>
-
-<img style="padding: 2px;" src="Docs/images/19.png" alt="Image 1"
+</p>
+<p align="center">
+<img style="padding: 2px;" src="Docs/images/19.png" alt="Image 2  "
 	title="A cute kitten" width="500"/>
-</div>
+</p>
 
 **Simulador - Interfaz gráfica**: Para ejecutar el programa seguir las instrucciones.
 * Descargar la carpeta _"ScorbotSimulator"_
