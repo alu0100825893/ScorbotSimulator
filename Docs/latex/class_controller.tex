@@ -14,8 +14,8 @@ struct \mbox{\hyperlink{struct_controller_1_1_command}{Command}}
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_controller_ad823d3d6ceeb7aec70100f43d2e94748}\label{class_controller_ad823d3d6ceeb7aec70100f43d2e94748}} 
-void {\bfseries Online\+\_\+\+Offline} (bool T)
+\mbox{\Hypertarget{class_controller_adf43cf5f8f242a3d831f3162aef0d705}\label{class_controller_adf43cf5f8f242a3d831f3162aef0d705}} 
+bool {\bfseries Online\+\_\+\+Offline} (bool T)
 \item 
 \mbox{\Hypertarget{class_controller_afc8517ea3abd9acb92173b55342b320a}\label{class_controller_afc8517ea3abd9acb92173b55342b320a}} 
 bool {\bfseries Is\+Online} ()
@@ -38,6 +38,12 @@ bool {\bfseries Run\+Command\+U\+I\+Online} (string command, string point, strin
 \mbox{\Hypertarget{class_controller_abeae24ba81e6f83fd3c2502981143212}\label{class_controller_abeae24ba81e6f83fd3c2502981143212}} 
 bool {\bfseries Run\+Command\+U\+I\+Teach} (string point, List$<$ float $>$ xyzpr)
 \item 
+\mbox{\Hypertarget{class_controller_a62cb3a2673bf180265a2965bdd3e4cb3}\label{class_controller_a62cb3a2673bf180265a2965bdd3e4cb3}} 
+bool {\bfseries Run\+Command\+U\+I\+Teachr} (string point, string point2, List$<$ float $>$ xyzpr)
+\item 
+\mbox{\Hypertarget{class_controller_a5a7b660e3aebb0220e923c28ede75bc6}\label{class_controller_a5a7b660e3aebb0220e923c28ede75bc6}} 
+bool {\bfseries Run\+Command\+U\+I\+Shiftc} (string point, string eje, string value)
+\item 
 \mbox{\Hypertarget{class_controller_a65282850ef11298e5acd69b9ac61cdca}\label{class_controller_a65282850ef11298e5acd69b9ac61cdca}} 
 List$<$ string\mbox{[}$\,$\mbox{]}$>$ {\bfseries Run\+Command\+Listpv\+Online} (string point)
 \item 
@@ -55,6 +61,9 @@ Game\+Object {\bfseries Connection}
 \item 
 \mbox{\Hypertarget{class_controller_a1eb5e590212ea6268156999f313bf76c}\label{class_controller_a1eb5e590212ea6268156999f313bf76c}} 
 Game\+Object {\bfseries GameC}
+\item 
+\mbox{\Hypertarget{class_controller_ad900dbfae2bb9097caa6aeba1636030c}\label{class_controller_ad900dbfae2bb9097caa6aeba1636030c}} 
+List$<$ \mbox{\hyperlink{struct_controller_1_1_command}{Command}} $>$ {\bfseries List\+Of\+Command} = new List$<$\mbox{\hyperlink{struct_controller_1_1_command}{Command}}$>$()
 \end{DoxyCompactItemize}
 \subsection*{Métodos privados}
 \begin{DoxyCompactItemize}
@@ -64,6 +73,12 @@ void {\bfseries Start} ()
 \item 
 \mbox{\Hypertarget{class_controller_a5451887045a5b5daedd6fb1d0c9c90ae}\label{class_controller_a5451887045a5b5daedd6fb1d0c9c90ae}} 
 void {\bfseries Teach} (string line\+\_\+command)
+\item 
+\mbox{\Hypertarget{class_controller_aec3ce5bf2c2fa1e9a3aba0b9c2475770}\label{class_controller_aec3ce5bf2c2fa1e9a3aba0b9c2475770}} 
+void {\bfseries Help} ()
+\item 
+\mbox{\Hypertarget{class_controller_ab6a32e48c4abe328f741916fbeccb0c5}\label{class_controller_ab6a32e48c4abe328f741916fbeccb0c5}} 
+void {\bfseries Help} (string line\+\_\+command)
 \item 
 \mbox{\Hypertarget{class_controller_abafc0ba1c023556d28a3034dca656d21}\label{class_controller_abafc0ba1c023556d28a3034dca656d21}} 
 void {\bfseries Load\+\_\+\+Command} ()
@@ -95,14 +110,20 @@ bool {\bfseries Data}
 \mbox{\Hypertarget{class_controller_a7ef0e63a28bad654d55587785c86de81}\label{class_controller_a7ef0e63a28bad654d55587785c86de81}} 
 int {\bfseries Count\+\_\+\+Command\+\_\+\+Data}
 \item 
-\mbox{\Hypertarget{class_controller_a24003f8c7bc50218a0c2e17665acb7b7}\label{class_controller_a24003f8c7bc50218a0c2e17665acb7b7}} 
-Vector3 {\bfseries xyz}
+\mbox{\Hypertarget{class_controller_a0fdca594ef5cce610cf696b930e1fb91}\label{class_controller_a0fdca594ef5cce610cf696b930e1fb91}} 
+Vector3 {\bfseries X\+YZ}
 \item 
-\mbox{\Hypertarget{class_controller_a2c11604ccc8cd72224555af8af891828}\label{class_controller_a2c11604ccc8cd72224555af8af891828}} 
-Transform {\bfseries target}
+\mbox{\Hypertarget{class_controller_a9e04412e2e8ebae98859e5aed8b109f6}\label{class_controller_a9e04412e2e8ebae98859e5aed8b109f6}} 
+float {\bfseries P}
 \item 
-\mbox{\Hypertarget{class_controller_ad900dbfae2bb9097caa6aeba1636030c}\label{class_controller_ad900dbfae2bb9097caa6aeba1636030c}} 
-List$<$ \mbox{\hyperlink{struct_controller_1_1_command}{Command}} $>$ {\bfseries List\+Of\+Command} = new List$<$\mbox{\hyperlink{struct_controller_1_1_command}{Command}}$>$()
+\mbox{\Hypertarget{class_controller_a9a81cea56c40bb6170c9d01b1a21b019}\label{class_controller_a9a81cea56c40bb6170c9d01b1a21b019}} 
+float {\bfseries R}
+\item 
+\mbox{\Hypertarget{class_controller_afcc92593ba6bdc37792a82f7c40f0f95}\label{class_controller_afcc92593ba6bdc37792a82f7c40f0f95}} 
+Transform {\bfseries Target}
+\item 
+\mbox{\Hypertarget{class_controller_ad3e4c3c8afaaa49d3c534050c63d47b1}\label{class_controller_ad3e4c3c8afaaa49d3c534050c63d47b1}} 
+Transform {\bfseries Target2}
 \end{DoxyCompactItemize}
 
 

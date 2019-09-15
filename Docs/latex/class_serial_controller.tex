@@ -12,8 +12,8 @@ Diagrama de herencias de Serial\+Controller\begin{figure}[H]
 \mbox{\Hypertarget{class_serial_controller_a034048c8c3255ce628c92cd057235213}\label{class_serial_controller_a034048c8c3255ce628c92cd057235213}} 
 bool {\bfseries Open\+\_\+\+Port} ()
 \item 
-\mbox{\Hypertarget{class_serial_controller_af32376d96704a7befd13ff010f70e752}\label{class_serial_controller_af32376d96704a7befd13ff010f70e752}} 
-void {\bfseries Close\+\_\+\+Port} ()
+\mbox{\Hypertarget{class_serial_controller_a23485c31539d33d4e0eccfdaf40f171a}\label{class_serial_controller_a23485c31539d33d4e0eccfdaf40f171a}} 
+bool {\bfseries Close\+\_\+\+Port} ()
 \item 
 \mbox{\Hypertarget{class_serial_controller_a592468c9c1d12a261b2608b9ea1b6880}\label{class_serial_controller_a592468c9c1d12a261b2608b9ea1b6880}} 
 void {\bfseries Change\+\_\+\+Port} (string port)
@@ -32,6 +32,12 @@ bool {\bfseries Write\+To\+Controller\+From\+IU} (string command, string point, 
 \item 
 \mbox{\Hypertarget{class_serial_controller_a158fcf36bb5fd21a7a43f9c0495b621b}\label{class_serial_controller_a158fcf36bb5fd21a7a43f9c0495b621b}} 
 bool {\bfseries Write\+To\+Controller\+Teach} (string point, List$<$ float $>$ xyzpr)
+\item 
+\mbox{\Hypertarget{class_serial_controller_a228d51508d97eca6e6c3cd055f10832c}\label{class_serial_controller_a228d51508d97eca6e6c3cd055f10832c}} 
+bool {\bfseries Write\+To\+Controller\+Teachr} (string point, string point2, List$<$ float $>$ xyzpr)
+\item 
+\mbox{\Hypertarget{class_serial_controller_a2d1314323db76bbef50d0c5ef1c381a2}\label{class_serial_controller_a2d1314323db76bbef50d0c5ef1c381a2}} 
+bool {\bfseries Write\+To\+Controller\+Shiftc} (string point, string eje, string value)
 \item 
 \mbox{\Hypertarget{class_serial_controller_a68d60934a79400a1171aba1fffa68768}\label{class_serial_controller_a68d60934a79400a1171aba1fffa68768}} 
 List$<$ string\mbox{[}$\,$\mbox{]}$>$ {\bfseries Write\+To\+Controller\+Listpv} (string point)
@@ -66,6 +72,9 @@ Serial\+Port {\bfseries serial\+Port}
 \mbox{\Hypertarget{class_serial_controller_aec57f1d1f3dc7cfc4161808fa22bdc0b}\label{class_serial_controller_aec57f1d1f3dc7cfc4161808fa22bdc0b}} 
 Thread {\bfseries port\+Reading\+Thread}
 \item 
+\mbox{\Hypertarget{class_serial_controller_a54863ac160f11e91f47e14a39a9abae7}\label{class_serial_controller_a54863ac160f11e91f47e14a39a9abae7}} 
+\mbox{\hyperlink{class_command_terminal_1_1_terminal}{Terminal}} {\bfseries Terminal}
+\item 
 \mbox{\Hypertarget{class_serial_controller_afd06697d77f9bf30567820f957c5dca6}\label{class_serial_controller_afd06697d77f9bf30567820f957c5dca6}} 
 string {\bfseries port\+Name} = \char`\"{}C\+O\+M1\char`\"{}
 \item 
@@ -77,9 +86,6 @@ const int {\bfseries read\+Timeout} = 700
 \item 
 \mbox{\Hypertarget{class_serial_controller_a32bc9e356c0b88b37086b62a2db45c6d}\label{class_serial_controller_a32bc9e356c0b88b37086b62a2db45c6d}} 
 const int {\bfseries write\+Timeout} = 500
-\item 
-\mbox{\Hypertarget{class_serial_controller_a54863ac160f11e91f47e14a39a9abae7}\label{class_serial_controller_a54863ac160f11e91f47e14a39a9abae7}} 
-\mbox{\hyperlink{class_command_terminal_1_1_terminal}{Terminal}} {\bfseries Terminal}
 \item 
 \mbox{\Hypertarget{class_serial_controller_a0aef373369fb1951891e369e12432446}\label{class_serial_controller_a0aef373369fb1951891e369e12432446}} 
 char {\bfseries last\+\_\+character}

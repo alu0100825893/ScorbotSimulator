@@ -9,23 +9,17 @@ Diagrama de herencias de Camera\+Control\begin{figure}[H]
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_camera_control_a7dfdd3783b057fd9941f20a634b95b03}\label{class_camera_control_a7dfdd3783b057fd9941f20a634b95b03}} 
-void {\bfseries Set\+Rotation} (float value)
+void \mbox{\hyperlink{class_camera_control_a7dfdd3783b057fd9941f20a634b95b03}{Set\+Rotation}} (float value)
 \item 
-\mbox{\Hypertarget{class_camera_control_a2307b3b28fd8f9f40248fc0441f916de}\label{class_camera_control_a2307b3b28fd8f9f40248fc0441f916de}} 
-void {\bfseries Set\+Movement} (float value)
+void \mbox{\hyperlink{class_camera_control_a2307b3b28fd8f9f40248fc0441f916de}{Set\+Movement}} (float value)
 \item 
-\mbox{\Hypertarget{class_camera_control_a6c7f7816a4bff734280e19f65ef9df87}\label{class_camera_control_a6c7f7816a4bff734280e19f65ef9df87}} 
-void {\bfseries Set\+Zoom} (float value)
+void \mbox{\hyperlink{class_camera_control_a6c7f7816a4bff734280e19f65ef9df87}{Set\+Zoom}} (float value)
 \item 
-\mbox{\Hypertarget{class_camera_control_a715690bfd42a136da5b5880debb2e420}\label{class_camera_control_a715690bfd42a136da5b5880debb2e420}} 
-void {\bfseries Set\+Is\+Processing} (bool value)
+void \mbox{\hyperlink{class_camera_control_a715690bfd42a136da5b5880debb2e420}{Set\+Is\+Processing}} (bool value)
 \item 
-\mbox{\Hypertarget{class_camera_control_ab3ac3df0eb5347d1f7eb356f4226a696}\label{class_camera_control_ab3ac3df0eb5347d1f7eb356f4226a696}} 
-void {\bfseries Set\+Movement\+Sensibility\+Reduction} (float value)
+void \mbox{\hyperlink{class_camera_control_ab3ac3df0eb5347d1f7eb356f4226a696}{Set\+Movement\+Sensibility\+Reduction}} (float value)
 \item 
-\mbox{\Hypertarget{class_camera_control_a77c2147ce9a478e7fbee646fe049aa02}\label{class_camera_control_a77c2147ce9a478e7fbee646fe049aa02}} 
-void {\bfseries Set\+Zoom\+Sensibility\+Reduction} (float value)
+void \mbox{\hyperlink{class_camera_control_a77c2147ce9a478e7fbee646fe049aa02}{Set\+Zoom\+Sensibility\+Reduction}} (float value)
 \end{DoxyCompactItemize}
 \subsection*{Métodos privados}
 \begin{DoxyCompactItemize}
@@ -69,7 +63,7 @@ bool {\bfseries is\+Processing} = false
 
 
 \subsection{Descripción detallada}
-La función principal de este componente es permitir el control de la cámara para hacer posible la navegación en la simulación mediante el ratón. \begin{DoxyAuthor}{Autor}
+La función principal de este componente es permitir el control de la cámara para hacer posible la navegación en la simulación mediante el ratón. Controles\+: Ver Menú principal-\/$>$Help-\/$>$Controls \begin{DoxyAuthor}{Autor}
 Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\texttt{ oscarcatari@outlook.\+es}} -\/ Universidad de La Laguna 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Versión}
@@ -78,6 +72,93 @@ Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\te
 \begin{DoxySince}{Desde}
 02-\/05-\/2019 
 \end{DoxySince}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_camera_control_a715690bfd42a136da5b5880debb2e420}\label{class_camera_control_a715690bfd42a136da5b5880debb2e420}} 
+\index{CameraControl@{CameraControl}!SetIsProcessing@{SetIsProcessing}}
+\index{SetIsProcessing@{SetIsProcessing}!CameraControl@{CameraControl}}
+\subsubsection{\texorpdfstring{SetIsProcessing()}{SetIsProcessing()}}
+{\footnotesize\ttfamily void Camera\+Control.\+Set\+Is\+Processing (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Permite activar/desactivar el control de la cámara. 
+\begin{DoxyParams}{Parámetros}
+{\em value} & Control de la camara activo. Activo = true \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_control_a2307b3b28fd8f9f40248fc0441f916de}\label{class_camera_control_a2307b3b28fd8f9f40248fc0441f916de}} 
+\index{CameraControl@{CameraControl}!SetMovement@{SetMovement}}
+\index{SetMovement@{SetMovement}!CameraControl@{CameraControl}}
+\subsubsection{\texorpdfstring{SetMovement()}{SetMovement()}}
+{\footnotesize\ttfamily void Camera\+Control.\+Set\+Movement (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Modifica la velocidad de desplazamiento de la camara. Izquierda, derecha, arriba y abajo. 
+\begin{DoxyParams}{Parámetros}
+{\em value} & Velocidad de desplazamiento. Debe ser mayor que 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_control_ab3ac3df0eb5347d1f7eb356f4226a696}\label{class_camera_control_ab3ac3df0eb5347d1f7eb356f4226a696}} 
+\index{CameraControl@{CameraControl}!SetMovementSensibilityReduction@{SetMovementSensibilityReduction}}
+\index{SetMovementSensibilityReduction@{SetMovementSensibilityReduction}!CameraControl@{CameraControl}}
+\subsubsection{\texorpdfstring{SetMovementSensibilityReduction()}{SetMovementSensibilityReduction()}}
+{\footnotesize\ttfamily void Camera\+Control.\+Set\+Movement\+Sensibility\+Reduction (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiplicador que modifica la velocidad de desplazamiento de la camara. Izquierda, derecha, arriba y abajo. 
+\begin{DoxyParams}{Parámetros}
+{\em value} & Velocidad de desplazamiento. Debe estar entre 0-\/1. Velocidad normal\+: 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_control_a7dfdd3783b057fd9941f20a634b95b03}\label{class_camera_control_a7dfdd3783b057fd9941f20a634b95b03}} 
+\index{CameraControl@{CameraControl}!SetRotation@{SetRotation}}
+\index{SetRotation@{SetRotation}!CameraControl@{CameraControl}}
+\subsubsection{\texorpdfstring{SetRotation()}{SetRotation()}}
+{\footnotesize\ttfamily void Camera\+Control.\+Set\+Rotation (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Modifica la velocidad de rotación de la camara. 
+\begin{DoxyParams}{Parámetros}
+{\em value} & Velocidad de rotación. Debe ser mayor que 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_control_a6c7f7816a4bff734280e19f65ef9df87}\label{class_camera_control_a6c7f7816a4bff734280e19f65ef9df87}} 
+\index{CameraControl@{CameraControl}!SetZoom@{SetZoom}}
+\index{SetZoom@{SetZoom}!CameraControl@{CameraControl}}
+\subsubsection{\texorpdfstring{SetZoom()}{SetZoom()}}
+{\footnotesize\ttfamily void Camera\+Control.\+Set\+Zoom (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Modifica la velocidad del zoom la camara. Adelante y atrás. 
+\begin{DoxyParams}{Parámetros}
+{\em value} & Velocidad del zoom. Debe ser mayor que 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_control_a77c2147ce9a478e7fbee646fe049aa02}\label{class_camera_control_a77c2147ce9a478e7fbee646fe049aa02}} 
+\index{CameraControl@{CameraControl}!SetZoomSensibilityReduction@{SetZoomSensibilityReduction}}
+\index{SetZoomSensibilityReduction@{SetZoomSensibilityReduction}!CameraControl@{CameraControl}}
+\subsubsection{\texorpdfstring{SetZoomSensibilityReduction()}{SetZoomSensibilityReduction()}}
+{\footnotesize\ttfamily void Camera\+Control.\+Set\+Zoom\+Sensibility\+Reduction (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiplicador que modifica la velocidad del zoom la camara. Adelante y atrás. 
+\begin{DoxyParams}{Parámetros}
+{\em value} & Velocidad del zoom. Debe estar entre 0-\/1. Velocidad normal\+: 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
 
 
 La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}

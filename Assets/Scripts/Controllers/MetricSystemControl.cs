@@ -7,7 +7,7 @@ using UnityEngine;
  * una posición mediante sus axis a través de la visualización de planos. Hay tres planos (“xy”, “xz”, “yz”) 
  * que son activables/desactivables mediante casillas check y también están cuadriculadas. Cada cuadrícula es 
  * de 100 milímetros de lado, aunque si se está lo suficientemente cerca, los planos se subdividen en 
- * cuadrículas de 10 milímetros de lado. También se ajusta la sensibilidad de la camara, ejes de movimiento del
+ * cuadrículas de 10 milímetros de lado. También se ajusta la sensibilidad de la camara, los ejes de movimiento del
  * objetivo seleccionado y el tamaño del objetivo.
  * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es - Universidad de La Laguna
  * @version 1.0

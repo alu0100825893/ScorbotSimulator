@@ -9,14 +9,11 @@ Diagrama de herencias de Manual\+Input\+Control\begin{figure}[H]
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_manual_input_control_a1e39de6319d6aad69e82f083d6d42058}\label{class_manual_input_control_a1e39de6319d6aad69e82f083d6d42058}} 
-void {\bfseries Manual\+Control\+Articulation} (int btn)
+void \mbox{\hyperlink{class_manual_input_control_a1e39de6319d6aad69e82f083d6d42058}{Manual\+Control\+Articulation}} (int btn)
 \item 
-\mbox{\Hypertarget{class_manual_input_control_a00de8f95d74cefb32806a4262fd90aba}\label{class_manual_input_control_a00de8f95d74cefb32806a4262fd90aba}} 
-bool {\bfseries Get\+Processing} ()
+bool \mbox{\hyperlink{class_manual_input_control_a00de8f95d74cefb32806a4262fd90aba}{Get\+Processing}} ()
 \item 
-\mbox{\Hypertarget{class_manual_input_control_a8505abe190f5ce3a1a1b76d2e94e695f}\label{class_manual_input_control_a8505abe190f5ce3a1a1b76d2e94e695f}} 
-void {\bfseries Set\+Processing} (bool processing)
+void \mbox{\hyperlink{class_manual_input_control_a8505abe190f5ce3a1a1b76d2e94e695f}{Set\+Processing}} (bool processing)
 \end{DoxyCompactItemize}
 \subsection*{Métodos privados}
 \begin{DoxyCompactItemize}
@@ -54,6 +51,46 @@ Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\te
 \begin{DoxySince}{Desde}
 02-\/05-\/2019 
 \end{DoxySince}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_manual_input_control_a00de8f95d74cefb32806a4262fd90aba}\label{class_manual_input_control_a00de8f95d74cefb32806a4262fd90aba}} 
+\index{ManualInputControl@{ManualInputControl}!GetProcessing@{GetProcessing}}
+\index{GetProcessing@{GetProcessing}!ManualInputControl@{ManualInputControl}}
+\subsubsection{\texorpdfstring{GetProcessing()}{GetProcessing()}}
+{\footnotesize\ttfamily bool Manual\+Input\+Control.\+Get\+Processing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Si el control por teclado de las articulaciones del Scorbot está activado/deactivado. \begin{DoxyReturn}{Devuelve}
+processing Control por teclado activado/desactivado. Activado = true 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manual_input_control_a1e39de6319d6aad69e82f083d6d42058}\label{class_manual_input_control_a1e39de6319d6aad69e82f083d6d42058}} 
+\index{ManualInputControl@{ManualInputControl}!ManualControlArticulation@{ManualControlArticulation}}
+\index{ManualControlArticulation@{ManualControlArticulation}!ManualInputControl@{ManualInputControl}}
+\subsubsection{\texorpdfstring{ManualControlArticulation()}{ManualControlArticulation()}}
+{\footnotesize\ttfamily void Manual\+Input\+Control.\+Manual\+Control\+Articulation (\begin{DoxyParamCaption}\item[{int}]{btn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Ejecuta una rotación de una articulación del Scorbot a través de un botón. 
+\begin{DoxyParams}{Parámetros}
+{\em btn} & Identificador del botón \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manual_input_control_a8505abe190f5ce3a1a1b76d2e94e695f}\label{class_manual_input_control_a8505abe190f5ce3a1a1b76d2e94e695f}} 
+\index{ManualInputControl@{ManualInputControl}!SetProcessing@{SetProcessing}}
+\index{SetProcessing@{SetProcessing}!ManualInputControl@{ManualInputControl}}
+\subsubsection{\texorpdfstring{SetProcessing()}{SetProcessing()}}
+{\footnotesize\ttfamily void Manual\+Input\+Control.\+Set\+Processing (\begin{DoxyParamCaption}\item[{bool}]{processing }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Activa/desactiva el control por teclado de las articulaciones del Scorbot. 
+\begin{DoxyParams}{Parámetros}
+{\em processing} & Control por teclado activo, true \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
 
 
 La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}

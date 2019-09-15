@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['updateplane',['UpdatePlane',['../class_metric_system_control.html#a233ff34bc7bf5ae589ffe0146430f2e0',1,'MetricSystemControl']]]
+  ['destroytarget',['DestroyTarget',['../class_target_control.html#a728aecb12c800b1989977044e22264bb',1,'TargetControl']]],
+  ['dynamicprecision',['DynamicPrecision',['../class_metric_system_control.html#a853f57f47211b8c3a1f48c53ba552a0e',1,'MetricSystemControl']]]
 ];

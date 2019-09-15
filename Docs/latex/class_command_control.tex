@@ -9,14 +9,11 @@ Diagrama de herencias de Command\+Control\begin{figure}[H]
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_command_control_abb616afbdc86f4877b19b951982b6544}\label{class_command_control_abb616afbdc86f4877b19b951982b6544}} 
-List$<$ string $>$ {\bfseries Get\+Names} ()
+List$<$ string $>$ \mbox{\hyperlink{class_command_control_abb616afbdc86f4877b19b951982b6544}{Get\+Names}} ()
 \item 
-\mbox{\Hypertarget{class_command_control_a57aac28ce1f8ad74a4c2b69a24db8d79}\label{class_command_control_a57aac28ce1f8ad74a4c2b69a24db8d79}} 
-void {\bfseries Move} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform target)
+void \mbox{\hyperlink{class_command_control_a57aac28ce1f8ad74a4c2b69a24db8d79}{Move}} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform target)
 \item 
-\mbox{\Hypertarget{class_command_control_ab0c2d7d4d5b0ec2329f3bf945af1cbc0}\label{class_command_control_ab0c2d7d4d5b0ec2329f3bf945af1cbc0}} 
-void {\bfseries MoveL} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform target)
+void \mbox{\hyperlink{class_command_control_ab0c2d7d4d5b0ec2329f3bf945af1cbc0}{MoveL}} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform target)
 \item 
 \mbox{\Hypertarget{class_command_control_a55788d3a11dcdb25426d84e3b7c75450}\label{class_command_control_a55788d3a11dcdb25426d84e3b7c75450}} 
 void {\bfseries MoveC} (\mbox{\hyperlink{class_i_k}{IK}} robot, Transform final\+Point, Transform middle\+Point)
@@ -63,8 +60,7 @@ void {\bfseries Defp} (Transform target)
 \mbox{\Hypertarget{class_command_control_a2a867f63b6c89f2864cac9d7126614d5}\label{class_command_control_a2a867f63b6c89f2864cac9d7126614d5}} 
 void {\bfseries Start} ()
 \item 
-\mbox{\Hypertarget{class_command_control_a5b525d701e0c8d6d57e9c7144aa0df44}\label{class_command_control_a5b525d701e0c8d6d57e9c7144aa0df44}} 
-void {\bfseries Set\+Is\+Here\+From\+Simulation} (bool from\+Simulation)
+void \mbox{\hyperlink{class_command_control_a5b525d701e0c8d6d57e9c7144aa0df44}{Set\+Is\+Here\+From\+Simulation}} (bool from\+Simulation)
 \end{DoxyCompactItemize}
 \subsection*{Atributos privados}
 \begin{DoxyCompactItemize}
@@ -77,9 +73,6 @@ void {\bfseries Set\+Is\+Here\+From\+Simulation} (bool from\+Simulation)
 \item 
 \mbox{\Hypertarget{class_command_control_abb4378198632f261d94a4b6445de3a7b}\label{class_command_control_abb4378198632f261d94a4b6445de3a7b}} 
 \mbox{\hyperlink{class_game_controller}{Game\+Controller}} {\bfseries game\+Controller}
-\item 
-\mbox{\Hypertarget{class_command_control_acf463ac500d31f872adf3cf235f3facc}\label{class_command_control_acf463ac500d31f872adf3cf235f3facc}} 
-Text\+Mesh\+Pro\+U\+G\+UI {\bfseries state\+Output}
 \item 
 \mbox{\Hypertarget{class_command_control_a1eef363ceb2574b4e0df8d8d21c02b5a}\label{class_command_control_a1eef363ceb2574b4e0df8d8d21c02b5a}} 
 \mbox{\hyperlink{class_state_message_control}{State\+Message\+Control}} {\bfseries state\+Message\+Control}
@@ -99,6 +92,64 @@ Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\te
 \begin{DoxySince}{Desde}
 02-\/05-\/2019 
 \end{DoxySince}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_command_control_abb616afbdc86f4877b19b951982b6544}\label{class_command_control_abb616afbdc86f4877b19b951982b6544}} 
+\index{CommandControl@{CommandControl}!GetNames@{GetNames}}
+\index{GetNames@{GetNames}!CommandControl@{CommandControl}}
+\subsubsection{\texorpdfstring{GetNames()}{GetNames()}}
+{\footnotesize\ttfamily List$<$string$>$ Command\+Control.\+Get\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Permite obtener la lista de nombres de los comandos disponibles. El archivo \char`\"{}\+Command\+Helper\char`\"{} contiene los comandos. \begin{DoxyReturn}{Devuelve}
+List$<$string$>$ Lista de nombres de los comandos. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_control_a57aac28ce1f8ad74a4c2b69a24db8d79}\label{class_command_control_a57aac28ce1f8ad74a4c2b69a24db8d79}} 
+\index{CommandControl@{CommandControl}!Move@{Move}}
+\index{Move@{Move}!CommandControl@{CommandControl}}
+\subsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily void Command\+Control.\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_k}{IK}}}]{robot,  }\item[{Transform}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Mueve el Scorbot a una posición ya definida. 
+\begin{DoxyParams}{Parámetros}
+{\em robot} & Scorbot \\
+\hline
+{\em target} & Posición (objeto) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_control_ab0c2d7d4d5b0ec2329f3bf945af1cbc0}\label{class_command_control_ab0c2d7d4d5b0ec2329f3bf945af1cbc0}} 
+\index{CommandControl@{CommandControl}!MoveL@{MoveL}}
+\index{MoveL@{MoveL}!CommandControl@{CommandControl}}
+\subsubsection{\texorpdfstring{MoveL()}{MoveL()}}
+{\footnotesize\ttfamily void Command\+Control.\+MoveL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_k}{IK}}}]{robot,  }\item[{Transform}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Mueve el Scorbot a una posición ya definida. El movimiento es una línea recta. 
+\begin{DoxyParams}{Parámetros}
+{\em robot} & Scorbot \\
+\hline
+{\em target} & Posición (objeto) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_control_a5b525d701e0c8d6d57e9c7144aa0df44}\label{class_command_control_a5b525d701e0c8d6d57e9c7144aa0df44}} 
+\index{CommandControl@{CommandControl}!SetIsHereFromSimulation@{SetIsHereFromSimulation}}
+\index{SetIsHereFromSimulation@{SetIsHereFromSimulation}!CommandControl@{CommandControl}}
+\subsubsection{\texorpdfstring{SetIsHereFromSimulation()}{SetIsHereFromSimulation()}}
+{\footnotesize\ttfamily void Command\+Control.\+Set\+Is\+Here\+From\+Simulation (\begin{DoxyParamCaption}\item[{bool}]{from\+Simulation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Cambia el modo del comando H\+E\+RE. 
+\begin{DoxyParams}{Parámetros}
+{\em from\+Simulation} & Modo \char`\"{}\+From simulation\char`\"{} activo, true \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
 
 
 La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}

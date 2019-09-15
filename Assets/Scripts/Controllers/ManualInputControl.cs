@@ -11,15 +11,21 @@ using UnityEngine;
  */
 public class ManualInputControl : MonoBehaviour {
 
+    // Keyboard keys list
     private List<KeyCode> keyCodes = new List<KeyCode>();
+    // Scorbot
     private IK robot;
+    // Constants
     private const float ROTATION_SENSIBILITY = 1f;
 
+    // Activate/deactivate keyboard control. Active = true
     private bool processing = false;
 
     void Start () {
+        // Scorbot
         robot = GetComponent<GameController>().robot;
 
+        // Keyboard keys list
         keyCodes.Add(KeyCode.Q);
         keyCodes.Add(KeyCode.Alpha1);
         keyCodes.Add(KeyCode.W);
@@ -33,11 +39,11 @@ public class ManualInputControl : MonoBehaviour {
     }
 	
 	void Update () {
-
+        // Activate/deactivate keyboard control
         if (!processing)
             return;
 
-        // Manual rotation (See keyCodes at "Start()")
+        // Scorbot articulation rotation (See keyCodes at "Start()")
         int j = 0;
         for (int i = 0; i < robot.GetArticulations().Length; i++)
         {
@@ -53,6 +59,7 @@ public class ManualInputControl : MonoBehaviour {
             j++;
         }
 
+        // Open/close Scorbot end efector
         if(Input.GetKey(KeyCode.Y))
         {
             robot.GetComponent<GripScorbotERIX>().Open();
@@ -63,9 +70,13 @@ public class ManualInputControl : MonoBehaviour {
         }
     }
 
+    /**
+	 * Ejecuta una rotación de una articulación del Scorbot a través de un botón.
+	 * @param btn Identificador del botón
+	 * @return void
+	 */
     public void ManualControlArticulation(int btn)
     {
-
         // buttons: Same order than keyCodes
         int j = 0;
         for (int i = 0; i < robot.GetArticulations().Length; i++)
@@ -83,11 +94,20 @@ public class ManualInputControl : MonoBehaviour {
         }
     }
 
+    /**
+	 * Si el control por teclado de las articulaciones del Scorbot está activado/deactivado.
+	 * @return processing Control por teclado activado/desactivado. Activado = true
+	 */
     public bool GetProcessing()
     {
         return processing;
     }
 
+    /**
+	 * Activa/desactiva el control por teclado de las articulaciones del Scorbot.
+	 * @param processing Control por teclado activo, true
+	 * @return void
+	 */
     public void SetProcessing(bool processing)
     {
         this.processing = processing;

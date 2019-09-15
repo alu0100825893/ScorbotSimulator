@@ -16,19 +16,23 @@ using UnityEngine;
  */
 public class CommandControl : MonoBehaviour {
 
+    // Catmull-Rom spline. It draws trajectories between positions
     private CatmullRomSpline spline;
-    private Controller controller;
-    private GameController gameController;
-    private TextMeshProUGUI stateOutput;//
+
+    // Controllers
+    private Controller controller; // Terminal
+    private GameController gameController;   
     private StateMessageControl stateMessageControl;
     
+    // Command HERE. If mode "From simulation" is active, true (default)
     private bool isHereFromSimulation = true;
 
     void Start()
     {
         // Events
         GameController.HereFromDel += SetIsHereFromSimulation;
-                       
+
+        // Catmull-Rom spline. It draws trajectories between positions
         spline = GetComponent<GameController>().spline;
 
         // Controllers
@@ -36,15 +40,23 @@ public class CommandControl : MonoBehaviour {
         gameController = GetComponent<GameController>();
         stateMessageControl = GetComponent<StateMessageControl>();
 
-        stateOutput = GetComponent<GameController>().stateOutput;
     }
 
+    /**
+	 * Cambia el modo del comando HERE. 
+	 * @param fromSimulation Modo "From simulation" activo, true
+	 * @return void
+	 */
     private void SetIsHereFromSimulation(bool fromSimulation)
     {
         isHereFromSimulation = fromSimulation;     
     }
 
-
+    /**
+	 * Permite obtener la lista de nombres de los comandos disponibles. El archivo "CommandHelper" contiene 
+     * los comandos.
+	 * @return List<string> Lista de nombres de los comandos.
+	 */
     public List<string> GetNames()
     {
         List<string> names = new List<string>();
@@ -53,11 +65,18 @@ public class CommandControl : MonoBehaviour {
         return names;
     }
 
+    /**
+     * Mueve el Scorbot a una posición ya definida.
+     * @param robot Scorbot
+     * @param target Posición (objeto)
+     * @return void
+     */
     public void Move(IK robot ,Transform target)
     {
         // Target with valid data
         if (target.GetComponent<TargetModel>().GetValid())
         {
+            // Move Scorbot to target. It uses "speed"
             robot.Move(target);         
         }
         else // Target with invalid data
@@ -68,7 +87,7 @@ public class CommandControl : MonoBehaviour {
                 
         stateMessageControl.WriteMessage("Done. MOVE \"" + target.GetComponent<TargetModel>().GetName() + "\"", true);
 
-        // 
+        // Online mode
         if (gameController.GetOnlineMode())
         {
             bool done = controller.RunCommandUIOnline("move", target.GetComponent<TargetModel>().GetName());
@@ -82,41 +101,51 @@ public class CommandControl : MonoBehaviour {
             else
                 stateMessageControl.WriteMessage("Error. Online MOVE \"" + target.GetComponent<TargetModel>().GetName() + "\"", done);
         }
-
-        //controller.RunCommandOnline("move" + " " + target.GetComponent<TargetModel>().GetName());
     }
-   
+
+    /**
+     * Mueve el Scorbot a una posición ya definida. El movimiento es una línea recta. 
+     * @param robot Scorbot
+     * @param target Posición (objeto)
+     * @return void
+     */
     public void MoveL(IK robot, Transform target)
     {
-        if(!target.GetComponent<TargetModel>().GetValid())
+        // If target with invalid data
+        if (!target.GetComponent<TargetModel>().GetValid())
         {
             stateMessageControl.WriteMessage("Error. MOVEL Unreachable position \"" + target.GetComponent<TargetModel>().GetName() + "\"", false);
             return;
         }
-
+        // Scorbot end effector
         Vector3 a = robot.GetE().position;
+        // Position coordinates
         Vector3 b = target.position;
 
-        float resolution = 0.1f; // Line quality, small=high 
+        float resolution = 0.1f; // Line quality, small=high quality
         int loops = Mathf.FloorToInt(1f / resolution);
 
-        // Linear trayectory
-        Transform[] trayectory = new Transform[loops];
+        // Linear trajectory
+        Transform[] trajectory = new Transform[loops];
 
         for (int i = 1; i < loops; i++) // Last one is target, skip
         {
+            // New object
             Transform transf = new GameObject().transform;
             float t = i * resolution;
-            //transf.position = Vector3.Lerp(robot.E.position, target.position, t);
+            // Modify coordinates. Interpolation from a to b
             transf.position = Vector3.Lerp(a, b, t);
-            trayectory[i - 1] = transf;
+            // Add to trajectory
+            trajectory[i - 1] = transf;
         }
-        trayectory[loops - 1] = target;
+        // Add target to trajectory
+        trajectory[loops - 1] = target;
 
-        robot.CCDAlg(trayectory, false);
+        // Move Scorbot following trajectory. It uses "speedl"
+        robot.CCDAlg(trajectory, false);
         stateMessageControl.WriteMessage("Done. MOVEL \"" + target.GetComponent<TargetModel>().GetName() + "\"", true);
 
-        //
+        // Online mode
         if (gameController.GetOnlineMode())
         {
             bool done = controller.RunCommandUIOnline("movel", target.GetComponent<TargetModel>().GetName());
@@ -130,11 +159,9 @@ public class CommandControl : MonoBehaviour {
             else
                 stateMessageControl.WriteMessage("Error. Online MOVEL \"" + target.GetComponent<TargetModel>().GetName() + "\"", done);
         }
-
-        //controller.RunCommandOnline("movel" + " " + target.GetComponent<TargetModel>().GetName());
     }
     
-    // Targets in range?
+    
     public void MoveC(IK robot, Transform finalPoint, Transform middlePoint)
     {
         if (!finalPoint.GetComponent<TargetModel>().GetValid())
@@ -171,7 +198,7 @@ public class CommandControl : MonoBehaviour {
         stateMessageControl.WriteMessage("Done. MOVEC \"" + finalPoint.GetComponent<TargetModel>().GetName() + "\"" +
                     " \"" + middlePoint.GetComponent<TargetModel>().GetName() + "\"", true);
 
-        //
+        // Online mode
         if (gameController.GetOnlineMode())
         {
             bool done = controller.RunCommandUIOnline("movec", finalPoint.GetComponent<TargetModel>().GetName(), middlePoint.GetComponent<TargetModel>().GetName());
@@ -188,7 +215,6 @@ public class CommandControl : MonoBehaviour {
                 stateMessageControl.WriteMessage("Error. Online MOVEC \"" + finalPoint.GetComponent<TargetModel>().GetName() + "\"" +
                     " \"" + middlePoint.GetComponent<TargetModel>().GetName() + "\"", done);
         }
-        //controller.RunCommandOnline("move" + " " + finalPoint.GetComponent<TargetModel>().GetName() + " " + middlePoint.GetComponent<TargetModel>().GetName());
     }
 
     // mm. pos in real Scorbot

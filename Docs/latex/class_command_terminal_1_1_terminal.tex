@@ -29,12 +29,6 @@ Game\+Object {\bfseries panel}
 \item 
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_ad80c14560c6e2d60132f69207b3e7717}\label{class_command_terminal_1_1_terminal_ad80c14560c6e2d60132f69207b3e7717}} 
 Game\+Object {\bfseries Control}
-\item 
-\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a84a9d02996f0d90521fb980137713861}\label{class_command_terminal_1_1_terminal_a84a9d02996f0d90521fb980137713861}} 
-Game\+Object {\bfseries Connection}
-\item 
-\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a2728f93342de1de68cfe1457fa2ce2a2}\label{class_command_terminal_1_1_terminal_a2728f93342de1de68cfe1457fa2ce2a2}} 
-Game\+Object {\bfseries GameC}
 \end{DoxyCompactItemize}
 \subsection*{Propiedades}
 \begin{DoxyCompactItemize}
@@ -93,6 +87,9 @@ Color {\bfseries Get\+Log\+Color} (Terminal\+Log\+Type type)
 \subsection*{Atributos privados}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a7b172ff526d737c6f33bd60add4e7ab2}\label{class_command_terminal_1_1_terminal_a7b172ff526d737c6f33bd60add4e7ab2}} 
+\mbox{\hyperlink{class_controller}{Controller}} {\bfseries Controller}
+\item 
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_a4b1e8e1cd48d094d5986a345f718fac4}\label{class_command_terminal_1_1_terminal_a4b1e8e1cd48d094d5986a345f718fac4}} 
 int {\bfseries Buffer\+Size} = 512
 \item 
@@ -101,6 +98,9 @@ Font {\bfseries Console\+Font}
 \item 
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_a2ea061edabf6e96ef3eb463a3b61983c}\label{class_command_terminal_1_1_terminal_a2ea061edabf6e96ef3eb463a3b61983c}} 
 string {\bfseries Input\+Caret} = \char`\"{}$>$\char`\"{}
+\item 
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a350833cc75f8ca0f60d6524d3c657984}\label{class_command_terminal_1_1_terminal_a350833cc75f8ca0f60d6524d3c657984}} 
+string {\bfseries command\+\_\+text}
 \item 
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_aa917209ac1c8faaed2e85e798a6805bd}\label{class_command_terminal_1_1_terminal_aa917209ac1c8faaed2e85e798a6805bd}} 
 float {\bfseries Input\+Contrast}
@@ -135,12 +135,6 @@ Rect {\bfseries history}
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_aba02f634eed246437f25f154cad88508}\label{class_command_terminal_1_1_terminal_aba02f634eed246437f25f154cad88508}} 
 Text\+Editor {\bfseries editor\+\_\+state}
 \item 
-\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a350833cc75f8ca0f60d6524d3c657984}\label{class_command_terminal_1_1_terminal_a350833cc75f8ca0f60d6524d3c657984}} 
-string {\bfseries command\+\_\+text}
-\item 
-\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a897dff41124bb6808cb7627fda4e5b21}\label{class_command_terminal_1_1_terminal_a897dff41124bb6808cb7627fda4e5b21}} 
-bool {\bfseries move\+\_\+cursor}
-\item 
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_a0654730a6de14ae2c71ea77126b5bec6}\label{class_command_terminal_1_1_terminal_a0654730a6de14ae2c71ea77126b5bec6}} 
 Vector2 {\bfseries scroll\+\_\+position}
 \item 
@@ -168,12 +162,6 @@ Texture2D {\bfseries background\+\_\+texture\+\_\+border}
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_a40250c4d3456a06b3b75c1e68852c6cc}\label{class_command_terminal_1_1_terminal_a40250c4d3456a06b3b75c1e68852c6cc}} 
 Texture2D {\bfseries input\+\_\+background\+\_\+texture}
 \item 
-\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a63cd0e288bcf5b95213947487295fb55}\label{class_command_terminal_1_1_terminal_a63cd0e288bcf5b95213947487295fb55}} 
-bool {\bfseries control}
-\item 
-\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a7b172ff526d737c6f33bd60add4e7ab2}\label{class_command_terminal_1_1_terminal_a7b172ff526d737c6f33bd60add4e7ab2}} 
-\mbox{\hyperlink{class_controller}{Controller}} {\bfseries Controller}
-\item 
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_aeff48012c63fcabb3f11fd14fbaa5e05}\label{class_command_terminal_1_1_terminal_aeff48012c63fcabb3f11fd14fbaa5e05}} 
 float {\bfseries clicked} = 0
 \item 
@@ -183,17 +171,14 @@ float {\bfseries clicktime} = 0
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_a940b570693f3b01880eb8ccde27d4f03}\label{class_command_terminal_1_1_terminal_a940b570693f3b01880eb8ccde27d4f03}} 
 float {\bfseries clickdelay} = 0.\+5f
 \item 
-\mbox{\Hypertarget{class_command_terminal_1_1_terminal_aa7bf0beac241db27f84e14f60833cab9}\label{class_command_terminal_1_1_terminal_aa7bf0beac241db27f84e14f60833cab9}} 
-List$<$ \mbox{\hyperlink{struct_command_terminal_1_1_log_item}{Log\+Item}} $>$ {\bfseries command\+\_\+possible}
+\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a510c04eb1f384e0305822715f461f0e3}\label{class_command_terminal_1_1_terminal_a510c04eb1f384e0305822715f461f0e3}} 
+List$<$ string $>$ {\bfseries command\+\_\+possible}
 \item 
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_a05c65b97846b893a2d7fbccc1bd9a7be}\label{class_command_terminal_1_1_terminal_a05c65b97846b893a2d7fbccc1bd9a7be}} 
 int {\bfseries count\+\_\+tab}
 \item 
 \mbox{\Hypertarget{class_command_terminal_1_1_terminal_a8da7a3fb5f3d07cf47add7721ac8b726}\label{class_command_terminal_1_1_terminal_a8da7a3fb5f3d07cf47add7721ac8b726}} 
 bool {\bfseries command\+\_\+tab}
-\item 
-\mbox{\Hypertarget{class_command_terminal_1_1_terminal_a12b5fd7662b00f7585354f0b58d350b5}\label{class_command_terminal_1_1_terminal_a12b5fd7662b00f7585354f0b58d350b5}} 
-int {\bfseries actual\+\_\+cursor}
 \end{DoxyCompactItemize}
 
 

@@ -57,12 +57,12 @@ public class IK : MonoBehaviour {
     }
 
     // movel movec
-    public void CCDAlg(Transform[] trayectory, bool speedDegrees = true)
+    public void CCDAlg(Transform[] trajectory, bool speedDegrees = true)
     {
         if (!isProcessing)
         {
             scorbotModel.UpdateToCopy(art);
-            StartCoroutine(CCDAlgMulti(art, trayectory, artE, speedDegrees));
+            StartCoroutine(CCDAlgMulti(art, trajectory, artE, speedDegrees));
         }
     }
 

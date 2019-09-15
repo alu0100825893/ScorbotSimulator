@@ -83,9 +83,9 @@ Métodos públicos</h2></td></tr>
 <tr class="memitem:a034048c8c3255ce628c92cd057235213"><td class="memItemLeft" align="right" valign="top"><a id="a034048c8c3255ce628c92cd057235213"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>Open_Port</b> ()</td></tr>
 <tr class="separator:a034048c8c3255ce628c92cd057235213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af32376d96704a7befd13ff010f70e752"><td class="memItemLeft" align="right" valign="top"><a id="af32376d96704a7befd13ff010f70e752"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Close_Port</b> ()</td></tr>
-<tr class="separator:af32376d96704a7befd13ff010f70e752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23485c31539d33d4e0eccfdaf40f171a"><td class="memItemLeft" align="right" valign="top"><a id="a23485c31539d33d4e0eccfdaf40f171a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Close_Port</b> ()</td></tr>
+<tr class="separator:a23485c31539d33d4e0eccfdaf40f171a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a592468c9c1d12a261b2608b9ea1b6880"><td class="memItemLeft" align="right" valign="top"><a id="a592468c9c1d12a261b2608b9ea1b6880"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Change_Port</b> (string port)</td></tr>
 <tr class="separator:a592468c9c1d12a261b2608b9ea1b6880"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,6 +104,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>WriteToControllerFrom
 <tr class="memitem:a158fcf36bb5fd21a7a43f9c0495b621b"><td class="memItemLeft" align="right" valign="top"><a id="a158fcf36bb5fd21a7a43f9c0495b621b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>WriteToControllerTeach</b> (string point, List&lt; float &gt; xyzpr)</td></tr>
 <tr class="separator:a158fcf36bb5fd21a7a43f9c0495b621b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a228d51508d97eca6e6c3cd055f10832c"><td class="memItemLeft" align="right" valign="top"><a id="a228d51508d97eca6e6c3cd055f10832c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>WriteToControllerTeachr</b> (string point, string point2, List&lt; float &gt; xyzpr)</td></tr>
+<tr class="separator:a228d51508d97eca6e6c3cd055f10832c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d1314323db76bbef50d0c5ef1c381a2"><td class="memItemLeft" align="right" valign="top"><a id="a2d1314323db76bbef50d0c5ef1c381a2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>WriteToControllerShiftc</b> (string point, string eje, string value)</td></tr>
+<tr class="separator:a2d1314323db76bbef50d0c5ef1c381a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68d60934a79400a1171aba1fffa68768"><td class="memItemLeft" align="right" valign="top"><a id="a68d60934a79400a1171aba1fffa68768"></a>
 List&lt; string[]&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteToControllerListpv</b> (string point)</td></tr>
 <tr class="separator:a68d60934a79400a1171aba1fffa68768"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,6 +143,9 @@ SerialPort&#160;</td><td class="memItemRight" valign="bottom"><b>serialPort</b><
 <tr class="memitem:aec57f1d1f3dc7cfc4161808fa22bdc0b"><td class="memItemLeft" align="right" valign="top"><a id="aec57f1d1f3dc7cfc4161808fa22bdc0b"></a>
 Thread&#160;</td><td class="memItemRight" valign="bottom"><b>portReadingThread</b></td></tr>
 <tr class="separator:aec57f1d1f3dc7cfc4161808fa22bdc0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54863ac160f11e91f47e14a39a9abae7"><td class="memItemLeft" align="right" valign="top"><a id="a54863ac160f11e91f47e14a39a9abae7"></a>
+<a class="el" href="class_command_terminal_1_1_terminal.html">Terminal</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Terminal</b></td></tr>
+<tr class="separator:a54863ac160f11e91f47e14a39a9abae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd06697d77f9bf30567820f957c5dca6"><td class="memItemLeft" align="right" valign="top"><a id="afd06697d77f9bf30567820f957c5dca6"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>portName</b> = &quot;COM1&quot;</td></tr>
 <tr class="separator:afd06697d77f9bf30567820f957c5dca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,9 +158,6 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>readTimeout</b> 
 <tr class="memitem:a32bc9e356c0b88b37086b62a2db45c6d"><td class="memItemLeft" align="right" valign="top"><a id="a32bc9e356c0b88b37086b62a2db45c6d"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>writeTimeout</b> = 500</td></tr>
 <tr class="separator:a32bc9e356c0b88b37086b62a2db45c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54863ac160f11e91f47e14a39a9abae7"><td class="memItemLeft" align="right" valign="top"><a id="a54863ac160f11e91f47e14a39a9abae7"></a>
-<a class="el" href="class_command_terminal_1_1_terminal.html">Terminal</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Terminal</b></td></tr>
-<tr class="separator:a54863ac160f11e91f47e14a39a9abae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0aef373369fb1951891e369e12432446"><td class="memItemLeft" align="right" valign="top"><a id="a0aef373369fb1951891e369e12432446"></a>
 char&#160;</td><td class="memItemRight" valign="bottom"><b>last_character</b></td></tr>
 <tr class="separator:a0aef373369fb1951891e369e12432446"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -9,17 +9,13 @@ Diagrama de herencias de State\+Message\+Control\begin{figure}[H]
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_state_message_control_a0b0830fc3f8fe9d578fce4b3d944cde6}\label{class_state_message_control_a0b0830fc3f8fe9d578fce4b3d944cde6}} 
-void {\bfseries Write\+Message} (string text, bool success)
+void \mbox{\hyperlink{class_state_message_control_a0b0830fc3f8fe9d578fce4b3d944cde6}{Write\+Message}} (string text, bool success)
 \item 
-\mbox{\Hypertarget{class_state_message_control_af56933aa9a5a8d7d2c1e5fd515ec65e8}\label{class_state_message_control_af56933aa9a5a8d7d2c1e5fd515ec65e8}} 
-void {\bfseries Update\+Message\+Log} ()
+void \mbox{\hyperlink{class_state_message_control_af56933aa9a5a8d7d2c1e5fd515ec65e8}{Update\+Message\+Log}} ()
 \item 
-\mbox{\Hypertarget{class_state_message_control_aeace074591852cb0cc7125520bc49817}\label{class_state_message_control_aeace074591852cb0cc7125520bc49817}} 
-void {\bfseries Update\+Position\+Log} ()
+void \mbox{\hyperlink{class_state_message_control_aeace074591852cb0cc7125520bc49817}{Update\+Position\+Log}} ()
 \item 
-\mbox{\Hypertarget{class_state_message_control_a534610a9734b552696484aaeeb83c8b7}\label{class_state_message_control_a534610a9734b552696484aaeeb83c8b7}} 
-void {\bfseries New\+Block} ()
+void \mbox{\hyperlink{class_state_message_control_a534610a9734b552696484aaeeb83c8b7}{New\+Block}} ()
 \end{DoxyCompactItemize}
 \subsection*{Métodos privados}
 \begin{DoxyCompactItemize}
@@ -27,17 +23,13 @@ void {\bfseries New\+Block} ()
 \mbox{\Hypertarget{class_state_message_control_adf8e104a97efb32e6d4fc5ada6cdd57d}\label{class_state_message_control_adf8e104a97efb32e6d4fc5ada6cdd57d}} 
 void {\bfseries Start} ()
 \item 
-\mbox{\Hypertarget{class_state_message_control_a09f2f0b683668a6b87f01078626c1ee0}\label{class_state_message_control_a09f2f0b683668a6b87f01078626c1ee0}} 
-void {\bfseries Update\+Count\+Data} (int n\+Sync, int n\+Total)
+void \mbox{\hyperlink{class_state_message_control_a09f2f0b683668a6b87f01078626c1ee0}{Update\+Count\+Data}} (int n\+Sync, int n\+Total)
 \item 
-\mbox{\Hypertarget{class_state_message_control_a251349ec61d12eff0a0dbb4871991c94}\label{class_state_message_control_a251349ec61d12eff0a0dbb4871991c94}} 
-void {\bfseries Adjust\+Content} (Game\+Object text\+Mesh, Game\+Object content)
+void \mbox{\hyperlink{class_state_message_control_a251349ec61d12eff0a0dbb4871991c94}{Adjust\+Content}} (Game\+Object text\+Mesh, Game\+Object content)
 \item 
-\mbox{\Hypertarget{class_state_message_control_a4ec35157d5b660616e1c8a7340d9f04d}\label{class_state_message_control_a4ec35157d5b660616e1c8a7340d9f04d}} 
-float {\bfseries Calculate\+Height} (Game\+Object text\+Mesh)
+float \mbox{\hyperlink{class_state_message_control_a4ec35157d5b660616e1c8a7340d9f04d}{Calculate\+Height}} (Game\+Object text\+Mesh)
 \item 
-\mbox{\Hypertarget{class_state_message_control_a2f45459b571b7afcf4967d9bbca1f5b6}\label{class_state_message_control_a2f45459b571b7afcf4967d9bbca1f5b6}} 
-float {\bfseries Calculate\+PosY} (Game\+Object content, float height)
+float \mbox{\hyperlink{class_state_message_control_a2f45459b571b7afcf4967d9bbca1f5b6}{Calculate\+PosY}} (Game\+Object content, float height)
 \end{DoxyCompactItemize}
 \subsection*{Atributos privados}
 \begin{DoxyCompactItemize}
@@ -87,7 +79,7 @@ Text\+Mesh\+Pro\+U\+G\+UI {\bfseries position\+Count\+Log}
 
 
 \subsection{Descripción detallada}
-La función principal de este componente es comunicar el resultado de una acción mediante un mensaje en el “\+Estado actual” de la interfaz gráfica. También se encarga de mantener el registro de estos mensajes como un historial. \begin{DoxyAuthor}{Autor}
+La función principal de este componente es comunicar el resultado de una acción mediante un mensaje en el \char`\"{}\+Estado actual\char`\"{} de la interfaz gráfica. También se encarga de mantener el registro de estos mensajes como un historial \char`\"{}\+Log\char`\"{}. \begin{DoxyAuthor}{Autor}
 Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\texttt{ oscarcatari@outlook.\+es}} -\/ Universidad de La Laguna 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Versión}
@@ -96,6 +88,114 @@ Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\te
 \begin{DoxySince}{Desde}
 02-\/05-\/2019 
 \end{DoxySince}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_state_message_control_a251349ec61d12eff0a0dbb4871991c94}\label{class_state_message_control_a251349ec61d12eff0a0dbb4871991c94}} 
+\index{StateMessageControl@{StateMessageControl}!AdjustContent@{AdjustContent}}
+\index{AdjustContent@{AdjustContent}!StateMessageControl@{StateMessageControl}}
+\subsubsection{\texorpdfstring{AdjustContent()}{AdjustContent()}}
+{\footnotesize\ttfamily void State\+Message\+Control.\+Adjust\+Content (\begin{DoxyParamCaption}\item[{Game\+Object}]{text\+Mesh,  }\item[{Game\+Object}]{content }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Redimensiona el contenedor del texto para que se ajuste a ese texto. 
+\begin{DoxyParams}{Parámetros}
+{\em text\+Mesh} & Texto \\
+\hline
+{\em content} & Contenedor del texto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_state_message_control_a4ec35157d5b660616e1c8a7340d9f04d}\label{class_state_message_control_a4ec35157d5b660616e1c8a7340d9f04d}} 
+\index{StateMessageControl@{StateMessageControl}!CalculateHeight@{CalculateHeight}}
+\index{CalculateHeight@{CalculateHeight}!StateMessageControl@{StateMessageControl}}
+\subsubsection{\texorpdfstring{CalculateHeight()}{CalculateHeight()}}
+{\footnotesize\ttfamily float State\+Message\+Control.\+Calculate\+Height (\begin{DoxyParamCaption}\item[{Game\+Object}]{text\+Mesh }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Calcula al altura que debería tener un contenedor para mostrar el texto. 
+\begin{DoxyParams}{Parámetros}
+{\em text\+Mesh} & Texto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+float Altura 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_state_message_control_a2f45459b571b7afcf4967d9bbca1f5b6}\label{class_state_message_control_a2f45459b571b7afcf4967d9bbca1f5b6}} 
+\index{StateMessageControl@{StateMessageControl}!CalculatePosY@{CalculatePosY}}
+\index{CalculatePosY@{CalculatePosY}!StateMessageControl@{StateMessageControl}}
+\subsubsection{\texorpdfstring{CalculatePosY()}{CalculatePosY()}}
+{\footnotesize\ttfamily float State\+Message\+Control.\+Calculate\+PosY (\begin{DoxyParamCaption}\item[{Game\+Object}]{content,  }\item[{float}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Calcula la posición y que debería tener un contenedor para mostrar el texto. 
+\begin{DoxyParams}{Parámetros}
+{\em text\+Mesh} & Texto \\
+\hline
+{\em height} & Altura del contenedor del texto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+float Posición y 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_state_message_control_a534610a9734b552696484aaeeb83c8b7}\label{class_state_message_control_a534610a9734b552696484aaeeb83c8b7}} 
+\index{StateMessageControl@{StateMessageControl}!NewBlock@{NewBlock}}
+\index{NewBlock@{NewBlock}!StateMessageControl@{StateMessageControl}}
+\subsubsection{\texorpdfstring{NewBlock()}{NewBlock()}}
+{\footnotesize\ttfamily void State\+Message\+Control.\+New\+Block (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Genera el siguiente mensaje en un bloque nuevo. \begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_state_message_control_a09f2f0b683668a6b87f01078626c1ee0}\label{class_state_message_control_a09f2f0b683668a6b87f01078626c1ee0}} 
+\index{StateMessageControl@{StateMessageControl}!UpdateCountData@{UpdateCountData}}
+\index{UpdateCountData@{UpdateCountData}!StateMessageControl@{StateMessageControl}}
+\subsubsection{\texorpdfstring{UpdateCountData()}{UpdateCountData()}}
+{\footnotesize\ttfamily void State\+Message\+Control.\+Update\+Count\+Data (\begin{DoxyParamCaption}\item[{int}]{n\+Sync,  }\item[{int}]{n\+Total }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Actualiza la información sobre el número de posiciones y su sincronización. Ventana \char`\"{}\+Positions(0/0)\char`\"{} 
+\begin{DoxyParams}{Parámetros}
+{\em n\+Sync} & Número de posiciones sincronizadas \\
+\hline
+{\em n\+Total} & Número de posiciones totales \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_state_message_control_af56933aa9a5a8d7d2c1e5fd515ec65e8}\label{class_state_message_control_af56933aa9a5a8d7d2c1e5fd515ec65e8}} 
+\index{StateMessageControl@{StateMessageControl}!UpdateMessageLog@{UpdateMessageLog}}
+\index{UpdateMessageLog@{UpdateMessageLog}!StateMessageControl@{StateMessageControl}}
+\subsubsection{\texorpdfstring{UpdateMessageLog()}{UpdateMessageLog()}}
+{\footnotesize\ttfamily void State\+Message\+Control.\+Update\+Message\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Actualiza la información de la ventana \char`\"{}\+Log\char`\"{}. \begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_state_message_control_aeace074591852cb0cc7125520bc49817}\label{class_state_message_control_aeace074591852cb0cc7125520bc49817}} 
+\index{StateMessageControl@{StateMessageControl}!UpdatePositionLog@{UpdatePositionLog}}
+\index{UpdatePositionLog@{UpdatePositionLog}!StateMessageControl@{StateMessageControl}}
+\subsubsection{\texorpdfstring{UpdatePositionLog()}{UpdatePositionLog()}}
+{\footnotesize\ttfamily void State\+Message\+Control.\+Update\+Position\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Actualiza la información de la ventana \char`\"{}\+Positions(0/0)\char`\"{}. \begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_state_message_control_a0b0830fc3f8fe9d578fce4b3d944cde6}\label{class_state_message_control_a0b0830fc3f8fe9d578fce4b3d944cde6}} 
+\index{StateMessageControl@{StateMessageControl}!WriteMessage@{WriteMessage}}
+\index{WriteMessage@{WriteMessage}!StateMessageControl@{StateMessageControl}}
+\subsubsection{\texorpdfstring{WriteMessage()}{WriteMessage()}}
+{\footnotesize\ttfamily void State\+Message\+Control.\+Write\+Message (\begin{DoxyParamCaption}\item[{string}]{text,  }\item[{bool}]{success }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Escribe un nuevo mensaje en el \char`\"{}\+Estado actual\char`\"{} de la interfaz gráfica. Cambia su color a rojo (error). También se actualiza la ventana \char`\"{}\+Log\char`\"{}. o verde (éxito). 
+\begin{DoxyParams}{Parámetros}
+{\em text} & Mensaje \\
+\hline
+{\em success} & Éxito o error \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
 
 
 La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
