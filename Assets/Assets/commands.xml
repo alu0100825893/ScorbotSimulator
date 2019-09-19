@@ -1,0 +1,94 @@
+<Commands>
+  <Command>
+        <Name>Move</Name>
+        <Arguments>
+             <Argument>&lt;pos1&gt;</Argument>
+             <Argument>&lt;pos1&gt; &lt;tiempo1&gt;</Argument>
+        </Arguments>
+        <Descriptions>
+          <Description>Desplaza el robot a la posición especificada, de acuerdo con la velocidad actual.</Description>
+          <Description>Desplaza el robot a la posición dentro del tiempo especificado. El tiempo se da en unidades de centésimas de segundo.</Description>
+        </Descriptions>
+  </Command>
+  <Command>
+        <Name>Movel</Name>
+        <Arguments>
+             <Argument>&lt;pos1&gt; &lt;tiempo1&gt;</Argument>
+        </Arguments>
+        <Descriptions>
+          <Description>Desplaza el robot por una trayectoria lineal, desde su ubicación actual hasta &lt;pos1&gt;.</Description>
+        </Descriptions>
+  </Command>
+  <Command>
+        <Name>Movec</Name>
+        <Arguments>
+             <Argument>&lt;pos1&gt; &lt;pos2&gt;</Argument>
+        </Arguments>
+        <Descriptions>
+          <Description>Desplaza el robot por una trayectoria circular, desde su ubicación actual hasta &lt;pos1&gt;, a través de &lt;pos2&gt;. La ubicación de &lt;pos2&gt; y &lt;pos1&gt; determina el tiempo necesario para completar el movimiento.</Description>
+        </Descriptions>
+  </Command>
+  <Command>
+        <Name>Teach</Name>
+        <Arguments>
+             <Argument>&lt;pos1&gt;</Argument>
+        </Arguments>
+        <Descriptions>
+          <Description>Fija en coordenadas cartesianas la ubicación actual de los ejes en &lt;pos1&gt;. El controlador pide todos los valores. Los valores X,Y,Z son en décimas de milímetro, mientras que los valores de paso (P) y giro (R) son en décimas de grado.</Description>
+        </Descriptions>
+  </Command>
+  <Command>
+        <Name>Here</Name>
+        <Arguments>
+          <Argument>&lt;pos1&gt;</Argument>
+        </Arguments>
+        <Descriptions>
+          <Description>Graba, en valores ejes (unidades de encoder), la ubicación actual de los ejes y le asigna el nombre &lt;pos1&gt;.</Description>
+        </Descriptions>
+  </Command>
+  <Command>
+        <Name>Home</Name>
+        <Arguments>
+             <Argument>&lt;N&gt;</Argument>
+        </Arguments>
+        <Descriptions>
+          <Description>Lleva todos los ejes del robot a su posición origen buscando un microinterruptor en cada eje. Si se le pasa N, que es el número de eje, lleva el eje N a su posición origen </Description>
+        </Descriptions>
+  </Command>
+  <Command>
+        <Name>Teachr</Name>
+        <Arguments>
+             <Argument>&lt;pos2&gt; &lt;pos1&gt;</Argument>
+        </Arguments>
+        <Descriptions>
+          <Description>Registra en coordenadas cartesianas la ubicación de &lt;pos2&gt; relativa a otra posición.</Description>
+        </Descriptions>
+  </Command>
+  <Command>
+        <Name>Speed</Name>
+        <Arguments>
+             <Argument>&lt;var&gt;</Argument>
+        </Arguments>
+        <Descriptions>
+          <Description>Fija el valor de velocidad de los movimientos MOVE y MOVES en joint. La velocidad se especifica en porcentajes. La velocidad máxima de &lt;var&gt; es 100; la mínima es 1. La velocidad por defecto es 50.</Description>
+        </Descriptions>
+  </Command>
+  <Command>
+        <Name>Speedl</Name>
+        <Arguments>
+             <Argument>&lt;var&gt;</Argument>
+        </Arguments>
+        <Descriptions>
+          <Description>Define la velocidad de los movimientos lineales y circulares del robot (MOVEL, MOVEC).</Description>
+        </Descriptions>
+  </Command>
+  <Command>
+        <Name>Shiftc</Name>
+        <Arguments>
+             <Argument>&lt;pos&gt; BY &lt;coord&gt; &lt;valor&gt;</Argument>
+        </Arguments>
+        <Descriptions>
+          <Description>Cambia la ubicación de posición del eje o coordenada dados en el valor especificado. Donde &lt;pos&gt; es una posición definida por el usuario, &lt;coord&gt; especifica el número de eje [0-4] y &lt;valor&gt; es un valor dado.</Description>
+        </Descriptions>
+  </Command>
+</Commands>

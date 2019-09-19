@@ -5,9 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-        
-public delegate void HereFromDelegate(bool fromSimulation);//
+// Event. Command "Here" mode        
+public delegate void HereFromDelegate(bool fromSimulation);
 /**
  * El controlador principal de la simulación es el GameController. Su función principal es la de inicializar 
  * la simulación y ejecutar los demás controladores para que realicen tareas específicas. 
@@ -21,32 +20,16 @@ public delegate void HereFromDelegate(bool fromSimulation);//
  */
 public class GameController : MonoBehaviour
 {
-    public static GameController gameController;   
-    public static event HereFromDelegate HereFromDel;//
+    public static GameController gameController;
+    // Event. Command "Here" mode      
+    public static event HereFromDelegate HereFromDel;
 
-    // TODO:  unreachable point, test more, problems
-    // TODO: AlgCDD. Problem when point is almost out of range, requires too many iterations so a point could be unreachable
-    // TODO: XYZ manual control, it stops when not pressed
-    // TODO: IK can lock it self when position is reachable (solution base 180 º, or home before kinematics or second try with home before)
-    // DynamicPrecision Selected can be an arrow, fix this
-    // PLANE:  pos 10 10   scale 2 2 2    pos 99.8 99.8    slace 20 20 20
-    // TODO: Error?, record position, can't create several at a time (2 at most) because of size of selection list
-
-    // done? teach dont mantain p 0 and succeed (p 10?).  40 0 80
-    // shiftc Test this
     // SYNC // What if a position is unrechable???
-    // HERE ERROR
-    // Message online offline, validation
-    // CONSOLE PIVOT  0 1   panel: DOWN STRETCH Terminal:EXPAND
+    // Articulation Docs check 
+    // Check. Teach to position being used as reference (sync relative position) 
+    // Data recovery file 
+    // Main menu help tabs
 
-
-    /* s
-    * RotationAxisControl
-    * MovementAxisControl
-    * ScorbotIK
-    * UIController
-    */
-    // --------------------------------- position with angles----------------------
     // Camera
     public Transform cam;
 
@@ -58,7 +41,7 @@ public class GameController : MonoBehaviour
     private Vector3 defaultPosition;
 
     // Second camera. Wolrd axises
-    public GameObject axisCamera; // Bug? Two cameras destroy selecting interaction. Temporal fix
+    public GameObject axisCamera; 
 
     // Scorbots
     public IK[] scorbots;
@@ -76,10 +59,11 @@ public class GameController : MonoBehaviour
     public GameObject messageLogPanel;
     public GameObject positionLogPanel;
      
+    // Data input
     public InputField targetNameInput;
     public InputField DefpNameInput;
 
-    // Metrix system. Planes
+    // Metric system. Planes
     public Transform planeXY;
     public Transform planeXZ;
     public Transform planeYZ;
@@ -108,7 +92,7 @@ public class GameController : MonoBehaviour
 
     // Online text
     public TextMeshProUGUI onlineText;
-
+    // Delete. Dropdown
     public Dropdown targetDropdown;
 
     // Drawing tool
@@ -147,10 +131,12 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI speedLText;
 
     private bool onlineMode = false;
+    // Mode command "Here"
     private bool syncFromSimulationToScorbot = false;
 
     private void Awake()
     {
+        // GameController can only have one instance
         if (gameController == null)
         {
             gameController = this;
@@ -168,7 +154,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-                
+        // Drawing tool
         lineRenderer = GetComponent<LineRenderer>();
         // Controllers
         manualInputControl = GetComponent<ManualInputControl>();
@@ -179,18 +165,17 @@ public class GameController : MonoBehaviour
         stateMessageControl = GetComponent<StateMessageControl>();
         cameraControl = GetComponent<CameraControl>();
 
+        // Initial config
         cameraControl.SetIsProcessing(true);//
-        //selectionControl.SetActiveAxis(target, false);
         axisCamera.SetActive(true);
-
-        
+                
         defaultPosition = target.position;
         target.GetComponent<ClampName>().textPanel.gameObject.SetActive(false);
         target.gameObject.SetActive(false);
-        SetTarget(null);
-               
+        SetTarget(null);               
         UpdateTargets(targetControl.GetNames());
 
+        // Get commands names
         commandsDropdown.AddOptions(commandControl.GetNames());
         CommandsDropdown_IndexChanged(0);
 
@@ -220,14 +205,6 @@ public class GameController : MonoBehaviour
         // Robot values
         if (!robot)
             return;
-        /*
-        output.text = "Angles: \n";
-        for (int artIndex = robot.GetArticulations().Length - 1; artIndex >= 0; artIndex--)
-        {
-            output.text += robot.GetArticulations()[artIndex].Angle() + "\n";
-        }
-        output.text += "Efector pos: \n" + robot.GetE().position + "\n";
-        */
 
         Vector3 pos = new Vector3(robot.GetE().position.x, robot.GetE().position.z, robot.GetE().position.y);
         pos = pos * 10f;
@@ -245,7 +222,7 @@ public class GameController : MonoBehaviour
     }
 
     /**
-	 * Método que permite el control manual del Scorbot mediante teclado.
+	 * Permite el control manual del Scorbot mediante botones de la interfaz gráfica.
 	 * @param btn Número de boton
 	 * @return void
 	 */
@@ -254,53 +231,94 @@ public class GameController : MonoBehaviour
         manualInputControl.ManualControlArticulation(btn);
     }
 
+    /**
+     * Ejecuta el comando "Home".
+     * @return void
+     */
     public void Home()
     {
         stateMessageControl.NewBlock();
         commandControl.Home(robot);      
     }
 
+    /**
+     * Abre la pinza del Scorbot.
+     * @return void
+     */
     public void Open()
     {
         robot.GetComponent<GripScorbotERIX>().Open();
     }
 
+    /**
+     * Cierra la pinza del Scorbot.
+     * @return void
+     */
     public void Close()
     {
         robot.GetComponent<GripScorbotERIX>().Close();
     }
 
+    /**
+     * Activa desactiva el panel "Manual"
+     * @return void
+     */
     public void ShowHideManualControls()
     {
         panelControl.ShowHideManualControls();
     }
 
+    /**
+     * Activa desactiva el panel "Commands"
+     * @return void
+     */
     public void ShowHideCommands()
     {
         panelControl.ShowHideCommands();        
     }
 
+    /**
+     * Activa desactiva el panel "Console"
+     * @return void
+     */
     public void ShowHideConsole()
     {
         panelControl.ShowHideConsole();
     }
 
+    /**
+     * Activa desactiva el panel "Sync"
+     * @return void
+     */
     public void ShowHideSync()
     {
         panelControl.ShowHideSync();
     }
 
+    /**
+     * Activa desactiva el panel "Log"
+     * @return void
+     */
     public void ShowHideMessageLog()
     {
         stateMessageControl.UpdateMessageLog();
         panelControl.ShowHideMessageLog();
     }
 
+    /**
+     * Activa desactiva el panel "Positions(0/0)"
+     * @return void
+     */
     public void ShowHidePositionLog()
     {
         panelControl.ShowHidePositionLog();
     }
 
+    /**
+     * Crea una posición (objeto) y la válida. El nombre se obtiene del campo la interfaz gráfica.
+     * @param fromCommand Si es para el comando "defp".
+     * @return void
+     */
     public void RecordPosition(bool fromCommand)
     {
         InputField targetNameInput = this.targetNameInput;
@@ -336,8 +354,7 @@ public class GameController : MonoBehaviour
                 stateMessageControl.WriteMessage("Done. Recorded position \"" + targetNameInput.text + "\"", true);
 
                 UpdateTargets(targetControl.GetNames());
-                targetNameInput.text = "";
-                //DrawTrayectory();
+                targetNameInput.text = "";            
             }
             else
                 CreateDefaultTarget(targetNameInput);
@@ -346,6 +363,11 @@ public class GameController : MonoBehaviour
         stateMessageControl.UpdatePositionLog();
     }
 
+    /**
+     * Crea una posición (objeto) nueva en una posición por defecto. Debe ser válida.
+     * @param targetNameInput Campo del nombre de la posición
+     * @return void
+     */
     private void CreateDefaultTarget(InputField targetNameInput)
     {
         Transform newTarget = Instantiate(targetPrefab).transform;
@@ -362,17 +384,24 @@ public class GameController : MonoBehaviour
         Transform addedTarget = targetControl.Add(targetNameInput.text, newPos, robot.GetAnglesFromCopy());
         addedTarget.GetComponent<TargetModel>().SetValid(true);
         selectionControl.SetActiveAxis(addedTarget, false);
-        //selectionControl.SelectedObject(addedTarget.gameObject);
+       
         SetTarget(addedTarget);
 
         stateMessageControl.WriteMessage("Done. Recorded position \"" + targetNameInput.text + "\"", true);
 
         UpdateTargets(targetControl.GetNames());
         targetNameInput.text = "";
-        //DrawTrayectory();
+      
         Destroy(newTarget.gameObject);
     }
-    
+
+    /**
+     * Comprueba si una posición (objeto) tiene un nombre válido y está en el alcance del Scorbot.
+     * @param targetNameInput Campo del nombre de la posición
+     * @param newTarget Posición (objeto)
+     * @param newPos Coordenadas
+     * @return bool Válido
+     */
     private bool ValidTarget(InputField targetNameInput, Transform newTarget, Vector3 newPos) {
 
         // Check if it's a valid name  
@@ -404,6 +433,10 @@ public class GameController : MonoBehaviour
         return true;        
     }
 
+    /**
+     * Elimina la posición (objeto) seleccionada en la lista de posiciones.
+     * @return void
+     */
     public void RemoveTarget()
     {
         stateMessageControl.NewBlock();
@@ -425,18 +458,27 @@ public class GameController : MonoBehaviour
         stateMessageControl.UpdatePositionLog();
     }
 
-    // Target change = change selected object?
+    /**
+     * Actualiza una posición (objeto) como el objetivo actual (color violeta) especificando su índice en 
+     * una lista de posiciones.
+     * @param index
+     * @return void
+     */
     public void TargetDropdown_IndexChanged(int index)
-    {  
-        
-        SetTarget(targetControl.GetTarget(index));
-        //selectionControl.SetActiveAxis(targetControl.GetTarget(index), true);
-        //selectionControl.SelectedObject(targetControl.GetTarget(index).gameObject);
+    {          
+        SetTarget(targetControl.GetTarget(index));   
     }
-
-    // Update commands menu
+    
+    /**
+     * Activa los elementos gráficos de un comando especificado por su índice.
+     * @param index Índice del comando
+     * @return void
+     */
     public void CommandsDropdown_IndexChanged(int index)
     {
+        // Update commands menu
+
+        // Reset everything
         position1Dropdown.gameObject.SetActive(false);
         position2Dropdown.gameObject.SetActive(false);
         XInput.gameObject.SetActive(false);
@@ -464,6 +506,7 @@ public class GameController : MonoBehaviour
         PInput.readOnly = false;
         RInput.readOnly = false;
 
+        // Activate selected command elements
         switch (index)
         {
             case (int)CommandHelper.move:
@@ -492,9 +535,9 @@ public class GameController : MonoBehaviour
                 RInput.readOnly = true;
 
                 // Preview target values
-                XInput.placeholder.GetComponent<Text>().text = "X:" + target.GetComponent<TargetModel>().GetPosmm().x;
-                YInput.placeholder.GetComponent<Text>().text = "Y:" + target.GetComponent<TargetModel>().GetPosmm().z;
-                ZInput.placeholder.GetComponent<Text>().text = "Z:" + target.GetComponent<TargetModel>().GetPosmm().y;
+                XInput.placeholder.GetComponent<Text>().text = "X:" + target.GetComponent<TargetModel>().GetPositionInScorbot().x;
+                YInput.placeholder.GetComponent<Text>().text = "Y:" + target.GetComponent<TargetModel>().GetPositionInScorbot().y;
+                ZInput.placeholder.GetComponent<Text>().text = "Z:" + target.GetComponent<TargetModel>().GetPositionInScorbot().z;
                 PInput.placeholder.GetComponent<Text>().text = "P:" + target.GetComponent<TargetModel>().GetPitch().ToString(NUMBER_FORMAT);
                 RInput.placeholder.GetComponent<Text>().text = "R:" + target.GetComponent<TargetModel>().GetRoll().ToString(NUMBER_FORMAT);
                 break;
@@ -507,9 +550,9 @@ public class GameController : MonoBehaviour
                 RInput.gameObject.SetActive(true);
 
                 // Preview target values
-                XInput.placeholder.GetComponent<Text>().text = "X:" + target.GetComponent<TargetModel>().GetPosmm().x;
-                YInput.placeholder.GetComponent<Text>().text = "Y:" + target.GetComponent<TargetModel>().GetPosmm().z;
-                ZInput.placeholder.GetComponent<Text>().text = "Z:" + target.GetComponent<TargetModel>().GetPosmm().y;
+                XInput.placeholder.GetComponent<Text>().text = "X:" + target.GetComponent<TargetModel>().GetPositionInScorbot().x;
+                YInput.placeholder.GetComponent<Text>().text = "Y:" + target.GetComponent<TargetModel>().GetPositionInScorbot().y;
+                ZInput.placeholder.GetComponent<Text>().text = "Z:" + target.GetComponent<TargetModel>().GetPositionInScorbot().z;
                 PInput.placeholder.GetComponent<Text>().text = "P:" + target.GetComponent<TargetModel>().GetPitch().ToString(NUMBER_FORMAT);
                 RInput.placeholder.GetComponent<Text>().text = "R:" + target.GetComponent<TargetModel>().GetRoll().ToString(NUMBER_FORMAT);
                 break;
@@ -547,16 +590,18 @@ public class GameController : MonoBehaviour
                 position1Dropdown.gameObject.SetActive(false);
                 position2Dropdown.gameObject.SetActive(false);
                 break;
-        }
-
-        //DrawTrayectory();
+        }       
     }
-
-    // Execute selected command
+    
+    /**
+     * Ejecuta el comando selectionado actualmente en la lista de comandos.
+     * @return void
+     */
     public void Execute()
     {
         stateMessageControl.NewBlock();
 
+        // Execute selected command
         switch (commandsDropdown.value)
         {
             case (int)CommandHelper.move:                
@@ -583,11 +628,11 @@ public class GameController : MonoBehaviour
                     return;
                 // Just use targets values if no new values specified 
                 if (XInput.text.Equals(""))
-                    XInput.text = target.GetComponent<TargetModel>().GetPosmm().x.ToString();
+                    XInput.text = target.GetComponent<TargetModel>().GetPositionInScorbot().x.ToString();
                 if (YInput.text.Equals(""))
-                    YInput.text = target.GetComponent<TargetModel>().GetPosmm().z.ToString();
+                    YInput.text = target.GetComponent<TargetModel>().GetPositionInScorbot().y.ToString();
                 if (ZInput.text.Equals(""))
-                    ZInput.text = target.GetComponent<TargetModel>().GetPosmm().y.ToString();
+                    ZInput.text = target.GetComponent<TargetModel>().GetPositionInScorbot().z.ToString();
                 if (PInput.text.Equals(""))
                     PInput.text = target.GetComponent<TargetModel>().GetPitch().ToString(NUMBER_FORMAT);
                 if (RInput.text.Equals(""))
@@ -606,6 +651,11 @@ public class GameController : MonoBehaviour
                 commandControl.Home(robot);
                 break;
             case (int)CommandHelper.teachr:
+                if (targetControl.Count() <= 1 || (position1Dropdown.value == position2Dropdown.value))
+                {
+                    stateMessageControl.WriteMessage("Error. TEACHR Needs 2 different positions", false);
+                    return;
+                }
                 // Just use 0 values if no new values specified 
                 if (XInput.text.Equals(""))
                     XInput.text = "0";
@@ -638,6 +688,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /**
+     * Actualiza una posición (objeto) como el objetivo actual (color violeta).
+     * @param t Posición (objeto)
+     * @return void
+     */
     private void SetTarget(Transform t)
     {
         if (t)
@@ -655,6 +710,10 @@ public class GameController : MonoBehaviour
         CommandsDropdown_IndexChanged(commandsDropdown.value);
     }
 
+    /**
+     * Dibuja las trayectorias de los comandos "movel" y "movec".
+     * @return void
+     */
     public void DrawTrayectory()
     {
         // Don't draw if commands panel is not visible
@@ -669,7 +728,7 @@ public class GameController : MonoBehaviour
             case (int)CommandHelper.move:
                 LineRenderEmpty();
                 break;
-            case (int)CommandHelper.movel:
+            case (int)CommandHelper.movel: // Draw. Command "movel"
                 if (targetControl.Count() == 0)
                     return;
 
@@ -683,7 +742,7 @@ public class GameController : MonoBehaviour
                 lineRenderer.startWidth = 1f;
                 lineRenderer.endWidth = 1f;
                 break;
-            case (int)CommandHelper.movec:
+            case (int)CommandHelper.movec: // Draw. Command "movec"
                 if (targetControl.Count() <= 1)
                     return;
 
@@ -714,26 +773,43 @@ public class GameController : MonoBehaviour
         
     }
 
+    /**
+     * Borra cualquier trayectoria dibujada.
+     * @return void
+     */
     private void LineRenderEmpty()
     {
         lineRenderer.positionCount = 0;
         lineRenderer.SetPositions(new Vector3[0]);
     }
 
+    /**
+     *Ejecuta el comando "speed" del Scorbot.
+     * @param speed Velocidad
+     * @return void
+     */
     public void SpeedInputEnd(string speed)
     {
-        commandControl.Speed(robot, int.Parse(speed));
-        //robot.SetSpeed(int.Parse(speed));
+        commandControl.Speed(robot, int.Parse(speed));     
         speedText.text = speed;
     }
 
+    /**
+     *Ejecuta el comando "speedl" del Scorbot.
+     * @param speed Velocidad
+     * @return void
+     */
     public void SpeedLInputEnd(string speed)
     {
-        commandControl.SpeedL(robot, int.Parse(speed));
-        //robot.SetSpeedL(int.Parse(speed));
+        commandControl.SpeedL(robot, int.Parse(speed));  
         speedLText.text = speed;
     }
 
+    /**
+     * Actualiza las lista de los nombres de las posiciones.
+     * @param targetsNamesArray Lista de los nombre de las posiciones
+     * @return void
+     */
     private void UpdateTargets(List<string> targetsNamesArray)
     {
         targetDropdown.ClearOptions();
@@ -748,11 +824,17 @@ public class GameController : MonoBehaviour
                         
     }
 
+    /**
+     * Activa el Scorbot especificado por su índice.
+     * @param index Índice del Scorbot
+     * @return void
+     */
     public void SetScorbot(int index)
     {
+        // Hide all Scorbots
         foreach (IK scorbot in scorbots)
             scorbot.gameObject.SetActive(false);
-
+        // Activate selected Scorbot
         switch(index)
         {
             case ScorbotERIX.INDEX:
@@ -765,37 +847,65 @@ public class GameController : MonoBehaviour
                 break;
         }
     }
-
-    // Mode Online - Offline
+        
+    /**
+     * Controla los cambios en la barra dezlizadora para cambiar entre el modo online y offline.
+     * @param value Valor. Debe ser 0 o 1
+     * @return void
+     */
     public void OnlineOfflineSlider(float value)
     {
+        // Mode Online - Offline
         onlineMode = value == 1f ? true : false;
 
         onlineText.text = onlineMode? "Online" : "Offline";
         bool done = controller.Online_Offline(onlineMode);
-        if (!done)
+        if (done)
+        {
+            stateMessageControl.WriteMessage("Done. Online ONLINE", done);
+        }
+        else
         {
             stateMessageControl.WriteMessage("Error. Online ONLINE", done);
             onlineMode = false;
-
         }
     }
 
+    /**
+     * Obtiene si el modo online está activo
+     * @return void
+     */
     public bool GetOnlineMode()
     {
         return onlineMode;
     }
 
+    /**
+     * Modifica si el modo "From real Scorbot" está activo. En otro caso se usará el modo "From simulation".
+     * @param fromSimulation Modo "From simulation" activo
+     * @return  void
+     */
     public void HereFromSimulation(bool fromSimulation)
     {   
         HereFromDel(fromSimulation);
     }
 
+    /**
+     * Modifica si el modo "From simulation to Scorbot" del panel "Sync" está activo. En otro caso se usará el modo 
+     * "From Scorbot to simulation".
+     * @param fromSimulation Modo "From simulation to Scorbot" activo
+     * @return void
+     */
     public void SyncFromSimulationToScorbot(bool fromSimulation)
     {
         syncFromSimulationToScorbot = fromSimulation;
     }
-    
+
+    /**
+     * Sincroniza todas las posiciones entre el simulador y el Scorbot real. Dependiendo del modo se hace de uno a otro o
+     * viceversa.
+     * @return void
+     */
     public void SyncAllTargets()
     {
         stateMessageControl.NewBlock();
@@ -807,11 +917,10 @@ public class GameController : MonoBehaviour
             return;
         }
 
-        //waitPanel.SetActive(true);
-        // Only online
+        // Only online mode
+        // If a position fails, it continues with others
         if (syncFromSimulationToScorbot)
-        {
-            // Defp?            
+        {                    
             foreach (string t in targetControl.GetNames())
             {
                 if (!commandControl.SyncSimulationToScorbot(robot, targetControl.GetTarget(t)))
@@ -830,13 +939,14 @@ public class GameController : MonoBehaviour
         if(namesError.Count >= 1)
             stateMessageControl.WriteMessage("Error. Online ALLSYNC Positions with error: " + namesError.Count, false);
         else
-            stateMessageControl.WriteMessage("Done. Online ALLSYNC", true);
-
-        //waitPanel.SetActive(false);
-      
-        
+            stateMessageControl.WriteMessage("Done. Online ALLSYNC", true);      
     }
 
+    /**
+     * Sincroniza una posición entre el simulador y el Scorbot real. Dependiendo del modo se hace de uno a otro o
+     * viceversa.
+     * @return void
+     */
     public void SyncTarget()
     {
         stateMessageControl.NewBlock();
@@ -846,9 +956,8 @@ public class GameController : MonoBehaviour
             stateMessageControl.WriteMessage("Error. Online SYNC You are offline \"" + target.GetComponent<TargetModel>().GetName() + "\"", false);
             return;
         }
-
-        //waitPanel.SetActive(true);
-        // Only online
+              
+        // Only online mode
         if (syncFromSimulationToScorbot)
         {           
             commandControl.SyncSimulationToScorbot(robot, targetControl.GetTarget(syncTargetDropdown.value));
@@ -856,17 +965,23 @@ public class GameController : MonoBehaviour
         else
         {
             commandControl.SyncScorbotToSimulation(robot, targetControl.GetTarget(syncTargetDropdown.value));
-        }
-     
-        //waitPanel.SetActive(false);
+        }     
     }
 
+    /**
+     * Activa el menú principal.
+     * @return void
+     */
     public void MainMenu()
     {
         menu.SetActive(true);
         cameraControl.SetIsProcessing(false);
     }
 
+    /**
+     * Ejecuta el comando "Con".
+     * @return void
+     */
     public void CON()
     {
         stateMessageControl.NewBlock();

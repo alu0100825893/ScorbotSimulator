@@ -320,6 +320,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Assets\Environment\DemoEnvUnlitGrayscale.shader" />
+    <None Include="Assets\Assets\commands.xml" />
     <None Include="Assets\ExternalAssets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\ExternalAssets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
     <None Include="Assets\ExternalAssets\TextMesh Pro\Examples &amp; Extras\Fonts\LiberationSans - OFL.txt" />

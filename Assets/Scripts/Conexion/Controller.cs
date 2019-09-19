@@ -29,14 +29,14 @@ public class Controller : MonoBehaviour {
     Transform Target;
     Transform Target2;
 
-    public struct Command
+    private struct Command
     {
         public string name;
         public List<string> arguments;
         public List<string> description;
     }
 
-    public List<Command> ListOfCommand = new List<Command>();
+    private List<Command> ListOfCommand = new List<Command>();
 
     // Use this for initialization
     void Start() {
@@ -185,6 +185,7 @@ public class Controller : MonoBehaviour {
                 {
                     case "home":
                         CommandControl.Home(Robot);
+                        Term.Input_View(true);
                         break;
                     case "move":
                         if (Target == null)
@@ -403,5 +404,16 @@ public class Controller : MonoBehaviour {
             };
             ListOfCommand.Add(command);
         }
+    }
+
+    public List<string> ListCommand(string command)
+    {
+        var list = ListOfCommand.FindAll(c => c.name.ToLower().StartsWith(command.ToLower()));
+        List<string> listCommand = new List<string>();
+        foreach(var item in list)
+        {
+            listCommand.Add(item.name);
+        }
+        return listCommand;
     }
 }

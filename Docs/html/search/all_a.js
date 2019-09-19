@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['remove',['Remove',['../class_target_control.html#a118416e825413adb6c4c60ac7b08ff69',1,'TargetControl']]]
+  ['newblock',['NewBlock',['../class_state_message_control.html#a534610a9734b552696484aaeeb83c8b7',1,'StateMessageControl']]]
 ];

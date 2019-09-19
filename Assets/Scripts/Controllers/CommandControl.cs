@@ -160,15 +160,24 @@ public class CommandControl : MonoBehaviour {
                 stateMessageControl.WriteMessage("Error. Online MOVEL \"" + target.GetComponent<TargetModel>().GetName() + "\"", done);
         }
     }
-    
-    
+
+    /**
+     * Mueve el Scorbot a una posición ya definida pasando por otra posición. El movimiento es una curva generada
+     * por el algoritmo del spline de CatmullRom.
+     * @param robot Scorbot
+     * @param finalPoint Posición final(objeto)
+     * @param middlePoint Posición intermedia (objeto)
+     * @return void
+     */
     public void MoveC(IK robot, Transform finalPoint, Transform middlePoint)
     {
+        // Valid final position
         if (!finalPoint.GetComponent<TargetModel>().GetValid())
         {
             stateMessageControl.WriteMessage("Error. MOVEC Unreachable position \"" + finalPoint.GetComponent<TargetModel>().GetName() + "\"", false);
             return;
         }
+        // Valid intermediate position
         if (!middlePoint.GetComponent<TargetModel>().GetValid())
         {
             stateMessageControl.WriteMessage("Error. MOVEC Unreachable position \"" + middlePoint.GetComponent<TargetModel>().GetName() + "\"", false);
@@ -176,15 +185,20 @@ public class CommandControl : MonoBehaviour {
         }
 
         List<Transform> list = new List<Transform>();
+        // Scorbot final effector
         list.Add(robot.GetE());
+        // Intermadiate position
         list.Add(middlePoint);
+        // Final position
         list.Add(finalPoint);
 
+        // Add 2 control points
         Vector3[] positions = spline.PrepareSpline(list);
+        // Get final trajectory
         List<Vector3> points = spline.GetTrayectory(positions);
 
-
-        Transform[] trayectory = new Transform[points.Count - 1]; // skip first one, Efector
+        // Build objects from final trajectory
+        Transform[] trayectory = new Transform[points.Count - 1]; // skip first one, Effector
    
         for (int i = 0; i < trayectory.Length - 1; i++) // Last one is target, skip
         {
@@ -193,7 +207,7 @@ public class CommandControl : MonoBehaviour {
             trayectory[i] = transf;
         }
         trayectory[trayectory.Length - 1] = finalPoint;
-
+        // Move Scorbot following trajectory
         robot.CCDAlg(trayectory, false);
         stateMessageControl.WriteMessage("Done. MOVEC \"" + finalPoint.GetComponent<TargetModel>().GetName() + "\"" +
                     " \"" + middlePoint.GetComponent<TargetModel>().GetName() + "\"", true);
@@ -217,119 +231,208 @@ public class CommandControl : MonoBehaviour {
         }
     }
 
-    // mm. pos in real Scorbot
+    /**
+     * Modifica una posición con nuevos valores los cuales son una posición (x, y, z), inclinación frontal e 
+     * inclinación lateral. Estos valores deben entar en el contexto del Scorbot real.
+     * @param robot Scorbot
+     * @param target Posición (objeto)
+     * @param pos Coordenadas
+     * @param p Pitch
+     * @param r Roll
+     * @param online Ejecutar modo online
+     * @param offline Ejecutar modo offline
+     * @return bool Éxito
+     */
     public bool Teach(IK robot, Transform target, Vector3 pos, float p, float r, bool online = true, bool offline = true)
     {
+
         Vector3 posReal = new Vector3(pos.x, pos.y, pos.z);
+        // Offline mode
         if (offline)
         {            
-            // mm to cm. pos in simulation
+            // mm to cm. Interchange y and z. Position in simulation
             pos = new Vector3(pos.x / 10f, pos.z / 10f, pos.y / 10f);
-
+            // Copy initial values
             Vector3 startPos = target.position;
             Vector3 startPitch = target.GetComponent<TargetModel>().GetAngles()[3];
             Vector3 startRoll = target.GetComponent<TargetModel>().GetAngles()[4];
-
-            // DO HERE and recover angles?
-
+            
             // Apply pitch and roll to target
             target.GetComponent<TargetModel>().GetAngles()[3] = robot.GetArticulations()[3].BuiltAngle(p);
             target.GetComponent<TargetModel>().GetAngles()[4] = robot.GetArticulations()[4].BuiltAngle(-r);
 
-            // Check if it's an unreachable point     
+            // Apply new coordinatesC  
             target.position = pos;
-
-
+            // Check if it's an unreachable point
             if (!robot.TargetInRange(target, true))
-            {
-                //stateOutput.text = "Unreachable point";
-                //Debug.Log("Unreachable Teach");
-                //stateOutput.text = "Unreachable Teach";
+            {               
                 stateMessageControl.WriteMessage("Error. TEACH Unreachable position \"" + target.GetComponent<TargetModel>().GetName() + "\"", false);
-                // Restore target
+                // Restore position (object) values
                 target.position = startPos;
                 target.GetComponent<TargetModel>().GetAngles()[3] = startPitch;
                 target.GetComponent<TargetModel>().GetAngles()[4] = startRoll;
                 return false;
             }
-
+                        
+            // Recover angles data. Apply to position (object)
             target.GetComponent<TargetModel>().SetAngles(robot.GetAnglesFromCopy());
             target.GetComponent<TargetModel>().SetSync(false);
-            //Debug.Log("Success Teach");
-            //stateOutput.text = "Success Teach";
+        
             stateMessageControl.WriteMessage("Done. TEACH \"" + target.GetComponent<TargetModel>().GetName() + "\"", true);
             stateMessageControl.UpdatePositionLog();
-            // Calculate new config with new restrictions
+
+            // if this position is being used by another position (relative), that position is not sync anymore
+            Transform relativePosition = target.GetComponent<TargetModel>().GetRelativeFrom();
+            if (target.GetComponent<TargetModel>().GetRelativeFrom())
+            {
+                relativePosition.GetComponent<TargetModel>().SetSync(false);
+                // Updating relative position
+                relativePosition.GetComponent<TargetModel>().UpdateRelativePosition();
+
+                // Update angles data                    
+                if (robot.TargetInRange(relativePosition))
+                {
+                    // Reachable. Load data to target
+                    relativePosition.GetComponent<TargetModel>().SetAngles(robot.GetAnglesFromCopy());
+                    relativePosition.GetComponent<TargetModel>().SetValid(true);
+                }
+                else // Unreachable
+                {
+                    relativePosition.GetComponent<TargetModel>().SetValid(false);
+                }
+            }
+
+            // This position is relative to another, teach destroys relativity
+            if (target.GetComponent<TargetModel>().GetRelativeTo())
+            {
+                target.GetComponent<TargetModel>().SetNoRelativeTo();
+            }
         }
 
+        // Online mode
         if (gameController.GetOnlineMode() && online)
         {
+            // Build data to send
             List<float> xyzpr = new List<float>() { posReal.x, posReal.y, posReal.z, p, r };
             bool done = controller.RunCommandUITeach(target.GetComponent<TargetModel>().GetName(), xyzpr);
-            //controller.Connection.GetComponent<SerialController>().WriteToControllerTeach(target.GetComponent<TargetModel>().GetName(), xyzpr);
             if (done)
             {
                 stateMessageControl.WriteMessage("Done. Online TEACH \"" + target.GetComponent<TargetModel>().GetName() + "\"", done);
                 target.GetComponent<TargetModel>().SetSync(true);
+                /*
+                if (target.GetComponent<TargetModel>().GetRelativeFrom())
+                    target.GetComponent<TargetModel>().GetRelativeFrom().GetComponent<TargetModel>().SetSync(true);
+                */
+
                 stateMessageControl.UpdatePositionLog();
             }
             else
+            {
                 stateMessageControl.WriteMessage("Error. Online TEACH \"" + target.GetComponent<TargetModel>().GetName() + "\"", done);
-            //stateOutput.text = "Success Online Teach";
+                return false;
+            }
         }
 
         return true;
     }
 
-    // Generate data for relative position
-    // Check valid
-    // mm. pos in real Scorbot
-    public void TeachR(IK robot, Transform target, Transform relativeToTarget, Vector3 pos, float p, float r)
+    /**
+     * Define una posición relativa a otra posición con nuevos valores los cuales son una posición (x, y, z), 
+     * inclinación frontal e inclinación lateral. La posición permanecerá relativa. Los valores deben estar
+     * en el contexto del Scorbot real.
+     * @param robot Scorbot
+     * @param target Posición (objeto)
+     * @param relativeToTarget Posición (objeto) relativa a usar como referencia
+     * @param pos Coordenadas relativas
+     * @param p Pitch relativo
+     * @param r Roll relativo
+     * @param online Ejecutar modo online
+     * @param offline Ejecutar modo offline
+     * @return bool Éxito
+     */
+    public bool TeachR(IK robot, Transform target, Transform relativeToTarget, Vector3 pos, float p, float r, bool online = true, bool offline = true)
     {
-        
-        Vector3 newPos = (new Vector3(relativeToTarget.position.x, relativeToTarget.position.z, relativeToTarget.position.y) * 10f)
-            + pos;
-        bool teachDone = Teach(robot, target, newPos, relativeToTarget.GetComponent<TargetModel>().GetPitch() + p, 
-            relativeToTarget.GetComponent<TargetModel>().GetRoll() + r);
-
-        if (teachDone)
-            stateMessageControl.WriteMessage("Done. TEACHR \"" + target.GetComponent<TargetModel>().GetName() + "\"", teachDone);
-        else
+        // Offline mode
+        if (offline)
         {
-            stateMessageControl.WriteMessage("Error. TEACHR \"" + target.GetComponent<TargetModel>().GetName() + "\"", teachDone);
-            return;
-        }
-        
-        target.GetComponent<TargetModel>().SetRelativeTo(relativeToTarget, new Vector3(pos.x, pos.z, pos.y) / 10f, p, r);
-                
-        if (gameController.GetOnlineMode())
-        {
-            //
-        }
+            // New relative position
+            Vector3 newPos = (new Vector3(relativeToTarget.position.x, relativeToTarget.position.z, relativeToTarget.position.y) * 10f)
+                + pos;
 
+            // Apply new relative values
+            bool teachDone = Teach(robot, target, newPos, relativeToTarget.GetComponent<TargetModel>().GetPitch() + p,
+                relativeToTarget.GetComponent<TargetModel>().GetRoll() + r, false);
+
+            if (teachDone)
+                stateMessageControl.WriteMessage("Done. TEACHR \"" + target.GetComponent<TargetModel>().GetName() + "\" \"" +
+                    relativeToTarget.GetComponent<TargetModel>().GetName() + "\"", teachDone);
+            else
+            {
+                stateMessageControl.WriteMessage("Error. TEACHR \"" + target.GetComponent<TargetModel>().GetName() + "\" \"" +
+                    relativeToTarget.GetComponent<TargetModel>().GetName() + "\"", teachDone);
+                return false;
+            }
+
+            // Activate automatic values update
+            target.GetComponent<TargetModel>().SetRelativeTo(relativeToTarget, new Vector3(pos.x, pos.z, pos.y) / 10f, p, r);
+        }            
+
+        // Online mode        
+        if (gameController.GetOnlineMode() && online)
+        {
+            // Build data to send            
+            List<float> xyzpr = new List<float>() { pos.x, pos.y, pos.z, p, r };
+            bool done = controller.RunCommandUITeachr(target.GetComponent<TargetModel>().GetName(),
+                relativeToTarget.GetComponent<TargetModel>().GetName(), xyzpr);
+            if (done)
+            {
+                stateMessageControl.WriteMessage("Done. Online TEACHR \"" + target.GetComponent<TargetModel>().GetName() + "\" \"" +
+                relativeToTarget.GetComponent<TargetModel>().GetName() + "\"", done);
+                target.GetComponent<TargetModel>().SetSync(true);
+                stateMessageControl.UpdatePositionLog();
+            }
+            else
+            {
+                stateMessageControl.WriteMessage("Error. Online TEACHR \"" + target.GetComponent<TargetModel>().GetName() + "\" \"" +
+                relativeToTarget.GetComponent<TargetModel>().GetName() + "\"", done);
+                return false;
+            }
+        }
+        return true;
     }
 
+    /**
+     * Modifica una posición con los valores actuales del Scorbot. Modifica una posición en el controlador con los 
+     * valores actuales del Scorbot real o el de la simulación. En modo "From simulation" el Scorbot es el de 
+     * la simulación, mientras que en modo "From Scorbot" es el Scorbot real. En modo "From simulation" se ejecuta 
+     * el comando "Teach" (online) con los valores del Scorbot de la simulación. En modo "From Scorbot" se ejecuta 
+     * el comando "Here" (online) en el Scorbot real, seguidamente de "Listpv" (online) para recuperar los datos 
+     * del "Here" y se realiza un "Teach" (Offline) para cargar esos datos.
+     * @param robot Scorbot
+     * @param target Posición (objeto)
+     * @return void
+     */
     public void Here(IK robot, Transform target)
     {
         
+        // Online mode
         if (gameController.GetOnlineMode())
         {
             // 2 options. Use pos from simulation or real Scorbot
-            if (isHereFromSimulation)
+            if (isHereFromSimulation) // Here. Mode "From simulation"
             {                
-                // Copy angles from simulation
+                // Copy angles from simulation into the position (object)
                 target.position = new Vector3(robot.GetE().position.x, robot.GetE().position.y, robot.GetE().position.z);
                 target.GetComponent<TargetModel>().SetAngles(robot.GetAngles());
                 stateMessageControl.WriteMessage("Done. HERE \"" + target.GetComponent<TargetModel>().GetName() + "\"", true);
                 target.GetComponent<TargetModel>().SetSync(false);
                 stateMessageControl.UpdatePositionLog();
 
-                // Get pos and p, r from simulation. Do teach to real Scorbot
-
+                // Get pos, p, r from simulation. Do teach to real Scorbot
                 List<float> xyzpr = new List<float>() { target.position.x * 10f, target.position.z  * 10f, target.position.y  * 10f,
                     target.GetComponent<TargetModel>().GetPitch(), target.GetComponent<TargetModel>().GetRoll() };
                 bool done = controller.RunCommandUITeach(target.GetComponent<TargetModel>().GetName(), xyzpr);
-                //Teach(robot, target, pos, posPitchRoll[3], posPitchRoll[4]);
+           
                 if (done)
                 {
                     stateMessageControl.WriteMessage("Done. Online HERE \"" + target.GetComponent<TargetModel>().GetName() + "\"", done);
@@ -338,10 +441,11 @@ public class CommandControl : MonoBehaviour {
                 }
                 else
                     stateMessageControl.WriteMessage("Error. Online HERE \"" + target.GetComponent<TargetModel>().GetName() + "\"", done);
-                //stateOutput.text = "Success Here Simulation";
+              
             }
-            else // From real Scorbot
+            else // Here. Mode "From real Scorbot"
             {
+                // Real scorbot here
                 bool here = controller.RunCommandUIOnline("here", target.GetComponent<TargetModel>().GetName());
                 if (here)
                 {
@@ -352,6 +456,7 @@ public class CommandControl : MonoBehaviour {
                 else
                     stateMessageControl.WriteMessage("Error. Online HERE(HERE) \"" + target.GetComponent<TargetModel>().GetName() + "\"", here);
 
+                // Get data from real Scorbot into the position (object)
                 bool done = SyncScorbotToSimulation(robot, target);
 
                 if (done)
@@ -363,47 +468,55 @@ public class CommandControl : MonoBehaviour {
 
             }
         }
-        else // Offline
+        else // Offline mode
         {
-            // Copy angles from simulation
+            // Copy angles from simulation into the position (object)
             target.position = new Vector3(robot.GetE().position.x, robot.GetE().position.y, robot.GetE().position.z);
             target.GetComponent<TargetModel>().SetAngles(robot.GetAngles());
             target.GetComponent<TargetModel>().SetSync(false);
             stateMessageControl.UpdatePositionLog();
 
             stateMessageControl.WriteMessage("Done. HERE \"" + target.GetComponent<TargetModel>().GetName() + "\"", true);
-
-            //List<int> counts = new List<int>() { -13541, -22691, -3489, 56937, 27};
-            //target.position = robot.GetPosFromCounts(counts);
-            //stateOutput.text =  robot.GetPosFromCounts(counts).ToString();
         }
 
     }
 
+    /**
+     * Se obtienen los valores de una posición los cuales son una posición (x, y, z), inclinación frontal (pitch) 
+     * e inclinación lateral (roll). Además de los conteos de encoder para cada articulación del Scorbot real. Este
+     * comando no el el mismo que el "listpv" de la simulación, aunque su función la misma.
+     * @param target Posición (objeto)
+     * @param counts Conteos de encoder
+     * @param posPitchRoll Coordenadas, pitch y roll
+     * @return bool Éxito
+     */
     public bool Listpv(Transform target, out List<int> counts, out List<float> posPitchRoll)
-    {
-        //List<int> counts = new List<int>();
-        counts = new List<int>();
-        //List<float> posPitchRoll = new List<float>();
+    {     
+        counts = new List<int>();      
         posPitchRoll = new List<float>();
 
-        List<String[]> listString = new List<string[]>();
-        // This stops main thread    
-        listString = controller.RunCommandListpvOnline(target.GetComponent<TargetModel>().GetName());
-        if(listString == null || listString.Count == 0)                 
+        // Only online mode
+        if (gameController.GetOnlineMode())
+        {
+            stateMessageControl.WriteMessage("Error. Online LISTPV \"" + target.GetComponent<TargetModel>().GetName() + "\". Mode online required", false);
             return false;
-        
-        // Transform listpv data
-        string result = "";
+        }
 
+        List<String[]> listString = new List<string[]>();
+        // This stops main thread. Get position data from real Scorbot
+        listString = controller.RunCommandListpvOnline(target.GetComponent<TargetModel>().GetName());
+        if(listString == null || listString.Count == 0)
+            return false;
+
+        
+        // Transforming listpv data into lists
+        string result = "";
         Regex rx = new Regex("^.:(.+?)$");        
 
         foreach (String[] a in listString)
-        {
-            //aux += a.Length.ToString();
+        {       
             foreach (string b in a)
-            {
-                //Debug.Log(b);                  
+            {                         
                 MatchCollection matches = rx.Matches(b);
                 foreach (Match match in matches)
                 {
@@ -414,24 +527,39 @@ public class CommandControl : MonoBehaviour {
             }
         }
 
-        for (int i = 0; i < 5; i++)
+        // If the position is relative to another position, listpv will send 5 relative values (this causes error)
+        if (posPitchRoll.Count == 10)
         {
-            counts.Add((int)posPitchRoll[0]);
-            posPitchRoll.RemoveAt(0);
+            for (int i = 0; i < 5; i++)
+            {
+                counts.Add((int)posPitchRoll[0]);
+                posPitchRoll.RemoveAt(0);
+            }
         }
-
+        else
+        {
+            stateMessageControl.WriteMessage("Error. Online LISTPV \"" + target.GetComponent<TargetModel>().GetName() + "\". Relative position", false);
+            return false;
+        }
+        
         return true;
     }
 
-    // Online.
+    /**
+     * Recupera los valores de una posición del Scorbot real en la misma posición en la simulación.
+     * @param robot Scorbot
+     * @param target Posición (objeto)
+     * @return bool Éxito
+     */
     public bool SyncScorbotToSimulation(IK robot, Transform target)
     {        
-        List<String[]> listString = new List<string[]>();
-        // This stops main thread    
-        //listString = controller.RunCommandListpvOnline(target.GetComponent<TargetModel>().GetName());
+        // Only online mode
 
+        List<String[]> listString = new List<string[]>();
+              
         List<int> counts;
         List<float> posPitchRoll;
+        // This stops main thread    
         bool listpv = Listpv(target, out counts, out posPitchRoll);
         if (listpv)
             stateMessageControl.WriteMessage("Done. Online SYNC(LISTPV) \"" + target.GetComponent<TargetModel>().GetName() + "\"", listpv);
@@ -443,10 +571,13 @@ public class CommandControl : MonoBehaviour {
 
         // Do teach only in simulation
         bool done = Teach(robot, target, new Vector3(posPitchRoll[0], posPitchRoll[1], posPitchRoll[2]), posPitchRoll[3], posPitchRoll[4], false);
+      
         if (done)
         {
             stateMessageControl.WriteMessage("Done. Online SYNC \"" + target.GetComponent<TargetModel>().GetName() + "\"", done);
             target.GetComponent<TargetModel>().SetSync(true);
+            if (target.GetComponent<TargetModel>().GetRelativeFrom())
+                target.GetComponent<TargetModel>().GetRelativeFrom().GetComponent<TargetModel>().SetSync(true);
             stateMessageControl.UpdatePositionLog();
             return true;
         }
@@ -456,23 +587,39 @@ public class CommandControl : MonoBehaviour {
             return false;
         }
     }
-
-    // defp
-    // Online
+    
+    /**
+     * Guarda los valores de una posición de la simulación en la misma posición en el Scorbot real.
+     * @param robot Scorbot
+     * @param target Posición (objeto)
+     * @return bool Éxito
+     */
     public bool SyncSimulationToScorbot(IK robot, Transform target)
     {
         // defp, in case it doest exist
         Defp(target);
 
-        // Teach to Scorbot
+        // If position is unreachable, error
+        /*
+        if (target.GetComponent<TargetModel>().GetValid())
+        {
+            stateMessageControl.WriteMessage("Error. Online SYNC \"" + target.GetComponent<TargetModel>().GetName() + "\" Invalid position", false);
+            return false;
+        }
+        */
+
+        // Teach to real Scorbot
         Vector3 pos = target.GetComponent<TargetModel>().GetPositionInScorbot();
         float p = target.GetComponent<TargetModel>().GetPitch();
         float r = target.GetComponent<TargetModel>().GetRoll();
         bool done = Teach(robot, target, pos, p, r, true, false);
+
         if (done)
         {
             stateMessageControl.WriteMessage("Done. Online SYNC \"" + target.GetComponent<TargetModel>().GetName() + "\"", done);
             target.GetComponent<TargetModel>().SetSync(true);
+            if (target.GetComponent<TargetModel>().GetRelativeFrom())
+                target.GetComponent<TargetModel>().GetRelativeFrom().GetComponent<TargetModel>().SetSync(true);
             stateMessageControl.UpdatePositionLog();
         }
         else
@@ -483,35 +630,38 @@ public class CommandControl : MonoBehaviour {
 
         return true;
     }
-
-    // byIndex: X, Y, Z, P, R (0..4)
+        
+    /**
+     * Modifica una posición sumando valores los cuales son una posición (x, y,z), inclinación frontal (p) e 
+     * inclinación lateral (r). El valor puede ser solo uno de los anteriores y debe estar en el contexto del
+     * Scorbot real. byIndex: X, Y, Z, P, R (0..4)
+     * @param robot Scorbot
+     * @param target Posición (objeto)
+     * @param byIndex Índice del tipo de parámetro
+     * @param value Valor
+     * @return void
+     */
     public void Shiftc(IK robot, Transform target, int byIndex, float value)
     {
-        // Null angles
-        /*
-        if()
-        if (!robot.TargetInRange(target, true))
+        // Offline mode        
+        string[] parameterName = { "x", "y", "z", "p", "r" };
+        // If is a relative position, error
+        if (target.GetComponent<TargetModel>().GetRelativeTo() != null)
         {
-            //stateOutput.text = "Unreachable point";
-            //Debug.Log("Unreachable Teach");
-            //stateOutput.text = "Unreachable Teach";
-            stateMessageControl.WriteMessage("Error. Teach Unreachable position \"" + target.GetComponent<TargetModel>().GetName() + "\"", false);
-            // Restore target
-            target.position = startPos;
-            target.GetComponent<TargetModel>().GetAngles()[3] = startPitch;
-            target.GetComponent<TargetModel>().GetAngles()[4] = startRoll;
-            return false;
+            stateMessageControl.WriteMessage("Error. SHIFTC \"" + target.GetComponent<TargetModel>().GetName() + "\" " +
+                parameterName[byIndex] + " by " + value + ". Relative position", false);
+            return;
         }
-        */
-
-        target.GetComponent<TargetModel>().SetAngles(robot.GetAnglesFromCopy());
-
+            
+        // Values from position in real Scorbot context
         Vector3 pos = target.GetComponent<TargetModel>().GetPositionInScorbot();
         float p = target.GetComponent<TargetModel>().GetPitch();
         float r = target.GetComponent<TargetModel>().GetRoll();
-        Vector3 offsetPos = Vector3.zero;
 
-        switch(byIndex)
+        // Apply value to corresponding parameter        
+        Vector3 offsetPos = Vector3.zero;
+        // byIndex: X, Y, Z, P, R (0..4)
+        switch (byIndex)
         {
             case 0:
                 offsetPos = new Vector3(value, 0f, 0f);
@@ -531,43 +681,83 @@ public class CommandControl : MonoBehaviour {
         }
         pos += offsetPos;
 
-        bool done = Teach(robot, target, pos, p, r);
+        bool done = Teach(robot, target, pos, p, r, false);
         if (done)
-            stateMessageControl.WriteMessage("Done. SHIFTC \"" + target.GetComponent<TargetModel>().GetName() + "\"", done);
+            stateMessageControl.WriteMessage("Done. SHIFTC \"" + target.GetComponent<TargetModel>().GetName() + "\" " +
+                parameterName[byIndex] + " by " + value, done);
         else
-            stateMessageControl.WriteMessage("Error. SHIFTC \"" + target.GetComponent<TargetModel>().GetName() + "\"", done);
+            stateMessageControl.WriteMessage("Error. SHIFTC \"" + target.GetComponent<TargetModel>().GetName() + "\" " +
+                parameterName[byIndex] + " by " + value, done);
+
+        // Online mode
+        if (gameController.GetOnlineMode())
+        {    
+            done = controller.RunCommandUIShiftc(target.GetComponent<TargetModel>().GetName(), parameterName[byIndex],
+                value.ToString()); // Number format?
+            if (done)
+            {
+                stateMessageControl.WriteMessage("Done. Online SHIFTC \"" + target.GetComponent<TargetModel>().GetName() + "\" " +
+                parameterName[byIndex] + " by " + value, done);
+                target.GetComponent<TargetModel>().SetSync(true);
+                stateMessageControl.UpdatePositionLog();
+            }
+            else
+                stateMessageControl.WriteMessage("Error. Online SHIFTC \"" + target.GetComponent<TargetModel>().GetName() + "\" " +
+                parameterName[byIndex] + " by " + value, done);
+        }
     }
 
+    /**
+     * Mueve el Scorbot a su posición HOME.
+     * @param robot Scorbot
+     * @return void
+     */
     public void Home(IK robot)
     {
+        // Offline mode
+
         // Error: One home does not reach HOME
         robot.Home();
         robot.Home();
         robot.Home();
         stateMessageControl.WriteMessage("Done. HOME", true);
-        //
+
+        // Online mode
         if (gameController.GetOnlineMode())
         {
             controller.RunCommandOnline("home");
-        }
-     
+        }     
     }
-
-    // Enable control. Real Scorbot
+     
+    /**
+     * Activa el control del Scorbot real. El control se desactiva cuando se detecta un fallo mecánico por
+     * movimientos como el comando "movec".
+     * @return void
+     */
     public void CON()
     {
+        // Only online mode
         if (gameController.GetOnlineMode())
         {
+            // Enable control. Real Scorbot
             controller.RunCommandOnline("con");
             stateMessageControl.WriteMessage("Done. Online CON(Control Enabled)", true);
         }
     }
 
+    /**
+     * Modifica la velocidad del comando "Move" en el Scorbot. Límite de 1 a 100.
+     * @param robot Scorbot
+     * @param value Velocidad. Debe estar entre 1-100
+     * @return void
+     */
     public void Speed(IK robot, int value)
     {
+        // Offline mode
         robot.SetSpeed(value);
         stateMessageControl.WriteMessage("Done. SPEED \"" + robot.GetSpeed() + "\"", true);
 
+        // Online mode
         if (gameController.GetOnlineMode())
         {
             bool done = controller.RunCommandUIOnline("speed", value.ToString());
@@ -578,11 +768,19 @@ public class CommandControl : MonoBehaviour {
         }
     }
 
+    /**
+     * Modifica la velocidad del comando "Movel" y "Movec" en el Scorbot. Límite de 1 a 300.
+     * @param robot Scorbot
+     * @param value Velocidad
+     * @return void
+     */
     public void SpeedL(IK robot, int value)
     {
+        // Offline mode
         robot.SetSpeedL(value);
         stateMessageControl.WriteMessage("Done. SPEED \"" + robot.GetSpeedL() + "\"", true);
 
+        // Online mode
         if (gameController.GetOnlineMode())
         {
             bool done = controller.RunCommandUIOnline("speedl", value.ToString());
@@ -593,8 +791,14 @@ public class CommandControl : MonoBehaviour {
         }
     }
 
+    /**
+     * Define una posición en el controlador del Scorbot real. La posición creada requiere sincronización.
+     * @param target Posición (objeto)
+     * @return void
+     */
     public void Defp(Transform target)
     {
+        // Only online mode
         if (gameController.GetOnlineMode())
         {
             bool done = controller.RunCommandUIOnline("defp", target.GetComponent<TargetModel>().GetName());

@@ -56,17 +56,6 @@ namespace CommandTerminal
             logs.Add(log);
         }
 
-        public List<string> Find_Log(string command)
-        {
-            List<string> command_complete = new List<string>();
-            var list = Logs.Where(log => (log.message).StartsWith(command));
-            foreach (var item in list)
-            {
-                command_complete.Add(item.message);
-            }
-            return command_complete;
-        }
-
         public void Clear()
         {
             logs.Clear();

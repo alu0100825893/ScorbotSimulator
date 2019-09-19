@@ -3,32 +3,24 @@
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_catmull_rom_spline_a3d1f936cf80fb6177e2fb598c8cd6adf}\label{class_catmull_rom_spline_a3d1f936cf80fb6177e2fb598c8cd6adf}} 
-List$<$ Vector3 $>$ {\bfseries Get\+Trayectory} (Vector3\mbox{[}$\,$\mbox{]} path)
+List$<$ Vector3 $>$ \mbox{\hyperlink{class_catmull_rom_spline_a3d1f936cf80fb6177e2fb598c8cd6adf}{Get\+Trayectory}} (Vector3\mbox{[}$\,$\mbox{]} path)
 \item 
-\mbox{\Hypertarget{class_catmull_rom_spline_a99e5a690f95ef08186b9b785baf13a50}\label{class_catmull_rom_spline_a99e5a690f95ef08186b9b785baf13a50}} 
-Vector3 \mbox{[}$\,$\mbox{]} {\bfseries Prepare\+Spline} (List$<$ Transform $>$ targets\+Array)
-\end{DoxyCompactItemize}
-\subsection*{Atributos públicos}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_catmull_rom_spline_a849ca4b6ac6f852a463a800430daf777}\label{class_catmull_rom_spline_a849ca4b6ac6f852a463a800430daf777}} 
-Vector3 \mbox{[}$\,$\mbox{]} {\bfseries control\+Points\+List}
+Vector3 \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_catmull_rom_spline_a99e5a690f95ef08186b9b785baf13a50}{Prepare\+Spline}} (List$<$ Transform $>$ targets\+Array)
 \end{DoxyCompactItemize}
 \subsection*{Métodos privados}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_catmull_rom_spline_abe8988bd86cfe65cb4cc893f534dd168}\label{class_catmull_rom_spline_abe8988bd86cfe65cb4cc893f534dd168}} 
-void {\bfseries Display\+Catmull\+Rom\+Spline} (int pos)
+void \mbox{\hyperlink{class_catmull_rom_spline_a0bf2480dc2c46201f8ac5937a179ea4e}{Calculate\+Catmull\+Rom\+Spline}} (int pos)
 \item 
-\mbox{\Hypertarget{class_catmull_rom_spline_a3ba7de330679168566750a9dfdc42534}\label{class_catmull_rom_spline_a3ba7de330679168566750a9dfdc42534}} 
-int {\bfseries Clamp\+List\+Pos} (int pos)
+int \mbox{\hyperlink{class_catmull_rom_spline_a3ba7de330679168566750a9dfdc42534}{Clamp\+List\+Pos}} (int pos)
 \item 
-\mbox{\Hypertarget{class_catmull_rom_spline_ad15822896d9310c20eba4b395220411c}\label{class_catmull_rom_spline_ad15822896d9310c20eba4b395220411c}} 
-Vector3 {\bfseries Get\+Catmull\+Rom\+Position} (float t, Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3)
+Vector3 \mbox{\hyperlink{class_catmull_rom_spline_ad15822896d9310c20eba4b395220411c}{Get\+Catmull\+Rom\+Position}} (float t, Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3)
 \end{DoxyCompactItemize}
 \subsection*{Atributos privados}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_catmull_rom_spline_a849ca4b6ac6f852a463a800430daf777}\label{class_catmull_rom_spline_a849ca4b6ac6f852a463a800430daf777}} 
+Vector3 \mbox{[}$\,$\mbox{]} {\bfseries control\+Points\+List}
 \item 
 \mbox{\Hypertarget{class_catmull_rom_spline_a5ba0543d62e110611688190af0e1af76}\label{class_catmull_rom_spline_a5ba0543d62e110611688190af0e1af76}} 
 bool {\bfseries is\+Looping} = false
@@ -36,6 +28,99 @@ bool {\bfseries is\+Looping} = false
 \mbox{\Hypertarget{class_catmull_rom_spline_abf1cd3b958eecde443028bc4e0aa58df}\label{class_catmull_rom_spline_abf1cd3b958eecde443028bc4e0aa58df}} 
 List$<$ Vector3 $>$ {\bfseries trayectory}
 \end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+La función principal de este algoritmo es generar la trayectoria de movimiento del Scorbot en el comando \char`\"{}movec\char`\"{}. El algoritmo de spline de Catmull-\/\+Rom es una técnica para interpolar curvas suavizadas mediante un polinomio cúbico. El número de puntos mínimos para formar un spline de Catmull-\/\+Rom es 4 (p0, p1, p2, p3). Sin embargo, el primero (p0) y el último (p3) son puntos para controlar la forma de la curva, por lo que todos los puntos generados están entre el punto p1 y p2. Para generar los puntos es necesario hacerlo mediante un polinomio cúbico (Ver\+: Función Get\+Catmull\+Rom\+Position), donde t toma valores de 0 a 1, siendo t = 0 el punto p1 y siendo t = 1 el punto p2. \begin{DoxyAuthor}{Autor}
+Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\texttt{ oscarcatari@outlook.\+es}} -\/ Universidad de La Laguna 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Desde}
+02-\/05-\/2019 
+\end{DoxySince}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_catmull_rom_spline_a0bf2480dc2c46201f8ac5937a179ea4e}\label{class_catmull_rom_spline_a0bf2480dc2c46201f8ac5937a179ea4e}} 
+\index{CatmullRomSpline@{CatmullRomSpline}!CalculateCatmullRomSpline@{CalculateCatmullRomSpline}}
+\index{CalculateCatmullRomSpline@{CalculateCatmullRomSpline}!CatmullRomSpline@{CatmullRomSpline}}
+\subsubsection{\texorpdfstring{CalculateCatmullRomSpline()}{CalculateCatmullRomSpline()}}
+{\footnotesize\ttfamily void Catmull\+Rom\+Spline.\+Calculate\+Catmull\+Rom\+Spline (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Calcula los puntos de la trayectoria que pasa por 2 puntos. Los puntos se añaden a una trayectoria. 
+\begin{DoxyParams}{Parámetros}
+{\em pos} & Punto inicial del Catmull\+Rom spline \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_catmull_rom_spline_a3ba7de330679168566750a9dfdc42534}\label{class_catmull_rom_spline_a3ba7de330679168566750a9dfdc42534}} 
+\index{CatmullRomSpline@{CatmullRomSpline}!ClampListPos@{ClampListPos}}
+\index{ClampListPos@{ClampListPos}!CatmullRomSpline@{CatmullRomSpline}}
+\subsubsection{\texorpdfstring{ClampListPos()}{ClampListPos()}}
+{\footnotesize\ttfamily int Catmull\+Rom\+Spline.\+Clamp\+List\+Pos (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Ajusta los índices de los puntos de la trayectoria para permitir un bucle del spline. 
+\begin{DoxyParams}{Parámetros}
+{\em pos} & Índice \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+int Índice 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_catmull_rom_spline_ad15822896d9310c20eba4b395220411c}\label{class_catmull_rom_spline_ad15822896d9310c20eba4b395220411c}} 
+\index{CatmullRomSpline@{CatmullRomSpline}!GetCatmullRomPosition@{GetCatmullRomPosition}}
+\index{GetCatmullRomPosition@{GetCatmullRomPosition}!CatmullRomSpline@{CatmullRomSpline}}
+\subsubsection{\texorpdfstring{GetCatmullRomPosition()}{GetCatmullRomPosition()}}
+{\footnotesize\ttfamily Vector3 Catmull\+Rom\+Spline.\+Get\+Catmull\+Rom\+Position (\begin{DoxyParamCaption}\item[{float}]{t,  }\item[{Vector3}]{p0,  }\item[{Vector3}]{p1,  }\item[{Vector3}]{p2,  }\item[{Vector3}]{p3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Calcula la posición en el momento t de la trayectoria que pasa por el punto p1 y p2. Dependiento de los puntos p0 y p3 se puede controlar la forma de la trayectoria generada. 
+\begin{DoxyParams}{Parámetros}
+{\em t} & Momento de la trayectoria. Debe estar entre 0-\/1 \\
+\hline
+{\em p0} & Punto que controla la forma de la curva generada \\
+\hline
+{\em p1} & Punto de la trayectoria \\
+\hline
+{\em p2} & Punto de la trayectoria \\
+\hline
+{\em p3} & Punto que controla la forma de la curva generada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Vector3 Posición en el momento t de la trayectoria 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_catmull_rom_spline_a3d1f936cf80fb6177e2fb598c8cd6adf}\label{class_catmull_rom_spline_a3d1f936cf80fb6177e2fb598c8cd6adf}} 
+\index{CatmullRomSpline@{CatmullRomSpline}!GetTrayectory@{GetTrayectory}}
+\index{GetTrayectory@{GetTrayectory}!CatmullRomSpline@{CatmullRomSpline}}
+\subsubsection{\texorpdfstring{GetTrayectory()}{GetTrayectory()}}
+{\footnotesize\ttfamily List$<$Vector3$>$ Catmull\+Rom\+Spline.\+Get\+Trayectory (\begin{DoxyParamCaption}\item[{Vector3 \mbox{[}$\,$\mbox{]}}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calcula la trayectoria compuesta por puntos que pasan por unos puntos específicos. Se usa el algoritmo del spline de Catmull-\/\+Rom. 
+\begin{DoxyParams}{Parámetros}
+{\em path} & Puntos por los que tiene que pasar la trayectoria \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+List$<$\+Vector3$>$ Trayectoria 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_catmull_rom_spline_a99e5a690f95ef08186b9b785baf13a50}\label{class_catmull_rom_spline_a99e5a690f95ef08186b9b785baf13a50}} 
+\index{CatmullRomSpline@{CatmullRomSpline}!PrepareSpline@{PrepareSpline}}
+\index{PrepareSpline@{PrepareSpline}!CatmullRomSpline@{CatmullRomSpline}}
+\subsubsection{\texorpdfstring{PrepareSpline()}{PrepareSpline()}}
+{\footnotesize\ttfamily Vector3 \mbox{[}$\,$\mbox{]} Catmull\+Rom\+Spline.\+Prepare\+Spline (\begin{DoxyParamCaption}\item[{List$<$ Transform $>$}]{targets\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construye una lista de coordenadas a partir de los puntos de una trayectoria. Se añaden 2 puntos que actuan como controladores de la curva de la trayectoria. Los 2 puntos son copias del punto inicial y final. 
+\begin{DoxyParams}{Parámetros}
+{\em targets\+Array} & Array de positiones del spline \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Vector3\mbox{[}\mbox{]} Lista de coordenadas de las posiciones 
+\end{DoxyReturn}
 
 
 La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}

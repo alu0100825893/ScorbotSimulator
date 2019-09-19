@@ -41,6 +41,17 @@ namespace CommandTerminal
             return history[position];
         }
 
+        public List<string> Find_Log(string command)
+        {
+            List<string> command_complete = new List<string>();
+            var list = history.FindAll(c => c.ToLower().StartsWith(command.ToLower()));
+            foreach (var item in list)
+            {
+                command_complete.Add(item);
+            }
+            return command_complete;
+        }
+
         public void Clear() {
             history.Clear();
             position = 0;

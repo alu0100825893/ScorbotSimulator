@@ -415,7 +415,7 @@ public class SerialController : MonoBehaviour
 
     public bool WriteToControllerShiftc(string point, string eje, string value)
     {
-        string tmp = "shiftc " + point + "by " + eje + " " + value;
+        string tmp = "shiftc " + point + " by " + eje + " " + value;
         char[] t = (tmp + "\r").ToCharArray();
         tmp = "";
         bool _looping = true;

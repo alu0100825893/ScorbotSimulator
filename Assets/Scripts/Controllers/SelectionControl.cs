@@ -46,9 +46,6 @@ public class SelectionControl : MonoBehaviour {
     private const string X_TAG = "X";    
     private const string Y_TAG = "Y";
     private const string Z_TAG = "Z";    
-    private const string PLANE_XZ = "xz";    
-    private const string PLANE_XY = "xy";    
-    private const string PLANE_YZ = "yz";
     private const string TARGET_TAG = "Target";
     private const string INNERAXIS_TAG = "InnerAxis";    
     private const string INNERTARGET_TAG = "InnerTarget";
@@ -83,7 +80,7 @@ public class SelectionControl : MonoBehaviour {
         if (Input.GetMouseButtonUp(MOUSE_LEFT))
         {
             moveInAxis = false;
-        }
+        }   
     }
 
     /**
@@ -260,21 +257,53 @@ public class SelectionControl : MonoBehaviour {
             // Target (a position) moved. Invalid angles
             if(selectedObject.tag.Contains(TARGET_TAG) && (!startPos.Equals(parent.position)))
             {
-                // Position not sync anymore
-                parent.GetComponent<TargetModel>().SetSync(false);
-                stateMessageControl.UpdatePositionLog();
-           
-                // Check if it's an unreachable point           
-                if (robot.TargetInRange(parent))
+                // If it is not a being used by another position (relative), this position not sync anymore
+                
+                if (parent.GetComponent<TargetModel>().GetRelativeTo() == null)
                 {
-                    // Reachable. Load data to target
-                    parent.GetComponent<TargetModel>().SetAngles(robot.GetAnglesFromCopy());
-                    parent.GetComponent<TargetModel>().SetValid(true);
+                    Transform relativePosition = parent.GetComponent<TargetModel>().GetRelativeFrom();
+                    parent.GetComponent<TargetModel>().SetSync(false);
+                    // if this position is being used by another position (relative), that position is not sync anymore
+                    ;
+                    if (parent.GetComponent<TargetModel>().GetRelativeFrom())
+                    {
+                        relativePosition.GetComponent<TargetModel>().SetSync(false);
+                        // Updating relative position
+                        relativePosition.GetComponent<TargetModel>().UpdateRelativePosition();
+                    
+                        // Update angles data                    
+                        if (robot.TargetInRange(relativePosition))
+                        {
+                            // Reachable. Load data to target
+                            relativePosition.GetComponent<TargetModel>().SetAngles(robot.GetAnglesFromCopy());
+                            relativePosition.GetComponent<TargetModel>().SetValid(true);
+                        }
+                        else // Unreachable
+                        {
+                            relativePosition.GetComponent<TargetModel>().SetValid(false);
+                        }
+                    }                    
+
+                    // Check if it's an unreachable point           
+                    if (robot.TargetInRange(parent))
+                    {
+                        // Reachable. Load data to target
+                        parent.GetComponent<TargetModel>().SetAngles(robot.GetAnglesFromCopy());
+                        parent.GetComponent<TargetModel>().SetValid(true);
+                    }
+                    else // Unreachable
+                    {
+                        parent.GetComponent<TargetModel>().SetValid(false);
+                    }
+
+                    stateMessageControl.UpdatePositionLog();
                 }
-                else // Unreachable
-                {
-                    parent.GetComponent<TargetModel>().SetValid(false);
+                
+                else // Moved a relative position, revert position
+                {              
+                    parent.GetComponent<TargetModel>().UpdateRelativePosition();
                 }
+
                 
             }
             // Update trayectory in case a position is moved
@@ -290,11 +319,11 @@ public class SelectionControl : MonoBehaviour {
             if (art != null)
             {
                 // If articulation plane is xz, apply rotation
-                if (art.GetPlane().Equals(PLANE_XZ))
+                if (art.GetPlane().Equals(PlaneHelper.XZ))
                     parent.GetComponent<Articulation>().Rotate(-rotationSensibity * Input.GetAxis(MOUSE_X));
 
                 // If articulation plane is xy, apply rotation
-                if (art.GetPlane().Equals(PLANE_XY))
+                if (art.GetPlane().Equals(PlaneHelper.XY))
                 {
                     // Angle between camera and object
                     float angle = Vector3.Angle(cam.forward, parent.forward);
@@ -307,7 +336,7 @@ public class SelectionControl : MonoBehaviour {
                 }
 
                 // If articulation plane is yz, apply rotation
-                if (art.GetPlane().Equals(PLANE_YZ))
+                if (art.GetPlane().Equals(PlaneHelper.YZ))
                 {
                     // Angle between camera and object
                     float angle = Vector3.Angle(cam.forward, parent.right);

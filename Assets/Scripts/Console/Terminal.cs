@@ -8,6 +8,7 @@ using System.IO;
 using UnityEngine.UI;
 using System.Threading;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 namespace CommandTerminal
 {
@@ -81,6 +82,7 @@ namespace CommandTerminal
         public void Input_View(bool T)
         {
             Input = T;
+            scroll_position.y = int.MaxValue;
         }
 
         public void Input_Text(bool T)
@@ -159,7 +161,8 @@ namespace CommandTerminal
             }
             else if (Event.current.Equals(Event.KeyboardEvent("tab")))
             {
-                CompleteCommand();
+                if (!command_text.Equals(string.Empty))
+                    CompleteCommand();
                 Event.current.Use();
                 command_tab = true;
             }
@@ -272,10 +275,9 @@ namespace CommandTerminal
             string head_text = command_text;
             if (count_tab == -1)
             {
-                command_possible = Buffer.Find_Log(head_text);
-                string tmp = Controller.ListOfCommand.Find(c => c.name.StartsWith(head_text)).name;
-                if (tmp != null)
-                    command_possible.Add(tmp);
+                command_possible = Controller.ListCommand(head_text); 
+                List<string> tmp = History.Find_Log(head_text);
+                command_possible.AddRange(tmp);
             }
             count_tab++;
 

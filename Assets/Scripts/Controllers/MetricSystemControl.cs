@@ -13,9 +13,10 @@ using UnityEngine;
  * @version 1.0
  * @since 02-05-2019
  */
-public class MetricSystemControl : MonoBehaviour {
-
-    // Planes
+public class MetricSystemControl : MonoBehaviour
+{
+    // Planes. These planes have their own parent (empty object) which have the initial values pos and rotation,
+    // so the planes should have pos 0 0 0, rotation 0 0 0 scale 1 1 1
     private Transform planeXY;
     private Vector3 posPlaneXY; // Needed because of accumulation error in axis Y
     private Transform planeXZ;
@@ -87,6 +88,7 @@ public class MetricSystemControl : MonoBehaviour {
             UpdatePlane(selectedObject, planeXY, pos);
 
             // Flip plane when the camera is on the other side (one side is transparent)
+            
             if (cam.position.z > planeXY.position.z)            
                 planeXY.localRotation = Quaternion.Euler(0f, 0f, 180f);            
             else            

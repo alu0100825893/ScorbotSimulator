@@ -1,31 +1,5 @@
 var searchData=
 [
-  ['scorboterix',['ScorbotERIX',['../class_scorbot_e_r_i_x.html',1,'']]],
-  ['scorbotervplus',['ScorbotERVPlus',['../class_scorbot_e_r_v_plus.html',1,'']]],
-  ['scorbotmodel',['ScorbotModel',['../class_scorbot_model.html',1,'']]],
-  ['searchcontaintag',['SearchContainTag',['../class_selection_control.html#a8e92014a9781e84be7079f4dfd96caf9',1,'SelectionControl']]],
-  ['searchtagged',['SearchTagged',['../class_selection_control.html#af43fca6b87eee0f60bc8bb79f987d42c',1,'SelectionControl']]],
-  ['select',['Select',['../class_selection_control.html#a6e08e34b6c7bfe54260faeaa29b369c0',1,'SelectionControl']]],
-  ['selectedobject',['SelectedObject',['../class_selection_control.html#a3da021bd2d11255eadadc832b40e6fb6',1,'SelectionControl']]],
-  ['selectioncontrol',['SelectionControl',['../class_selection_control.html',1,'']]],
-  ['serialcontroller',['SerialController',['../class_serial_controller.html',1,'']]],
-  ['setactiveaxis',['SetActiveAxis',['../class_selection_control.html#af45a0f8f9cf7f200e423971f190d8bbf',1,'SelectionControl']]],
-  ['setactiverotation',['SetActiveRotation',['../class_selection_control.html#a124591d0f0eac9b99cd9a7cc4f9839c7',1,'SelectionControl']]],
-  ['setaxis',['SetAxis',['../class_selection_control.html#a5d456be16e3132ae65d37f866ee009f3',1,'SelectionControl']]],
-  ['setaxissensibilityreduction',['SetAxisSensibilityReduction',['../class_selection_control.html#ab62778748bb69e20a9fd3318a3083853',1,'SelectionControl']]],
-  ['setisherefromsimulation',['SetIsHereFromSimulation',['../class_command_control.html#a5b525d701e0c8d6d57e9c7144aa0df44',1,'CommandControl']]],
-  ['setisprocessing',['SetIsProcessing',['../class_camera_control.html#a715690bfd42a136da5b5880debb2e420',1,'CameraControl']]],
-  ['setmovement',['SetMovement',['../class_camera_control.html#a2307b3b28fd8f9f40248fc0441f916de',1,'CameraControl']]],
-  ['setmovementsensibilityreduction',['SetMovementSensibilityReduction',['../class_camera_control.html#ab3ac3df0eb5347d1f7eb356f4226a696',1,'CameraControl']]],
-  ['setprocessing',['SetProcessing',['../class_manual_input_control.html#a8505abe190f5ce3a1a1b76d2e94e695f',1,'ManualInputControl']]],
-  ['setrotation',['SetRotation',['../class_camera_control.html#a7dfdd3783b057fd9941f20a634b95b03',1,'CameraControl.SetRotation()'],['../class_selection_control.html#ae30e28c63db233cb7a7b9d71174c2846',1,'SelectionControl.SetRotation()']]],
-  ['setzoom',['SetZoom',['../class_camera_control.html#a6c7f7816a4bff734280e19f65ef9df87',1,'CameraControl']]],
-  ['setzoomsensibilityreduction',['SetZoomSensibilityReduction',['../class_camera_control.html#a77c2147ce9a478e7fbee646fe049aa02',1,'CameraControl']]],
-  ['showhidecommands',['ShowHideCommands',['../class_panel_control.html#ad1245999af785ac0aa3af3f1a6f40900',1,'PanelControl']]],
-  ['showhideconsole',['ShowHideConsole',['../class_panel_control.html#a2890c74bb81afa4e93e6d698ae5f5721',1,'PanelControl']]],
-  ['showhidemanualcontrols',['ShowHideManualControls',['../class_panel_control.html#a1507903dbb7f0b7f49cb74b4b77247b2',1,'PanelControl']]],
-  ['showhidemessagelog',['ShowHideMessageLog',['../class_panel_control.html#abd20147e23935b9f87a0b4508a2078c6',1,'PanelControl']]],
-  ['showhidepositionlog',['ShowHidePositionLog',['../class_panel_control.html#a5a25252b29b3ba097cc79778c42c469a',1,'PanelControl']]],
-  ['showhidesync',['ShowHideSync',['../class_panel_control.html#a745d60a4ef5ace7f7691418081db8f94',1,'PanelControl']]],
-  ['statemessagecontrol',['StateMessageControl',['../class_state_message_control.html',1,'']]]
+  ['onlineofflineslider',['OnlineOfflineSlider',['../class_game_controller.html#a48800115bee7dd138485ca7cd1464f78',1,'GameController']]],
+  ['open',['Open',['../class_game_controller.html#ab69f0ec04df1e4d52b182d1dddd0606c',1,'GameController']]]
 ];

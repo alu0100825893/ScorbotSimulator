@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['getnames',['GetNames',['../class_command_control.html#abb616afbdc86f4877b19b951982b6544',1,'CommandControl.GetNames()'],['../class_target_control.html#a0a09ff530caea4a96bbcfe88bd63f238',1,'TargetControl.GetNames()']]],
-  ['getprocessing',['GetProcessing',['../class_manual_input_control.html#a00de8f95d74cefb32806a4262fd90aba',1,'ManualInputControl']]],
-  ['gettarget',['GetTarget',['../class_target_control.html#a86dcdb984de7099a9db940312a2aa541',1,'TargetControl.GetTarget(int i)'],['../class_target_control.html#ac0274d2169116589048ea53988cdbc34',1,'TargetControl.GetTarget(string name)']]]
+  ['defp',['Defp',['../class_command_control.html#ada99694b0c348a0256faebab0899333b',1,'CommandControl']]],
+  ['destroytarget',['DestroyTarget',['../class_target_control.html#a728aecb12c800b1989977044e22264bb',1,'TargetControl']]],
+  ['drawtrayectory',['DrawTrayectory',['../class_game_controller.html#afd55aa0db0046a73a2b9bb57dc56d373',1,'GameController']]],
+  ['dynamicprecision',['DynamicPrecision',['../class_metric_system_control.html#a853f57f47211b8c3a1f48c53ba552a0e',1,'MetricSystemControl']]]
 ];

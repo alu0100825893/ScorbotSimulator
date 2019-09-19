@@ -20,6 +20,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 047ac81896c60a43c8cdcbbb2d31d28b Assembly-CSharp.dll:.Articulation
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TargetControl
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DragObject
 43fed7f4aa9a6a15acd8b5d762f1c973 Assembly-CSharp.dll:.ClampName
 a3d3194253f0e137345a6a964160519e Assembly-CSharp.dll:.MenuActivation
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
@@ -395,4 +396,3 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
 34e025057ef78b1bf238460cdf6583a3 Assembly-CSharp.dll:TMPro.Examples.ObjectSpin
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:TMPro.Examples.SimpleScript
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DragObject
