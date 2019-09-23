@@ -9,20 +9,19 @@ Diagrama de herencias de Scorbot\+Model\begin{figure}[H]
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_scorbot_model_aba471bffb5190b184e14ce3598784d47}\label{class_scorbot_model_aba471bffb5190b184e14ce3598784d47}} 
-void {\bfseries Init\+To\+Copy} (out \mbox{\hyperlink{class_articulation}{Articulation}}\mbox{[}$\,$\mbox{]} art, out Transform artE)
+void \mbox{\hyperlink{class_scorbot_model_aba471bffb5190b184e14ce3598784d47}{Init\+To\+Copy}} (out \mbox{\hyperlink{class_articulation}{Articulation}}\mbox{[}$\,$\mbox{]} art, out Transform artE)
 \item 
-\mbox{\Hypertarget{class_scorbot_model_a78e73b1e1b2cda29a55529326ba2ca90}\label{class_scorbot_model_a78e73b1e1b2cda29a55529326ba2ca90}} 
-void {\bfseries Update\+To\+Copy} (\mbox{\hyperlink{class_articulation}{Articulation}}\mbox{[}$\,$\mbox{]} art)
+void \mbox{\hyperlink{class_scorbot_model_a78e73b1e1b2cda29a55529326ba2ca90}{Update\+To\+Copy}} (\mbox{\hyperlink{class_articulation}{Articulation}}\mbox{[}$\,$\mbox{]} art)
 \item 
-\mbox{\Hypertarget{class_scorbot_model_a30c77a2653cea0ff41081d150b7e3bca}\label{class_scorbot_model_a30c77a2653cea0ff41081d150b7e3bca}} 
-List$<$ Vector3 $>$ {\bfseries Counts\+To\+Angles} (List$<$ int $>$ counts)
+List$<$ Vector3 $>$ \mbox{\hyperlink{class_scorbot_model_a30c77a2653cea0ff41081d150b7e3bca}{Counts\+To\+Angles}} (List$<$ int $>$ counts)
 \item 
-\mbox{\Hypertarget{class_scorbot_model_ad09db01ea00a7f638ecbeabce57737cf}\label{class_scorbot_model_ad09db01ea00a7f638ecbeabce57737cf}} 
-Vector3 {\bfseries Get\+Pos\+From\+Angles} (\mbox{\hyperlink{class_articulation}{Articulation}}\mbox{[}$\,$\mbox{]} art, Transform artE, List$<$ Vector3 $>$ angles)
+Vector3 \mbox{\hyperlink{class_scorbot_model_ad09db01ea00a7f638ecbeabce57737cf}{Get\+Pos\+From\+Angles}} (\mbox{\hyperlink{class_articulation}{Articulation}}\mbox{[}$\,$\mbox{]} art, Transform artE, List$<$ Vector3 $>$ angles)
 \item 
-\mbox{\Hypertarget{class_scorbot_model_a74549ede37f30edafb1dbf07c0730cdd}\label{class_scorbot_model_a74549ede37f30edafb1dbf07c0730cdd}} 
-void {\bfseries Set\+Angles} (List$<$ Vector3 $>$ angles)
+void \mbox{\hyperlink{class_scorbot_model_a74549ede37f30edafb1dbf07c0730cdd}{Set\+Angles}} (List$<$ Vector3 $>$ angles)
+\item 
+void \mbox{\hyperlink{class_scorbot_model_aaac42c1b3077127fcacfc463750ddd02}{Open}} ()
+\item 
+void \mbox{\hyperlink{class_scorbot_model_a2f4d3c10d7f8ce39bc2fce114efcc97f}{Close}} ()
 \end{DoxyCompactItemize}
 \subsection*{Atributos públicos}
 \begin{DoxyCompactItemize}
@@ -35,16 +34,125 @@ Transform {\bfseries E}
 \item 
 \mbox{\Hypertarget{class_scorbot_model_a2c5605692707695fc2e4a260c5fbde03}\label{class_scorbot_model_a2c5605692707695fc2e4a260c5fbde03}} 
 \mbox{\hyperlink{class_articulation}{Articulation}} \mbox{[}$\,$\mbox{]} {\bfseries articulations}
+\item 
+\mbox{\Hypertarget{class_scorbot_model_af6bce49ef384fc8b753e7291ca682100}\label{class_scorbot_model_af6bce49ef384fc8b753e7291ca682100}} 
+int {\bfseries scorbot\+Index}
 \end{DoxyCompactItemize}
 \subsection*{Métodos privados}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_scorbot_model_a8fe778901e324215e758a649ed963caa}\label{class_scorbot_model_a8fe778901e324215e758a649ed963caa}} 
 void {\bfseries Awake} ()
-\item 
-\mbox{\Hypertarget{class_scorbot_model_a9a9e4bc6959d9734df0e2853db5bc5cd}\label{class_scorbot_model_a9a9e4bc6959d9734df0e2853db5bc5cd}} 
-void {\bfseries Update} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Estructura de datos para un Scorbot. Contiene las articulationes y carga la configuración de un Scorbot, además de realizar operaciones como abrir/cerrar la pinza. También permiter copiar la configuración actuar y transformar conteos de encoder a ángulos. Un Scorbot necesita este componente, el componente de cinemática inversa \char`\"{}\+I\+K\char`\"{} y el componente de su pinza \char`\"{}\+Grip\+Scorbot...\char`\"{}. Además, su modelo 3D debe tener en cada articulatión el componente \char`\"{}\+Articulation\char`\"{}, un componente de detección de colisiones \char`\"{}\+Mesh Collider\char`\"{} y sus etiquetas (articulaciones) deben ser \char`\"{}\+Model\char`\"{}. \begin{DoxyAuthor}{Autor}
+Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\texttt{ oscarcatari@outlook.\+es}} -\/ Universidad de La Laguna 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Desde}
+02-\/05-\/2019 
+\end{DoxySince}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_scorbot_model_a2f4d3c10d7f8ce39bc2fce114efcc97f}\label{class_scorbot_model_a2f4d3c10d7f8ce39bc2fce114efcc97f}} 
+\index{ScorbotModel@{ScorbotModel}!Close@{Close}}
+\index{Close@{Close}!ScorbotModel@{ScorbotModel}}
+\subsubsection{\texorpdfstring{Close()}{Close()}}
+{\footnotesize\ttfamily void Scorbot\+Model.\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Cierra la pinza del Scorbot. \begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scorbot_model_a30c77a2653cea0ff41081d150b7e3bca}\label{class_scorbot_model_a30c77a2653cea0ff41081d150b7e3bca}} 
+\index{ScorbotModel@{ScorbotModel}!CountsToAngles@{CountsToAngles}}
+\index{CountsToAngles@{CountsToAngles}!ScorbotModel@{ScorbotModel}}
+\subsubsection{\texorpdfstring{CountsToAngles()}{CountsToAngles()}}
+{\footnotesize\ttfamily List$<$Vector3$>$ Scorbot\+Model.\+Counts\+To\+Angles (\begin{DoxyParamCaption}\item[{List$<$ int $>$}]{counts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Transforma conteos de encoder a ángulos de las articulaciones del Scorbot de este modelo. 
+\begin{DoxyParams}{Parámetros}
+{\em counts} & Conteos de encoder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+List$<$\+Vector3$>$ Ángulos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scorbot_model_ad09db01ea00a7f638ecbeabce57737cf}\label{class_scorbot_model_ad09db01ea00a7f638ecbeabce57737cf}} 
+\index{ScorbotModel@{ScorbotModel}!GetPosFromAngles@{GetPosFromAngles}}
+\index{GetPosFromAngles@{GetPosFromAngles}!ScorbotModel@{ScorbotModel}}
+\subsubsection{\texorpdfstring{GetPosFromAngles()}{GetPosFromAngles()}}
+{\footnotesize\ttfamily Vector3 Scorbot\+Model.\+Get\+Pos\+From\+Angles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_articulation}{Articulation}} \mbox{[}$\,$\mbox{]}}]{art,  }\item[{Transform}]{artE,  }\item[{List$<$ Vector3 $>$}]{angles }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Obtiene la posición del efector final en las articulaciones pasadas con los ángulos propuestos. 
+\begin{DoxyParams}{Parámetros}
+{\em art} & Articulationes \\
+\hline
+{\em artE} & Efector final \\
+\hline
+{\em angles} & Ángulos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Vector3 Coordenadas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scorbot_model_aba471bffb5190b184e14ce3598784d47}\label{class_scorbot_model_aba471bffb5190b184e14ce3598784d47}} 
+\index{ScorbotModel@{ScorbotModel}!InitToCopy@{InitToCopy}}
+\index{InitToCopy@{InitToCopy}!ScorbotModel@{ScorbotModel}}
+\subsubsection{\texorpdfstring{InitToCopy()}{InitToCopy()}}
+{\footnotesize\ttfamily void Scorbot\+Model.\+Init\+To\+Copy (\begin{DoxyParamCaption}\item[{out \mbox{\hyperlink{class_articulation}{Articulation}} \mbox{[}$\,$\mbox{]}}]{art,  }\item[{out Transform}]{artE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copia las articulaciones y efector final del Scorbot de este modelo (toda la configuración), para dejarlos en las variables pasadas. 
+\begin{DoxyParams}{Parámetros}
+{\em art} & Articulationes \\
+\hline
+{\em artE} & Efector final \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scorbot_model_aaac42c1b3077127fcacfc463750ddd02}\label{class_scorbot_model_aaac42c1b3077127fcacfc463750ddd02}} 
+\index{ScorbotModel@{ScorbotModel}!Open@{Open}}
+\index{Open@{Open}!ScorbotModel@{ScorbotModel}}
+\subsubsection{\texorpdfstring{Open()}{Open()}}
+{\footnotesize\ttfamily void Scorbot\+Model.\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Abre la pinza del Scorbot. \begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scorbot_model_a74549ede37f30edafb1dbf07c0730cdd}\label{class_scorbot_model_a74549ede37f30edafb1dbf07c0730cdd}} 
+\index{ScorbotModel@{ScorbotModel}!SetAngles@{SetAngles}}
+\index{SetAngles@{SetAngles}!ScorbotModel@{ScorbotModel}}
+\subsubsection{\texorpdfstring{SetAngles()}{SetAngles()}}
+{\footnotesize\ttfamily void Scorbot\+Model.\+Set\+Angles (\begin{DoxyParamCaption}\item[{List$<$ Vector3 $>$}]{angles }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Cambioa los ángulos de las articulaciones del Scorbot de este modelo a otros ángulos. 
+\begin{DoxyParams}{Parámetros}
+{\em angles} & Ángulos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scorbot_model_a78e73b1e1b2cda29a55529326ba2ca90}\label{class_scorbot_model_a78e73b1e1b2cda29a55529326ba2ca90}} 
+\index{ScorbotModel@{ScorbotModel}!UpdateToCopy@{UpdateToCopy}}
+\index{UpdateToCopy@{UpdateToCopy}!ScorbotModel@{ScorbotModel}}
+\subsubsection{\texorpdfstring{UpdateToCopy()}{UpdateToCopy()}}
+{\footnotesize\ttfamily void Scorbot\+Model.\+Update\+To\+Copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_articulation}{Articulation}} \mbox{[}$\,$\mbox{]}}]{art }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copia los ángulos de las articulaciones de este modelo en las articulaciones pasadas. 
+\begin{DoxyParams}{Parámetros}
+{\em art} & Articulationes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
 
 
 La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}

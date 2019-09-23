@@ -313,16 +313,23 @@ public class CommandControl : MonoBehaviour {
         if (gameController.GetOnlineMode() && online)
         {
             // Build data to send
+            if(robot.GetComponent<ScorbotModel>().scorbotIndex == ScorbotERVPlus.INDEX)
+            {
+                posReal = posReal * 10f;
+                p = p * 10f;
+                r = r * 10f;
+            }
+
             List<float> xyzpr = new List<float>() { posReal.x, posReal.y, posReal.z, p, r };
             bool done = controller.RunCommandUITeach(target.GetComponent<TargetModel>().GetName(), xyzpr);
             if (done)
             {
                 stateMessageControl.WriteMessage("Done. Online TEACH \"" + target.GetComponent<TargetModel>().GetName() + "\"", done);
                 target.GetComponent<TargetModel>().SetSync(true);
-                /*
+                
                 if (target.GetComponent<TargetModel>().GetRelativeFrom())
                     target.GetComponent<TargetModel>().GetRelativeFrom().GetComponent<TargetModel>().SetSync(true);
-                */
+                
 
                 stateMessageControl.UpdatePositionLog();
             }
@@ -381,6 +388,13 @@ public class CommandControl : MonoBehaviour {
         if (gameController.GetOnlineMode() && online)
         {
             // Build data to send            
+            if (robot.GetComponent<ScorbotModel>().scorbotIndex == ScorbotERVPlus.INDEX)
+            {
+                pos = pos * 10f;
+                p = p * 10f;
+                r = r * 10f;
+            }
+
             List<float> xyzpr = new List<float>() { pos.x, pos.y, pos.z, p, r };
             bool done = controller.RunCommandUITeachr(target.GetComponent<TargetModel>().GetName(),
                 relativeToTarget.GetComponent<TargetModel>().GetName(), xyzpr);
@@ -429,7 +443,11 @@ public class CommandControl : MonoBehaviour {
                 stateMessageControl.UpdatePositionLog();
 
                 // Get pos, p, r from simulation. Do teach to real Scorbot
-                List<float> xyzpr = new List<float>() { target.position.x * 10f, target.position.z  * 10f, target.position.y  * 10f,
+                float mult = 10f;
+                if (robot.GetComponent<ScorbotModel>().scorbotIndex == ScorbotERVPlus.INDEX)
+                    mult = 100f;
+
+                List<float> xyzpr = new List<float>() { target.position.x * mult, target.position.z  * mult, target.position.y  * mult,
                     target.GetComponent<TargetModel>().GetPitch(), target.GetComponent<TargetModel>().GetRoll() };
                 bool done = controller.RunCommandUITeach(target.GetComponent<TargetModel>().GetName(), xyzpr);
            
@@ -496,7 +514,7 @@ public class CommandControl : MonoBehaviour {
         posPitchRoll = new List<float>();
 
         // Only online mode
-        if (gameController.GetOnlineMode())
+        if (!gameController.GetOnlineMode())
         {
             stateMessageControl.WriteMessage("Error. Online LISTPV \"" + target.GetComponent<TargetModel>().GetName() + "\". Mode online required", false);
             return false;
@@ -541,7 +559,7 @@ public class CommandControl : MonoBehaviour {
             stateMessageControl.WriteMessage("Error. Online LISTPV \"" + target.GetComponent<TargetModel>().GetName() + "\". Relative position", false);
             return false;
         }
-        
+               
         return true;
     }
 
@@ -568,6 +586,12 @@ public class CommandControl : MonoBehaviour {
             stateMessageControl.WriteMessage("Error. Online SYNC(LISTPV) \"" + target.GetComponent<TargetModel>().GetName() + "\"", listpv);
             return false;
         }
+
+        if (robot.GetComponent<ScorbotModel>().scorbotIndex == ScorbotERVPlus.INDEX)
+        {
+            for(int i = 0; i < posPitchRoll.Count; i++)           
+                posPitchRoll[i] = posPitchRoll[i] / 10f;            
+        }           
 
         // Do teach only in simulation
         bool done = Teach(robot, target, new Vector3(posPitchRoll[0], posPitchRoll[1], posPitchRoll[2]), posPitchRoll[3], posPitchRoll[4], false);
@@ -599,14 +623,13 @@ public class CommandControl : MonoBehaviour {
         // defp, in case it doest exist
         Defp(target);
 
-        // If position is unreachable, error
-        /*
-        if (target.GetComponent<TargetModel>().GetValid())
+        // If position is unreachable, error        
+        if (!target.GetComponent<TargetModel>().GetValid())
         {
             stateMessageControl.WriteMessage("Error. Online SYNC \"" + target.GetComponent<TargetModel>().GetName() + "\" Invalid position", false);
             return false;
         }
-        */
+        
 
         // Teach to real Scorbot
         Vector3 pos = target.GetComponent<TargetModel>().GetPositionInScorbot();
@@ -691,7 +714,12 @@ public class CommandControl : MonoBehaviour {
 
         // Online mode
         if (gameController.GetOnlineMode())
-        {    
+        {
+            if (robot.GetComponent<ScorbotModel>().scorbotIndex == ScorbotERVPlus.INDEX)
+            {
+                value = value * 10f;
+            }
+
             done = controller.RunCommandUIShiftc(target.GetComponent<TargetModel>().GetName(), parameterName[byIndex],
                 value.ToString()); // Number format?
             if (done)

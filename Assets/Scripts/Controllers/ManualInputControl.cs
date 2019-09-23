@@ -36,11 +36,17 @@ public class ManualInputControl : MonoBehaviour {
         keyCodes.Add(KeyCode.Alpha4);
         keyCodes.Add(KeyCode.T);
         keyCodes.Add(KeyCode.Alpha5);
+
+        // Events
+        GameController.ScorbotDel += SetScorbot;
     }
 	
 	void Update () {
         // Activate/deactivate keyboard control
         if (!processing)
+            return;
+
+        if (!robot)
             return;
 
         // Scorbot articulation rotation (See keyCodes at "Start()")
@@ -62,12 +68,22 @@ public class ManualInputControl : MonoBehaviour {
         // Open/close Scorbot end efector
         if(Input.GetKey(KeyCode.Y))
         {
-            robot.GetComponent<GripScorbotERIX>().Open();
+            robot.GetComponent<ScorbotModel>().Open();
         }
         if (Input.GetKey(KeyCode.Alpha6))
         {
-            robot.GetComponent<GripScorbotERIX>().Close();
+            robot.GetComponent<ScorbotModel>().Close();
         }
+    }
+
+    /**
+     * Cambia el scorbot utilizado.
+     * @param scorbot Nuevo Scorbot
+     * @return void
+     */
+    private void SetScorbot(IK scorbot)
+    {
+        robot = scorbot;
     }
 
     /**

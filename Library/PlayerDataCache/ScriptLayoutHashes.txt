@@ -20,7 +20,6 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 047ac81896c60a43c8cdcbbb2d31d28b Assembly-CSharp.dll:.Articulation
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TargetControl
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DragObject
 43fed7f4aa9a6a15acd8b5d762f1c973 Assembly-CSharp.dll:.ClampName
 a3d3194253f0e137345a6a964160519e Assembly-CSharp.dll:.MenuActivation
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
@@ -218,7 +217,7 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 3d1b89310e77c34bc0c8d7132231345c Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
-112ec4af411b9a8046c4e79d3e9bbdf2 Assembly-CSharp.dll:.ScorbotModel
+3927aa42e2daf63d92040ab796c6b9f1 Assembly-CSharp.dll:.ScorbotModel
 020550babdb991365f61c5bffe1f4f52 Assembly-CSharp.dll:TMPro.Examples.Benchmark03
 b9332c0eee630779376843b5343eb250 Assembly-CSharp.dll:TMPro.Examples.TMP_TextInfoDebugTool
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.IK
@@ -271,6 +270,7 @@ a8ed45ab553b07236625df6cc6ac449c TextMeshPro-2017.3-Editor.dll:TMPro.EditorUtili
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.StateMessageControl
 76015de5fcb247eeb8df66c001d5a22d Assembly-CSharp.dll:TMPro.Examples.TMP_FrameRateCounter
 b8f04bdad423045528c67dfa4c3dca0d Assembly-CSharp.dll:TMPro.Examples.VertexShakeA
+6f95b87fa202b7675f75ef740338fcb6 Assembly-CSharp.dll:.GripScorbotERVPlus
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery

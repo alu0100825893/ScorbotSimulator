@@ -9,11 +9,9 @@ Diagrama de herencias de Clamp\+Name\begin{figure}[H]
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_clamp_name_a8845016c54fa64235db1c72716098f96}\label{class_clamp_name_a8845016c54fa64235db1c72716098f96}} 
-void {\bfseries Set\+Text} (string text)
+void \mbox{\hyperlink{class_clamp_name_a8845016c54fa64235db1c72716098f96}{Set\+Text}} (string text)
 \item 
-\mbox{\Hypertarget{class_clamp_name_ae3850d4ccc21188089e261ab805c036b}\label{class_clamp_name_ae3850d4ccc21188089e261ab805c036b}} 
-void {\bfseries Set\+Selected} (bool selected)
+void \mbox{\hyperlink{class_clamp_name_ae3850d4ccc21188089e261ab805c036b}{Set\+Selected}} (bool selected)
 \end{DoxyCompactItemize}
 \subsection*{Atributos públicos}
 \begin{DoxyCompactItemize}
@@ -27,24 +25,64 @@ bool {\bfseries selected} = false
 \subsection*{Métodos privados}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_clamp_name_a3ad778915f5ec92531c5bf98b23792af}\label{class_clamp_name_a3ad778915f5ec92531c5bf98b23792af}} 
-void {\bfseries Start} ()
-\item 
 \mbox{\Hypertarget{class_clamp_name_aaebb9af2778306a7994838a028dc3cc0}\label{class_clamp_name_aaebb9af2778306a7994838a028dc3cc0}} 
 void {\bfseries Update} ()
 \end{DoxyCompactItemize}
 \subsection*{Atributos privados}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_clamp_name_ae08036a6866ea0bcefdfc7b632e243ac}\label{class_clamp_name_ae08036a6866ea0bcefdfc7b632e243ac}} 
-float {\bfseries letter} = 13f
+\mbox{\Hypertarget{class_clamp_name_a2ff43ba0271005b37362d7b898cee7d5}\label{class_clamp_name_a2ff43ba0271005b37362d7b898cee7d5}} 
+const float {\bfseries L\+E\+T\+T\+ER} = 13f
 \item 
-\mbox{\Hypertarget{class_clamp_name_a4c484e497ddd497f11e78399fc2e4e2c}\label{class_clamp_name_a4c484e497ddd497f11e78399fc2e4e2c}} 
-float {\bfseries margin} = 6f
+\mbox{\Hypertarget{class_clamp_name_a61bf13118ff2c871bdf6fbb2bef90176}\label{class_clamp_name_a61bf13118ff2c871bdf6fbb2bef90176}} 
+const float {\bfseries M\+A\+R\+G\+IN} = 6f
 \item 
 \mbox{\Hypertarget{class_clamp_name_a285c488a8f897e1b6f355a9ea79972b1}\label{class_clamp_name_a285c488a8f897e1b6f355a9ea79972b1}} 
 string {\bfseries target\+Name}
 \end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Mantiene una etiqueta de una posición sobre la misma y actualiza la información de las coordenadas. \begin{DoxyAuthor}{Autor}
+Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\texttt{ oscarcatari@outlook.\+es}} -\/ Universidad de La Laguna 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Desde}
+02-\/05-\/2019 
+\end{DoxySince}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_clamp_name_ae3850d4ccc21188089e261ab805c036b}\label{class_clamp_name_ae3850d4ccc21188089e261ab805c036b}} 
+\index{ClampName@{ClampName}!SetSelected@{SetSelected}}
+\index{SetSelected@{SetSelected}!ClampName@{ClampName}}
+\subsubsection{\texorpdfstring{SetSelected()}{SetSelected()}}
+{\footnotesize\ttfamily void Clamp\+Name.\+Set\+Selected (\begin{DoxyParamCaption}\item[{bool}]{selected }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Modifica si la etiqueta está seleccionada para redimensionar el tamaño y mostrar o no las coordenadas. 
+\begin{DoxyParams}{Parámetros}
+{\em selected} & Seleccionada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_clamp_name_a8845016c54fa64235db1c72716098f96}\label{class_clamp_name_a8845016c54fa64235db1c72716098f96}} 
+\index{ClampName@{ClampName}!SetText@{SetText}}
+\index{SetText@{SetText}!ClampName@{ClampName}}
+\subsubsection{\texorpdfstring{SetText()}{SetText()}}
+{\footnotesize\ttfamily void Clamp\+Name.\+Set\+Text (\begin{DoxyParamCaption}\item[{string}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Modifica el nombre que muestra la etiqueta. 
+\begin{DoxyParams}{Parámetros}
+{\em text} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
 
 
 La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}

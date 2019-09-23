@@ -28,4 +28,3 @@
 
 **Iconos:** https://www.flaticon.com/
 
-### Actulizando documentación

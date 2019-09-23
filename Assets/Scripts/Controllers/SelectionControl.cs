@@ -61,6 +61,8 @@ public class SelectionControl : MonoBehaviour {
         // Controllers
         gameController = GetComponent<GameController>();
         stateMessageControl = GetComponent<StateMessageControl>();
+        // Events
+        GameController.ScorbotDel += SetScorbot;
     }
 	
 	void Update () {
@@ -81,6 +83,16 @@ public class SelectionControl : MonoBehaviour {
         {
             moveInAxis = false;
         }   
+    }
+
+    /**
+     * Cambia el scorbot utilizado.
+     * @param scorbot Nuevo Scorbot
+     * @return void
+     */
+    private void SetScorbot(IK scorbot)
+    {
+        robot = scorbot;
     }
 
     /**

@@ -42,6 +42,8 @@ void {\bfseries Start} ()
 \mbox{\Hypertarget{class_selection_control_ad79a2cfc74608733edcd1be0164cc491}\label{class_selection_control_ad79a2cfc74608733edcd1be0164cc491}} 
 void {\bfseries Update} ()
 \item 
+void \mbox{\hyperlink{class_selection_control_a8b366f1e8d48984ff2914bb74726466e}{Set\+Scorbot}} (\mbox{\hyperlink{class_i_k}{IK}} scorbot)
+\item 
 void \mbox{\hyperlink{class_selection_control_a6e08e34b6c7bfe54260faeaa29b369c0}{Select}} ()
 \item 
 void \mbox{\hyperlink{class_selection_control_a41c82620db4b415375d6579c5a0aa17b}{Clear\+Selection}} ()
@@ -287,6 +289,20 @@ void
 Modifica la sensibilidad de la rotación los ejes para rotar un objeto. 
 \begin{DoxyParams}{Parámetros}
 {\em value} & Sensibilidad de la rotación los ejes. Debe ser mayor que 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_selection_control_a8b366f1e8d48984ff2914bb74726466e}\label{class_selection_control_a8b366f1e8d48984ff2914bb74726466e}} 
+\index{SelectionControl@{SelectionControl}!SetScorbot@{SetScorbot}}
+\index{SetScorbot@{SetScorbot}!SelectionControl@{SelectionControl}}
+\subsubsection{\texorpdfstring{SetScorbot()}{SetScorbot()}}
+{\footnotesize\ttfamily void Selection\+Control.\+Set\+Scorbot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_k}{IK}}}]{scorbot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Cambia el scorbot utilizado. 
+\begin{DoxyParams}{Parámetros}
+{\em scorbot} & Nuevo Scorbot \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Devuelve}

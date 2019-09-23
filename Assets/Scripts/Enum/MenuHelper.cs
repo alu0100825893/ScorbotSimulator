@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Índice de los menús y sus elementos.
+ * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es - Universidad de La Laguna
+ * @version 1.0
+ * @since 02-05-2019
+ */
 public class MenuHelper {
 
+    // Menu
     public const int MAIN_MENU = 0;
     public const int SELECT_MENU = 1;
     public const int SETTINGS_MENU = 2;

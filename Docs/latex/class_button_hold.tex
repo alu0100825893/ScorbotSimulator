@@ -9,11 +9,9 @@ Diagrama de herencias de Button\+Hold\begin{figure}[H]
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_button_hold_a2e1f8ebf88714ea3e86261ef811c9941}\label{class_button_hold_a2e1f8ebf88714ea3e86261ef811c9941}} 
-void {\bfseries On\+Pointer\+Down} (Pointer\+Event\+Data event\+Data)
+void \mbox{\hyperlink{class_button_hold_a2e1f8ebf88714ea3e86261ef811c9941}{On\+Pointer\+Down}} (Pointer\+Event\+Data event\+Data)
 \item 
-\mbox{\Hypertarget{class_button_hold_a2512c68bf1ec55d4bae22da5ef7ed66a}\label{class_button_hold_a2512c68bf1ec55d4bae22da5ef7ed66a}} 
-void {\bfseries On\+Pointer\+Up} (Pointer\+Event\+Data event\+Data)
+void \mbox{\hyperlink{class_button_hold_a2512c68bf1ec55d4bae22da5ef7ed66a}{On\+Pointer\+Up}} (Pointer\+Event\+Data event\+Data)
 \end{DoxyCompactItemize}
 \subsection*{Atributos públicos}
 \begin{DoxyCompactItemize}
@@ -27,12 +25,52 @@ Unity\+Event {\bfseries method}
 \subsection*{Métodos privados}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_button_hold_a66c2a898edb4d75f86c07ddd09b2b433}\label{class_button_hold_a66c2a898edb4d75f86c07ddd09b2b433}} 
-void {\bfseries Start} ()
-\item 
 \mbox{\Hypertarget{class_button_hold_ae908d18846152daca9782466469ea79d}\label{class_button_hold_ae908d18846152daca9782466469ea79d}} 
 void {\bfseries Update} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Permite que los botones se puedan mantener pulsados para ejecutar una acción continuamente. Se utiiza para el control de las articulaciones de Scorbots mediante la ventana \char`\"{}\+Manual\char`\"{}. \begin{DoxyAuthor}{Autor}
+Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\texttt{ oscarcatari@outlook.\+es}} -\/ Universidad de La Laguna 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Desde}
+02-\/05-\/2019 
+\end{DoxySince}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_button_hold_a2e1f8ebf88714ea3e86261ef811c9941}\label{class_button_hold_a2e1f8ebf88714ea3e86261ef811c9941}} 
+\index{ButtonHold@{ButtonHold}!OnPointerDown@{OnPointerDown}}
+\index{OnPointerDown@{OnPointerDown}!ButtonHold@{ButtonHold}}
+\subsubsection{\texorpdfstring{OnPointerDown()}{OnPointerDown()}}
+{\footnotesize\ttfamily void Button\+Hold.\+On\+Pointer\+Down (\begin{DoxyParamCaption}\item[{Pointer\+Event\+Data}]{event\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evento cuando el ratón mantiene click primario sobre el botón. 
+\begin{DoxyParams}{Parámetros}
+{\em event\+Data} & Evento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_button_hold_a2512c68bf1ec55d4bae22da5ef7ed66a}\label{class_button_hold_a2512c68bf1ec55d4bae22da5ef7ed66a}} 
+\index{ButtonHold@{ButtonHold}!OnPointerUp@{OnPointerUp}}
+\index{OnPointerUp@{OnPointerUp}!ButtonHold@{ButtonHold}}
+\subsubsection{\texorpdfstring{OnPointerUp()}{OnPointerUp()}}
+{\footnotesize\ttfamily void Button\+Hold.\+On\+Pointer\+Up (\begin{DoxyParamCaption}\item[{Pointer\+Event\+Data}]{event\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evento cuando el ratón deja de mantiener click primario sobre el botón. 
+\begin{DoxyParams}{Parámetros}
+{\em event\+Data} & Evento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
 
 
 La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}

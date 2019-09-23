@@ -22,6 +22,9 @@ public class MetricSystemControl : MonoBehaviour
     private Transform planeXZ;
     private Transform planeYZ;
 
+    // If at least 1 plane is active previously
+    private bool previousActivePlane = false;
+
     // Camera
     private Transform cam;
 
@@ -93,8 +96,9 @@ public class MetricSystemControl : MonoBehaviour
                 planeXY.localRotation = Quaternion.Euler(0f, 0f, 180f);            
             else            
                 planeXY.localRotation = Quaternion.Euler(Vector3.zero);
-            
+            previousActivePlane = true;
         }
+
 
         // If planeXZ active
         if (planeXZ.gameObject.activeSelf)
@@ -108,7 +112,9 @@ public class MetricSystemControl : MonoBehaviour
                 planeXZ.localRotation = Quaternion.Euler(180f, 0f, 0f);
             else
                 planeXZ.localRotation = Quaternion.Euler(Vector3.zero);
+            previousActivePlane = true;
         }
+
 
         // If planeYZ active
         if (planeYZ.gameObject.activeSelf)
@@ -121,8 +127,21 @@ public class MetricSystemControl : MonoBehaviour
             if (cam.position.x < planeYZ.position.x)            
                 planeYZ.localRotation = Quaternion.Euler(0f, 0f, 180f);             
             else            
-                planeYZ.localRotation = Quaternion.Euler(Vector3.zero);            
+                planeYZ.localRotation = Quaternion.Euler(Vector3.zero);
+            previousActivePlane = true;
         }
+
+        if(previousActivePlane && !planeXY.gameObject.activeSelf && !planeXZ.gameObject.activeSelf && 
+            !planeYZ.gameObject.activeSelf)
+        {
+            // No active planes so set normal config in case small config was left
+            previousActivePlane = false;
+            NormalConfig(selectedObject, planeXY);
+            NormalConfig(selectedObject, planeXZ);
+            NormalConfig(selectedObject, planeYZ);
+        }
+
+;
     }
 
     /**
@@ -154,14 +173,26 @@ public class MetricSystemControl : MonoBehaviour
         }
         else // Camera far from target
         {
-            // 10 cm each square
-            plane.GetComponent<Renderer>().material.mainTextureScale = new Vector2(TEXTURE_10CM, TEXTURE_10CM);
-            // Adjust object's size
-            selectedObject.localScale = new Vector3(NORMAL_SCALE, NORMAL_SCALE, NORMAL_SCALE);
-            //Adjust sensibility of camera and axis movement
-            selectionControl.SetAxisSensibilityReduction(SENSIBILITY_REDUCTION_NORMAL);
-            cameraControl.SetMovementSensibilityReduction(SENSIBILITY_REDUCTION_NORMAL);
-            cameraControl.SetZoomSensibilityReduction(SENSIBILITY_REDUCTION_NORMAL);
+            NormalConfig(selectedObject, plane);
         }
     }
+
+    /**
+     * Modifica el plano y la posición (objeto), junto a unos ajustes de sensibilidad, para poner los valores normales.
+     * @param selectedObject Objetivo que tiene que estar contenido en el plano
+     * @param plane Plano a modificar
+     * @return void
+     */
+    private void NormalConfig(Transform selectedObject, Transform plane)
+    {
+        // 10 cm each square
+        plane.GetComponent<Renderer>().material.mainTextureScale = new Vector2(TEXTURE_10CM, TEXTURE_10CM);
+        // Adjust object's size
+        selectedObject.localScale = new Vector3(NORMAL_SCALE, NORMAL_SCALE, NORMAL_SCALE);
+        //Adjust sensibility of camera and axis movement
+        selectionControl.SetAxisSensibilityReduction(SENSIBILITY_REDUCTION_NORMAL);
+        cameraControl.SetMovementSensibilityReduction(SENSIBILITY_REDUCTION_NORMAL);
+        cameraControl.SetZoomSensibilityReduction(SENSIBILITY_REDUCTION_NORMAL);
+    }
 }
+ 

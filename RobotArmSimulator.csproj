@@ -250,7 +250,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DragObject.cs" />
     <Compile Include="Assets\ExternalAssets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\ExternalAssets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\ExternalAssets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -315,6 +314,7 @@
     <Compile Include="Assets\Scripts\Other\WorldAxis.cs" />
     <Compile Include="Assets\Scripts\Scorbot\Articulation.cs" />
     <Compile Include="Assets\Scripts\Scorbot\GripScorbotERIX.cs" />
+    <Compile Include="Assets\Scripts\Scorbot\GripScorbotERVPlus.cs" />
     <Compile Include="Assets\Scripts\Scorbot\IK.cs" />
     <Compile Include="Assets\Scripts\Scorbot\ScorbotModel.cs" />
   </ItemGroup>

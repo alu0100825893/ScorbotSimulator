@@ -18,6 +18,8 @@ void {\bfseries Update} ()
 void \mbox{\hyperlink{class_metric_system_control_a853f57f47211b8c3a1f48c53ba552a0e}{Dynamic\+Precision}} (Transform selected\+Object)
 \item 
 void \mbox{\hyperlink{class_metric_system_control_a233ff34bc7bf5ae589ffe0146430f2e0}{Update\+Plane}} (Transform selected\+Object, Transform plane, Vector3 pos)
+\item 
+void \mbox{\hyperlink{class_metric_system_control_a9ec2278d531e8f0705a241c97aae7909}{Normal\+Config}} (Transform selected\+Object, Transform plane)
 \end{DoxyCompactItemize}
 \subsection*{Atributos privados}
 \begin{DoxyCompactItemize}
@@ -33,6 +35,9 @@ Transform {\bfseries plane\+XZ}
 \item 
 \mbox{\Hypertarget{class_metric_system_control_a7548f46d5a23cb7efbc8988446423b96}\label{class_metric_system_control_a7548f46d5a23cb7efbc8988446423b96}} 
 Transform {\bfseries plane\+YZ}
+\item 
+\mbox{\Hypertarget{class_metric_system_control_a74822e324b71f264c0c1606ae43f4494}\label{class_metric_system_control_a74822e324b71f264c0c1606ae43f4494}} 
+bool {\bfseries previous\+Active\+Plane} = false
 \item 
 \mbox{\Hypertarget{class_metric_system_control_af44b2560b41455ac98d0dc214b2a7322}\label{class_metric_system_control_af44b2560b41455ac98d0dc214b2a7322}} 
 Transform {\bfseries cam}
@@ -94,6 +99,22 @@ Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\te
 Mantiene tres planos actualizados en base a un objetivo para mejorar la precisión del movimiento de ejes del objeto actuando como objetivo. 
 \begin{DoxyParams}{Parámetros}
 {\em selected\+Object} & Objetivo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_metric_system_control_a9ec2278d531e8f0705a241c97aae7909}\label{class_metric_system_control_a9ec2278d531e8f0705a241c97aae7909}} 
+\index{MetricSystemControl@{MetricSystemControl}!NormalConfig@{NormalConfig}}
+\index{NormalConfig@{NormalConfig}!MetricSystemControl@{MetricSystemControl}}
+\subsubsection{\texorpdfstring{NormalConfig()}{NormalConfig()}}
+{\footnotesize\ttfamily void Metric\+System\+Control.\+Normal\+Config (\begin{DoxyParamCaption}\item[{Transform}]{selected\+Object,  }\item[{Transform}]{plane }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Modifica el plano y la posición (objeto), junto a unos ajustes de sensibilidad, para poner los valores normales. 
+\begin{DoxyParams}{Parámetros}
+{\em selected\+Object} & Objetivo que tiene que estar contenido en el plano \\
+\hline
+{\em plane} & Plano a modificar \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Devuelve}

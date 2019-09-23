@@ -88,6 +88,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></t
 <tr class="separator:a853f57f47211b8c3a1f48c53ba552a0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a233ff34bc7bf5ae589ffe0146430f2e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metric_system_control.html#a233ff34bc7bf5ae589ffe0146430f2e0">UpdatePlane</a> (Transform selectedObject, Transform plane, Vector3 pos)</td></tr>
 <tr class="separator:a233ff34bc7bf5ae589ffe0146430f2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ec2278d531e8f0705a241c97aae7909"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_metric_system_control.html#a9ec2278d531e8f0705a241c97aae7909">NormalConfig</a> (Transform selectedObject, Transform plane)</td></tr>
+<tr class="separator:a9ec2278d531e8f0705a241c97aae7909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Atributos privados</h2></td></tr>
@@ -103,6 +105,9 @@ Transform&#160;</td><td class="memItemRight" valign="bottom"><b>planeXZ</b></td>
 <tr class="memitem:a7548f46d5a23cb7efbc8988446423b96"><td class="memItemLeft" align="right" valign="top"><a id="a7548f46d5a23cb7efbc8988446423b96"></a>
 Transform&#160;</td><td class="memItemRight" valign="bottom"><b>planeYZ</b></td></tr>
 <tr class="separator:a7548f46d5a23cb7efbc8988446423b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74822e324b71f264c0c1606ae43f4494"><td class="memItemLeft" align="right" valign="top"><a id="a74822e324b71f264c0c1606ae43f4494"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>previousActivePlane</b> = false</td></tr>
+<tr class="separator:a74822e324b71f264c0c1606ae43f4494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af44b2560b41455ac98d0dc214b2a7322"><td class="memItemLeft" align="right" valign="top"><a id="af44b2560b41455ac98d0dc214b2a7322"></a>
 Transform&#160;</td><td class="memItemRight" valign="bottom"><b>cam</b></td></tr>
 <tr class="separator:af44b2560b41455ac98d0dc214b2a7322"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,6 +176,50 @@ const float&#160;</td><td class="memItemRight" valign="bottom"><b>SENSIBILITY_RE
 <p>Mantiene tres planos actualizados en base a un objetivo para mejorar la precisión del movimiento de ejes del objeto actuando como objetivo. </p><dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">selectedObject</td><td>Objetivo </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a9ec2278d531e8f0705a241c97aae7909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ec2278d531e8f0705a241c97aae7909">&#9670;&nbsp;</a></span>NormalConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MetricSystemControl.NormalConfig </td>
+          <td>(</td>
+          <td class="paramtype">Transform&#160;</td>
+          <td class="paramname"><em>selectedObject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Transform&#160;</td>
+          <td class="paramname"><em>plane</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Modifica el plano y la posición (objeto), junto a unos ajustes de sensibilidad, para poner los valores normales. </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">selectedObject</td><td>Objetivo que tiene que estar contenido en el plano </td></tr>
+    <tr><td class="paramname">plane</td><td>Plano a modificar </td></tr>
   </table>
   </dd>
 </dl>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * 
+ * Contiene los datos referentes a una articulación del Scorbot. Además reliza operaciones como la rotación.
  * @author Oscar Catari Gutiérrez - E-mail: oscarcatari@outlook.es - Universidad de La Laguna
  * @version 1.0
  * @since 02-05-2019
@@ -56,8 +56,7 @@ public class Articulation : MonoBehaviour {
     /**
      * Obtiene las coordenadas del centro de la articulación en el contexto de Unity (no Scorbot real).
      * @return Vector3 Coordenadas
-     */
-     
+     */     
     public Vector3 GetPosition()
     {
         return transform.position;
@@ -177,8 +176,7 @@ public class Articulation : MonoBehaviour {
             transform.localRotation = Quaternion.Euler(angle);
         }      
     }
-
-    // Degrees
+  
     /**
      * Obtiene el ángulo ajustado a los límites de la articulación del Scorbot.
      * @param angle Ángulo
@@ -187,6 +185,7 @@ public class Articulation : MonoBehaviour {
      */
     private float ApplyLimit(float angle, float currentAngle)
     {
+        // Degrees
         float newAngle = angle;
         // Min limit
         if (angle + currentAngle > limit[0])
@@ -225,7 +224,7 @@ public class Articulation : MonoBehaviour {
 
 
     /**
-     * Modifica el ángulo de la articulación a un nuevo ñangulo y lo rota (instantaneo).
+     * Modifica el ángulo de la articulación a un nuevo angulo y lo rota (instantaneo).
      * @param newAngle Ángulo
      * @return void
      */
@@ -251,7 +250,7 @@ public class Articulation : MonoBehaviour {
     }
 
     /**
-     * 
+     * Establece los límites de condeos de encoder y ángulos para la articulación.
      * @param minCount Conteos de encoder mínimos
      * @param maxCount Conteos de encoder máximos
      * @param homeC Conteos de encoder en las posición HOME del Scorbot

@@ -7,5 +7,6 @@ var searchData=
   ['updateplane',['UpdatePlane',['../class_metric_system_control.html#a233ff34bc7bf5ae589ffe0146430f2e0',1,'MetricSystemControl']]],
   ['updatepositionlog',['UpdatePositionLog',['../class_state_message_control.html#aeace074591852cb0cc7125520bc49817',1,'StateMessageControl']]],
   ['updaterelativeposition',['UpdateRelativePosition',['../class_target_model.html#a41b6989fae346f10e3d58ccd0587fc83',1,'TargetModel']]],
-  ['updatetargets',['UpdateTargets',['../class_game_controller.html#a0faec72a151b40bb1a13340f89a735aa',1,'GameController']]]
+  ['updatetargets',['UpdateTargets',['../class_game_controller.html#a0faec72a151b40bb1a13340f89a735aa',1,'GameController']]],
+  ['updatetocopy',['UpdateToCopy',['../class_scorbot_model.html#a78e73b1e1b2cda29a55529326ba2ca90',1,'ScorbotModel']]]
 ];

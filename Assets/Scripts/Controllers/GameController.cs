@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 // Event. Command "Here" mode        
 public delegate void HereFromDelegate(bool fromSimulation);
+// Event. Change Scorbot  
+public delegate void ScorbotDelegate(IK robot);
 /**
  * El controlador principal de la simulación es el GameController. Su función principal es la de inicializar 
  * la simulación y ejecutar los demás controladores para que realicen tareas específicas. 
@@ -23,12 +25,8 @@ public class GameController : MonoBehaviour
     public static GameController gameController;
     // Event. Command "Here" mode      
     public static event HereFromDelegate HereFromDel;
-
-    // SYNC // What if a position is unrechable???
-    // Articulation Docs check 
-    // Check. Teach to position being used as reference (sync relative position) 
-    // Data recovery file 
-    // Main menu help tabs
+    // Event. Change Scorbot      
+    public static event ScorbotDelegate ScorbotDel;//
 
     // Camera
     public Transform cam;
@@ -202,22 +200,15 @@ public class GameController : MonoBehaviour
                 MainMenu();        
         }
 
-        // Robot values
-        if (!robot)
+        // Scorbot values
+        if (!robot || !robot.GetE())
             return;
-
+        // Scorbot end effector
         Vector3 pos = new Vector3(robot.GetE().position.x, robot.GetE().position.z, robot.GetE().position.y);
         pos = pos * 10f;
         output.text = "Efector pos: \n" + "X: " + 
             pos.x.ToString(NUMBER_FORMAT) + "\nY: " + pos.y.ToString(NUMBER_FORMAT) + "\nZ: " + pos.z.ToString(NUMBER_FORMAT) + "\n";
-
-        //robot.articulations[3].UpdateAngleAsGlobal(new Vector3(0f, 0f, 45f));
-        /*
-        output.text = "Efector pos: \n" + robot.GetE().position + "\n";
         
-        output.text += robot.GetArticulations()[3].Angle() + "\n";
-        output.text += robot.GetArticulations()[3].transform.rotation.eulerAngles + "\n";
-        */
         DrawTrayectory();
     }
 
@@ -247,7 +238,7 @@ public class GameController : MonoBehaviour
      */
     public void Open()
     {
-        robot.GetComponent<GripScorbotERIX>().Open();
+        robot.GetComponent<ScorbotModel>().Open();
     }
 
     /**
@@ -256,7 +247,7 @@ public class GameController : MonoBehaviour
      */
     public void Close()
     {
-        robot.GetComponent<GripScorbotERIX>().Close();
+        robot.GetComponent<ScorbotModel>().Close();
     }
 
     /**
@@ -681,7 +672,7 @@ public class GameController : MonoBehaviour
                 commandControl.CON();
                 break;
             case (int)CommandHelper.defp:
-                RecordPosition(true);
+                RecordPosition(true);         
                 break;
             default:
                 break;
@@ -844,8 +835,10 @@ public class GameController : MonoBehaviour
             case ScorbotERVPlus.INDEX:
                 scorbots[ScorbotERVPlus.INDEX].gameObject.SetActive(true);
                 robot = scorbots[ScorbotERVPlus.INDEX];
-                break;
+                break;                
         }
+
+        ScorbotDel(robot);
     }
         
     /**
@@ -855,19 +848,25 @@ public class GameController : MonoBehaviour
      */
     public void OnlineOfflineSlider(float value)
     {
+        bool previousOnlineMode = onlineMode;
         // Mode Online - Offline
         onlineMode = value == 1f ? true : false;
 
         onlineText.text = onlineMode? "Online" : "Offline";
+                
         bool done = controller.Online_Offline(onlineMode);
         if (done)
         {
-            stateMessageControl.WriteMessage("Done. Online ONLINE", done);
+            if(!previousOnlineMode && onlineMode)
+                stateMessageControl.WriteMessage("Done. Online ONLINE", done);
+            else
+                stateMessageControl.WriteMessage("Done. Online OFFLINE", done);
         }
         else
         {
             stateMessageControl.WriteMessage("Error. Online ONLINE", done);
             onlineMode = false;
+            onlineText.text = onlineMode ? "Online" : "Offline";
         }
     }
 

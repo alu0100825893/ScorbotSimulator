@@ -80,11 +80,9 @@ Diagrama de herencias de ClampName</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos públicos</h2></td></tr>
-<tr class="memitem:a8845016c54fa64235db1c72716098f96"><td class="memItemLeft" align="right" valign="top"><a id="a8845016c54fa64235db1c72716098f96"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetText</b> (string text)</td></tr>
+<tr class="memitem:a8845016c54fa64235db1c72716098f96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clamp_name.html#a8845016c54fa64235db1c72716098f96">SetText</a> (string text)</td></tr>
 <tr class="separator:a8845016c54fa64235db1c72716098f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3850d4ccc21188089e261ab805c036b"><td class="memItemLeft" align="right" valign="top"><a id="ae3850d4ccc21188089e261ab805c036b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSelected</b> (bool selected)</td></tr>
+<tr class="memitem:ae3850d4ccc21188089e261ab805c036b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clamp_name.html#ae3850d4ccc21188089e261ab805c036b">SetSelected</a> (bool selected)</td></tr>
 <tr class="separator:ae3850d4ccc21188089e261ab805c036b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -98,25 +96,93 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>selected</b> = false<
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Métodos privados</h2></td></tr>
-<tr class="memitem:a3ad778915f5ec92531c5bf98b23792af"><td class="memItemLeft" align="right" valign="top"><a id="a3ad778915f5ec92531c5bf98b23792af"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
-<tr class="separator:a3ad778915f5ec92531c5bf98b23792af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaebb9af2778306a7994838a028dc3cc0"><td class="memItemLeft" align="right" valign="top"><a id="aaebb9af2778306a7994838a028dc3cc0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
 <tr class="separator:aaebb9af2778306a7994838a028dc3cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Atributos privados</h2></td></tr>
-<tr class="memitem:ae08036a6866ea0bcefdfc7b632e243ac"><td class="memItemLeft" align="right" valign="top"><a id="ae08036a6866ea0bcefdfc7b632e243ac"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>letter</b> = 13f</td></tr>
-<tr class="separator:ae08036a6866ea0bcefdfc7b632e243ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c484e497ddd497f11e78399fc2e4e2c"><td class="memItemLeft" align="right" valign="top"><a id="a4c484e497ddd497f11e78399fc2e4e2c"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>margin</b> = 6f</td></tr>
-<tr class="separator:a4c484e497ddd497f11e78399fc2e4e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ff43ba0271005b37362d7b898cee7d5"><td class="memItemLeft" align="right" valign="top"><a id="a2ff43ba0271005b37362d7b898cee7d5"></a>
+const float&#160;</td><td class="memItemRight" valign="bottom"><b>LETTER</b> = 13f</td></tr>
+<tr class="separator:a2ff43ba0271005b37362d7b898cee7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61bf13118ff2c871bdf6fbb2bef90176"><td class="memItemLeft" align="right" valign="top"><a id="a61bf13118ff2c871bdf6fbb2bef90176"></a>
+const float&#160;</td><td class="memItemRight" valign="bottom"><b>MARGIN</b> = 6f</td></tr>
+<tr class="separator:a61bf13118ff2c871bdf6fbb2bef90176"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a285c488a8f897e1b6f355a9ea79972b1"><td class="memItemLeft" align="right" valign="top"><a id="a285c488a8f897e1b6f355a9ea79972b1"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>targetName</b></td></tr>
 <tr class="separator:a285c488a8f897e1b6f355a9ea79972b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Mantiene una etiqueta de una posición sobre la misma y actualiza la información de las coordenadas. </p><dl class="section author"><dt>Autor</dt><dd>Oscar Catari Gutiérrez - E-mail: <a href="#" onclick="location.href='mai'+'lto:'+'osc'+'ar'+'cat'+'ar'+'i@o'+'ut'+'loo'+'k.'+'es'; return false;">oscar<span style="display: none;">.nosp@m.</span>cata<span style="display: none;">.nosp@m.</span>ri@ou<span style="display: none;">.nosp@m.</span>tloo<span style="display: none;">.nosp@m.</span>k.es</a> - Universidad de La Laguna </dd></dl>
+<dl class="section version"><dt>Versión</dt><dd>1.0 </dd></dl>
+<dl class="section since"><dt>Desde</dt><dd>02-05-2019 </dd></dl>
+</div><h2 class="groupheader">Documentación de las funciones miembro</h2>
+<a id="ae3850d4ccc21188089e261ab805c036b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3850d4ccc21188089e261ab805c036b">&#9670;&nbsp;</a></span>SetSelected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClampName.SetSelected </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>selected</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Modifica si la etiqueta está seleccionada para redimensionar el tamaño y mostrar o no las coordenadas. </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">selected</td><td>Seleccionada </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a8845016c54fa64235db1c72716098f96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8845016c54fa64235db1c72716098f96">&#9670;&nbsp;</a></span>SetText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClampName.SetText </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Modifica el nombre que muestra la etiqueta. </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+
+</div>
+</div>
 <hr/>La documentación para esta clase fue generada a partir del siguiente fichero:<ul>
 <li>Other/ClampName.cs</li>
 </ul>
