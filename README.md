@@ -1,4 +1,4 @@
-# **Scorbot Simulator** 
+# **Scorbot Simulator**
 ### Simulador de los brazos robóticos Scorbot ER IX y Scorbot ER V 	Plus
 
 <p align="center">
@@ -28,3 +28,4 @@
 
 **Iconos:** https://www.flaticon.com/
 
+**Tutorial:** https://github.com/alu0100825893/ScorbotSimulator/blob/master/Tutorial.pdf
