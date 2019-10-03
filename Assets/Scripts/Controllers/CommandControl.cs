@@ -557,6 +557,7 @@ public class CommandControl : MonoBehaviour {
         else
         {
             stateMessageControl.WriteMessage("Error. Online LISTPV \"" + target.GetComponent<TargetModel>().GetName() + "\". Relative position", false);
+            
             return false;
         }
                

@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 42f5f741d4300854da74b6b16bc6cf7f
+timeCreated: 1570033858
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Base
+    100002: Base2
+    100004: Base3
+    100006: Body
+    100008: Body2
+    100010: Elbow
+    100012: Elbow2
+    100014: Grip1
+    100016: Grip2
+    100018: PItch
+    100020: Pitch2
+    100022: Roll
+    100024: Roll2
+    100026: //RootNode
+    100028: Shoulder
+    100030: Shoulder2
+    400000: Base
+    400002: Base2
+    400004: Base3
+    400006: Body
+    400008: Body2
+    400010: Elbow
+    400012: Elbow2
+    400014: Grip1
+    400016: Grip2
+    400018: PItch
+    400020: Pitch2
+    400022: Roll
+    400024: Roll2
+    400026: //RootNode
+    400028: Shoulder
+    400030: Shoulder2
+    2100000: Blue
+    2100002: Black
+    2300000: Base
+    2300002: Base2
+    2300004: Base3
+    2300006: Body
+    2300008: Body2
+    2300010: Elbow
+    2300012: Elbow2
+    2300014: Grip1
+    2300016: Grip2
+    2300018: PItch
+    2300020: Pitch2
+    2300022: Roll
+    2300024: Roll2
+    2300026: Shoulder
+    2300028: Shoulder2
+    3300000: Base
+    3300002: Base2
+    3300004: Base3
+    3300006: Body
+    3300008: Body2
+    3300010: Elbow
+    3300012: Elbow2
+    3300014: Grip1
+    3300016: Grip2
+    3300018: PItch
+    3300020: Pitch2
+    3300022: Roll
+    3300024: Roll2
+    3300026: Shoulder
+    3300028: Shoulder2
+    4300000: Base2
+    4300002: Base
+    4300004: Body
+    4300006: Body2
+    4300008: Shoulder
+    4300010: Elbow
+    4300012: PItch
+    4300014: Pitch2
+    4300016: Roll
+    4300018: Grip2
+    4300020: Grip1
+    4300022: Roll2
+    4300024: Elbow2
+    4300026: Shoulder2
+    4300028: Base3
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

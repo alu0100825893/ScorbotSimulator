@@ -83,13 +83,7 @@ public class Controller : MonoBehaviour {
     {
         Term.Input = false;
         Term.Input_text = false;
-        if (Term.Buffer.Logs.Count != 0)
-        {
-            var t = Term.Buffer.Logs.LastOrDefault().message.ToLower().Contains("done");
-            var g = Term.Buffer.Logs.LastOrDefault().message.ToLower().Contains("position");
-            var k = Term.Buffer.Logs.LastOrDefault().message.ToLower();
-            int u = 0;
-        }
+
         if (Term.Buffer.Logs.Count !=0)
             if (Term.Buffer.Logs.LastOrDefault().message.ToLower().Contains("done") || Term.Buffer.Logs.LastOrDefault().message.ToLower().Contains("position"))
                 Data = false;
@@ -216,7 +210,7 @@ public class Controller : MonoBehaviour {
                         {
                             XYZ = Target.GetComponent<TargetModel>().GetPositionInScorbot();
                             float truncated = (float)(Math.Truncate((double)XYZ.x * 100.0) / 100.0);
-                            Term.Log(TerminalLogType.Log, "{0}", "       X -- [" + truncated + "]");
+                            Term.Log(TerminalLogType.Log, "{0}", "       X -- [" + truncated + "] ");
                             Count_Command_Data++;
                             Term.Input_Text(true);
                         }
@@ -243,15 +237,19 @@ public class Controller : MonoBehaviour {
                     case "speed":
                         //0-100
                         isNumeric = int.TryParse(ListCommandLine[1], out value);
-                        if (isNumeric)
+                        if (isNumeric && value >= 0 && value <= 100)
                             CommandControl.Speed(Robot, value);
+                        else
+                            Term.Log(TerminalLogType.Warning, "{0}", "Valor incorrecto [0-100]");
                         Term.Input_View(true);
                         break;
                     case "speedl":
                         //0-300
                         isNumeric = int.TryParse(ListCommandLine[1], out value);
-                        if (isNumeric)
+                        if (isNumeric && value >= 0 && value <= 300)
                             CommandControl.SpeedL(Robot, value);
+                        else
+                            Term.Log(TerminalLogType.Warning, "{0}", "Valor incorrecto [0-300]");
                         Term.Input_View(true);
                         break;
                     case "shiftc":
@@ -305,7 +303,7 @@ public class Controller : MonoBehaviour {
                 XYZ.x = value;
                 truncated = (float)(Math.Truncate((double)XYZ.y * 100.0) / 100.0);
                 Term.Log_End(TerminalLogType.Log, "{0}", line_command);
-                Term.Log(TerminalLogType.Log, "{0}", "       Y -- [" + truncated + "]");
+                Term.Log(TerminalLogType.Log, "{0}", "       Y -- [" + truncated + "] ");
                 Count_Command_Data++;
                 Term.Input_Text(true);
             }
@@ -314,7 +312,7 @@ public class Controller : MonoBehaviour {
                 XYZ.y = value;
                 truncated = (float)(Math.Truncate((double)XYZ.z * 100.0) / 100.0);
                 Term.Log_End(TerminalLogType.Log, "{0}", line_command);
-                Term.Log(TerminalLogType.Log, "{0}", "       Z -- [" + truncated + "]");
+                Term.Log(TerminalLogType.Log, "{0}", "       Z -- [" + truncated + "] ");
                 Count_Command_Data++;
                 Term.Input_Text(true);
             }
@@ -323,7 +321,7 @@ public class Controller : MonoBehaviour {
                 XYZ.z = value;
                 truncated = (float)(Math.Truncate((double)Target.GetComponent<TargetModel>().GetPitch() * 100.0) / 100.0);
                 Term.Log_End(TerminalLogType.Log, "{0}", line_command);
-                Term.Log(TerminalLogType.Log, "{0}", "       P -- [" + truncated + "]");
+                Term.Log(TerminalLogType.Log, "{0}", "       P -- [" + truncated + "] ");
                 Count_Command_Data++;
                 Term.Input_Text(true);
             }
@@ -332,7 +330,7 @@ public class Controller : MonoBehaviour {
                 P = value;
                 truncated = (float)(Math.Truncate((double)Target.GetComponent<TargetModel>().GetRoll() * 100.0) / 100.0);
                 Term.Log_End(TerminalLogType.Log, "{0}", line_command);
-                Term.Log(TerminalLogType.Log, "{0}", "       R -- [" + truncated + "]");
+                Term.Log(TerminalLogType.Log, "{0}", "       R -- [" + truncated + "] ");
                 Count_Command_Data++;
                 Term.Input_Text(true);
             }

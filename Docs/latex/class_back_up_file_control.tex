@@ -1,0 +1,80 @@
+\hypertarget{class_back_up_file_control}{}\section{Referencia de la Clase Back\+Up\+File\+Control}
+\label{class_back_up_file_control}\index{BackUpFileControl@{BackUpFileControl}}
+Diagrama de herencias de Back\+Up\+File\+Control\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_back_up_file_control}
+\end{center}
+\end{figure}
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_back_up_file_control_ac716204289bfc6374ac1f0f042497db0}{Save}} ()
+\item 
+void \mbox{\hyperlink{class_back_up_file_control_a112a5fe6a9344e96275115cdc17b008c}{Load}} ()
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_back_up_file_control_a6c730f44ee25befbf01c75b8e8e737ed}\label{class_back_up_file_control_a6c730f44ee25befbf01c75b8e8e737ed}} 
+void {\bfseries Start} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_back_up_file_control_a9b55199bd8c6e402fb83404ae37939a9}\label{class_back_up_file_control_a9b55199bd8c6e402fb83404ae37939a9}} 
+const string {\bfseries B\+A\+C\+K\+U\+P\+\_\+\+F\+I\+LE} = \char`\"{}backup.\+txt\char`\"{}
+\item 
+\mbox{\Hypertarget{class_back_up_file_control_ad1005e64c44edc9a9ddb76bf4fa2cf5c}\label{class_back_up_file_control_ad1005e64c44edc9a9ddb76bf4fa2cf5c}} 
+const string {\bfseries N\+O\+R\+M\+AL} = \char`\"{}normal\char`\"{}
+\item 
+\mbox{\Hypertarget{class_back_up_file_control_a4a6e6a1e0a7b4fc417d48068feafe302}\label{class_back_up_file_control_a4a6e6a1e0a7b4fc417d48068feafe302}} 
+const string {\bfseries R\+E\+L\+A\+T\+I\+VE} = \char`\"{}relative\char`\"{}
+\item 
+\mbox{\Hypertarget{class_back_up_file_control_a1ce59ee4078f4d3546eb67694ce1c16e}\label{class_back_up_file_control_a1ce59ee4078f4d3546eb67694ce1c16e}} 
+\mbox{\hyperlink{class_target_control}{Target\+Control}} {\bfseries target\+Control}
+\item 
+\mbox{\Hypertarget{class_back_up_file_control_ac962072454aad89d3a4aad93c7791ba9}\label{class_back_up_file_control_ac962072454aad89d3a4aad93c7791ba9}} 
+\mbox{\hyperlink{class_game_controller}{Game\+Controller}} {\bfseries game\+Controller}
+\item 
+\mbox{\Hypertarget{class_back_up_file_control_a18e4e0e682dc3d224402abb18b4e7a68}\label{class_back_up_file_control_a18e4e0e682dc3d224402abb18b4e7a68}} 
+\mbox{\hyperlink{class_command_control}{Command\+Control}} {\bfseries command\+Control}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+La función principal de este componente es la restauración de los datos de las posiciones de la simulación en caso de que un comando en el Scorbot real bloque el programa. Las posiciones fuera del alcance o que no se pueden cumplir las restricciones de pitch, se pondrán en una posición por defecto. A\+N\+T\+ES de C\+A\+R\+G\+AR los datos S\+E\+L\+E\+C\+C\+I\+O\+N\+AR el S\+C\+O\+R\+B\+OT deseado. (normal$\vert$relative) name x y z p r (relative\+To). \begin{DoxyAuthor}{Autor}
+Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\texttt{ oscarcatari@outlook.\+es}} -\/ Universidad de La Laguna 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+1 
+\end{DoxyVersion}
+\begin{DoxySince}{Desde}
+03-\/10-\/2019 
+\end{DoxySince}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_back_up_file_control_a112a5fe6a9344e96275115cdc17b008c}\label{class_back_up_file_control_a112a5fe6a9344e96275115cdc17b008c}} 
+\index{BackUpFileControl@{BackUpFileControl}!Load@{Load}}
+\index{Load@{Load}!BackUpFileControl@{BackUpFileControl}}
+\subsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily void Back\+Up\+File\+Control.\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Lee el fichero \char`\"{}backup.\+txt\char`\"{} y carga las posiciones y sus datos. (normal$\vert$relative) name x y z p r (relative\+To). Las posiciones fuera del alcance o que no se pueden cumplir las restricciones de pitch, se pondrán en una posición por defecto. A\+N\+T\+ES de C\+A\+R\+G\+AR los datos S\+E\+L\+E\+C\+C\+I\+O\+N\+AR el S\+C\+O\+R\+B\+OT deseado. \begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_back_up_file_control_ac716204289bfc6374ac1f0f042497db0}\label{class_back_up_file_control_ac716204289bfc6374ac1f0f042497db0}} 
+\index{BackUpFileControl@{BackUpFileControl}!Save@{Save}}
+\index{Save@{Save}!BackUpFileControl@{BackUpFileControl}}
+\subsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Back\+Up\+File\+Control.\+Save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Guarda las posiciones actuales y sus datos en el fichero \char`\"{}backup.\+txt\char`\"{}. (normal$\vert$relative) name x y z p r (relative\+To). \begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+Controllers/Back\+Up\+File\+Control.\+cs\end{DoxyCompactItemize}

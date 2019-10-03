@@ -201,21 +201,21 @@ public class SerialController : MonoBehaviour
                 {
                     if ((last_character == ' ') && (Tipo == "Data"))
                     {
-                        Terminal.Input_text = true;
+                        Terminal.Input_View(true);
                         Terminal.Log(TerminalLogType.Log, "{0}", strData.Replace("\n", ""));
                         _looping = false;
                     }
 
                     if (last_character == ' ' && Tipo.Equals("NoData") && strData.ToLower().Contains("<enter>"))
                     {
-                        Terminal.Input_text = true;
+                        Terminal.Input_Text(true);
                         Terminal.Log(TerminalLogType.Warning, "{0}", strData.Replace("\n", ""));
                         _looping = false;
                     }
                     if (last_character == '\r' || last_character == '\n')
                     {
-                        Terminal.Input = true;
-                        Terminal.Input_text = false;
+                        Terminal.Input_View(true);
+                        Terminal.Input_Text(false);
                         _looping = false;
                     }
                     last_character = ' ';

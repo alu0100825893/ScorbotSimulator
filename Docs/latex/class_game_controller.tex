@@ -31,6 +31,8 @@ void \mbox{\hyperlink{class_game_controller_a4115faf1339706f462166c1f82d9ec8c}{S
 \item 
 void \mbox{\hyperlink{class_game_controller_aad5d8a92a01bb1b946890c227e36ba41}{Record\+Position}} (bool from\+Command)
 \item 
+void \mbox{\hyperlink{class_game_controller_a0f08cc86bd15fbe811ce9e54a83e67d9}{Create\+Default\+Target}} (string target\+Name)
+\item 
 void \mbox{\hyperlink{class_game_controller_ad8f76a41d0163fd06971dffce1d61c97}{Remove\+Target}} ()
 \item 
 void \mbox{\hyperlink{class_game_controller_a6de8761e6cd2b07a857ea3ec0544fa40}{Target\+Dropdown\+\_\+\+Index\+Changed}} (int index)
@@ -62,6 +64,10 @@ void \mbox{\hyperlink{class_game_controller_afb0be280e9e68853555db2ef42337bd9}{S
 void \mbox{\hyperlink{class_game_controller_aae26868d4e9c6e735d5fef9cc7b15bb1}{Main\+Menu}} ()
 \item 
 void \mbox{\hyperlink{class_game_controller_ae9fc70a12ad70871780529854ea12d9c}{C\+ON}} ()
+\item 
+void \mbox{\hyperlink{class_game_controller_a59400b0ec3bf7841017faafba0a35f81}{Save}} ()
+\item 
+void \mbox{\hyperlink{class_game_controller_a7ae3bede521e0a3c4c80dc9ede03ba90}{Load}} ()
 \end{DoxyCompactItemize}
 \subsection*{Atributos públicos}
 \begin{DoxyCompactItemize}
@@ -150,6 +156,9 @@ Text\+Mesh\+Pro\+U\+G\+UI {\bfseries position\+Sync\+Log}
 \mbox{\Hypertarget{class_game_controller_ad6cb11ae2cdfe0570e0cbb5d6d167d76}\label{class_game_controller_ad6cb11ae2cdfe0570e0cbb5d6d167d76}} 
 Text\+Mesh\+Pro\+U\+G\+UI {\bfseries position\+Count\+Log}
 \item 
+\mbox{\Hypertarget{class_game_controller_a895c755f922fd5c6ae054e19ac2ec8d6}\label{class_game_controller_a895c755f922fd5c6ae054e19ac2ec8d6}} 
+Text\+Mesh\+Pro\+U\+G\+UI {\bfseries backup\+File\+Output}
+\item 
 \mbox{\Hypertarget{class_game_controller_a6d6429aa7d893d6545ea3b30cf6e0ff1}\label{class_game_controller_a6d6429aa7d893d6545ea3b30cf6e0ff1}} 
 Text\+Mesh\+Pro\+U\+G\+UI {\bfseries online\+Text}
 \item 
@@ -176,6 +185,9 @@ Dropdown {\bfseries by\+X\+Y\+Z\+P\+R\+Dropdown}
 \item 
 \mbox{\Hypertarget{class_game_controller_a6a8c35edbf074628654ce3ac17073469}\label{class_game_controller_a6a8c35edbf074628654ce3ac17073469}} 
 Dropdown {\bfseries ports\+Dropdown}
+\item 
+\mbox{\Hypertarget{class_game_controller_afc0fa69bc50038e09619a8ecfc31532c}\label{class_game_controller_afc0fa69bc50038e09619a8ecfc31532c}} 
+Dropdown {\bfseries scorbot\+Version\+Dropdown}
 \item 
 \mbox{\Hypertarget{class_game_controller_a42c3a41c40593254c896723f9dd27cb4}\label{class_game_controller_a42c3a41c40593254c896723f9dd27cb4}} 
 const string {\bfseries N\+U\+M\+B\+E\+R\+\_\+\+F\+O\+R\+M\+AT} = \char`\"{}0.\+00\char`\"{}
@@ -240,9 +252,7 @@ void {\bfseries Start} ()
 \mbox{\Hypertarget{class_game_controller_a5a89277529cadb49af7d55eba3bbf056}\label{class_game_controller_a5a89277529cadb49af7d55eba3bbf056}} 
 void {\bfseries Update} ()
 \item 
-void \mbox{\hyperlink{class_game_controller_afb7da85e39dbf57ae9a540e9dcff034a}{Create\+Default\+Target}} (Input\+Field target\+Name\+Input)
-\item 
-bool \mbox{\hyperlink{class_game_controller_a6f2e4f2c0b6a0e96d96087ad65c5b57c}{Valid\+Target}} (Input\+Field target\+Name\+Input, Transform new\+Target, Vector3 new\+Pos)
+bool \mbox{\hyperlink{class_game_controller_a039a7e414b2f588ad0fb6e907146c84c}{Valid\+Target}} (string target\+Name, Transform new\+Target, Vector3 new\+Pos)
 \item 
 void \mbox{\hyperlink{class_game_controller_af33ac3595c0cdcd615cf63738638482f}{Set\+Target}} (Transform t)
 \item 
@@ -276,6 +286,9 @@ Vector3 {\bfseries default\+Position}
 \item 
 \mbox{\Hypertarget{class_game_controller_aadb2cddd5177e5f99b55841b5b0b9c0a}\label{class_game_controller_aadb2cddd5177e5f99b55841b5b0b9c0a}} 
 \mbox{\hyperlink{class_camera_control}{Camera\+Control}} {\bfseries camera\+Control}
+\item 
+\mbox{\Hypertarget{class_game_controller_a9ce4defbbd322fe8f81822a9eccd9faa}\label{class_game_controller_a9ce4defbbd322fe8f81822a9eccd9faa}} 
+\mbox{\hyperlink{class_back_up_file_control}{Back\+Up\+File\+Control}} {\bfseries backup\+File\+Control}
 \item 
 \mbox{\Hypertarget{class_game_controller_a3bccbef8df8f2586edd74ba0013ec357}\label{class_game_controller_a3bccbef8df8f2586edd74ba0013ec357}} 
 Line\+Renderer {\bfseries line\+Renderer}
@@ -335,15 +348,15 @@ void
 Ejecuta el comando \char`\"{}\+Con\char`\"{}. \begin{DoxyReturn}{Devuelve}
 void 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_game_controller_afb7da85e39dbf57ae9a540e9dcff034a}\label{class_game_controller_afb7da85e39dbf57ae9a540e9dcff034a}} 
+\mbox{\Hypertarget{class_game_controller_a0f08cc86bd15fbe811ce9e54a83e67d9}\label{class_game_controller_a0f08cc86bd15fbe811ce9e54a83e67d9}} 
 \index{GameController@{GameController}!CreateDefaultTarget@{CreateDefaultTarget}}
 \index{CreateDefaultTarget@{CreateDefaultTarget}!GameController@{GameController}}
 \subsubsection{\texorpdfstring{CreateDefaultTarget()}{CreateDefaultTarget()}}
-{\footnotesize\ttfamily void Game\+Controller.\+Create\+Default\+Target (\begin{DoxyParamCaption}\item[{Input\+Field}]{target\+Name\+Input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily void Game\+Controller.\+Create\+Default\+Target (\begin{DoxyParamCaption}\item[{string}]{target\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Crea una posición (objeto) nueva en una posición por defecto. Debe ser válida. 
 \begin{DoxyParams}{Parámetros}
-{\em target\+Name\+Input} & Campo del nombre de la posición \\
+{\em target\+Name} & Nombre de la posición \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Devuelve}
@@ -406,6 +419,15 @@ void
 {\footnotesize\ttfamily void Game\+Controller.\+Line\+Render\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
 Borra cualquier trayectoria dibujada. \begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_controller_a7ae3bede521e0a3c4c80dc9ede03ba90}\label{class_game_controller_a7ae3bede521e0a3c4c80dc9ede03ba90}} 
+\index{GameController@{GameController}!Load@{Load}}
+\index{Load@{Load}!GameController@{GameController}}
+\subsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Carga los datos de las posiciones desde el fichero \char`\"{}backup.\+txt\char`\"{} \begin{DoxyReturn}{Devuelve}
 void 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_game_controller_aae26868d4e9c6e735d5fef9cc7b15bb1}\label{class_game_controller_aae26868d4e9c6e735d5fef9cc7b15bb1}} 
@@ -475,6 +497,15 @@ void
 {\footnotesize\ttfamily void Game\+Controller.\+Remove\+Target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Elimina la posición (objeto) seleccionada en la lista de posiciones. \begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_controller_a59400b0ec3bf7841017faafba0a35f81}\label{class_game_controller_a59400b0ec3bf7841017faafba0a35f81}} 
+\index{GameController@{GameController}!Save@{Save}}
+\index{Save@{Save}!GameController@{GameController}}
+\subsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Game\+Controller.\+Save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Guarda los datos de las posiciones actuales en el fichero \char`\"{}backup.\+txt\char`\"{} \begin{DoxyReturn}{Devuelve}
 void 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_game_controller_aa448386fb4d83ff0ca9211424ad6b020}\label{class_game_controller_aa448386fb4d83ff0ca9211424ad6b020}} 
@@ -647,15 +678,15 @@ Actualiza las lista de los nombres de las posiciones.
 \begin{DoxyReturn}{Devuelve}
 void 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_game_controller_a6f2e4f2c0b6a0e96d96087ad65c5b57c}\label{class_game_controller_a6f2e4f2c0b6a0e96d96087ad65c5b57c}} 
+\mbox{\Hypertarget{class_game_controller_a039a7e414b2f588ad0fb6e907146c84c}\label{class_game_controller_a039a7e414b2f588ad0fb6e907146c84c}} 
 \index{GameController@{GameController}!ValidTarget@{ValidTarget}}
 \index{ValidTarget@{ValidTarget}!GameController@{GameController}}
 \subsubsection{\texorpdfstring{ValidTarget()}{ValidTarget()}}
-{\footnotesize\ttfamily bool Game\+Controller.\+Valid\+Target (\begin{DoxyParamCaption}\item[{Input\+Field}]{target\+Name\+Input,  }\item[{Transform}]{new\+Target,  }\item[{Vector3}]{new\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily bool Game\+Controller.\+Valid\+Target (\begin{DoxyParamCaption}\item[{string}]{target\+Name,  }\item[{Transform}]{new\+Target,  }\item[{Vector3}]{new\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
 Comprueba si una posición (objeto) tiene un nombre válido y está en el alcance del Scorbot. 
 \begin{DoxyParams}{Parámetros}
-{\em target\+Name\+Input} & Campo del nombre de la posición \\
+{\em target\+Name} & Nombre de la posición \\
 \hline
 {\em new\+Target} & Posición (objeto) \\
 \hline

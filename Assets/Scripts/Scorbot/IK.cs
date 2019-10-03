@@ -106,6 +106,9 @@ public class IK : MonoBehaviour {
             yield return StartCoroutine(IKAlg(articulations, trayectory[i], E, speedDegrees));            
         }
 
+        // Adjustment in order to correct pitch
+        Move(trayectory[trayectory.Length - 1]);
+
         // Destroy objects, skip last one, target        
         for (int i = 0; i < trayectory.Length - 1; i++)
             Destroy(trayectory[i].gameObject);        

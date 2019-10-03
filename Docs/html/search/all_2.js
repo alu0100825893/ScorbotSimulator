@@ -33,6 +33,6 @@ var searchData=
   ['countsaretransformed',['CountsAreTransformed',['../class_articulation.html#aad8aba05576db394129968fe191ccc7c',1,'Articulation']]],
   ['countstoangles',['CountsToAngles',['../class_scorbot_model.html#a30c77a2653cea0ff41081d150b7e3bca',1,'ScorbotModel']]],
   ['counttoangle',['CountToAngle',['../class_articulation.html#a8b735ad392d0329c76f91e95768c026d',1,'Articulation']]],
-  ['createdefaulttarget',['CreateDefaultTarget',['../class_game_controller.html#afb7da85e39dbf57ae9a540e9dcff034a',1,'GameController']]],
+  ['createdefaulttarget',['CreateDefaultTarget',['../class_game_controller.html#a0f08cc86bd15fbe811ce9e54a83e67d9',1,'GameController']]],
   ['createtarget',['CreateTarget',['../class_target_control.html#a87c7dc05ecebaef86c6d6be9d8daaa0c',1,'TargetControl']]]
 ];

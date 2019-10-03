@@ -49,7 +49,7 @@ namespace CommandTerminal
 
             LogItem log = new LogItem()
             {
-                message = (tmp.TrimEnd() + ">" + message),
+                message = (tmp.TrimEnd() + " >" + message),
                 type = type
             };
 

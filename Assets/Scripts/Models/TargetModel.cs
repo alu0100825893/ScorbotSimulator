@@ -274,6 +274,16 @@ public class TargetModel : MonoBehaviour {
     }
 
     /**
+     * Obtiene el valor relativo de las coordenadas en el contexto del Scorbot real. Estos no son las coordenadas 
+     * finales.
+     * @return Vector3 Posición relativa
+     */
+    public Vector3 GetRelativePosInScorbot()
+    {
+        return new Vector3(relativePos.x, relativePos.z, relativePos.y) * 10f;
+    }
+
+    /**
      * Obtiene el valor del pitch relativo. Esto no es el pitch final.
      * @return p Pitch relativo
      */

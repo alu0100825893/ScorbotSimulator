@@ -95,7 +95,19 @@ public class TargetControl : MonoBehaviour {
             if (GetTarget(index).GetComponent<TargetModel>().GetName().Equals(name))
                 break;
         }
-    
+
+        // Position being used as reference
+        Transform rFrom = targets[index].GetComponent<TargetModel>().GetRelativeFrom();
+        if (rFrom) {
+            rFrom.GetComponent<TargetModel>().SetNoRelativeTo();
+        }
+        // Position using other position as reference
+        Transform rTo = targets[index].GetComponent<TargetModel>().GetRelativeTo();
+        if (rTo)
+        {
+            rTo.GetComponent<TargetModel>().SetRelativeFrom(null);
+        }
+
         // Delete position (object)
         targets.RemoveAt(index);
         DestroyTarget(target);

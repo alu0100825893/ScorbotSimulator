@@ -369,10 +369,7 @@ public class Articulation : MonoBehaviour {
     public Vector3 GetAngleHome()
     {
         float hDegrees = 0f;
-        if (homeCount <= 0)
-            hDegrees = (Mathf.Abs(homeCount) + Mathf.Abs(lowerLimitCount)) * countToDegrees;
-        else
-            hDegrees = (homeCount - lowerLimitCount) * countToDegrees;
+        hDegrees = (homeCount - lowerLimitCount) * countToDegrees;
 
         return BuiltAngle(hDegrees + offset);
     }

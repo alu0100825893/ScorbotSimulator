@@ -217,12 +217,20 @@ public class AnimatorFunctions : MonoBehaviour
     }
 
     /**
-     * Activa el Scorbot ER IX y pasa a la simulación.
+     * Activa el Scorbot ER IX y pasa a la simulación. Lis lista desplegable elige la versión "original" o "V2".
      * @return void
      */
     private void SelectScorbotERIX()
     {
-        gamecontroller.SetScorbot(ScorbotERIX.INDEX);
+        switch(gamecontroller.scorbotVersionDropdown.value)
+        {
+            case 0:
+                gamecontroller.SetScorbot(ScorbotERIX.INDEX);
+                break;
+            case 1:
+                gamecontroller.SetScorbot(ScorbotERIXV2.INDEX);
+                break;
+        }
         HideMenu();
     }
 

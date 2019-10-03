@@ -52,7 +52,9 @@ namespace CommandTerminal
         //Introducción de comando o introducción de datos 
         public bool Input { get; set; }
         public bool Input_text { get; set; }
-        
+        public bool Scroll { get; set; }
+        public bool Cursor { get; set; }
+
         //Función doble click
         float clicked = 0;
         float clicktime = 0;
@@ -82,12 +84,13 @@ namespace CommandTerminal
         public void Input_View(bool T)
         {
             Input = T;
-            scroll_position.y = int.MaxValue;
+            Scroll = T;
         }
 
         public void Input_Text(bool T)
         {
             Input_text = T;
+            Scroll = T;
         }
 
         void Start() {
@@ -100,6 +103,8 @@ namespace CommandTerminal
             Input_text = false;
             count_tab = 0;
             command_tab = true;
+            Scroll = false;
+            Cursor = false;
 
             SetupWindow();
             SetupInput();
@@ -139,30 +144,45 @@ namespace CommandTerminal
 
         void DrawConsole(int Window2D) {
 
-            CursorToEnd();
+            if (Cursor)
+            {
+                CursorToEnd();
+                Cursor = false;
+            }
 
             if (Event.current.Equals(Event.KeyboardEvent("return")) || Event.current.Equals(Event.KeyboardEvent("[enter]")))
             {
-                EnterCommand();
-                count_tab = -1;
+                if (Input || Input_text)
+                {
+                    EnterCommand();
+                    count_tab = -1;
+                }
                 Event.current.Use();
             }
             else if (Event.current.Equals(Event.KeyboardEvent("up")))
             {
-                command_text = History.Previous();
-                count_tab = -1;
+                if (Input) { 
+                    command_text = History.Previous();
+                    Cursor = true;
+                    count_tab = -1;
+                }
                 Event.current.Use();
             }
             else if (Event.current.Equals(Event.KeyboardEvent("down")))
             {
-                command_text = History.Next();
-                count_tab = -1;
+                if (Input)
+                {
+                    command_text = History.Next();
+                    Cursor = true;
+                    count_tab = -1;
+                }
                 Event.current.Use();
             }
             else if (Event.current.Equals(Event.KeyboardEvent("tab")))
             {
                 if (!command_text.Equals(string.Empty))
                     CompleteCommand();
+                Cursor = true;
                 Event.current.Use();
                 command_tab = true;
             }
@@ -185,10 +205,15 @@ namespace CommandTerminal
                 GUI.SetNextControlName("Text");
                 command_text = GUILayout.TextField(command_text, input_style);
                 GUILayout.EndHorizontal();
+                if (Scroll)
+                {
+                    scroll_position.y = int.MaxValue;
+                    Scroll = false;
+                }
             }
             GUILayout.EndVertical();
-
             GUILayout.EndScrollView();
+
         }
 
         void DrawLogs() {
@@ -214,6 +239,11 @@ namespace CommandTerminal
                             GUILayout.Label(InputCaret, label_style, GUILayout.ExpandWidth(false));
                             command_text = GUILayout.TextField(command_text, label_style);
                             GUILayout.EndHorizontal();
+                            if (Scroll)
+                            {
+                                scroll_position.y = int.MaxValue;
+                                Scroll = false;
+                            }
                         }
 
                         else
@@ -249,6 +279,7 @@ namespace CommandTerminal
                                 clicktime = 0;
                                 command_text = log;
                                 GUI.FocusControl("Text");
+                                Cursor = true;
                             }
                             else if (clicked > 2 || Time.time - clicktime > 1)
                                 clicked = 0;
@@ -290,6 +321,7 @@ namespace CommandTerminal
         void CursorToEnd()
         {
             editor_state = (TextEditor)GUIUtility.GetStateObject(typeof(TextEditor), GUIUtility.keyboardControl);
+            editor_state.text = command_text;
             editor_state.MoveCursorToPosition(new Vector2(5555, 5555));
         }
 

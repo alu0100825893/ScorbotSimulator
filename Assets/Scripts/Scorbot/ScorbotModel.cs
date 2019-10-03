@@ -78,6 +78,31 @@ public class ScorbotModel : MonoBehaviour {
                 articulations[3].SetSpeed(ScorbotERVPlus.PITCH_SPEED_MIN, ScorbotERVPlus.PITCH_SPEED_MAX);
                 articulations[4].SetSpeed(ScorbotERVPlus.ROLL_SPEED_MIN, ScorbotERVPlus.ROLL_SPEED_MAX);
                 break;
+            case ScorbotERIXV2.INDEX:
+                // Planes
+                articulations[0].SetPlane(PlaneHelper.XZ);
+                articulations[1].SetPlane(PlaneHelper.XY);
+                articulations[2].SetPlane(PlaneHelper.XY);
+                articulations[3].SetPlane(PlaneHelper.XY);
+                articulations[4].SetPlane(PlaneHelper.YZ);
+                // Angle limit
+                articulations[0].SetLimit(ScorbotERIXV2.BASE_COUNT_MIN, ScorbotERIXV2.BASE_COUNT_MAX,
+                    ScorbotERIXV2.BASE_COUNT_HOME, ScorbotERIXV2.BASE_DEGREES_MAX, ScorbotERIXV2.BASE_OFFSET_UNITY);
+                articulations[1].SetLimit(ScorbotERIXV2.SHOULDER_COUNT_MIN, ScorbotERIXV2.SHOULDER_COUNT_MAX,
+                    ScorbotERIXV2.SHOULDER_COUNT_HOME, ScorbotERIXV2.SHOULDER_DEGREES_MAX, ScorbotERIXV2.SHOULDER_OFFSET_UNITY);
+                articulations[2].SetLimit(ScorbotERIXV2.ELBOW_COUNT_MIN, ScorbotERIXV2.ELBOW_COUNT_MAX,
+                    ScorbotERIXV2.ELBOW_COUNT_HOME, ScorbotERIXV2.ELBOW_DEGREES_MAX, ScorbotERIXV2.ELBOW_OFFSET_UNITY);
+                articulations[3].SetLimit(ScorbotERIXV2.PITCH_COUNT_MIN, ScorbotERIXV2.PITCH_COUNT_MAX,
+                    ScorbotERIXV2.PITCH_COUNT_HOME, ScorbotERIXV2.PITCH_DEGREES_MAX, ScorbotERIXV2.PITCH_OFFSET_UNITY);
+                articulations[4].SetLimit(ScorbotERIXV2.ROLL_COUNT_MIN, ScorbotERIXV2.ROLL_COUNT_MAX,
+                    ScorbotERIXV2.ROLL_COUNT_HOME, ScorbotERIXV2.ROLL_DEGREES_MAX, ScorbotERIXV2.ROLL_OFFSET_UNITY);
+                // Speed limit
+                articulations[0].SetSpeed(ScorbotERIXV2.BASE_SPEED_MIN, ScorbotERIXV2.BASE_SPEED_MAX);
+                articulations[1].SetSpeed(ScorbotERIXV2.SHOULDER_SPEED_MIN, ScorbotERIXV2.SHOULDER_SPEED_MAX);
+                articulations[2].SetSpeed(ScorbotERIXV2.ELBOW_SPEED_MIN, ScorbotERIXV2.ELBOW_SPEED_MAX);
+                articulations[3].SetSpeed(ScorbotERIXV2.PITCH_SPEED_MIN, ScorbotERIXV2.PITCH_SPEED_MAX);
+                articulations[4].SetSpeed(ScorbotERIXV2.ROLL_SPEED_MIN, ScorbotERIXV2.ROLL_SPEED_MAX);
+                break;
         }        
          
     }
@@ -192,6 +217,9 @@ public class ScorbotModel : MonoBehaviour {
             case ScorbotERVPlus.INDEX:
                 GetComponent<GripScorbotERVPlus>().Open();
                 break;
+            case ScorbotERIXV2.INDEX:
+                GetComponent<GripScorbotERIX>().Open();
+                break;
         }
     }
 
@@ -208,6 +236,9 @@ public class ScorbotModel : MonoBehaviour {
                 break;
             case ScorbotERVPlus.INDEX:
                 GetComponent<GripScorbotERVPlus>().Close();
+                break;
+            case ScorbotERIXV2.INDEX:
+                GetComponent<GripScorbotERIX>().Close();
                 break;
         }
     }

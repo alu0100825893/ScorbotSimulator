@@ -9,17 +9,16 @@ using UnityEngine;
  * @since 02-05-2019
  */
 public class ScorbotERIX {
-
     public const int INDEX = 0;    
 
     public const float BASE_DEGREES_MIN = 0f;
     public const float BASE_DEGREES_MAX = 270f;
     public const int BASE_COUNT_MIN = -190186;
-    public const int BASE_COUNT_MAX = 138899;
+    public const int BASE_COUNT_MAX = 138899;   
     public const int BASE_COUNT_HOME = -13539;
     public const float BASE_SPEED_MIN = 79f; // degrees/seg 
     public const float BASE_SPEED_MAX = 112f; // degrees/seg 
-    public const float BASE_OFFSET_UNITY = -171f;
+    public const float BASE_OFFSET_UNITY = -150.2f;
 
     public const float SHOULDER_DEGREES_MIN = 0f;
     public const float SHOULDER_DEGREES_MAX = 145f;
@@ -43,15 +42,15 @@ public class ScorbotERIX {
     public const float PITCH_DEGREES_MAX = 196f;
     public const int PITCH_COUNT_MIN = -1018;
     public const int PITCH_COUNT_MAX = 200285;
-    public const int PITCH_COUNT_HOME = -26748;
+    public const int PITCH_COUNT_HOME = 26748;
     public const float PITCH_SPEED_MIN = 87f; // degrees/seg 
     public const float PITCH_SPEED_MAX = 133f; // degrees/seg 
     public const float PITCH_OFFSET_UNITY = -98f;
 
     public const float ROLL_DEGREES_MIN = 0f;
     public const float ROLL_DEGREES_MAX = 737f;
-    public const int ROLL_COUNT_MIN = -209547;
-    public const int ROLL_COUNT_MAX = 209658;
+    public const int ROLL_COUNT_MIN = 209658;
+    public const int ROLL_COUNT_MAX = -209547;
     public const int ROLL_COUNT_HOME = 0;
     public const float ROLL_SPEED_MIN = 166f; // degrees/seg 
     public const float ROLL_SPEED_MAX = 166f; // degrees/seg 

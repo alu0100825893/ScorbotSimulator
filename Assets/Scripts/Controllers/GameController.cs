@@ -74,6 +74,7 @@ public class GameController : MonoBehaviour
     private PanelControl panelControl;
     private StateMessageControl stateMessageControl;
     private CameraControl cameraControl;
+    private BackUpFileControl backupFileControl;
 
     // Terminal
     public Controller controller;
@@ -87,6 +88,7 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI positionLog;
     public TextMeshProUGUI positionSyncLog; 
     public TextMeshProUGUI positionCountLog;
+    public TextMeshProUGUI backupFileOutput;
 
     // Online text
     public TextMeshProUGUI onlineText;
@@ -106,6 +108,7 @@ public class GameController : MonoBehaviour
     public Dropdown syncTargetDropdown;
     public Dropdown byXYZPRDropdown;
     public Dropdown portsDropdown;
+    public Dropdown scorbotVersionDropdown;
 
     public const string NUMBER_FORMAT = "0.00";
 
@@ -162,6 +165,7 @@ public class GameController : MonoBehaviour
         panelControl = GetComponent<PanelControl>();
         stateMessageControl = GetComponent<StateMessageControl>();
         cameraControl = GetComponent<CameraControl>();
+        backupFileControl = GetComponent<BackUpFileControl>();
 
         // Initial config
         cameraControl.SetIsProcessing(true);//
@@ -181,6 +185,9 @@ public class GameController : MonoBehaviour
 
         // Ports list 
         portsDropdown.AddOptions(new List<string>(controller.List_Ports()));
+
+        // Scorbot ER IX version list 
+        scorbotVersionDropdown.AddOptions(new List<string>() { "Original", "V2"});
     }
         
     void Update()
@@ -319,7 +326,7 @@ public class GameController : MonoBehaviour
         // No positions recorded
         if (targetControl.Count() == 0)
         {
-            CreateDefaultTarget(targetNameInput);
+            CreateDefaultTarget(targetNameInput.text);
         }
         else // Already at least one point
         {
@@ -331,7 +338,7 @@ public class GameController : MonoBehaviour
 
                 // Validate target
                 Vector3 newPos = prevSelectedObject.transform.position;
-                if (!ValidTarget(targetNameInput, prevSelectedObject.transform, newPos))
+                if (!ValidTarget(targetNameInput.text, prevSelectedObject.transform, newPos))
                 {                  
                     return;
                 }
@@ -348,7 +355,7 @@ public class GameController : MonoBehaviour
                 targetNameInput.text = "";            
             }
             else
-                CreateDefaultTarget(targetNameInput);
+                CreateDefaultTarget(targetNameInput.text);
         }
 
         stateMessageControl.UpdatePositionLog();
@@ -356,59 +363,59 @@ public class GameController : MonoBehaviour
 
     /**
      * Crea una posición (objeto) nueva en una posición por defecto. Debe ser válida.
-     * @param targetNameInput Campo del nombre de la posición
+     * @param targetName Nombre de la posición
      * @return void
      */
-    private void CreateDefaultTarget(InputField targetNameInput)
+    public void CreateDefaultTarget(string targetName)
     {
         Transform newTarget = Instantiate(targetPrefab).transform;
 
         // Validate target
         Vector3 newPos = defaultPosition;
-        if (!ValidTarget(targetNameInput ,newTarget, newPos))
+        if (!ValidTarget(targetName ,newTarget, newPos))
         {
             Destroy(newTarget.gameObject);      
             return;
         }
 
         // Add target
-        Transform addedTarget = targetControl.Add(targetNameInput.text, newPos, robot.GetAnglesFromCopy());
+        Transform addedTarget = targetControl.Add(targetName, newPos, robot.GetAnglesFromCopy());
         addedTarget.GetComponent<TargetModel>().SetValid(true);
         selectionControl.SetActiveAxis(addedTarget, false);
        
         SetTarget(addedTarget);
 
-        stateMessageControl.WriteMessage("Done. Recorded position \"" + targetNameInput.text + "\"", true);
+        stateMessageControl.WriteMessage("Done. Recorded position \"" + targetName + "\"", true);
 
         UpdateTargets(targetControl.GetNames());
-        targetNameInput.text = "";
+        targetName = "";
       
         Destroy(newTarget.gameObject);
     }
 
     /**
      * Comprueba si una posición (objeto) tiene un nombre válido y está en el alcance del Scorbot.
-     * @param targetNameInput Campo del nombre de la posición
+     * @param targetName Nombre de la posición
      * @param newTarget Posición (objeto)
      * @param newPos Coordenadas
      * @return bool Válido
      */
-    private bool ValidTarget(InputField targetNameInput, Transform newTarget, Vector3 newPos) {
+    private bool ValidTarget(string targetName, Transform newTarget, Vector3 newPos) {
 
         // Check if it's a valid name  
-        if (targetNameInput.text.Equals("") || targetNameInput.text == null)
+        if (targetName.Equals("") || targetName == null)
         {      
             stateMessageControl.WriteMessage("Error. Name required", false);            
             return false;
         }
-        if (!targetControl.ValidNameLength(targetNameInput.text))
+        if (!targetControl.ValidNameLength(targetName))
         {
-            stateMessageControl.WriteMessage("Error. Name too long \"" + targetNameInput.text + "\"", false);
+            stateMessageControl.WriteMessage("Error. Name too long \"" + targetName + "\"", false);
             return false;
         }
-        if (!targetControl.ValidName(targetNameInput.text))
+        if (!targetControl.ValidName(targetName))
         {
-            stateMessageControl.WriteMessage("Error. Name already in use \"" + targetNameInput.text + "\"", false);            
+            stateMessageControl.WriteMessage("Error. Name already in use \"" + targetName + "\"", false);            
             return false;
         }
                 
@@ -417,7 +424,7 @@ public class GameController : MonoBehaviour
         // Check if it's an unreachable position           
         if (!robot.TargetInRange(newTarget.transform))
         {              
-            stateMessageControl.WriteMessage("Error. Unreachable position \"" + targetNameInput.text + "\"", false);
+            stateMessageControl.WriteMessage("Error. Unreachable position \"" + targetName + "\"", false);
             return false;
         }
                
@@ -592,6 +599,9 @@ public class GameController : MonoBehaviour
     {
         stateMessageControl.NewBlock();
 
+        // Backup file in case a command fails in online
+        Save();
+
         // Execute selected command
         switch (commandsDropdown.value)
         {
@@ -639,7 +649,7 @@ public class GameController : MonoBehaviour
                 commandControl.Here(robot, targetControl.GetTarget(position1Dropdown.value));
                 break;
             case (int)CommandHelper.home:
-                commandControl.Home(robot);
+                commandControl.Home(robot);                
                 break;
             case (int)CommandHelper.teachr:
                 if (targetControl.Count() <= 1 || (position1Dropdown.value == position2Dropdown.value))
@@ -669,7 +679,7 @@ public class GameController : MonoBehaviour
                 commandControl.Shiftc(robot, targetControl.GetTarget(position1Dropdown.value), byXYZPRDropdown.value, float.Parse(byXYZPRInput.text));
                 break;
             case (int)CommandHelper.con:
-                commandControl.CON();
+                commandControl.CON();                                
                 break;
             case (int)CommandHelper.defp:
                 RecordPosition(true);         
@@ -677,6 +687,8 @@ public class GameController : MonoBehaviour
             default:
                 break;
         }
+        // Backup file 
+        Save();
     }
 
     /**
@@ -835,7 +847,11 @@ public class GameController : MonoBehaviour
             case ScorbotERVPlus.INDEX:
                 scorbots[ScorbotERVPlus.INDEX].gameObject.SetActive(true);
                 robot = scorbots[ScorbotERVPlus.INDEX];
-                break;                
+                break;
+            case ScorbotERIXV2.INDEX:
+                scorbots[ScorbotERIXV2.INDEX].gameObject.SetActive(true);
+                robot = scorbots[ScorbotERIXV2.INDEX];
+                break;
         }
 
         ScorbotDel(robot);
@@ -989,7 +1005,25 @@ public class GameController : MonoBehaviour
             stateMessageControl.WriteMessage("Error. Online CON You are offline", false);
             return;
         }
-        commandControl.CON();
+        commandControl.CON();        
+    }
+
+    /**
+     * Guarda los datos de las posiciones actuales en el fichero "backup.txt"
+     * @return void
+     */
+    public void Save()
+    {
+        backupFileControl.Save();
+    }
+
+    /**
+     * Carga los datos de las posiciones desde el fichero "backup.txt"
+     * @return void
+     */
+    public void Load()
+    {
+        backupFileControl.Load();
     }
 
 }

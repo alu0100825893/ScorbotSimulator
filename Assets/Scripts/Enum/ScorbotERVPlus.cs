@@ -32,7 +32,7 @@ public class ScorbotERVPlus {
 
     public const float ELBOW_DEGREES_MIN = 0f;
     public const float ELBOW_DEGREES_MAX = 260f; //+-130 = 260
-    public const int ELBOW_COUNT_MIN = -3207; //-15207
+    public const int ELBOW_COUNT_MIN = -3207; //-15207. This is a temporal FIX. These limits are wrong
     public const int ELBOW_COUNT_MAX = 11946;
     public const int ELBOW_COUNT_HOME = -3;
     public const float ELBOW_SPEED_MIN = 79f; // degrees/seg 

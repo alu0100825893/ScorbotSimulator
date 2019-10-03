@@ -288,6 +288,7 @@
     <Compile Include="Assets\Scripts\Console\CommandHistory.cs" />
     <Compile Include="Assets\Scripts\Console\CommandLog.cs" />
     <Compile Include="Assets\Scripts\Console\Terminal.cs" />
+    <Compile Include="Assets\Scripts\Controllers\BackUpFileControl.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraControl.cs" />
     <Compile Include="Assets\Scripts\Controllers\CommandControl.cs" />
     <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
@@ -301,6 +302,7 @@
     <Compile Include="Assets\Scripts\Enum\MenuHelper.cs" />
     <Compile Include="Assets\Scripts\Enum\PlaneHelper.cs" />
     <Compile Include="Assets\Scripts\Enum\ScorbotERIX.cs" />
+    <Compile Include="Assets\Scripts\Enum\ScorbotERIXV2.cs" />
     <Compile Include="Assets\Scripts\Enum\ScorbotERVPlus.cs" />
     <Compile Include="Assets\Scripts\MainMenu\AnimatorFunctions.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MenuActivation.cs" />
