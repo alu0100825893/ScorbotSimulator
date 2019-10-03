@@ -1,0 +1,4 @@
+- Fichero de restauración de datos en caso de que el programa falle. Este
+fichero se autoguarda antes y después de la ejecución de un comando.
+- En "Settings" se puede gardar o cargar el fichero de restauración.
+- Nuevo Scorbot V2. Elegir versión mediante la lista desplegable en "Select Scorbot".
