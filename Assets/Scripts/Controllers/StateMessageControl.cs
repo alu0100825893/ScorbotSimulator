@@ -34,7 +34,7 @@ public class StateMessageControl : MonoBehaviour {
     private GameObject contentPositionLog;
     private TextMeshProUGUI positionCountLog;
 
-    void Start () {
+    void Awake () {
         // Controllers
         targetControl = GetComponent<TargetControl>();
         // Main state message

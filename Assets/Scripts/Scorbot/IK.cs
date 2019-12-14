@@ -44,7 +44,17 @@ public class IK : MonoBehaviour {
         // Articulations
         articulations = scorbotModel.articulations;
         // Scorbot model copy
-        scorbotModel.InitToCopy(out art,out artE);    
+        scorbotModel.InitToCopy(out art, out artE);
+    }
+
+    /**
+     * Actualiza la copia del efector final desde la posición Home. 
+     * @return void
+     */
+    public void UpdateCopyEffector()
+    {
+        SetAnglesCopyHome();
+        artE.position = E.position;
     }
         
     private void OnDrawGizmos()
@@ -202,7 +212,7 @@ public class IK : MonoBehaviour {
 
     /**
      * Ejecuta el algoritmo CCD para hallar los ángulos que las articulaciones necesitan para llegar a la posición 
-     * objetivo. No se aplica a la articulación "Roll" ya que no tiene efecto en la posición dsel efector final.
+     * objetivo. No se aplica a la articulación "Roll" ya que no tiene efecto en la posición del efector final.
      * @param articulations Articulaciones
      * @param D Posición objetivo
      * @param E Efector final

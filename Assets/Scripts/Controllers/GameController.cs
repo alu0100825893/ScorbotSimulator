@@ -75,6 +75,7 @@ public class GameController : MonoBehaviour
     private StateMessageControl stateMessageControl;
     private CameraControl cameraControl;
     private BackUpFileControl backupFileControl;
+    private EffectorFileControl effectorFileControl;
 
     // Terminal
     public Controller controller;
@@ -135,6 +136,8 @@ public class GameController : MonoBehaviour
     // Mode command "Here"
     private bool syncFromSimulationToScorbot = false;
 
+    private bool loadedEffector = false;
+
     private void Awake()
     {
         // GameController can only have one instance
@@ -151,6 +154,12 @@ public class GameController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        // Active all scorbots for initialization
+        foreach (IK scorbot in scorbots)
+        {            
+            scorbot.gameObject.SetActive(true);            
+        }
     }
 
     void Start()
@@ -166,6 +175,7 @@ public class GameController : MonoBehaviour
         stateMessageControl = GetComponent<StateMessageControl>();
         cameraControl = GetComponent<CameraControl>();
         backupFileControl = GetComponent<BackUpFileControl>();
+        effectorFileControl = GetComponent<EffectorFileControl>();
 
         // Initial config
         cameraControl.SetIsProcessing(true);//
@@ -187,11 +197,28 @@ public class GameController : MonoBehaviour
         portsDropdown.AddOptions(new List<string>(controller.List_Ports()));
 
         // Scorbot ER IX version list 
-        scorbotVersionDropdown.AddOptions(new List<string>() { "Original", "V2"});
+        scorbotVersionDropdown.AddOptions(new List<string>() { "Original" });
+
     }
         
     void Update()
     {
+        // After initialization, only once
+        if (!loadedEffector)
+        {            
+            // New end effector values
+            effectorFileControl.Load(scorbots);
+            loadedEffector = true;
+            // Only one scorbot should be active
+            foreach (IK scorbot in scorbots)
+            {
+                if (scorbot.GetComponent<ScorbotModel>().scorbotIndex == ScorbotERIX.INDEX)
+                    scorbot.gameObject.SetActive(true);
+                else
+                    scorbot.gameObject.SetActive(false);
+            }      
+        }
+
         // Menu activation
         if (menu.activeSelf)
         {
@@ -236,7 +263,9 @@ public class GameController : MonoBehaviour
     public void Home()
     {
         stateMessageControl.NewBlock();
-        commandControl.Home(robot);      
+        commandControl.Home(robot);
+
+        //effectorFileControl.Load();
     }
 
     /**
@@ -246,6 +275,20 @@ public class GameController : MonoBehaviour
     public void Open()
     {
         robot.GetComponent<ScorbotModel>().Open();
+        // ----------------
+        //List<int> counts = new List<int> { 0, 0, 0, 0, 0};
+        //List<Vector3> angles = robot.GetComponent<ScorbotModel>().CountsToAngles(counts);
+
+        //string aux = "Angles: ";
+        //foreach(Vector3 a in angles)
+        //{
+        //    aux += a.ToString() + " ";
+        //}
+        //stateMessageControl.WriteMessage(aux, true);
+
+        //robot.GetComponent<ScorbotModel>().SetAngles(angles);
+        // --------------
+
     }
 
     /**

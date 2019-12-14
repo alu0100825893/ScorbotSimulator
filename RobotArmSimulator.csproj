@@ -291,6 +291,7 @@
     <Compile Include="Assets\Scripts\Controllers\BackUpFileControl.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraControl.cs" />
     <Compile Include="Assets\Scripts\Controllers\CommandControl.cs" />
+    <Compile Include="Assets\Scripts\Controllers\EffectorFileControl.cs" />
     <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
     <Compile Include="Assets\Scripts\Controllers\ManualInputControl.cs" />
     <Compile Include="Assets\Scripts\Controllers\MetricSystemControl.cs" />

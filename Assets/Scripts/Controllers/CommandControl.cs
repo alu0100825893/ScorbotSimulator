@@ -318,6 +318,7 @@ public class CommandControl : MonoBehaviour {
                 posReal = posReal * 10f;
                 p = p * 10f;
                 r = r * 10f;
+                stateMessageControl.WriteMessage("Done. Online TEACH \"" + posReal + "\"", false);//
             }
 
             List<float> xyzpr = new List<float>() { posReal.x, posReal.y, posReal.z, p, r };

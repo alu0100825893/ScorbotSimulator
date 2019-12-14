@@ -14,7 +14,7 @@ using UnityEngine;
  */
 public class BackUpFileControl : MonoBehaviour {
 
-    // Constans
+    // Constants
     private const string BACKUP_FILE = "backup.txt";
     private const string NORMAL = "normal";
     private const string RELATIVE = "relative";
@@ -112,7 +112,7 @@ public class BackUpFileControl : MonoBehaviour {
                 // Create position
                 gameController.CreateDefaultTarget(name);
 
-                // Realative positions will be calculated after, in case it needs a position not loaded yet
+                // Relative positions will be calculated after, in case it needs a position not loaded yet
                 if (relative)
                 {
                     string[] n = { name, target[7] };
