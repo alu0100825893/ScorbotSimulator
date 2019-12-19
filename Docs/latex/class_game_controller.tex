@@ -230,6 +230,9 @@ Text\+Mesh\+Pro\+U\+G\+UI {\bfseries speed\+L\+Text}
 \item 
 \mbox{\Hypertarget{class_game_controller_a46ccbbf4e13ee78f28da6b0ed2595cf3}\label{class_game_controller_a46ccbbf4e13ee78f28da6b0ed2595cf3}} 
 static \mbox{\hyperlink{class_game_controller}{Game\+Controller}} {\bfseries game\+Controller}
+\item 
+\mbox{\Hypertarget{class_game_controller_a1bd43431306b8ca49893d36b649d251c}\label{class_game_controller_a1bd43431306b8ca49893d36b649d251c}} 
+static int {\bfseries index\+Robot} = 0
 \end{DoxyCompactItemize}
 \subsection*{Eventos}
 \begin{DoxyCompactItemize}
@@ -290,6 +293,9 @@ Vector3 {\bfseries default\+Position}
 \mbox{\Hypertarget{class_game_controller_a9ce4defbbd322fe8f81822a9eccd9faa}\label{class_game_controller_a9ce4defbbd322fe8f81822a9eccd9faa}} 
 \mbox{\hyperlink{class_back_up_file_control}{Back\+Up\+File\+Control}} {\bfseries backup\+File\+Control}
 \item 
+\mbox{\Hypertarget{class_game_controller_afeecf8ebee5ae570945ee1b1039edc25}\label{class_game_controller_afeecf8ebee5ae570945ee1b1039edc25}} 
+\mbox{\hyperlink{class_effector_file_control}{Effector\+File\+Control}} {\bfseries effector\+File\+Control}
+\item 
 \mbox{\Hypertarget{class_game_controller_a3bccbef8df8f2586edd74ba0013ec357}\label{class_game_controller_a3bccbef8df8f2586edd74ba0013ec357}} 
 Line\+Renderer {\bfseries line\+Renderer}
 \item 
@@ -298,6 +304,9 @@ bool {\bfseries online\+Mode} = false
 \item 
 \mbox{\Hypertarget{class_game_controller_ad73824064692e5e0e0b51106f962fc16}\label{class_game_controller_ad73824064692e5e0e0b51106f962fc16}} 
 bool {\bfseries sync\+From\+Simulation\+To\+Scorbot} = false
+\item 
+\mbox{\Hypertarget{class_game_controller_a8202d5d6044dc5b77e87f2f742e94da7}\label{class_game_controller_a8202d5d6044dc5b77e87f2f742e94da7}} 
+bool {\bfseries loaded\+Effector} = false
 \end{DoxyCompactItemize}
 
 
@@ -360,7 +369,7 @@ Crea una posición (objeto) nueva en una posición por defecto. Debe ser válida
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Devuelve}
-void 
+Transform 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_game_controller_afd55aa0db0046a73a2b9bb57dc56d373}\label{class_game_controller_afd55aa0db0046a73a2b9bb57dc56d373}} 
 \index{GameController@{GameController}!DrawTrayectory@{DrawTrayectory}}
@@ -488,7 +497,7 @@ Crea una posición (objeto) y la válida. El nombre se obtiene del campo la inte
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Devuelve}
-void 
+Transform 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_game_controller_ad8f76a41d0163fd06971dffce1d61c97}\label{class_game_controller_ad8f76a41d0163fd06971dffce1d61c97}} 
 \index{GameController@{GameController}!RemoveTarget@{RemoveTarget}}

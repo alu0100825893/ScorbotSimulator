@@ -293,7 +293,13 @@ public class SerialController : MonoBehaviour
         bool _looping = true;
         char u = ' ';
         string strData = "";
+        string tipoRobot = "";
         int count = 0;
+
+        if (GameController.indexRobot == 1)
+            tipoRobot = "0";
+        else
+            tipoRobot = "0.000";
 
         for (int i = 0; i < t.Length; i++)
         {
@@ -325,7 +331,8 @@ public class SerialController : MonoBehaviour
                 {
                     if (count < 5)
                     {
-                        char[] p = (xyzpr[count].ToString("0.000") + "\r").ToCharArray();
+                        char[] p = (xyzpr[count].ToString(tipoRobot) + "\r").ToCharArray();
+
                         serialPort.Write(p, 0, p.Length);
                         count++;
                         strData = "";
@@ -342,7 +349,6 @@ public class SerialController : MonoBehaviour
             {
             }
         }
-        Debug.Log(strData.Contains("Done"));
         return strData.Contains("Done");
     }
 
@@ -356,7 +362,13 @@ public class SerialController : MonoBehaviour
         bool _looping = true;
         char u = ' ';
         string strData = "";
+        string tipoRobot = "";
         int count = 0;
+
+        if (GameController.indexRobot == ScorbotERVPlus.INDEX)
+            tipoRobot = "0";
+        else
+            tipoRobot = "0.000";
 
         for (int i = 0; i < t.Length; i++)
         {
@@ -388,7 +400,7 @@ public class SerialController : MonoBehaviour
                 {
                     if (count < 5)
                     {
-                        char[] p = (xyzpr[count].ToString("0.000") + "\r").ToCharArray();
+                        char[] p = (xyzpr[count].ToString(tipoRobot) + "\r").ToCharArray();
                         serialPort.Write(p, 0, p.Length);
                         count++;
                         strData = "";

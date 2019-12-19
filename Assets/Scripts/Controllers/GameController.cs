@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour
     public IK[] scorbots;
     public IK robot;
     public GameObject innerTarget;
+    public static int indexRobot = 0;
 
     // Scorbot efector
     public TextMeshProUGUI output;
@@ -264,8 +265,6 @@ public class GameController : MonoBehaviour
     {
         stateMessageControl.NewBlock();
         commandControl.Home(robot);
-
-        //effectorFileControl.Load();
     }
 
     /**
@@ -275,20 +274,6 @@ public class GameController : MonoBehaviour
     public void Open()
     {
         robot.GetComponent<ScorbotModel>().Open();
-        // ----------------
-        //List<int> counts = new List<int> { 0, 0, 0, 0, 0};
-        //List<Vector3> angles = robot.GetComponent<ScorbotModel>().CountsToAngles(counts);
-
-        //string aux = "Angles: ";
-        //foreach(Vector3 a in angles)
-        //{
-        //    aux += a.ToString() + " ";
-        //}
-        //stateMessageControl.WriteMessage(aux, true);
-
-        //robot.GetComponent<ScorbotModel>().SetAngles(angles);
-        // --------------
-
     }
 
     /**
@@ -358,10 +343,12 @@ public class GameController : MonoBehaviour
     /**
      * Crea una posición (objeto) y la válida. El nombre se obtiene del campo la interfaz gráfica.
      * @param fromCommand Si es para el comando "defp".
-     * @return void
+     * @return Transform
      */
     public void RecordPosition(bool fromCommand)
     {
+        Transform addedTarget = null;
+
         InputField targetNameInput = this.targetNameInput;
         if (fromCommand)
             targetNameInput = this.DefpNameInput;
@@ -387,7 +374,7 @@ public class GameController : MonoBehaviour
                 }
                 
                 // Add target
-                Transform addedTarget = targetControl.Add(targetNameInput.text, newPos, robot.GetAnglesFromCopy());
+                addedTarget = targetControl.Add(targetNameInput.text, newPos, robot.GetAnglesFromCopy());
                 addedTarget.GetComponent<TargetModel>().SetValid(true);
                 selectionControl.SetActiveAxis(addedTarget, false);
                 selectionControl.SelectedObject(prevSelectedObject);
@@ -401,13 +388,13 @@ public class GameController : MonoBehaviour
                 CreateDefaultTarget(targetNameInput.text);
         }
 
-        stateMessageControl.UpdatePositionLog();
+        stateMessageControl.UpdatePositionLog();       
     }
 
     /**
      * Crea una posición (objeto) nueva en una posición por defecto. Debe ser válida.
      * @param targetName Nombre de la posición
-     * @return void
+     * @return Transform
      */
     public void CreateDefaultTarget(string targetName)
     {
@@ -433,7 +420,7 @@ public class GameController : MonoBehaviour
         UpdateTargets(targetControl.GetNames());
         targetName = "";
       
-        Destroy(newTarget.gameObject);
+        Destroy(newTarget.gameObject);      
     }
 
     /**
@@ -725,7 +712,15 @@ public class GameController : MonoBehaviour
                 commandControl.CON();                                
                 break;
             case (int)CommandHelper.defp:
-                RecordPosition(true);         
+                RecordPosition(true);
+                // Defp. Last position added
+                Transform added = targetControl.GetTarget(targetControl.Count() - 1);
+                              
+                if (GetOnlineMode())
+                {
+                    commandControl.SyncSimulationToScorbot(robot, added);
+                }
+                
                 break;
             default:
                 break;
@@ -886,14 +881,17 @@ public class GameController : MonoBehaviour
             case ScorbotERIX.INDEX:
                 scorbots[ScorbotERIX.INDEX].gameObject.SetActive(true);
                 robot = scorbots[ScorbotERIX.INDEX];
+                GameController.indexRobot = ScorbotERIX.INDEX;
                 break;
             case ScorbotERVPlus.INDEX:
                 scorbots[ScorbotERVPlus.INDEX].gameObject.SetActive(true);
                 robot = scorbots[ScorbotERVPlus.INDEX];
+                GameController.indexRobot = ScorbotERVPlus.INDEX;
                 break;
             case ScorbotERIXV2.INDEX:
                 scorbots[ScorbotERIXV2.INDEX].gameObject.SetActive(true);
                 robot = scorbots[ScorbotERIXV2.INDEX];
+                GameController.indexRobot = ScorbotERIXV2.INDEX;
                 break;
         }
 

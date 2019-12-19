@@ -79,6 +79,8 @@ Diagrama de herencias de IK</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos públicos</h2></td></tr>
+<tr class="memitem:a1bd362c7864cb7e81a09cfc03a9b9151"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_k.html#a1bd362c7864cb7e81a09cfc03a9b9151">UpdateCopyEffector</a> ()</td></tr>
+<tr class="separator:a1bd362c7864cb7e81a09cfc03a9b9151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa28704730e12709936ba319e326a4173"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_k.html#aa28704730e12709936ba319e326a4173">CCDAlg</a> (Transform D)</td></tr>
 <tr class="separator:aa28704730e12709936ba319e326a4173"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a647580fce8d20924d081e6c056495e95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_k.html#a647580fce8d20924d081e6c056495e95">CCDAlg</a> (Transform[] trajectory, bool speedDegrees=true)</td></tr>
@@ -226,7 +228,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>speedMillimeter</b> = 
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Ejecuta el algoritmo CCD para hallar los ángulos que las articulaciones necesitan para llegar a la posición objetivo. No se aplica a la articulación "Roll" ya que no tiene efecto en la posición dsel efector final. </p><dl class="params"><dt>Parámetros</dt><dd>
+<p>Ejecuta el algoritmo CCD para hallar los ángulos que las articulaciones necesitan para llegar a la posición objetivo. No se aplica a la articulación "Roll" ya que no tiene efecto en la posición del efector final. </p><dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">articulations</td><td>Articulaciones </td></tr>
     <tr><td class="paramname">D</td><td>Posición objetivo </td></tr>
@@ -1186,6 +1188,32 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>speedMillimeter</b> = 
   </dd>
 </dl>
 <dl class="section return"><dt>Devuelve</dt><dd>bool Posición alcanzable </dd></dl>
+
+</div>
+</div>
+<a id="a1bd362c7864cb7e81a09cfc03a9b9151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bd362c7864cb7e81a09cfc03a9b9151">&#9670;&nbsp;</a></span>UpdateCopyEffector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IK.UpdateCopyEffector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Actualiza la copia del efector final desde la posición Home. </p><dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
 
 </div>
 </div>

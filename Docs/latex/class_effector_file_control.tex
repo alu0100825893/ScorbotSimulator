@@ -1,0 +1,92 @@
+\hypertarget{class_effector_file_control}{}\section{Referencia de la Clase Effector\+File\+Control}
+\label{class_effector_file_control}\index{EffectorFileControl@{EffectorFileControl}}
+Diagrama de herencias de Effector\+File\+Control\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_effector_file_control}
+\end{center}
+\end{figure}
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_effector_file_control_a1239eff6ba957cbd61db6eaf072d60d2}{Load}} (\mbox{\hyperlink{class_i_k}{IK}}\mbox{[}$\,$\mbox{]} scorbots)
+\end{DoxyCompactItemize}
+\subsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_effector_file_control_a55a3c275d2dbe12f323b2c544ef01bed}\label{class_effector_file_control_a55a3c275d2dbe12f323b2c544ef01bed}} 
+const string {\bfseries N\+U\+M\+B\+E\+R\+\_\+\+F\+O\+R\+M\+AT} = \char`\"{}0.\+00\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_effector_file_control_a7293b58015928c7aa553d570760bdf01}\label{class_effector_file_control_a7293b58015928c7aa553d570760bdf01}} 
+void {\bfseries Start} ()
+\item 
+void \mbox{\hyperlink{class_effector_file_control_ab74d54146539af59f39130f83376d5b3}{Load\+Effector}} (string file, \mbox{\hyperlink{class_i_k}{IK}} scorbot)
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_effector_file_control_aeb6ee05c1ee77d1980e98e2849338985}\label{class_effector_file_control_aeb6ee05c1ee77d1980e98e2849338985}} 
+const string {\bfseries S\+C\+O\+R\+B\+O\+T\+I\+X\+\_\+\+E\+F\+F\+E\+C\+T\+O\+R\+\_\+\+F\+I\+LE} = \char`\"{}Scorbot\+I\+X\+Effector\+Position.\+txt\char`\"{}
+\item 
+\mbox{\Hypertarget{class_effector_file_control_a1f2d3cccfad73eb793f6c4cbc4a9cf4c}\label{class_effector_file_control_a1f2d3cccfad73eb793f6c4cbc4a9cf4c}} 
+const string {\bfseries S\+C\+O\+R\+B\+O\+T\+V\+P\+L\+U\+S\+\_\+\+E\+F\+F\+E\+C\+T\+O\+R\+\_\+\+F\+I\+LE} = \char`\"{}Scorbot\+V\+Plus\+Effector\+Position.\+txt\char`\"{}
+\item 
+\mbox{\Hypertarget{class_effector_file_control_a6fcde661797253af8d1ad25f18d9c691}\label{class_effector_file_control_a6fcde661797253af8d1ad25f18d9c691}} 
+\mbox{\hyperlink{class_game_controller}{Game\+Controller}} {\bfseries game\+Controller}
+\item 
+\mbox{\Hypertarget{class_effector_file_control_ac194b508c0cdfed19f1a89365a222037}\label{class_effector_file_control_ac194b508c0cdfed19f1a89365a222037}} 
+\mbox{\hyperlink{class_state_message_control}{State\+Message\+Control}} {\bfseries state\+Message\+Control}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Permite la modificación de la posición del efector final de los Scorbots mediante un fichero. \begin{DoxyAuthor}{Autor}
+Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\texttt{ oscarcatari@outlook.\+es}} -\/ Universidad de La Laguna 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+11 
+\end{DoxyVersion}
+\begin{DoxySince}{Desde}
+13-\/12-\/2019 
+\end{DoxySince}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_effector_file_control_a1239eff6ba957cbd61db6eaf072d60d2}\label{class_effector_file_control_a1239eff6ba957cbd61db6eaf072d60d2}} 
+\index{EffectorFileControl@{EffectorFileControl}!Load@{Load}}
+\index{Load@{Load}!EffectorFileControl@{EffectorFileControl}}
+\subsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily void Effector\+File\+Control.\+Load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_k}{IK}} \mbox{[}$\,$\mbox{]}}]{scorbots }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Carga las coordenadas x y z del efector final de los Scorbots. Contexto de los Scorbots reales. La carga se hace mediante fichero o se usa el que hay por defecto en el programa. 
+\begin{DoxyParams}{Parámetros}
+{\em scorbots} & Array de Scorbots \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_effector_file_control_ab74d54146539af59f39130f83376d5b3}\label{class_effector_file_control_ab74d54146539af59f39130f83376d5b3}} 
+\index{EffectorFileControl@{EffectorFileControl}!LoadEffector@{LoadEffector}}
+\index{LoadEffector@{LoadEffector}!EffectorFileControl@{EffectorFileControl}}
+\subsubsection{\texorpdfstring{LoadEffector()}{LoadEffector()}}
+{\footnotesize\ttfamily void Effector\+File\+Control.\+Load\+Effector (\begin{DoxyParamCaption}\item[{string}]{file,  }\item[{\mbox{\hyperlink{class_i_k}{IK}}}]{scorbot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Carga las coordenadas x y z del efector final de un Scorbot. Contexto del Scorbot real. La carga se hace mediante fichero o se usa el que hay por defecto en el programa. 
+\begin{DoxyParams}{Parámetros}
+{\em file} & Fichero \\
+\hline
+{\em scorbot} & Scorbot \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+Controllers/Effector\+File\+Control.\+cs\end{DoxyCompactItemize}

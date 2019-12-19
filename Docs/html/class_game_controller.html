@@ -304,6 +304,9 @@ Atributos públicos estáticos</h2></td></tr>
 <tr class="memitem:a46ccbbf4e13ee78f28da6b0ed2595cf3"><td class="memItemLeft" align="right" valign="top"><a id="a46ccbbf4e13ee78f28da6b0ed2595cf3"></a>
 static <a class="el" href="class_game_controller.html">GameController</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gameController</b></td></tr>
 <tr class="separator:a46ccbbf4e13ee78f28da6b0ed2595cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bd43431306b8ca49893d36b649d251c"><td class="memItemLeft" align="right" valign="top"><a id="a1bd43431306b8ca49893d36b649d251c"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>indexRobot</b> = 0</td></tr>
+<tr class="separator:a1bd43431306b8ca49893d36b649d251c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
 Eventos</h2></td></tr>
@@ -363,6 +366,9 @@ Vector3&#160;</td><td class="memItemRight" valign="bottom"><b>defaultPosition</b
 <tr class="memitem:a9ce4defbbd322fe8f81822a9eccd9faa"><td class="memItemLeft" align="right" valign="top"><a id="a9ce4defbbd322fe8f81822a9eccd9faa"></a>
 <a class="el" href="class_back_up_file_control.html">BackUpFileControl</a>&#160;</td><td class="memItemRight" valign="bottom"><b>backupFileControl</b></td></tr>
 <tr class="separator:a9ce4defbbd322fe8f81822a9eccd9faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeecf8ebee5ae570945ee1b1039edc25"><td class="memItemLeft" align="right" valign="top"><a id="afeecf8ebee5ae570945ee1b1039edc25"></a>
+<a class="el" href="class_effector_file_control.html">EffectorFileControl</a>&#160;</td><td class="memItemRight" valign="bottom"><b>effectorFileControl</b></td></tr>
+<tr class="separator:afeecf8ebee5ae570945ee1b1039edc25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bccbef8df8f2586edd74ba0013ec357"><td class="memItemLeft" align="right" valign="top"><a id="a3bccbef8df8f2586edd74ba0013ec357"></a>
 LineRenderer&#160;</td><td class="memItemRight" valign="bottom"><b>lineRenderer</b></td></tr>
 <tr class="separator:a3bccbef8df8f2586edd74ba0013ec357"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -372,6 +378,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>onlineMode</b> = fals
 <tr class="memitem:ad73824064692e5e0e0b51106f962fc16"><td class="memItemLeft" align="right" valign="top"><a id="ad73824064692e5e0e0b51106f962fc16"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>syncFromSimulationToScorbot</b> = false</td></tr>
 <tr class="separator:ad73824064692e5e0e0b51106f962fc16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8202d5d6044dc5b77e87f2f742e94da7"><td class="memItemLeft" align="right" valign="top"><a id="a8202d5d6044dc5b77e87f2f742e94da7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>loadedEffector</b> = false</td></tr>
+<tr class="separator:a8202d5d6044dc5b77e87f2f742e94da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
 <div class="textblock"><p>El controlador principal de la simulación es el <a class="el" href="class_game_controller.html">GameController</a>. Su función principal es la de inicializar la simulación y ejecutar los demás controladores para que realicen tareas específicas.</p>
@@ -493,7 +502,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>syncFromSimulationToS
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Transform </dd></dl>
 
 </div>
 </div>
@@ -833,7 +842,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>syncFromSimulationToS
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Transform </dd></dl>
 
 </div>
 </div>

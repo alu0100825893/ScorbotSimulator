@@ -65,6 +65,7 @@ $(function() {
 <a href="#pub-methods">Métodos públicos</a> &#124;
 <a href="#pub-attribs">Atributos públicos</a> &#124;
 <a href="#pri-methods">Métodos privados</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
 <a href="class_scorbot_model-members.html">Lista de todos los miembros</a>  </div>
   <div class="headertitle">
 <div class="title">Referencia de la Clase ScorbotModel</div>  </div>
@@ -93,6 +94,9 @@ Métodos públicos</h2></td></tr>
 <tr class="separator:aaac42c1b3077127fcacfc463750ddd02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f4d3c10d7f8ce39bc2fce114efcc97f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scorbot_model.html#a2f4d3c10d7f8ce39bc2fce114efcc97f">Close</a> ()</td></tr>
 <tr class="separator:a2f4d3c10d7f8ce39bc2fce114efcc97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1a9d5941d2693308c5ee2fab4134a81"><td class="memItemLeft" align="right" valign="top"><a id="ac1a9d5941d2693308c5ee2fab4134a81"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>GoHome</b> ()</td></tr>
+<tr class="separator:ac1a9d5941d2693308c5ee2fab4134a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atributos públicos</h2></td></tr>
@@ -114,6 +118,19 @@ Métodos privados</h2></td></tr>
 <tr class="memitem:a8fe778901e324215e758a649ed963caa"><td class="memItemLeft" align="right" valign="top"><a id="a8fe778901e324215e758a649ed963caa"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Awake</b> ()</td></tr>
 <tr class="separator:a8fe778901e324215e758a649ed963caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d2cb7f4874da87c692f35da06decb46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scorbot_model.html#a3d2cb7f4874da87c692f35da06decb46">SaveDefaultToFile</a> (string file, System.Type type)</td></tr>
+<tr class="separator:a3d2cb7f4874da87c692f35da06decb46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35cbb52dd700f099d0f4d66b8516a69b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scorbot_model.html#a35cbb52dd700f099d0f4d66b8516a69b">LoadFromFile</a> (string file, <a class="el" href="class_articulation.html">Articulation</a>[] articulations)</td></tr>
+<tr class="separator:a35cbb52dd700f099d0f4d66b8516a69b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:a0922a140ce38f5d8b5299726ac2e7a0c"><td class="memItemLeft" align="right" valign="top"><a id="a0922a140ce38f5d8b5299726ac2e7a0c"></a>
+const string&#160;</td><td class="memItemRight" valign="bottom"><b>SCORBOTIX_FILE</b> = &quot;ScorbotIXConfig.txt&quot;</td></tr>
+<tr class="separator:a0922a140ce38f5d8b5299726ac2e7a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92ba7ebeae4af682c58fe9753ca7ee6a"><td class="memItemLeft" align="right" valign="top"><a id="a92ba7ebeae4af682c58fe9753ca7ee6a"></a>
+const string&#160;</td><td class="memItemRight" valign="bottom"><b>SCORBOTVPLUS_FILE</b> = &quot;ScorbotVPlusConfig.txt&quot;</td></tr>
+<tr class="separator:a92ba7ebeae4af682c58fe9753ca7ee6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
 <div class="textblock"><p>Estructura de datos para un Scorbot. Contiene las articulationes y carga la configuración de un Scorbot, además de realizar operaciones como abrir/cerrar la pinza. También permiter copiar la configuración actuar y transformar conteos de encoder a ángulos. Un Scorbot necesita este componente, el componente de cinemática inversa "IK" y el componente de su pinza "GripScorbot...". Además, su modelo 3D debe tener en cada articulatión el componente "Articulation", un componente de detección de colisiones "Mesh Collider" y sus etiquetas (articulaciones) deben ser "Model". </p><dl class="section author"><dt>Autor</dt><dd>Oscar Catari Gutiérrez - E-mail: <a href="#" onclick="location.href='mai'+'lto:'+'osc'+'ar'+'cat'+'ar'+'i@o'+'ut'+'loo'+'k.'+'es'; return false;">oscar<span style="display: none;">.nosp@m.</span>cata<span style="display: none;">.nosp@m.</span>ri@ou<span style="display: none;">.nosp@m.</span>tloo<span style="display: none;">.nosp@m.</span>k.es</a> - Universidad de La Laguna </dd></dl>
@@ -274,6 +291,50 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Awake</b> ()</td></tr
 
 </div>
 </div>
+<a id="a35cbb52dd700f099d0f4d66b8516a69b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35cbb52dd700f099d0f4d66b8516a69b">&#9670;&nbsp;</a></span>LoadFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ScorbotModel.LoadFromFile </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_articulation.html">Articulation</a> []&#160;</td>
+          <td class="paramname"><em>articulations</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Carga un fichero para la configuracion del Scorbot. </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Fichero </td></tr>
+    <tr><td class="paramname">articulations</td><td>Articulaciones del Scorbot </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+
+</div>
+</div>
 <a id="aaac42c1b3077127fcacfc463750ddd02"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaac42c1b3077127fcacfc463750ddd02">&#9670;&nbsp;</a></span>Open()</h2>
 
@@ -297,6 +358,50 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Awake</b> ()</td></tr
 </table>
 </div><div class="memdoc">
 <p>Abre la pinza del Scorbot. </p><dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a3d2cb7f4874da87c692f35da06decb46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d2cb7f4874da87c692f35da06decb46">&#9670;&nbsp;</a></span>SaveDefaultToFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ScorbotModel.SaveDefaultToFile </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">System.Type&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Crea un fichero con la configuracion del Scorbot por defecto. </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Fichero nuevo </td></tr>
+    <tr><td class="paramname">type</td><td>Clase de configuracion del Scorbot </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
 
 </div>
 </div>

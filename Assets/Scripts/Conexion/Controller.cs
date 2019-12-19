@@ -111,8 +111,10 @@ public class Controller : MonoBehaviour {
             {
                 Term.Log(TerminalLogType.Command, "{0}", line_command);
                 Term.History.Push(line_command);
+                Connection.GetComponent<SerialController>().WriteToController(line_command, "NoData");
             }
-            Connection.GetComponent<SerialController>().WriteToController(line_command, "NoData");
+            else
+                Term.Input = true;
         }
         
     }

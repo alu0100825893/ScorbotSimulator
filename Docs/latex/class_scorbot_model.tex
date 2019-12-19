@@ -22,6 +22,9 @@ void \mbox{\hyperlink{class_scorbot_model_a74549ede37f30edafb1dbf07c0730cdd}{Set
 void \mbox{\hyperlink{class_scorbot_model_aaac42c1b3077127fcacfc463750ddd02}{Open}} ()
 \item 
 void \mbox{\hyperlink{class_scorbot_model_a2f4d3c10d7f8ce39bc2fce114efcc97f}{Close}} ()
+\item 
+\mbox{\Hypertarget{class_scorbot_model_ac1a9d5941d2693308c5ee2fab4134a81}\label{class_scorbot_model_ac1a9d5941d2693308c5ee2fab4134a81}} 
+void {\bfseries Go\+Home} ()
 \end{DoxyCompactItemize}
 \subsection*{Atributos públicos}
 \begin{DoxyCompactItemize}
@@ -43,6 +46,19 @@ int {\bfseries scorbot\+Index}
 \item 
 \mbox{\Hypertarget{class_scorbot_model_a8fe778901e324215e758a649ed963caa}\label{class_scorbot_model_a8fe778901e324215e758a649ed963caa}} 
 void {\bfseries Awake} ()
+\item 
+void \mbox{\hyperlink{class_scorbot_model_a3d2cb7f4874da87c692f35da06decb46}{Save\+Default\+To\+File}} (string file, System.\+Type type)
+\item 
+void \mbox{\hyperlink{class_scorbot_model_a35cbb52dd700f099d0f4d66b8516a69b}{Load\+From\+File}} (string file, \mbox{\hyperlink{class_articulation}{Articulation}}\mbox{[}$\,$\mbox{]} articulations)
+\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_scorbot_model_a0922a140ce38f5d8b5299726ac2e7a0c}\label{class_scorbot_model_a0922a140ce38f5d8b5299726ac2e7a0c}} 
+const string {\bfseries S\+C\+O\+R\+B\+O\+T\+I\+X\+\_\+\+F\+I\+LE} = \char`\"{}Scorbot\+I\+X\+Config.\+txt\char`\"{}
+\item 
+\mbox{\Hypertarget{class_scorbot_model_a92ba7ebeae4af682c58fe9753ca7ee6a}\label{class_scorbot_model_a92ba7ebeae4af682c58fe9753ca7ee6a}} 
+const string {\bfseries S\+C\+O\+R\+B\+O\+T\+V\+P\+L\+U\+S\+\_\+\+F\+I\+LE} = \char`\"{}Scorbot\+V\+Plus\+Config.\+txt\char`\"{}
 \end{DoxyCompactItemize}
 
 
@@ -116,6 +132,22 @@ Copia las articulaciones y efector final del Scorbot de este modelo (toda la con
 \begin{DoxyReturn}{Devuelve}
 void 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_scorbot_model_a35cbb52dd700f099d0f4d66b8516a69b}\label{class_scorbot_model_a35cbb52dd700f099d0f4d66b8516a69b}} 
+\index{ScorbotModel@{ScorbotModel}!LoadFromFile@{LoadFromFile}}
+\index{LoadFromFile@{LoadFromFile}!ScorbotModel@{ScorbotModel}}
+\subsubsection{\texorpdfstring{LoadFromFile()}{LoadFromFile()}}
+{\footnotesize\ttfamily void Scorbot\+Model.\+Load\+From\+File (\begin{DoxyParamCaption}\item[{string}]{file,  }\item[{\mbox{\hyperlink{class_articulation}{Articulation}} \mbox{[}$\,$\mbox{]}}]{articulations }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Carga un fichero para la configuracion del Scorbot. 
+\begin{DoxyParams}{Parámetros}
+{\em file} & Fichero \\
+\hline
+{\em articulations} & Articulaciones del Scorbot \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_scorbot_model_aaac42c1b3077127fcacfc463750ddd02}\label{class_scorbot_model_aaac42c1b3077127fcacfc463750ddd02}} 
 \index{ScorbotModel@{ScorbotModel}!Open@{Open}}
 \index{Open@{Open}!ScorbotModel@{ScorbotModel}}
@@ -123,6 +155,22 @@ void
 {\footnotesize\ttfamily void Scorbot\+Model.\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Abre la pinza del Scorbot. \begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scorbot_model_a3d2cb7f4874da87c692f35da06decb46}\label{class_scorbot_model_a3d2cb7f4874da87c692f35da06decb46}} 
+\index{ScorbotModel@{ScorbotModel}!SaveDefaultToFile@{SaveDefaultToFile}}
+\index{SaveDefaultToFile@{SaveDefaultToFile}!ScorbotModel@{ScorbotModel}}
+\subsubsection{\texorpdfstring{SaveDefaultToFile()}{SaveDefaultToFile()}}
+{\footnotesize\ttfamily void Scorbot\+Model.\+Save\+Default\+To\+File (\begin{DoxyParamCaption}\item[{string}]{file,  }\item[{System.\+Type}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Crea un fichero con la configuracion del Scorbot por defecto. 
+\begin{DoxyParams}{Parámetros}
+{\em file} & Fichero nuevo \\
+\hline
+{\em type} & Clase de configuracion del Scorbot \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
 void 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_scorbot_model_a74549ede37f30edafb1dbf07c0730cdd}\label{class_scorbot_model_a74549ede37f30edafb1dbf07c0730cdd}} 

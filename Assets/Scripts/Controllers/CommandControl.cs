@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 
@@ -259,7 +260,12 @@ public class CommandControl : MonoBehaviour {
             
             // Apply pitch and roll to target
             target.GetComponent<TargetModel>().GetAngles()[3] = robot.GetArticulations()[3].BuiltAngle(p);
-            target.GetComponent<TargetModel>().GetAngles()[4] = robot.GetArticulations()[4].BuiltAngle(-r);
+            float auxR = -r;
+            if (robot.GetComponent<ScorbotModel>().scorbotIndex == ScorbotERVPlus.INDEX)
+            {
+                auxR = r;
+            }
+            target.GetComponent<TargetModel>().GetAngles()[4] = robot.GetArticulations()[4].BuiltAngle(auxR);
 
             // Apply new coordinatesC  
             target.position = pos;
@@ -317,8 +323,7 @@ public class CommandControl : MonoBehaviour {
             {
                 posReal = posReal * 10f;
                 p = p * 10f;
-                r = r * 10f;
-                stateMessageControl.WriteMessage("Done. Online TEACH \"" + posReal + "\"", false);//
+                r = r * 10f;           
             }
 
             List<float> xyzpr = new List<float>() { posReal.x, posReal.y, posReal.z, p, r };
@@ -444,12 +449,17 @@ public class CommandControl : MonoBehaviour {
                 stateMessageControl.UpdatePositionLog();
 
                 // Get pos, p, r from simulation. Do teach to real Scorbot
-                float mult = 10f;
+                float multPos = 10f;
+                float multDegrees = 1f;
                 if (robot.GetComponent<ScorbotModel>().scorbotIndex == ScorbotERVPlus.INDEX)
-                    mult = 100f;
+                {
+                    multPos = 100f;
+                    multDegrees = 10f;
+                }
 
-                List<float> xyzpr = new List<float>() { target.position.x * mult, target.position.z  * mult, target.position.y  * mult,
-                    target.GetComponent<TargetModel>().GetPitch(), target.GetComponent<TargetModel>().GetRoll() };
+                List<float> xyzpr = new List<float>() { target.position.x * multPos, target.position.z  * multPos, target.position.y  * multPos,
+                    target.GetComponent<TargetModel>().GetPitch() * multDegrees, target.GetComponent<TargetModel>().GetRoll() * multDegrees };
+                
                 bool done = controller.RunCommandUITeach(target.GetComponent<TargetModel>().GetName(), xyzpr);
            
                 if (done)
@@ -476,6 +486,7 @@ public class CommandControl : MonoBehaviour {
                     stateMessageControl.WriteMessage("Error. Online HERE(HERE) \"" + target.GetComponent<TargetModel>().GetName() + "\"", here);
 
                 // Get data from real Scorbot into the position (object)
+                Thread.Sleep(200);
                 bool done = SyncScorbotToSimulation(robot, target);
 
                 if (done)
@@ -526,26 +537,53 @@ public class CommandControl : MonoBehaviour {
         listString = controller.RunCommandListpvOnline(target.GetComponent<TargetModel>().GetName());
         if(listString == null || listString.Count == 0)
             return false;
-
         
-        // Transforming listpv data into lists
-        string result = "";
-        Regex rx = new Regex("^.:(.+?)$");        
-
+        // Merge data
+        string aux = "";
         foreach (String[] a in listString)
-        {       
+        {
             foreach (string b in a)
-            {                         
-                MatchCollection matches = rx.Matches(b);
-                foreach (Match match in matches)
-                {
-                    GroupCollection groups = match.Groups;
-                    result += groups[1].Value + "?";
-                    posPitchRoll.Add(float.Parse(groups[1].Value));
-                }
+            {
+                aux += b;
             }
         }
+        aux = aux.Trim();
 
+        // Transforming listpv data into lists
+        List<string> auxList = new List<string>();
+        int k = aux.Length;
+        while (k >= 0)
+        {
+            int index = aux.IndexOf(':', k);
+            if (index != -1)
+            {
+                Debug.Log(aux.Substring(k - 1));
+                auxList.Insert(0, aux.Substring(k - 1));
+                aux = aux.Remove(index - 1);
+                k = aux.Length;
+
+            }
+            else
+            {
+                k--;
+            }
+        }
+        
+        string result = "";
+        Regex rx = new Regex("^.:(.+?)$");
+
+        foreach (string b in auxList)
+        {               
+     
+            MatchCollection matches = rx.Matches(b);
+            foreach (Match match in matches)
+            {
+                GroupCollection groups = match.Groups;
+                result += groups[1].Value + "?";
+                posPitchRoll.Add(float.Parse(groups[1].Value));
+            }
+        }
+        
         // If the position is relative to another position, listpv will send 5 relative values (this causes error)
         if (posPitchRoll.Count == 10)
         {
@@ -622,7 +660,7 @@ public class CommandControl : MonoBehaviour {
      */
     public bool SyncSimulationToScorbot(IK robot, Transform target)
     {
-        // defp, in case it doest exist
+        // defp, in case it doest exist        
         Defp(target);
 
         // If position is unreachable, error        
@@ -636,7 +674,7 @@ public class CommandControl : MonoBehaviour {
         // Teach to real Scorbot
         Vector3 pos = target.GetComponent<TargetModel>().GetPositionInScorbot();
         float p = target.GetComponent<TargetModel>().GetPitch();
-        float r = target.GetComponent<TargetModel>().GetRoll();
+        float r = target.GetComponent<TargetModel>().GetRoll();        
         bool done = Teach(robot, target, pos, p, r, true, false);
 
         if (done)
@@ -718,12 +756,16 @@ public class CommandControl : MonoBehaviour {
         if (gameController.GetOnlineMode())
         {
             if (robot.GetComponent<ScorbotModel>().scorbotIndex == ScorbotERVPlus.INDEX)
-            {
-                value = value * 10f;
+            {             
+                done = controller.RunCommandUIShiftc(target.GetComponent<TargetModel>().GetName(), parameterName[byIndex],
+                (value * 10f).ToString()); // Number format?
             }
-
-            done = controller.RunCommandUIShiftc(target.GetComponent<TargetModel>().GetName(), parameterName[byIndex],
+            else
+            {
+                done = controller.RunCommandUIShiftc(target.GetComponent<TargetModel>().GetName(), parameterName[byIndex],
                 value.ToString()); // Number format?
+            }
+            
             if (done)
             {
                 stateMessageControl.WriteMessage("Done. Online SHIFTC \"" + target.GetComponent<TargetModel>().GetName() + "\" " +
@@ -794,7 +836,7 @@ public class CommandControl : MonoBehaviour {
             if (done)
                 stateMessageControl.WriteMessage("Done. Online SPEED \"" + value.ToString() + "\"", done);
             else
-                stateMessageControl.WriteMessage("Error. Online SPEDD \"" + value.ToString() + "\"", done);
+                stateMessageControl.WriteMessage("Error. Online SPEED \"" + value.ToString() + "\"", done);
         }
     }
 
@@ -817,7 +859,7 @@ public class CommandControl : MonoBehaviour {
             if (done)
                 stateMessageControl.WriteMessage("Done. Online SPEEDL \"" + value.ToString() + "\"", done);
             else
-                stateMessageControl.WriteMessage("Error. Online SPEDDL \"" + value.ToString() + "\"", done);
+                stateMessageControl.WriteMessage("Error. Online SPEEDL \"" + value.ToString() + "\"", done);
         }
     }
 

@@ -1,6 +1,7 @@
 var searchData=
 [
   ['save',['Save',['../class_back_up_file_control.html#ac716204289bfc6374ac1f0f042497db0',1,'BackUpFileControl.Save()'],['../class_game_controller.html#a59400b0ec3bf7841017faafba0a35f81',1,'GameController.Save()']]],
+  ['savedefaulttofile',['SaveDefaultToFile',['../class_scorbot_model.html#a3d2cb7f4874da87c692f35da06decb46',1,'ScorbotModel']]],
   ['searchcontaintag',['SearchContainTag',['../class_selection_control.html#a8e92014a9781e84be7079f4dfd96caf9',1,'SelectionControl']]],
   ['searchtagged',['SearchTagged',['../class_selection_control.html#af43fca6b87eee0f60bc8bb79f987d42c',1,'SelectionControl']]],
   ['select',['Select',['../class_selection_control.html#a6e08e34b6c7bfe54260faeaa29b369c0',1,'SelectionControl']]],

@@ -154,6 +154,9 @@ public class TargetModel : MonoBehaviour {
      */
     public float GetRoll()
     {
+        if (GameController.indexRobot == ScorbotERVPlus.INDEX)        
+            return roll;
+        
         return -roll;
     }
 

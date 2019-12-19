@@ -9,6 +9,8 @@ Diagrama de herencias de IK\begin{figure}[H]
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{class_i_k_a1bd362c7864cb7e81a09cfc03a9b9151}{Update\+Copy\+Effector}} ()
+\item 
 void \mbox{\hyperlink{class_i_k_aa28704730e12709936ba319e326a4173}{C\+C\+D\+Alg}} (Transform D)
 \item 
 void \mbox{\hyperlink{class_i_k_a647580fce8d20924d081e6c056495e95}{C\+C\+D\+Alg}} (Transform\mbox{[}$\,$\mbox{]} trajectory, bool speed\+Degrees=true)
@@ -126,7 +128,7 @@ Oscar Catari Gutiérrez -\/ E-\/mail\+: \href{mailto:oscarcatari@outlook.es}{\te
 \subsubsection{\texorpdfstring{AlgCDD()}{AlgCDD()}}
 {\footnotesize\ttfamily void I\+K.\+Alg\+C\+DD (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_articulation}{Articulation}} \mbox{[}$\,$\mbox{]}}]{articulations,  }\item[{Transform}]{D,  }\item[{Transform}]{E,  }\item[{bool}]{skip\+Pitch = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
-Ejecuta el algoritmo C\+CD para hallar los ángulos que las articulaciones necesitan para llegar a la posición objetivo. No se aplica a la articulación \char`\"{}\+Roll\char`\"{} ya que no tiene efecto en la posición dsel efector final. 
+Ejecuta el algoritmo C\+CD para hallar los ángulos que las articulaciones necesitan para llegar a la posición objetivo. No se aplica a la articulación \char`\"{}\+Roll\char`\"{} ya que no tiene efecto en la posición del efector final. 
 \begin{DoxyParams}{Parámetros}
 {\em articulations} & Articulaciones \\
 \hline
@@ -492,6 +494,15 @@ Comprueba que una posición es alcanzable por el Scorbot. Se usan las copias de 
 \end{DoxyParams}
 \begin{DoxyReturn}{Devuelve}
 bool Posición alcanzable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i_k_a1bd362c7864cb7e81a09cfc03a9b9151}\label{class_i_k_a1bd362c7864cb7e81a09cfc03a9b9151}} 
+\index{IK@{IK}!UpdateCopyEffector@{UpdateCopyEffector}}
+\index{UpdateCopyEffector@{UpdateCopyEffector}!IK@{IK}}
+\subsubsection{\texorpdfstring{UpdateCopyEffector()}{UpdateCopyEffector()}}
+{\footnotesize\ttfamily void I\+K.\+Update\+Copy\+Effector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Actualiza la copia del efector final desde la posición Home. \begin{DoxyReturn}{Devuelve}
+void 
 \end{DoxyReturn}
 
 
