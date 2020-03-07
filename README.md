@@ -13,7 +13,7 @@
 </p>
 
 **Simulator - Graphic interface**: To run the program follow the instructions
-* Download the (release)[https://github.com/oscarjcg/scorbot-simulator/releases] _"ScorbotSimulatorRelease"_
+* Download the [release](https://github.com/oscarjcg/scorbot-simulator/releases) _"ScorbotSimulatorRelease"_
 * Execute file _"ScorbotSimulator.exe"_
 * To start press _"Play!"_.
 
